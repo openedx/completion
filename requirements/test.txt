@@ -1,0 +1,13 @@
+attrs==17.4.0             # via pytest
+coverage==4.4.2           # via pytest-cov
+django-model-utils==3.0.0
+ddt==0.8.0
+factory_boy==2.8.1
+funcsigs==1.0.2           # via pytest
+pluggy==0.6.0             # via pytest
+mock==1.0.1
+py==1.5.2                 # via pytest, pytest-catchlog
+pytest-catchlog==1.2.2
+pytest-cov==2.5.1
+pytest==3.3.2             # via pytest-catchlog, pytest-cov, pytest-django
+six==1.11.0               # via pytest

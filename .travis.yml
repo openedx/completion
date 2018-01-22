@@ -1,0 +1,30 @@
+language: python
+python:
+- 2.7
+- 3.5
+env:
+- TOXENV=django18
+- TOXENV=django111
+matrix:
+  include:
+  - python: 3.5
+    env: TOXENV=quality
+cache:
+- pip
+before_install:
+- pip install --upgrade pip
+install:
+- pip install -r requirements/travis.txt
+script:
+- tox
+after_success:
+- codecov
+deploy:
+  provider: pypi
+  user: edx
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    condition: $TOXENV = quality
+  password:
+    secure: hNpCBSEitMbzk049AXuKXmR6CKIZvs4T8lu7HLT1pdzLLChuEIDbsvObZqb9r+0TM+SXthJkq2/sJDJlAmgiFc9xIxIw5Ya3kF/OiVMmWaQMNhcaq20ibN7+aIjeC/TOEWT+dwlv4JQ3OvxyqOsg8fEXmNiccZ9svnMix+Jgl31vTuYDZsI5KgkpB55k7oLF+8SAZDjYumo64mDwRtJrlfjKhwytiQYNXnfHaJd5Ago3DeChvBxnfAOW40Z9Timd4+TIukpzlkahToMt6ruyZFhRM5c27YdKg8jMAv9P4AYNn6Hty+ApjKYbQVjmtWDK/uE4fC0lYK9goBKlUD486bUT3Tjc4rNEtPUjMQYF/NsWs80BlLiPFk5KuJJgf5PTPpwm2Tba7bk52eMsC0NnXIksH0NsLM0ae8xcabY4rjjtOezHTL8XtWoTw/ApYr4gxmICrWINi8LU9qqYW0BhJlzIXVNmT2DSzGFP9x1IGXk8TO+TGopbJlTPVduUgueVOvcNqM4umk7fyTrjXYyGzOdHx8MucwTtaSEEiLOmXw31LLA/5yFy/VUDBdbpoZxBPAt8j8hw6/dlo4RYR+Od2/4UYVkh44PJu4p6UcLcT8OaTHZy1XnNq1+b1CwB3HBkPO00xxOZ0Wodt/OItJF8uqKvOLJYT4/sWYbc88SFF0M=
