@@ -13,13 +13,16 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+* Nothing
 
-*
 
-[0.1.0] - 2018-01-22
+[0.0.2] - 2018-01-31
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Added
-_____
+* Fix up edx-lint requirements shenanigans.
 
-* First release on PyPI.
+
+[0.0.1] - 2018-01-31
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Initial release
