@@ -78,6 +78,11 @@ setup(
     packages=[
         'completion',
     ],
+    entry_points={
+        'lms.djangoapp': [
+            'completion = completion.apps:CompletionAppConfig',
+        ],
+    },
     include_package_data=True,
     install_requires=load_requirements('requirements/dev.txt', 'requirements/django.txt'),
     tests_require=load_requirements('requirements/test.txt', 'requirements/dev.txt', 'requirements/django.txt'),

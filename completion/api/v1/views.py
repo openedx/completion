@@ -16,15 +16,16 @@ from rest_framework import status
 
 from opaque_keys.edx.keys import CourseKey, UsageKey
 from opaque_keys import InvalidKeyError
+from six import text_type
 
 try:
     from openedx.core.djangoapps.content.course_structures.models import CourseStructure
-    from openedx.core.lib.api.permissions import IsStaffOrOwner
     from student.models import CourseEnrollment
 except ImportError:
     pass
 
 from completion import waffle
+from completion.api.permissions import IsStaffOrOwner
 from completion.models import BlockCompletion
 
 
@@ -129,17 +130,21 @@ class CompletionBatchView(APIView):
         try:
             user, course_key, blocks = self._validate_and_parse(batch_object)
             BlockCompletion.objects.submit_batch_completion(user, course_key, blocks)
-        except (ValidationError, ValueError) as exc:
+        except ValidationError as exc:
             return Response({
-                "detail": exc.message,
+                "detail": _(' ').join(text_type(msg) for msg in exc.messages),
+            }, status=status.HTTP_400_BAD_REQUEST)
+        except ValueError as exc:
+            return Response({
+                "detail": text_type(exc),
             }, status=status.HTTP_400_BAD_REQUEST)
         except ObjectDoesNotExist as exc:
             return Response({
-                "detail": getattr(exc, 'message', 'No detail'),
+                "detail": text_type(exc),
             }, status=status.HTTP_404_NOT_FOUND)
         except DatabaseError as exc:
             return Response({
-                "detail": exc.message,
+                "detail": text_type(exc),
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response({"detail": _("ok")}, status=status.HTTP_200_OK)

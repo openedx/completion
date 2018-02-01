@@ -3,7 +3,6 @@ branch = True
 data_file = .coverage
 source=completion
 omit =
-    test_settings
     *migrations*
     *admin.py
     *static*

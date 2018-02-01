@@ -13,5 +13,31 @@ class CompletionAppConfig(AppConfig):
     name = 'completion'
     verbose_name = 'Completion'
 
-    def ready(self):
-        from . import handlers  # pylint: disable=unused-variable
+    plugin_app = {
+        'url_config': {
+            'lms.djangoapp': {
+                'namespace': 'completion',
+                'regex': 'api/completion/',
+                'relative_path': 'api.urls',
+            },
+        },
+        'settings_config': {
+            'lms.djangoapp': {
+                'common': {
+                    'relative_path': 'settings.common',
+                },
+            },
+        },
+        'signals_config': {
+            'lms.djangoapp': {
+                'relative_path': 'handlers',
+                'receivers': [
+                    {
+                        'receiver_func_name': 'scorable_block_completion',
+                        'signal_path': 'lms.djangoapps.grades.signals.signals.PROBLEM_WEIGHTED_SCORE_CHANGED',
+                        'dispatch_uid': 'completion.handlers.scorable_block_completion',
+                    },
+                ],
+            },
+        },
+    }

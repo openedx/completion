@@ -13,6 +13,7 @@ import mock
 from opaque_keys.edx.keys import UsageKey, CourseKey
 from pytz import UTC
 
+from . import waffle
 from .models import BlockCompletion
 
 
@@ -36,6 +37,22 @@ class UserFactory(DjangoModelFactory):
     is_superuser = False
     last_login = datetime(2012, 1, 1, tzinfo=UTC)
     date_joined = datetime(2011, 1, 1, tzinfo=UTC)
+
+
+class CompletionWaffleTestMixin(object):
+    """
+    Mixin to provide waffle switch overriding ability to child TestCase classes.
+    """
+    def override_waffle_switch(self, override):
+        """
+        Override the setting of the ENABLE_COMPLETION_TRACKING waffle switch
+        for the course of the test.
+        Parameters:
+            override (bool): True if tracking should be enabled.
+        """
+        _waffle_overrider = waffle.waffle().override(waffle.ENABLE_COMPLETION_TRACKING, override)
+        _waffle_overrider.__enter__()
+        self.addCleanup(_waffle_overrider.__exit__, None, None, None)
 
 
 class CompletionSetUpMixin(object):
