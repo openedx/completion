@@ -6,7 +6,7 @@ from __future__ import absolute_import, division, unicode_literals
 
 from django.core.exceptions import ValidationError
 from django.test import TestCase
-from opaque_keys.edx.keys import UsageKey
+from opaque_keys.edx.keys import CourseKey, UsageKey
 
 from .. import models
 from ..test_utils import CompletionSetUpMixin, UserFactory
@@ -142,3 +142,79 @@ class CompletionDisabledTestCase(CompletionSetUpMixin, TestCase):
         with self.assertRaises(RuntimeError):
             blocks = [(self.block_key, 1.0)]
             models.BlockCompletion.objects.submit_batch_completion(self.user, self.course_key, blocks)
+
+
+class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
+    """
+    Test model methods:
+        latest completion per course, and all completions per course
+    """
+    COMPLETION_SWITCH_ENABLED = True
+
+    def setUp(self):
+        super(CompletionFetchingTestCase, self).setUp()
+        self.set_up_completion()
+        self.user_one = UserFactory.create()
+        self.user_two = UserFactory.create()
+        self.course_key_one = CourseKey.from_string("edX/MOOC101/2049_T2")
+        self.course_key_two = CourseKey.from_string("course-v1:ReedX+Hum110+1904")
+        self.block_keys = [
+            UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
+            ]
+        self.submit_faux_completions()
+
+    def submit_faux_completions(self):
+        """
+        Submit completions for given runtime, run at setup
+        """
+        for idx, block_key in enumerate(self.block_keys[0:3]):
+            models.BlockCompletion.objects.submit_completion(
+                user=self.user_one,
+                course_key=self.course_key_one,
+                block_key=block_key,
+                completion=1.0 - (0.2 * idx),
+            )
+
+        for idx, block_key in enumerate(self.block_keys[2:]):  # Wrong user
+            models.BlockCompletion.objects.submit_completion(
+                user=self.user_two,
+                course_key=self.course_key_one,
+                block_key=block_key,
+                completion=0.9 - (0.2 * idx),
+            )
+
+        models.BlockCompletion.objects.submit_completion(  # Wrong course
+            user=self.user_one,
+            course_key=self.course_key_two,
+            block_key=self.block_keys[4],
+            completion=0.75,
+        )
+
+    def test_get_course_completions(self):
+        # Get all completions for course
+        self.assertEqual(
+            models.BlockCompletion.get_course_completions(self.user_one, self.course_key_one),
+            {
+                self.block_keys[0]: 1.0,
+                self.block_keys[1]: 0.8,
+                self.block_keys[2]: 0.6,
+            },
+        )
+
+        # No completions
+        self.assertEqual(
+            models.BlockCompletion.get_course_completions(self.user_two, self.course_key_two),
+            {}
+        )
+
+    def test_get_latest_block_completed(self):
+        # Get only latest completion for course
+        self.assertEqual(
+            models.BlockCompletion.get_latest_block_completed(self.user_one, self.course_key_one).block_key,
+            self.block_keys[2]
+        )
+        # No completions
+        self.assertEqual(
+            models.BlockCompletion.get_latest_block_completed(self.user_two, self.course_key_two),
+            None
+        )
