@@ -1,8 +1,5 @@
 """
-These settings are here to use during tests, because django requires them.
-
-In a real-world use case, apps in this project are installed into other
-Django applications, so these settings will not be used.
+Settings for the completion app.
 """
 
 from __future__ import absolute_import, unicode_literals
@@ -16,17 +13,6 @@ def root(*args):
     """
     return join(abspath(dirname(__file__)), *args)
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'default.db',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
 
 USE_TZ = True
 
@@ -43,3 +29,11 @@ LOCALE_PATHS = [
 ROOT_URLCONF = 'completion.urls'
 
 SECRET_KEY = 'insecure-secret-key'
+
+
+def plugin_settings(settings):  # pylint: disable=unused-argument
+    """
+    Defines completion-specific settings when app is used as a plugin to edx-platform.
+    See: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/plugins/README.rst
+    """
+    pass
