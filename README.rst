@@ -42,6 +42,30 @@ Reporting Security Issues
 
 Please do not report security issues in public. Please email security@edx.org.
 
+Using with Docker Devstack
+--------------------------
+
+Prerequisite: Have your Open edX `Devstack <https://github.com/edx/devstack>`_ properly installed.
+
+Note: When you see "from inside the lms" below, it means that you've run ``make lms-shell`` from your devstack directory and are on a command prompt inside the LMS container.
+
+#. Clone this repo into ``../src/`` directory (relative to your "devstack" repo location). This will mount the directory in a way that is accessible to the lms container.
+
+#. From inside the lms, uninstall completion and reinstall your local copy. You can just copy the following line::
+
+    pip uninstall completion -y; pip install -e /edx/src/completion/
+
+#. Now, get your completion development environment set up::
+
+    cd /edx/src/completion
+    virtualenv completion-env
+    source completion-env/bin/activate
+    make install
+
+#. That's it!  In order to simulate a given tox environment ``(django18, django111, quality)``, run ``tox -e <env>`` for the env in question.  If you want to run ``pytest`` directly::
+
+    pytest completion/tests/test_models.py
+
 Getting Help
 ------------
 
