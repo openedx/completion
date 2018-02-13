@@ -153,21 +153,20 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
 
     def setUp(self):
         super(CompletionFetchingTestCase, self).setUp()
-        self.set_up_completion()
         self.user_one = UserFactory.create()
         self.user_two = UserFactory.create()
         self.course_key_one = CourseKey.from_string("edX/MOOC101/2049_T2")
         self.course_key_two = CourseKey.from_string("course-v1:ReedX+Hum110+1904")
         self.block_keys = [
             UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
-            ]
-        self.submit_faux_completions()
+        ]
+        self.submit_fake_completions()
 
-    def submit_faux_completions(self):
+    def submit_fake_completions(self):
         """
         Submit completions for given runtime, run at setup
         """
-        for idx, block_key in enumerate(self.block_keys[0:3]):
+        for idx, block_key in enumerate(self.block_keys[:3]):
             models.BlockCompletion.objects.submit_completion(
                 user=self.user_one,
                 course_key=self.course_key_one,
@@ -190,31 +189,23 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
             completion=0.75,
         )
 
-    def test_get_course_completions(self):
-        # Get all completions for course
-        self.assertEqual(
-            models.BlockCompletion.get_course_completions(self.user_one, self.course_key_one),
-            {
-                self.block_keys[0]: 1.0,
-                self.block_keys[1]: 0.8,
-                self.block_keys[2]: 0.6,
-            },
-        )
+    def test_get_course_completions_missing_runs(self):
+        actual_completions = models.BlockCompletion.get_course_completions(self.user_one, self.course_key_one)
+        expected_block_keys = [key.replace(course_key=self.course_key_one) for key in self.block_keys[:3]]
+        expected_completions = dict(zip(expected_block_keys, [1.0, 0.8, 0.6]))
+        self.assertEqual(expected_completions, actual_completions)
 
-        # No completions
+    def test_get_course_completions_empty_result_set(self):
         self.assertEqual(
             models.BlockCompletion.get_course_completions(self.user_two, self.course_key_two),
             {}
         )
 
     def test_get_latest_block_completed(self):
-        # Get only latest completion for course
         self.assertEqual(
             models.BlockCompletion.get_latest_block_completed(self.user_one, self.course_key_one).block_key,
             self.block_keys[2]
         )
-        # No completions
-        self.assertEqual(
-            models.BlockCompletion.get_latest_block_completed(self.user_two, self.course_key_two),
-            None
-        )
+
+    def test_get_latest_completed_none_exist(self):
+        self.assertIsNone(models.BlockCompletion.get_latest_block_completed(self.user_two, self.course_key_two))

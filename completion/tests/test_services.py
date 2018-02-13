@@ -26,7 +26,11 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
         self.other_user = UserFactory.create()
         self.course_key = CourseKey.from_string("edX/MOOC101/2049_T2")
         self.other_course_key = CourseKey.from_string("course-v1:ReedX+Hum110+1904")
-        self.block_keys = [UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)]
+        self.block_keys = [
+            UsageKey.from_string(
+                "i4x://edX/MOOC101/video/{}".format(number)
+            ).replace(course_key=self.course_key) for number in range(5)
+        ]
 
         self.completion_service = CompletionService(self.user, self.course_key)
 
@@ -56,19 +60,19 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
             completion=0.75,
         )
 
-    def test_completion_service(self):
-        # Only the completions for the user and course specified for the CompletionService
-        # are returned.  Values are returned for all keys provided.
-        self.assertEqual(
-            self.completion_service.get_completions(self.block_keys),
-            {
-                self.block_keys[0]: 1.0,
-                self.block_keys[1]: 0.8,
-                self.block_keys[2]: 0.6,
-                self.block_keys[3]: 0.0,
-                self.block_keys[4]: 0.0,
-            },
-        )
+    def test_get_completion(self):
+        actual_completions = self.completion_service.get_completions(self.block_keys)
+        expected_completions = dict(zip(self.block_keys, [1.0, 0.8, 0.6, 0.0, 0.0]))
+        self.assertEqual(expected_completions, actual_completions)
+
+    def test_get_completions_block_keys_missing_run(self):
+        candidates = [
+            UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
+        ]
+        actual_completions = self.completion_service.get_completions(candidates)
+        expected_block_keys = [key.replace(course_key=self.course_key) for key in candidates]
+        expected_completions = dict(zip(expected_block_keys, [1.0, 0.8, 0.6, 0.0, 0.0]))
+        self.assertEqual(expected_completions, actual_completions)
 
     @ddt.data(True, False)
     def test_enabled_honors_waffle_switch(self, enabled):

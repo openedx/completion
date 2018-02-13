@@ -162,11 +162,25 @@ class BlockCompletion(TimeStampedModel, models.Model):
     id = BigAutoField(primary_key=True)  # pylint: disable=invalid-name
     user = models.ForeignKey(User)
     course_key = CourseKeyField(max_length=255)
+
+    # note: this usage key may not have the run filled in for
+    # old mongo courses.  Use the full_block_key property
+    # instead when you want to use/compare the usage_key.
     block_key = UsageKeyField(max_length=255)
     block_type = models.CharField(max_length=64)
     completion = models.FloatField(validators=[validate_percent])
 
     objects = BlockCompletionManager()
+
+    @property
+    def full_block_key(self):
+        """
+        Returns the "correct" usage key value with the run filled in.
+        """
+        if self.block_key.run is None:
+            # pylint: disable=unexpected-keyword-arg, no-value-for-parameter
+            return self.block_key.replace(course_key=self.course_key)
+        return self.block_key
 
     @classmethod
     def get_course_completions(cls, user, course_key):
@@ -177,11 +191,15 @@ class BlockCompletion(TimeStampedModel, models.Model):
         Return value:
             dict[BlockKey] = float
         """
-        course_block_completions = cls.objects.filter(
-            user=user,
-            course_key=course_key,
-        )
-        return {completion.block_key: completion.completion for completion in course_block_completions}
+        user_course_completions = cls.user_course_completion_queryset(user, course_key)
+        return cls.completion_by_block_key(user_course_completions)
+
+    @classmethod
+    def user_course_completion_queryset(cls, user, course_key):
+        """
+        Returns a Queryset of completions for a given user and course_key.
+        """
+        return cls.objects.filter(user=user, course_key=course_key)
 
     @classmethod
     def get_latest_block_completed(cls, user, course_key):
@@ -193,13 +211,20 @@ class BlockCompletion(TimeStampedModel, models.Model):
             obj: block completion
         """
         try:
-            latest_block_completion = cls.objects.filter(
-                user=user,
-                course_key=course_key,
-            ).latest()
+            latest_block_completion = cls.user_course_completion_queryset(user, course_key).latest()
         except cls.DoesNotExist:
             return
         return latest_block_completion
+
+    @staticmethod
+    def completion_by_block_key(completion_iterable):
+        """
+        Return value:
+            A dict mapping the full block key of a completion record to the completion value
+            for each BlockCompletion object given in completion_iterable.  Each BlockKey is
+            corrected to have the run field filled in via the BlockCompletion.course_key field.
+        """
+        return {completion.full_block_key: completion.completion for completion in completion_iterable}
 
     class Meta(object):
         index_together = [
