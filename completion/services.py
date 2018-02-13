@@ -15,7 +15,9 @@ class CompletionService(object):
     Exposes
 
     * self.completion_tracking_enabled() -> bool
+    * self.visual_progress_enabled() -> bool
     * self.get_completions(candidates)
+    * self.vertical_is_complete(vertical_item)
 
     Constructor takes a user object and course_key as arguments.
     """
@@ -33,6 +35,16 @@ class CompletionService(object):
         """
         return waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING)
 
+    def visual_progress_enabled(self):
+        """
+        Exposes VISUAL_PROGRESS_ENABLED waffle switch to XModule runtime
+
+        Return value:
+
+            bool -> True if VISUAL_PROGRESS flag is enabled.
+        """
+        return waffle.visual_progress_enabled(self._course_key)
+
     def get_completions(self, candidates):
         """
         Given an iterable collection of block_keys in the course, returns a
@@ -46,19 +58,44 @@ class CompletionService(object):
         Parameters:
 
             candidates: collection of BlockKeys within the current course.
+            Note: Usage keys may not have the course run filled in for old mongo courses.
+            This method checks for completion records against a set of BlockKey candidates with the course run
+            filled in from self._course_key.
 
         Return value:
 
             dict[BlockKey] -> float: Mapping blocks to their completion value.
         """
-        completion_queryset = BlockCompletion.objects.filter(
-            user=self._user,
-            course_key=self._course_key,
-            block_key__in=candidates,
+        queryset = BlockCompletion.user_course_completion_queryset(self._user, self._course_key).filter(
+            block_key__in=candidates
         )
-        # pylint: disable=not-an-iterable
-        completions = {block.block_key: block.completion for block in completion_queryset}
-        for candidate in candidates:
+        completions = BlockCompletion.completion_by_block_key(queryset)
+        candidates_with_runs = [candidate.replace(course_key=self._course_key) for candidate in candidates]
+        for candidate in candidates_with_runs:
             if candidate not in completions:
                 completions[candidate] = 0.0
         return completions
+
+    def vertical_is_complete(self, item):
+        """
+        Calculates and returns whether a particular vertical is complete.
+        The logic in this method is temporary, and will go away once the
+        completion API is able to store a first-order notion of completeness
+        for parent blocks (right now it just stores completion for leaves-
+        problems, HTML, video, etc.).
+        """
+        if item.location.block_type != 'vertical':
+            raise ValueError('The passed in xblock is not a vertical type!')
+
+        if not self.completion_tracking_enabled():
+            return None
+
+        # this is temporary local logic and will be removed when the whole course tree is included in completion
+        child_locations = [
+            child.location for child in item.get_children() if child.location.block_type != 'discussion'
+        ]
+        completions = self.get_completions(child_locations)
+        for child_location in child_locations:
+            if completions[child_location] < 1.0:
+                return False
+        return True
