@@ -15,7 +15,12 @@ Unreleased
 ~~~~~~~~~~
 * Nothing
 
-[0.0.6] - 2018-02-13
+[0.0.7] - 2018-02-15
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Add settings and service method for determining completion-by-viewing delay.
+
+  [0.0.6] - 2018-02-13
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Add the additional completion logic into the service and models from edx-platform
