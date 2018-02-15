@@ -15,7 +15,6 @@ diff-cover==1.0.2
 distlib==0.2.6            # via caniusepython3
 djangorestframework==3.6.3
 django-model-utils==3.0.0
-edx-i18n-tools==0.4.3
 edx-opaque-keys[django]==0.4.2
 first==2.0.1              # via pip-tools
 futures==3.2.0 ; python_version == "2.7"
@@ -26,7 +25,7 @@ jinja2-pluralize==0.3.0   # via diff-cover
 jinja2==2.10              # via diff-cover, jinja2-pluralize
 markupsafe==1.0           # via jinja2
 packaging==16.8           # via caniusepython3
-path.py==10.5             # via edx-i18n-tools
+path.py>=8.2.1            # via edx-i18n-tools
 pip-tools==1.11.0
 pkginfo==1.4.1            # via twine
 pluggy==0.6.0             # via tox
