@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 
 import ddt
 from django.test import TestCase
+from django.test.utils import override_settings
 from opaque_keys.edx.keys import CourseKey, UsageKey
 
 from ..models import BlockCompletion
@@ -78,3 +79,17 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
     def test_enabled_honors_waffle_switch(self, enabled):
         with self.override_completion_switch(enabled):
             self.assertEqual(self.completion_service.completion_tracking_enabled(), enabled)
+
+
+@ddt.ddt
+class CompletionDelayTestCase(CompletionSetUpMixin, TestCase):
+    """
+    Test that the completion-by-viewing delay is properly passed in from
+    the project settings.
+    """
+
+    @ddt.data(1, 1000, 0)
+    def test_get_completion_by_viewing_delay_ms(self, delay):
+        service = CompletionService(self.user, self.course_key)
+        with override_settings(COMPLETION_BY_VIEWING_DELAY_MS=delay):
+            self.assertEqual(service.get_completion_by_viewing_delay_ms(), delay)

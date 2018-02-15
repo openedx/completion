@@ -4,6 +4,8 @@ Runtime service for communicating completion information to the xblock system.
 
 from __future__ import unicode_literals
 
+from django.conf import settings
+
 from .models import BlockCompletion
 from . import waffle
 
@@ -99,3 +101,10 @@ class CompletionService(object):
             if completions[child_location] < 1.0:
                 return False
         return True
+
+    def get_completion_by_viewing_delay_ms(self):
+        """
+        Do not mark blocks complete-by-viewing until they have been visible for
+        the returned amount of time, in milliseconds.  Defaults to 5000.
+        """
+        return getattr(settings, 'COMPLETION_BY_VIEWING_DELAY_MS', 5000)
