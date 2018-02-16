@@ -13,6 +13,11 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+* Add query method for all completions by course
+
+[0.0.8] - 2018-03-01
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 * Nothing
 
 [0.0.7] - 2018-02-15

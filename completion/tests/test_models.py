@@ -4,8 +4,13 @@ Test models, managers, and validators.
 
 from __future__ import absolute_import, division, unicode_literals
 
+import datetime
+from pytz import UTC
+
 from django.core.exceptions import ValidationError
 from django.test import TestCase
+
+from freezegun import freeze_time
 from opaque_keys.edx.keys import CourseKey, UsageKey
 
 from .. import models
@@ -156,8 +161,11 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
         self.user_one = UserFactory.create()
         self.user_two = UserFactory.create()
         self.course_key_one = CourseKey.from_string("edX/MOOC101/2049_T2")
-        self.course_key_two = CourseKey.from_string("course-v1:ReedX+Hum110+1904")
+        self.course_key_two = CourseKey.from_string("edX/MOOC101/2050_T2")
         self.block_keys = [
+            UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
+        ]
+        self.block_keys_two = [
             UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
         ]
         self.submit_fake_completions()
@@ -166,13 +174,16 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
         """
         Submit completions for given runtime, run at setup
         """
+        test_date = 1
         for idx, block_key in enumerate(self.block_keys[:3]):
-            models.BlockCompletion.objects.submit_completion(
-                user=self.user_one,
-                course_key=self.course_key_one,
-                block_key=block_key,
-                completion=1.0 - (0.2 * idx),
-            )
+            with freeze_time(datetime.datetime(2050, 1, test_date, tzinfo=UTC)):
+                models.BlockCompletion.objects.submit_completion(
+                    user=self.user_one,
+                    course_key=self.course_key_one,
+                    block_key=block_key,
+                    completion=1.0 - (0.2 * idx),
+                )
+                test_date += 1
 
         for idx, block_key in enumerate(self.block_keys[2:]):  # Wrong user
             models.BlockCompletion.objects.submit_completion(
@@ -181,13 +192,13 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
                 block_key=block_key,
                 completion=0.9 - (0.2 * idx),
             )
-
-        models.BlockCompletion.objects.submit_completion(  # Wrong course
-            user=self.user_one,
-            course_key=self.course_key_two,
-            block_key=self.block_keys[4],
-            completion=0.75,
-        )
+        with freeze_time(datetime.datetime(2050, 1, 10, tzinfo=UTC)):
+            models.BlockCompletion.objects.submit_completion(  # Wrong course
+                user=self.user_one,
+                course_key=self.course_key_two,
+                block_key=self.block_keys[4],
+                completion=0.75,
+            )
 
     def test_get_course_completions_missing_runs(self):
         actual_completions = models.BlockCompletion.get_course_completions(self.user_one, self.course_key_one)
@@ -209,3 +220,12 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
 
     def test_get_latest_completed_none_exist(self):
         self.assertIsNone(models.BlockCompletion.get_latest_block_completed(self.user_two, self.course_key_two))
+
+    def test_latest_blocks_completed_all_courses(self):
+        self.assertDictEqual(
+            models.BlockCompletion.latest_blocks_completed_all_courses(self.user_one),
+            {
+                self.course_key_two: [datetime.datetime(2050, 1, 10, tzinfo=UTC), self.block_keys_two[4]],
+                self.course_key_one: [datetime.datetime(2050, 1, 3, tzinfo=UTC), self.block_keys[2]]
+            }
+        )
