@@ -10,3 +10,4 @@ py==1.5.2                 # via pytest
 pytest-cov==2.5.1
 pytest==3.3.2             # via pytest-cov, pytest-django
 six==1.11.0               # via pytest
+freezegun==0.3.8

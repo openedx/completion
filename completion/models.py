@@ -8,9 +8,11 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db import models, transaction
 from django.utils.translation import ugettext as _
+
 from model_utils.models import TimeStampedModel
-from opaque_keys.edx.keys import CourseKey
+
 from opaque_keys.edx.django.models import CourseKeyField, UsageKeyField
+from opaque_keys.edx.keys import CourseKey
 
 from . import waffle
 
@@ -200,6 +202,34 @@ class BlockCompletion(TimeStampedModel, models.Model):
         Returns a Queryset of completions for a given user and course_key.
         """
         return cls.objects.filter(user=user, course_key=course_key)
+
+    @classmethod
+    def latest_blocks_completed_all_courses(cls, user):
+        """
+        get all latest completions for user by course
+
+        Return value:
+            dict[courseKey]: [ modified_date, block_key ]
+        """
+
+        latest_completions_by_course = cls.objects.raw(
+            '''
+            SELECT id, course_key, block_key, max(modified) as latest
+            FROM completion_blockcompletion
+            WHERE user_id=%s
+            GROUP BY course_key;
+            ''',
+            [user.id]
+        )
+        try:
+            return {
+                completion.course_key:
+                    [completion.modified, completion.block_key] for completion in latest_completions_by_course
+            }
+        except KeyError:
+            # Manipulation of the queryset above will always fail
+            # with a KeyError if the queryset is empty
+            return {}
 
     @classmethod
     def get_latest_block_completed(cls, user, course_key):
