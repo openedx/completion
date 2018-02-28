@@ -15,10 +15,18 @@ Unreleased
 ~~~~~~~~~~
 * Add query method for all completions by course
 
+[0.0.9] - 2018-02-27
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Added "utilities.py", which houses methods for working with BlockCompletion
+  data.
+
 [0.0.8] - 2018-03-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Nothing
+* Add model method for superlative “last completed block” - for site awareness 
+  include every last completed block by course, for later sorting in business 
+  layer.
 
 [0.0.7] - 2018-02-15
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

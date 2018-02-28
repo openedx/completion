@@ -14,13 +14,14 @@ from freezegun import freeze_time
 from opaque_keys.edx.keys import CourseKey, UsageKey
 
 from .. import models
-from ..test_utils import CompletionSetUpMixin, UserFactory
+from ..test_utils import CompletionSetUpMixin, UserFactory, submit_completions_for_testing
 
 
 class PercentValidatorTestCase(TestCase):
     """
     Test that validate_percent only allows floats (and ints) between 0.0 and 1.0.
     """
+
     def test_valid_percents(self):
         for value in [1.0, 0.0, 1, 0, 0.5, 0.333081348071397813987230871]:
             models.validate_percent(value)
@@ -168,37 +169,25 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
         self.block_keys_two = [
             UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
         ]
-        self.submit_fake_completions()
 
-    def submit_fake_completions(self):
-        """
-        Submit completions for given runtime, run at setup
-        """
-        test_date = 1
+        the_completion_date = datetime.datetime(2050, 1, 1, tzinfo=UTC)
         for idx, block_key in enumerate(self.block_keys[:3]):
-            with freeze_time(datetime.datetime(2050, 1, test_date, tzinfo=UTC)):
+            with freeze_time(the_completion_date):
                 models.BlockCompletion.objects.submit_completion(
                     user=self.user_one,
                     course_key=self.course_key_one,
                     block_key=block_key,
                     completion=1.0 - (0.2 * idx),
                 )
-                test_date += 1
+            the_completion_date += datetime.timedelta(days=1)
 
-        for idx, block_key in enumerate(self.block_keys[2:]):  # Wrong user
-            models.BlockCompletion.objects.submit_completion(
-                user=self.user_two,
-                course_key=self.course_key_one,
-                block_key=block_key,
-                completion=0.9 - (0.2 * idx),
-            )
-        with freeze_time(datetime.datetime(2050, 1, 10, tzinfo=UTC)):
-            models.BlockCompletion.objects.submit_completion(  # Wrong course
-                user=self.user_one,
-                course_key=self.course_key_two,
-                block_key=self.block_keys[4],
-                completion=0.75,
-            )
+        # Wrong user
+        submit_completions_for_testing(self.user_two, self.course_key_one, self.block_keys[2:])
+
+        # Wrong course
+        the_completion_date = datetime.datetime(2050, 1, 10, tzinfo=UTC)
+        with freeze_time(the_completion_date):
+            submit_completions_for_testing(self.user_one, self.course_key_two, [self.block_keys[4]])
 
     def test_get_course_completions_missing_runs(self):
         actual_completions = models.BlockCompletion.get_course_completions(self.user_one, self.course_key_one)

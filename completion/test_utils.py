@@ -17,6 +17,21 @@ from . import waffle
 from .models import BlockCompletion
 
 
+def submit_completions_for_testing(user, course_key, block_keys):
+    '''
+    Allows tests to submit completion data for a given user, course_key, and
+    list of block_keys. The method completes the "block_keys" by adding them
+    to the BlockCompletion model.
+    '''
+    for idx, block_key in enumerate(block_keys):
+        BlockCompletion.objects.submit_completion(
+            user=user,
+            course_key=course_key,
+            block_key=block_key,
+            completion=1.0 - (0.2 * idx),
+        )
+
+
 class UserFactory(DjangoModelFactory):
     """
     A Factory for User objects.
@@ -43,6 +58,7 @@ class CompletionWaffleTestMixin(object):
     """
     Mixin to provide waffle switch overriding ability to child TestCase classes.
     """
+
     def override_waffle_switch(self, override):
         """
         Override the setting of the ENABLE_COMPLETION_TRACKING waffle switch
