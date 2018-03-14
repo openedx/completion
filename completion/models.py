@@ -162,7 +162,7 @@ class BlockCompletion(TimeStampedModel, models.Model):
     complete, and 0.0 indicates that the block is incomplete.
     """
     id = BigAutoField(primary_key=True)  # pylint: disable=invalid-name
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     course_key = CourseKeyField(max_length=255)
 
     # note: this usage key may not have the run filled in for

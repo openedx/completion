@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('block_key', UsageKeyField(max_length=255)),
                 ('block_type', models.CharField(max_length=64)),
                 ('completion', models.FloatField(validators=[validate_percent])),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
         migrations.AlterUniqueTogether(
