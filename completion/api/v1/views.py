@@ -21,11 +21,12 @@ from six import text_type
 try:
     from openedx.core.djangoapps.content.course_structures.models import CourseStructure
     from student.models import CourseEnrollment
+    from lms.djangoapps.course_api.blocks.api import get_blocks
 except ImportError:
     pass
 
 from completion import waffle
-from completion.api.permissions import IsStaffOrOwner
+from completion.api.permissions import IsStaffOrOwner, IsUserInUrl
 from completion.models import BlockCompletion
 
 
@@ -148,3 +149,68 @@ class CompletionBatchView(APIView):
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response({"detail": _("ok")}, status=status.HTTP_200_OK)
+
+
+class SubsectionCompletionView(APIView):
+    """
+    Handles API endpoints for the milestones experiments.
+    TODO: EDUCATOR-2358 Remove this class after the
+    milestones experiment is no longer running.
+    """
+
+    permission_classes = (permissions.IsAuthenticated, IsUserInUrl)
+
+    def get(self, request, username, course_key, subsection_id):
+        """
+        Returns completion for a (user, subsection, course).
+        """
+        def get_completion(course_completions, all_blocks, block_id):
+            """
+            Recursively get the aggregate completion for a subsection,
+            given the subsection block and a list of all blocks.
+
+            Parameters:
+                course_completions: a dictionary of completion values by block IDs
+                all_blocks: a dictionary of the block structure for a subsection
+                block_id: an ID of a block for which to get completion
+            """
+            block = all_blocks.get(block_id)
+            child_ids = block.get('children', [])
+            if not child_ids:
+                return course_completions.get(block.serializer.instance, 0)
+
+            completion = 0
+            total_children = 0
+            for child_id in child_ids:
+                completion += get_completion(course_completions, all_blocks, child_id)
+                total_children += 1
+
+            return int(completion == total_children)
+
+        user_id = User.objects.get(username=username).id
+        block_types_filter = [
+            'course',
+            'chapter',
+            'sequential',
+            'vertical',
+            'html',
+            'problem',
+            'video',
+            'discussion',
+            'drag-and-drop-v2'
+        ]
+
+        blocks = get_blocks(
+            request,
+            UsageKey.from_string(subsection_id),
+            nav_depth=2,
+            requested_fields=[
+                'children'
+            ],
+            block_types_filter=block_types_filter
+        )
+
+        course_completions = BlockCompletion.get_course_completions(user_id, CourseKey.from_string(course_key))
+        aggregated_completion = get_completion(course_completions, blocks['blocks'], blocks['root'])
+
+        return Response({"completion": aggregated_completion}, status=status.HTTP_200_OK)

@@ -5,6 +5,6 @@ Completion App
 from __future__ import unicode_literals
 
 
-__version__ = '0.0.10'
+__version__ = '0.0.11'
 
 default_app_config = 'completion.apps.CompletionAppConfig'  # pylint: disable=invalid-name
