@@ -15,6 +15,12 @@ Unreleased
 ~~~~~~~~~~
 * Add query method for all completions by course
 
+[0.0.10] - 2018-03-20
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Added "subsection-completion/{username}/{course_key}/{subsection_id}" API
+  endpoint, to be used with the completion milestones experiment.
+
 [0.0.9] - 2018-02-27
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
