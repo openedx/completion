@@ -15,7 +15,11 @@ Unreleased
 ~~~~~~~~~~
 * Add query method for all completions by course
 
-[0.0.10] - 2018-03-20
+[0.1.0] - 2018-03-20
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Fixes https://openedx.atlassian.net/browse/EDUCATOR-2540
+
+[0.0.11] - 2018-03-20
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Added "subsection-completion/{username}/{course_key}/{subsection_id}" API

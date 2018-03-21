@@ -166,9 +166,6 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
         self.block_keys = [
             UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
         ]
-        self.block_keys_two = [
-            UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
-        ]
 
         the_completion_date = datetime.datetime(2050, 1, 1, tzinfo=UTC)
         for idx, block_key in enumerate(self.block_keys[:3]):
@@ -214,7 +211,7 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
         self.assertDictEqual(
             models.BlockCompletion.latest_blocks_completed_all_courses(self.user_one),
             {
-                self.course_key_two: [datetime.datetime(2050, 1, 10, tzinfo=UTC), self.block_keys_two[4]],
+                self.course_key_two: [datetime.datetime(2050, 1, 10, tzinfo=UTC), self.block_keys[4]],
                 self.course_key_one: [datetime.datetime(2050, 1, 3, tzinfo=UTC), self.block_keys[2]]
             }
         )

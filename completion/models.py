@@ -214,10 +214,28 @@ class BlockCompletion(TimeStampedModel, models.Model):
 
         latest_completions_by_course = cls.objects.raw(
             '''
-            SELECT id, course_key, block_key, max(modified) as latest
-            FROM completion_blockcompletion
-            WHERE user_id=%s
-            GROUP BY course_key;
+            SELECT
+                cbc.id AS id,
+                cbc.course_key AS course_key,
+                cbc.block_key AS block_key,
+                cbc.modified AS modified
+            FROM
+                completion_blockcompletion cbc
+            JOIN (
+                SELECT
+                     course_key,
+                     MAX(modified) AS modified
+                FROM
+                     completion_blockcompletion
+                WHERE
+                     user_id = %s
+                GROUP BY
+                     course_key
+            ) latest
+            ON
+                cbc.course_key = latest.course_key AND
+                cbc.modified = latest.modified
+            ;
             ''',
             [user.id]
         )
