@@ -13,7 +13,10 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
-* Add query method for all completions by course
+[0.1.1] - 2018-03-23
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Fixes wildly inefficient raw query in BlockCompletion.latest_blocks_completed_all_courses()
+* Updates freezegun version, makes tests that use it somewhat faster.
 
 [0.1.0] - 2018-03-20
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

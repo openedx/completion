@@ -206,12 +206,18 @@ class BlockCompletion(TimeStampedModel, models.Model):
     @classmethod
     def latest_blocks_completed_all_courses(cls, user):
         """
-        get all latest completions for user by course
+        Returns a dictionary mapping course_keys to a tuple containing
+        the block_key and modified time of the most recently modified
+        completion for the course.
 
         Return value:
-            dict[courseKey]: [ modified_date, block_key ]
+            {course_key: (modified_date, block_key)}
         """
 
+        # Per the Django docs, dictionary params are not supported with the SQLite backend;
+        # with this backend, you must pass parameters as a list. We use SQLite for unit tests,
+        # so the same parameter is included twice in the parameter list below, rather than
+        # including it in a dictionary once.
         latest_completions_by_course = cls.objects.raw(
             '''
             SELECT
@@ -235,17 +241,19 @@ class BlockCompletion(TimeStampedModel, models.Model):
             ON
                 cbc.course_key = latest.course_key AND
                 cbc.modified = latest.modified
+            WHERE
+                user_id = %s
             ;
             ''',
-            [user.id]
+            [user.id, user.id]
         )
         try:
             return {
-                completion.course_key:
-                    [completion.modified, completion.block_key] for completion in latest_completions_by_course
+                completion.course_key: (completion.modified, completion.block_key)
+                for completion in latest_completions_by_course
             }
         except KeyError:
-            # Manipulation of the queryset above will always fail
+            # Iteration of the queryset above will always fail
             # with a KeyError if the queryset is empty
             return {}
 
