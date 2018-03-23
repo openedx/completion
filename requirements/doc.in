@@ -1,0 +1,9 @@
+# Requirements for documentation validation
+
+-r base.in                # Core requirements to allow imports during API doc generation
+-r test.in                # Test requirements to allow imports during API doc generation
+
+doc8                      # reStructuredText style checker
+edx_sphinx_theme          # edX theme for Sphinx output
+readme_renderer           # Validates README.rst for usage on PyPI
+Sphinx                    # Documentation builder

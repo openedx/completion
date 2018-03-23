@@ -1,0 +1,12 @@
+# Additional requirements for development of this application
+
+-r base.in                # Dependencies for edx-completion itself
+-r quality.in             # Dependencies for code quality checks
+-r test.in                # Dependencies for test case execution
+
+diff-cover                # Changeset diff test coverage
+edx-lint                  # For updating pylintrc
+edx-i18n-tools            # For i18n_tool dummy
+pip-tools                 # Requirements file management
+tox                       # virtualenv management for tests
+tox-battery               # Makes tox aware of requirements file changes

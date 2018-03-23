@@ -49,7 +49,7 @@ def load_requirements(*requirements_paths):
     requirements = set()
     for path in requirements_paths:
         requirements.update(
-            line.strip() for line in open(path).readlines()
+            line.split('#')[0].strip() for line in open(path).readlines()
             if is_requirement(line)
         )
     return list(requirements)
@@ -84,8 +84,8 @@ setup(
         ],
     },
     include_package_data=True,
-    install_requires=load_requirements('requirements/dev.txt', 'requirements/django.txt'),
-    tests_require=load_requirements('requirements/test.txt', 'requirements/dev.txt', 'requirements/django.txt'),
+    install_requires=load_requirements('requirements/base.in'),
+    tests_require=load_requirements('requirements/test.in'),
     license="AGPL 3.0",
     zip_safe=False,
     keywords='Django edx',

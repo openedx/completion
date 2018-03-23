@@ -1,0 +1,11 @@
+# Requirements for code quality checks
+
+-r base.in                # Core dependencies to allow pylint to check imports
+-r test.in                # Testing dependencies to allow pylint to check imports
+
+caniusepython3            # Additional Python 3 compatibility pylint checks
+edx-lint                  # edX pylint rules and plugins
+futures<3.2.0 ; python_version >= "3" # futures versions above 3.1.1 fail to install on Python 3, needed by caniusepython3 & isort
+isort                     # to standardize order of imports
+pycodestyle               # PEP 8 compliance validation
+pydocstyle                # PEP 257 compliance validation
