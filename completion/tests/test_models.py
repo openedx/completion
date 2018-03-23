@@ -211,7 +211,7 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
         self.assertDictEqual(
             models.BlockCompletion.latest_blocks_completed_all_courses(self.user_one),
             {
-                self.course_key_two: [datetime.datetime(2050, 1, 10, tzinfo=UTC), self.block_keys[4]],
-                self.course_key_one: [datetime.datetime(2050, 1, 3, tzinfo=UTC), self.block_keys[2]]
+                self.course_key_two: (datetime.datetime(2050, 1, 10, tzinfo=UTC), self.block_keys[4]),
+                self.course_key_one: (datetime.datetime(2050, 1, 3, tzinfo=UTC), self.block_keys[2])
             }
         )
