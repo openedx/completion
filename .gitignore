@@ -76,3 +76,5 @@ default.db
 
 # Virtual Environments
 *venv*/*
+
+.python-version

@@ -11,6 +11,8 @@ class IsStaffOrOwner(BasePermission):
     """
     Permission that allows access to admin users or the owner of an object.
     The owner is considered the User object represented by obj.user.
+
+    Copied from edx-platform/openedx/core/lib/api/permissions.py
     """
 
     def has_object_permission(self, request, view, obj):
