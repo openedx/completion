@@ -2,7 +2,7 @@
 Runtime service for communicating completion information to the xblock system.
 """
 
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
 from django.conf import settings
 

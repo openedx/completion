@@ -13,6 +13,11 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+
+[0.1.2] - 2018-03-23
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Fix management of dependency versions
+
 [0.1.1] - 2018-03-23
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Fixes wildly inefficient raw query in BlockCompletion.latest_blocks_completed_all_courses()
@@ -46,7 +51,7 @@ Unreleased
 
 * Add settings and service method for determining completion-by-viewing delay.
 
-  [0.0.6] - 2018-02-13
+[0.0.6] - 2018-02-13
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Add the additional completion logic into the service and models from edx-platform

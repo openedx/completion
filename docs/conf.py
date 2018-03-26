@@ -45,7 +45,6 @@ sys.path.append(REPO_ROOT)
 VERSION = get_version('../completion', '__init__.py')
 
 # Configure Django for autodoc usage
-settings.configure()
 django.setup()
 
 # If extensions (or modules to document with autodoc) are in another directory,
