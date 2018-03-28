@@ -14,6 +14,11 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[0.1.4] - 2018-03-28
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Site configurations must now explicitly disable visual progress for the
+  enable_visual_progress() feature gating function to return False early.
+
 [0.1.3] - 2018-03-26
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Added some documentation.
