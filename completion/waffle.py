@@ -63,22 +63,18 @@ def waffle_flag():
 
 def visual_progress_enabled(course_key):
     """
-    Exposes varia of visual progress feature.
-        ENABLE_COMPLETION_TRACKING, current_site.configuration, AND
-        enable_course_visual_progress OR enable_visual_progress
-
-    :return:
-
-        bool -> True if site/course/global enabled for visual progress tracking
+    Exposes the visual progress feature based on waffle and SiteConfiguration objects.  To return True,
+    the following must hold:
+      - ENABLE_COMPLETION_TRACKING: must be activated.
+      - The current Site's configuration must not explicitly disable this feature.
+      - The ENABLE_VISUAL_PROGRESS switch must be activate, or if not, the course waffle flag for this feature
+      must be activated.
+    This returns False otherwise.
     """
     if not waffle().is_enabled(ENABLE_COMPLETION_TRACKING):
         return False
 
-    try:
-        current_site = get_current_site()
-        if not current_site.configuration.get_value(ENABLE_SITE_VISUAL_PROGRESS, False):
-            return False
-    except SiteConfiguration.DoesNotExist:
+    if site_disables_visual_progress():
         return False
 
     # Site-aware global override
@@ -87,3 +83,15 @@ def visual_progress_enabled(course_key):
         return waffle_flag().is_enabled(course_key)
 
     return True
+
+
+def site_disables_visual_progress():
+    """
+    Returns True if and only if the SiteConfiguration for the current Site
+    explicitly disables visual progress.
+    """
+    try:
+        site_config = get_current_site().configuration
+    except SiteConfiguration.DoesNotExist:
+        return False
+    return not site_config.get_value(ENABLE_SITE_VISUAL_PROGRESS, True)
