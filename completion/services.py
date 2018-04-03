@@ -17,7 +17,6 @@ class CompletionService(object):
     Exposes
 
     * self.completion_tracking_enabled() -> bool
-    * self.visual_progress_enabled() -> bool
     * self.get_completions(candidates)
     * self.vertical_is_complete(vertical_item)
 
@@ -36,16 +35,6 @@ class CompletionService(object):
             bool -> True if completion tracking is enabled.
         """
         return waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING)
-
-    def visual_progress_enabled(self):
-        """
-        Exposes VISUAL_PROGRESS_ENABLED waffle switch to XModule runtime
-
-        Return value:
-
-            bool -> True if VISUAL_PROGRESS flag is enabled.
-        """
-        return waffle.visual_progress_enabled(self._course_key)
 
     def get_completions(self, candidates):
         """
