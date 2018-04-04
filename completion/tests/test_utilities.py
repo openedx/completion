@@ -1,8 +1,8 @@
-'''
+"""
 The unit tests for utilities.py.
-'''
+
+"""
 from __future__ import absolute_import, unicode_literals
-from mock import patch
 
 from django.test import TestCase
 from opaque_keys.edx.keys import CourseKey
@@ -14,9 +14,9 @@ from ..test_utils import UserFactory, CompletionSetUpMixin, submit_completions_f
 
 
 class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
-    '''
+    """
     Tests methods in completion's external-facing API.
-    '''
+    """
 
     COMPLETION_SWITCH_ENABLED = True
 
@@ -31,11 +31,10 @@ class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
         submit_completions_for_testing(self.user, self.course_key, self.block_keys)
 
     def test_can_get_key_to_last_completed_course_block(self):
-        with patch('completion.utilities.visual_progress_enabled', return_value=True):
-            last_block_key = get_key_to_last_completed_course_block(
-                self.user,
-                self.course_key
-            )
+        last_block_key = get_key_to_last_completed_course_block(
+            self.user,
+            self.course_key
+        )
 
         expected_block_usage_key = self.course_key.make_usage_key(
             "video",
@@ -46,6 +45,5 @@ class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
     def test_getting_last_completed_course_block_in_untouched_enrollment_throws(self):
         course_key = CourseKey.from_string("edX/NotACourse/2049_T2")
 
-        with patch('completion.utilities.visual_progress_enabled', return_value=True):
-            with self.assertRaises(UnavailableCompletionData):
-                get_key_to_last_completed_course_block(self.user, course_key)
+        with self.assertRaises(UnavailableCompletionData):
+            get_key_to_last_completed_course_block(self.user, course_key)
