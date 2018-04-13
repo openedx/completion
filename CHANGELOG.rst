@@ -13,11 +13,14 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+[0.1.6] - 2018-04-13
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Remove usage of deprecated CourseStructure api.
+
 [0.1.5] - 2018-04-03
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Delete enable_visual_progress methods and checks. Deprecate ENABLE_VISUAL_PROGRESS,
 ENABLE_COURSE_VISUAL_PROGRESS, and ENABLE_SITE_VISUAL_PROGRESS waffle flags
-
 
 [0.1.4] - 2018-03-28
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
