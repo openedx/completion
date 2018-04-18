@@ -19,7 +19,6 @@ from opaque_keys import InvalidKeyError
 from six import text_type
 
 try:
-    from openedx.core.djangoapps.content.course_structures.models import CourseStructure
     from student.models import CourseEnrollment
     from lms.djangoapps.course_api.blocks.api import get_blocks
 except ImportError:
@@ -77,12 +76,7 @@ class CompletionBatchView(APIView):
         username = batch_object['username']
         user = User.objects.get(username=username)
 
-        course_key = batch_object['course_key']
-        try:
-            course_key_obj = CourseKey.from_string(course_key)
-        except InvalidKeyError:
-            raise ValidationError(_("Invalid course key: {}").format(course_key))
-        course_structure = CourseStructure.objects.get(course_id=course_key_obj)
+        course_key_obj = self._validate_and_parse_course_key(batch_object['course_key'])
 
         if not CourseEnrollment.is_enrolled(user, course_key_obj):
             raise ValidationError(_('User is not enrolled in course.'))
@@ -90,15 +84,41 @@ class CompletionBatchView(APIView):
         blocks = batch_object['blocks']
         block_objs = []
         for block_key in blocks:
-            if block_key not in course_structure.structure['blocks'].keys():
-                raise ValidationError(_("Block with key: '{key}' is not in course {course}")
-                                      .format(key=block_key, course=course_key))
-
-            block_key_obj = UsageKey.from_string(block_key)
+            block_key_obj = self._validate_and_parse_block_key(block_key, course_key_obj)
             completion = float(blocks[block_key])
             block_objs.append((block_key_obj, completion))
 
         return user, course_key_obj, block_objs
+
+    def _validate_and_parse_course_key(self, course_key):
+        """
+        Returns a validated parsed CourseKey deserialized from the given course_key.
+        """
+        try:
+            return CourseKey.from_string(course_key)
+        except InvalidKeyError:
+            raise ValidationError(_("Invalid course key: {}").format(course_key))
+
+    def _validate_and_parse_block_key(self, block_key, course_key_obj):
+        """
+        Returns a validated, parsed UsageKey deserialized from the given block_key.
+        """
+        try:
+            block_key_obj = UsageKey.from_string(block_key)
+        except InvalidKeyError:
+            raise ValidationError(_("Invalid block key: {}").format(block_key))
+
+        if block_key_obj.run is None:
+            expected_matching_course_key = course_key_obj.replace(run=None)
+        else:
+            expected_matching_course_key = course_key_obj
+
+        if block_key_obj.course_key != expected_matching_course_key:
+            raise ValidationError(
+                _("Block with key: '{key}' is not in course {course}").format(key=block_key, course=course_key_obj)
+            )
+
+        return block_key_obj
 
     def post(self, request, *args, **kwargs):  # pylint: disable=unused-argument
         """
