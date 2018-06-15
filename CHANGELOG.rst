@@ -13,6 +13,12 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+[0.1.7] - 2018-06-18
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Added can_mark_block_complete_on_view() and blocks_to_mark_complete_on_view()
+methods on CompletionService and renamed get_completion_by_viewing_delay_ms()
+to get_complete_on_view_delay_ms().
+
 [0.1.6] - 2018-04-13
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Remove usage of deprecated CourseStructure api.

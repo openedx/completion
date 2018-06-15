@@ -5,6 +5,7 @@ Runtime service for communicating completion information to the xblock system.
 from __future__ import absolute_import, unicode_literals
 
 from django.conf import settings
+from xblock.completable import XBlockCompletionMode
 
 from .models import BlockCompletion
 from . import waffle
@@ -91,9 +92,28 @@ class CompletionService(object):
                 return False
         return True
 
-    def get_completion_by_viewing_delay_ms(self):
+    def get_complete_on_view_delay_ms(self):
         """
-        Do not mark blocks complete-by-viewing until they have been visible for
+        Do not mark blocks complete-on-view until they have been visible for
         the returned amount of time, in milliseconds.  Defaults to 5000.
         """
         return getattr(settings, 'COMPLETION_BY_VIEWING_DELAY_MS', 5000)
+
+    def can_mark_block_complete_on_view(self, block):
+        """
+        Returns True if the xblock can be marked complete on view.
+        This is true of any non-customized, non-scorable, completable block.
+        """
+        return (
+            getattr(block, 'completion_mode', XBlockCompletionMode.COMPLETABLE) == XBlockCompletionMode.COMPLETABLE
+            and not getattr(block, 'has_custom_completion', False)
+            and not getattr(block, 'has_score', False)
+        )
+
+    def blocks_to_mark_complete_on_view(self, blocks):
+        """
+        Returns a set of blocks which should be marked complete on view and haven't been yet.
+        """
+        blocks = {block for block in blocks if self.can_mark_block_complete_on_view(block)}
+        completions = self.get_completions({block.location for block in blocks})
+        return {block for block in blocks if completions.get(block.location, 0) < 1.0}
