@@ -7,7 +7,11 @@ from __future__ import absolute_import, unicode_literals
 import ddt
 from django.test import TestCase
 from django.test.utils import override_settings
+from mock import Mock
 from opaque_keys.edx.keys import CourseKey, UsageKey
+from xblock.completable import XBlockCompletionMode
+from xblock.core import XBlock
+from xblock.fields import ScopeIds
 
 from ..models import BlockCompletion
 from ..services import CompletionService
@@ -80,6 +84,74 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
         with self.override_completion_switch(enabled):
             self.assertEqual(self.completion_service.completion_tracking_enabled(), enabled)
 
+    @ddt.data(
+        (XBlockCompletionMode.COMPLETABLE, False, False, True),
+        (XBlockCompletionMode.COMPLETABLE, True, False, False),
+        (XBlockCompletionMode.COMPLETABLE, False, True, False),
+        (XBlockCompletionMode.AGGREGATOR, False, False, False),
+        (XBlockCompletionMode.EXCLUDED, False, False, False)
+    )
+    @ddt.unpack
+    def test_can_mark_block_complete_on_view(self, mode, has_score, has_custom_completion, can_mark_complete):
+        block = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
+        block.completion_mode = mode
+        block.has_score = has_score
+        if has_custom_completion:
+            block.has_custom_completion = True
+
+        self.assertEqual(self.completion_service.can_mark_block_complete_on_view(block), can_mark_complete)
+
+    def test_blocks_to_mark_complete_on_view(self):
+
+        completable_block_1 = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
+        completable_block_1.location = UsageKey.from_string("i4x://edX/100/a/1").replace(course_key=self.course_key)
+        completable_block_2 = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
+        completable_block_2.location = UsageKey.from_string("i4x://edX/100/a/2").replace(course_key=self.course_key)
+        aggregator_block = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
+        aggregator_block.location = UsageKey.from_string("i4x://edX/100/a/3").replace(course_key=self.course_key)
+        aggregator_block.completion_mode = XBlockCompletionMode.AGGREGATOR
+
+        self.assertSetEqual(self.completion_service.blocks_to_mark_complete_on_view({}), set())
+
+        self.assertSetEqual(
+            self.completion_service.blocks_to_mark_complete_on_view({aggregator_block}), set()
+        )
+
+        self.assertSetEqual(
+            self.completion_service.blocks_to_mark_complete_on_view(
+                {completable_block_1, completable_block_2, aggregator_block}
+            ),
+            {completable_block_1, completable_block_2}
+        )
+
+        BlockCompletion.objects.submit_completion(
+            user=self.user,
+            course_key=self.course_key,
+            block_key=completable_block_2.location,
+            completion=1.0
+        )
+
+        self.assertSetEqual(
+            self.completion_service.blocks_to_mark_complete_on_view(
+                {completable_block_1, completable_block_2, aggregator_block}
+            ),
+            {completable_block_1}
+        )
+
+        BlockCompletion.objects.submit_completion(
+            user=self.user,
+            course_key=self.course_key,
+            block_key=completable_block_1.location,
+            completion=1.0
+        )
+
+        self.assertSetEqual(
+            self.completion_service.blocks_to_mark_complete_on_view(
+                {completable_block_1, completable_block_2, aggregator_block}
+            ),
+            set()
+        )
+
 
 @ddt.ddt
 class CompletionDelayTestCase(CompletionSetUpMixin, TestCase):
@@ -89,7 +161,7 @@ class CompletionDelayTestCase(CompletionSetUpMixin, TestCase):
     """
 
     @ddt.data(1, 1000, 0)
-    def test_get_completion_by_viewing_delay_ms(self, delay):
+    def test_get_complete_on_view_delay_ms(self, delay):
         service = CompletionService(self.user, self.course_key)
         with override_settings(COMPLETION_BY_VIEWING_DELAY_MS=delay):
-            self.assertEqual(service.get_completion_by_viewing_delay_ms(), delay)
+            self.assertEqual(service.get_complete_on_view_delay_ms(), delay)
