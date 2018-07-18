@@ -101,10 +101,11 @@ class BlockCompletionManager(models.Manager):
                 "block_key": block_key
             }
             try:
-                obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
-                    defaults={'completion': completion},
-                    **kwargs
-                )
+                with transaction.atomic():
+                    obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
+                        defaults={'completion': completion},
+                        **kwargs
+                    )
             except IntegrityError:
                 # log information for duplicate entry and get the record as above command failed.
                 log.exception(
