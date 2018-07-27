@@ -9,6 +9,7 @@ from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.utils.translation import ugettext as _
 from django.db import DatabaseError
 
+from rest_framework.authentication import BasicAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
@@ -26,6 +27,7 @@ except ImportError:
 
 from completion import waffle
 from completion.api.permissions import IsStaffOrOwner, IsUserInUrl
+from completion.api.authentication import CsrfExemptSessionAuthentication
 from completion.models import BlockCompletion
 
 
@@ -33,6 +35,7 @@ class CompletionBatchView(APIView):
     """
     Handles API requests to submit batch completions.
     """
+    authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
     permission_classes = (permissions.IsAuthenticated, IsStaffOrOwner,)
     REQUIRED_KEYS = ['username', 'course_key', 'blocks']
 
