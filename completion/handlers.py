@@ -30,9 +30,10 @@ def scorable_block_completion(sender, **kwargs):  # pylint: disable=unused-argum
         completion = 0.0
     else:
         completion = 1.0
-    BlockCompletion.objects.submit_completion(
-        user=user,
-        course_key=course_key,
-        block_key=block_key,
-        completion=completion,
-    )
+    if not kwargs.get('grader_response'):
+        BlockCompletion.objects.submit_completion(
+            user=user,
+            course_key=course_key,
+            block_key=block_key,
+            completion=completion,
+        )
