@@ -36,8 +36,6 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
     Test that BlockCompletion.objects.submit_completion has the desired
     semantics.
     """
-    COMPLETION_SWITCH_ENABLED = True
-
     def setUp(self):
         super(SubmitCompletionTestCase, self).setUp()
         self.set_up_completion()
@@ -123,40 +121,11 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         self.assertEqual(model.completion, 1.0)
 
 
-class CompletionDisabledTestCase(CompletionSetUpMixin, TestCase):
-    """
-    Test that completion is not track when the feature switch is disabled.
-    """
-    COMPLETION_SWITCH_ENABLED = False
-
-    def setUp(self):
-        super(CompletionDisabledTestCase, self).setUp()
-        self.set_up_completion()
-
-    def test_cannot_call_submit_completion(self):
-        self.assertEqual(models.BlockCompletion.objects.count(), 1)
-        with self.assertRaises(RuntimeError):
-            models.BlockCompletion.objects.submit_completion(
-                user=self.user,
-                course_key=self.block_key.course_key,
-                block_key=self.block_key,
-                completion=0.9,
-            )
-        self.assertEqual(models.BlockCompletion.objects.count(), 1)
-
-    def test_submit_batch_completion_without_waffle(self):
-        with self.assertRaises(RuntimeError):
-            blocks = [(self.block_key, 1.0)]
-            models.BlockCompletion.objects.submit_batch_completion(self.user, self.course_key, blocks)
-
-
 class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
     """
     Test model methods:
         latest completion per course, and all completions per course
     """
-    COMPLETION_SWITCH_ENABLED = True
-
     def setUp(self):
         super(CompletionFetchingTestCase, self).setUp()
         self.user_one = UserFactory.create()

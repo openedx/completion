@@ -8,7 +8,6 @@ from opaque_keys.edx.keys import CourseKey, UsageKey
 from xblock.completable import XBlockCompletionMode
 from xblock.core import XBlock
 
-from . import waffle
 from .models import BlockCompletion
 
 
@@ -16,8 +15,6 @@ def scorable_block_completion(sender, **kwargs):  # pylint: disable=unused-argum
     """
     When a problem is scored, submit a new BlockCompletion for that block.
     """
-    if not waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
-        return
     course_key = CourseKey.from_string(kwargs['course_id'])
     block_key = UsageKey.from_string(kwargs['usage_id'])
     block_cls = XBlock.load_class(block_key.block_type)

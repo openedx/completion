@@ -16,16 +16,15 @@ from model_utils.models import TimeStampedModel
 from opaque_keys.edx.django.models import CourseKeyField, UsageKeyField
 from opaque_keys.edx.keys import CourseKey
 
-from . import waffle
-
-log = logging.getLogger(__name__)
-
 # pylint: disable=ungrouped-imports
 try:
     from django.models import BigAutoField  # New in django 1.10
 except ImportError:
     from .fields import BigAutoField
 # pylint: enable=ungrouped-imports
+
+
+log = logging.getLogger(__name__)
 
 
 def validate_percent(value):
@@ -92,37 +91,32 @@ class BlockCompletionManager(models.Manager):
                 "block_key must be an instance of `opaque_keys.edx.keys.UsageKey`.  Got {}".format(type(block_key))
             )
 
-        if waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
-            is_new = False
-            kwargs = {
-                "user": user,
-                "course_key": course_key,
-                "block_type": block_type,
-                "block_key": block_key
-            }
-            try:
-                obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
-                    defaults={'completion': completion},
-                    **kwargs
-                )
-            except IntegrityError:
-                # log information for duplicate entry and get the record as above command failed.
-                log.exception(
-                    'block_completion: IntegrityError for student %s - '
-                    'course_id %s - block_type %s - block_key %s',
-                    user, course_key, block_type, block_key
-                )
-                obj = self.get(**kwargs)
-
-            if not is_new and obj.completion != completion:
-                obj.completion = completion
-                obj.full_clean()
-                obj.save()
-        else:
-            # If the feature is not enabled, this method should not be called.  Error out with a RuntimeError.
-            raise RuntimeError(
-                "BlockCompletion.objects.submit_completion should not be called when the feature is disabled."
+        is_new = False
+        kwargs = {
+            "user": user,
+            "course_key": course_key,
+            "block_type": block_type,
+            "block_key": block_key
+        }
+        try:
+            obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
+                defaults={'completion': completion},
+                **kwargs
             )
+        except IntegrityError:
+            # log information for duplicate entry and get the record as above command failed.
+            log.exception(
+                'block_completion: IntegrityError for student %s - '
+                'course_id %s - block_type %s - block_key %s',
+                user, course_key, block_type, block_key
+            )
+            obj = self.get(**kwargs)
+
+        if not is_new and obj.completion != completion:
+            obj.completion = completion
+            obj.full_clean()
+            obj.save()
+
         return obj, is_new
 
     @transaction.atomic()

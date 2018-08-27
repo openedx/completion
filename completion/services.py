@@ -8,7 +8,6 @@ from django.conf import settings
 from xblock.completable import XBlockCompletionMode
 
 from .models import BlockCompletion
-from . import waffle
 
 
 class CompletionService(object):
@@ -17,7 +16,6 @@ class CompletionService(object):
 
     Exposes
 
-    * self.completion_tracking_enabled() -> bool
     * self.get_completions(candidates)
     * self.vertical_is_complete(vertical_item)
 
@@ -26,16 +24,6 @@ class CompletionService(object):
     def __init__(self, user, course_key):
         self._user = user
         self._course_key = course_key
-
-    def completion_tracking_enabled(self):
-        """
-        Exposes ENABLE_COMPLETION_TRACKING waffle switch to XModule runtime
-
-        Return value:
-
-            bool -> True if completion tracking is enabled.
-        """
-        return waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING)
 
     def get_completions(self, candidates):
         """
@@ -78,9 +66,6 @@ class CompletionService(object):
         """
         if item.location.block_type != 'vertical':
             raise ValueError('The passed in xblock is not a vertical type!')
-
-        if not self.completion_tracking_enabled():
-            return None
 
         # this is temporary local logic and will be removed when the whole course tree is included in completion
         child_locations = [

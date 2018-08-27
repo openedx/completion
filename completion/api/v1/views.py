@@ -24,7 +24,6 @@ try:
 except ImportError:
     pass
 
-from completion import waffle
 from completion.api.permissions import IsStaffOrOwner, IsUserInUrl
 from completion.models import BlockCompletion
 
@@ -64,11 +63,6 @@ class CompletionBatchView(APIView):
             ObjectDoesNotExist:
                 If a database object cannot be found an ObjectDoesNotExist is raised.
         """
-        if not waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
-            raise ValidationError(
-                _("BlockCompletion.objects.submit_batch_completion should not be called when the feature is disabled.")
-            )
-
         for key in self.REQUIRED_KEYS:
             if key not in batch_object:
                 raise ValidationError(_("Key '{key}' not found.".format(key=key)))
