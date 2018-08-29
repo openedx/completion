@@ -8,7 +8,7 @@ import logging
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.db import models, IntegrityError, transaction
+from django.db import models, transaction
 from django.utils.translation import ugettext as _
 
 from model_utils.models import TimeStampedModel
@@ -91,37 +91,24 @@ class BlockCompletionManager(models.Manager):
             raise ValueError(
                 "block_key must be an instance of `opaque_keys.edx.keys.UsageKey`.  Got {}".format(type(block_key))
             )
-
         if waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
-            is_new = False
-            kwargs = {
-                "user": user,
-                "course_key": course_key,
-                "block_type": block_type,
-                "block_key": block_key
-            }
-            try:
-                obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
-                    defaults={'completion': completion},
-                    **kwargs
-                )
-            except IntegrityError:
-                # log information for duplicate entry and get the record as above command failed.
-                log.exception(
-                    'block_completion: IntegrityError for student %s - '
-                    'course_id %s - block_type %s - block_key %s',
-                    user, course_key, block_type, block_key
-                )
-                obj = self.get(**kwargs)
-
+            obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
+                user=user,
+                course_key=course_key,
+                block_type=block_type,
+                block_key=block_key,
+                defaults={'completion': completion},
+            )
             if not is_new and obj.completion != completion:
                 obj.completion = completion
                 obj.full_clean()
                 obj.save()
         else:
-            # If the feature is not enabled, this method should not be called.  Error out with a RuntimeError.
+            # If the feature is not enabled, this method should not be called.
+            # Error out with a RuntimeError.
             raise RuntimeError(
-                "BlockCompletion.objects.submit_completion should not be called when the feature is disabled."
+                "BlockCompletion.objects.submit_completion should not be \
+                called when the feature is disabled."
             )
         return obj, is_new
 
