@@ -8,7 +8,7 @@ import logging
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.db import models, transaction
+from django.db import IntegrityError, models, transaction
 from django.utils.translation import ugettext as _
 
 from model_utils.models import TimeStampedModel
@@ -92,17 +92,36 @@ class BlockCompletionManager(models.Manager):
                 "block_key must be an instance of `opaque_keys.edx.keys.UsageKey`.  Got {}".format(type(block_key))
             )
         if waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
-            obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
-                user=user,
-                course_key=course_key,
-                block_type=block_type,
-                block_key=block_key,
-                defaults={'completion': completion},
-            )
+            try:
+                with transaction.atomic():
+                    obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
+                        user=user,
+                        course_key=course_key,
+                        block_key=block_key,
+                        defaults={
+                            'completion': completion,
+                            'block_type': block_type,
+                        },
+                    )
+            except IntegrityError:
+                # The completion was created concurrently by another process
+                log.info(
+                    "An IntegrityError was raised when trying to create a BlockCompletion for %s:%s:%s.  "
+                    "Falling back to get().",
+                    user,
+                    course_key,
+                    block_key,
+                )
+                obj = self.get(
+                    user=user,
+                    course_key=course_key,
+                    block_key=block_key,
+                )
+                is_new = False
             if not is_new and obj.completion != completion:
                 obj.completion = completion
                 obj.full_clean()
-                obj.save()
+                obj.save(update_fields={'completion', 'modified'})
         else:
             # If the feature is not enabled, this method should not be called.
             # Error out with a RuntimeError.
