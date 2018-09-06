@@ -21,7 +21,7 @@ def scorable_block_completion(sender, **kwargs):  # pylint: disable=unused-argum
     course_key = CourseKey.from_string(kwargs['course_id'])
     block_key = UsageKey.from_string(kwargs['usage_id'])
     block_cls = XBlock.load_class(block_key.block_type)
-    if getattr(block_cls, 'completion_mode', XBlockCompletionMode.COMPLETABLE) != XBlockCompletionMode.COMPLETABLE:
+    if XBlockCompletionMode.get_mode(block_cls) != XBlockCompletionMode.COMPLETABLE:
         return
     if getattr(block_cls, 'has_custom_completion', False):
         return

@@ -5,4 +5,5 @@ django-model-utils        # Provides TimeStampedModel abstract base class
 djangorestframework>=3.2.0,<3.7.0  # REST API framework
 edx-opaque-keys[django]   # Create and introspect course and xblock identities
 pytz                      # Time zone support
-XBlock                    # Courseware component architecture
+#XBlock>=1.2.2             # Courseware component architecture
+-e git+https://github.com/edx/XBlock@cliff/completion-get-mode#egg=XBlock==1.2.2a1

@@ -105,7 +105,7 @@ class CompletionService(object):
         This is true of any non-customized, non-scorable, completable block.
         """
         return (
-            getattr(block, 'completion_mode', XBlockCompletionMode.COMPLETABLE) == XBlockCompletionMode.COMPLETABLE
+            XBlockCompletionMode.get_mode(block) == XBlockCompletionMode.COMPLETABLE
             and not getattr(block, 'has_custom_completion', False)
             and not getattr(block, 'has_score', False)
         )
