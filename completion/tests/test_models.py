@@ -43,7 +43,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         self.set_up_completion()
 
     def test_changed_value(self):
-        with self.assertNumQueries(4):  # Get, update, 2 * savepoints
+        with self.assertNumQueries(6):  # Get, update, 2 * savepoints, 2 * exists checks
             completion, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
                 course_key=self.course_key,
@@ -56,7 +56,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         self.assertEqual(models.BlockCompletion.objects.count(), 1)
 
     def test_unchanged_value(self):
-        with self.assertNumQueries(1):  # Get
+        with self.assertNumQueries(3):  # Get + 2 * savepoints
             completion, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
                 course_key=self.course_key,
@@ -70,7 +70,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
 
     def test_new_user(self):
         newuser = UserFactory()
-        with self.assertNumQueries(4):  # Get, update, 2 * savepoints
+        with self.assertNumQueries(6):  # Get, update, 4 * savepoints
             _, isnew = models.BlockCompletion.objects.submit_completion(
                 user=newuser,
                 course_key=self.course_key,
@@ -82,7 +82,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
 
     def test_new_block(self):
         newblock = UsageKey.from_string(u'block-v1:edx+test+run+type@video+block@puppers')
-        with self.assertNumQueries(4):  # Get, update, 2 * savepoints
+        with self.assertNumQueries(6):  # Get, update, 4 * savepoints
             _, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
                 course_key=newblock.course_key,
