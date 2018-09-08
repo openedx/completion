@@ -5,7 +5,6 @@
 #    pip-compile --output-file requirements/test.txt requirements/test.in
 #
 
--e git+https://github.com/edx/XBlock@cliff/completion-get-mode#egg=XBlock==1.2.2a1
 appdirs==1.4.3            # via fs
 atomicwrites==1.2.1       # via pytest
 attrs==18.2.0             # via pytest
@@ -17,9 +16,9 @@ edx-opaque-keys[django]==0.4.4
 factory-boy==2.11.1
 faker==0.9.0              # via factory-boy
 freezegun==0.3.10
-fs==2.1.0
-lxml==4.2.4
-markupsafe==1.0
+fs==2.1.0                 # via xblock
+lxml==4.2.4               # via xblock
+markupsafe==1.0           # via xblock
 mock==2.0.0
 more-itertools==4.3.0     # via pytest
 pathlib2==2.3.2           # via pytest
@@ -30,12 +29,13 @@ pymongo==3.7.1            # via edx-opaque-keys
 pytest-cov==2.6.0
 pytest-django==3.4.2
 pytest==3.8.0             # via pytest-cov, pytest-django
-python-dateutil==2.7.3    # via faker, freezegun
+python-dateutil==2.7.3    # via faker, freezegun, xblock
 pytz==2018.5
-pyyaml==3.13
-six==1.11.0               # via edx-opaque-keys, faker, freezegun, fs, mock, more-itertools, pathlib2, pytest, python-dateutil, stevedore
+pyyaml==3.13              # via xblock
+six==1.11.0               # via edx-opaque-keys, faker, freezegun, fs, mock, more-itertools, pathlib2, pytest, python-dateutil, stevedore, xblock
 stevedore==1.29.0         # via edx-opaque-keys
 text-unidecode==1.2       # via faker
 typing==3.6.6             # via fs
-web-fragments==0.2.2
-webob==1.8.2
+web-fragments==0.2.2      # via xblock
+webob==1.8.2              # via xblock
+xblock==1.2.2
