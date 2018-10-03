@@ -117,3 +117,34 @@ class CompletionService(object):
         blocks = {block for block in blocks if self.can_mark_block_complete_on_view(block)}
         completions = self.get_completions({block.location for block in blocks})
         return {block for block in blocks if completions.get(block.location, 0) < 1.0}
+
+    def submit_group_completion(self, users, block_key, completion):
+        """
+        Submit a completion for a group of users.
+
+        Returns a list of (BlockCompletion, bool) where the boolean indicates
+        whether the given BlockCompletion was newly created.
+        """
+        submitted = []
+        for user in users:
+            submitted.append(BlockCompletion.objects.submit_completion(
+                user=user,
+                course_key=self._course_key,
+                block_key=block_key,
+                completion=completion
+            ))
+        return submitted
+
+    def submit_completion(self, block_key, completion):
+        """
+        Submit a completion for the service user and course.
+
+        Returns a (BlockCompletion, bool) where the boolean indicates
+        whether the given BlockCompletion was newly created.
+        """
+        return BlockCompletion.objects.submit_completion(
+            user=self._user,
+            course_key=self._course_key,
+            block_key=block_key,
+            completion=completion
+        )
