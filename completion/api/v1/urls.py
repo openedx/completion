@@ -8,6 +8,7 @@ from django.conf.urls import url
 
 from . import views
 
+app_name = 'v1'  # pylint: disable=invalid-name
 urlpatterns = [
     url(r'^completion-batch', views.CompletionBatchView.as_view(), name='completion-batch'),
     url(r'^subsection-completion/{username}/{course_key}/{subsection_id}'.format(
