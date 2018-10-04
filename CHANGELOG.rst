@@ -13,7 +13,8 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
-[0.1.13] - 2018-10-04
+
+[0.1.14] - 2018-10-04
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Added submit_completion and submit_group_completion methods on 
   CompletionService.
