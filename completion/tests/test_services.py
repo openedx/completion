@@ -82,10 +82,45 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
         completable_block = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
         completable_block.location = UsageKey.from_string("i4x://edX/100/a/1").replace(course_key=self.course_key)
         service = CompletionService(self.user, self.course_key)
-        service.submit_group_completion([self.other_user, third_user], completable_block.location, 0.25)
+        service.submit_group_completion(
+            block_key=completable_block.location,
+            completion=0.25,
+            users=[self.other_user, third_user],
+        )
         completions = list(BlockCompletion.objects.filter(block_key=completable_block.location))
         self.assertEqual(len(completions), 2)
-        self.assertTrue(all(bc.completion == 2.5) for bc in completions)
+        self.assertTrue(all(bc.completion == 0.25 for bc in completions))
+        self.assertEqual({bc.user for bc in completions}, {self.other_user, third_user})
+
+    def test_submit_group_completion_by_user_ids(self):
+        third_user = UserFactory.create()
+        completable_block = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
+        completable_block.location = UsageKey.from_string("i4x://edX/100/a/1").replace(course_key=self.course_key)
+        service = CompletionService(self.user, self.course_key)
+        service.submit_group_completion(
+            block_key=completable_block.location,
+            completion=0.25,
+            user_ids=[self.other_user.id, third_user.id],
+        )
+        completions = list(BlockCompletion.objects.filter(block_key=completable_block.location))
+        self.assertEqual(len(completions), 2)
+        self.assertTrue(all(bc.completion == 0.25 for bc in completions))
+        self.assertEqual({bc.user for bc in completions}, {self.other_user, third_user})
+
+    def test_submit_group_completion_by_mixed_users_and_user_ids(self):
+        third_user = UserFactory.create()
+        completable_block = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
+        completable_block.location = UsageKey.from_string("i4x://edX/100/a/1").replace(course_key=self.course_key)
+        service = CompletionService(self.user, self.course_key)
+        service.submit_group_completion(
+            block_key=completable_block.location,
+            completion=0.25,
+            users=[self.other_user],
+            user_ids=[third_user.id],
+        )
+        completions = list(BlockCompletion.objects.filter(block_key=completable_block.location))
+        self.assertEqual(len(completions), 2)
+        self.assertTrue(all(bc.completion == 0.25 for bc in completions))
         self.assertEqual({bc.user for bc in completions}, {self.other_user, third_user})
 
     def test_get_completions_block_keys_missing_run(self):

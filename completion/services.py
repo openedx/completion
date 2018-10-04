@@ -5,6 +5,7 @@ Runtime service for communicating completion information to the xblock system.
 from __future__ import absolute_import, unicode_literals
 
 from django.conf import settings
+from django.contrib.auth.models import User
 from xblock.completable import XBlockCompletionMode
 
 from .models import BlockCompletion
@@ -118,13 +119,30 @@ class CompletionService(object):
         completions = self.get_completions({block.location for block in blocks})
         return {block for block in blocks if completions.get(block.location, 0) < 1.0}
 
-    def submit_group_completion(self, users, block_key, completion):
+    def submit_group_completion(self, block_key, completion, users=None, user_ids=None):
         """
         Submit a completion for a group of users.
+
+        Arguments:
+
+            block_key (opaque_key.edx.keys.UsageKey): The block to submit completions for.
+            completion (float): A value in the range [0.0, 1.0]
+            users ([django.contrib.auth.models.User]): An optional iterable of Users that completed the block.
+            user_ids ([int]): An optional iterable of ids of Users that completed the block.
 
         Returns a list of (BlockCompletion, bool) where the boolean indicates
         whether the given BlockCompletion was newly created.
         """
+        if users is None:
+            users = []
+        for user_id in user_ids or []:
+            more_users = User.objects.filter(id__in=user_ids)
+            if len(more_users) < len(user_ids):
+                found_ids = {u.id for u in more_users}
+                not_found_ids = [pk for pk in user_ids if pk not in found_ids]
+                raise User.DoesNotExist("User not found with id(s): {}".format(not_found_ids))
+            users.extend(more_users)
+
         submitted = []
         for user in users:
             submitted.append(BlockCompletion.objects.submit_completion(
@@ -133,7 +151,8 @@ class CompletionService(object):
                 block_key=block_key,
                 completion=completion
             ))
-        return submitted
+        for user_id in user_ids or []:
+            return submitted
 
     def submit_completion(self, block_key, completion):
         """
