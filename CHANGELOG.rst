@@ -13,6 +13,11 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+[0.1.13] - 2018-10-04
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Added submit_completion and submit_group_completion methods on 
+  CompletionService.
+
 [0.1.7] - 2018-06-18
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Added can_mark_block_complete_on_view() and blocks_to_mark_complete_on_view()
