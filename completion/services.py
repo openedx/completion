@@ -135,13 +135,14 @@ class CompletionService(object):
         """
         if users is None:
             users = []
-        for user_id in user_ids or []:
-            more_users = User.objects.filter(id__in=user_ids)
-            if len(more_users) < len(user_ids):
-                found_ids = {u.id for u in more_users}
-                not_found_ids = [pk for pk in user_ids if pk not in found_ids]
-                raise User.DoesNotExist("User not found with id(s): {}".format(not_found_ids))
-            users.extend(more_users)
+        if user_ids is None:
+            user_ids = []
+        more_users = User.objects.filter(id__in=user_ids)
+        if len(more_users) < len(user_ids):
+            found_ids = {u.id for u in more_users}
+            not_found_ids = [pk for pk in user_ids if pk not in found_ids]
+            raise User.DoesNotExist("User not found with id(s): {}".format(not_found_ids))
+        users.extend(more_users)
 
         submitted = []
         for user in users:
@@ -151,8 +152,7 @@ class CompletionService(object):
                 block_key=block_key,
                 completion=completion
             ))
-        for user_id in user_ids or []:
-            return submitted
+        return submitted
 
     def submit_completion(self, block_key, completion):
         """
