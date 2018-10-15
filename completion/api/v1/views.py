@@ -14,7 +14,8 @@ from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework import status
 
-from edx_rest_framework_extensions.authentication import JwtAuthentication, SessionAuthenticationAllowInactiveUser
+from edx_rest_framework_extensions.auth.jwt.authentication import JwtAuthentication
+from edx_rest_framework_extensions.auth.session.authentication import SessionAuthenticationAllowInactiveUser
 from opaque_keys.edx.keys import CourseKey, UsageKey
 from opaque_keys import InvalidKeyError
 from six import text_type
