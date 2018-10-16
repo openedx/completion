@@ -14,6 +14,11 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[1.0.0] - 2018-10-16
+--------------------
+* Updated edx-drf-extensions imports. Completion will no longer work with
+  outdated versions of edx-drf-extensions.
+
 [0.1.14] - 2018-10-04
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Added submit_completion and submit_group_completion methods on 
