@@ -23,6 +23,7 @@ from six import text_type
 try:
     from student.models import CourseEnrollment
     from lms.djangoapps.course_api.blocks.api import get_blocks
+    from openedx.core.lib.api.authentication import OAuth2AuthenticationAllowInactiveUser
 except ImportError:
     pass
 
@@ -35,7 +36,9 @@ class CompletionBatchView(APIView):
     """
     Handles API requests to submit batch completions.
     """
-    authentication_classes = (JwtAuthentication, SessionAuthenticationAllowInactiveUser,)
+    authentication_classes = (
+        JwtAuthentication, SessionAuthenticationAllowInactiveUser, OAuth2AuthenticationAllowInactiveUser,
+    )
     permission_classes = (permissions.IsAuthenticated, IsStaffOrOwner,)
     REQUIRED_KEYS = ['username', 'course_key', 'blocks']
 
