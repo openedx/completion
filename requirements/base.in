@@ -6,4 +6,4 @@ djangorestframework>=3.2.0,<3.7.0  # REST API framework
 edx-opaque-keys[django]   # Create and introspect course and xblock identities
 edx-drf-extensions>=2.0.0,<3.0.0 # Provides JWT authentication
 pytz                      # Time zone support
-XBlock                    # Courseware component architecture
+XBlock>=1.2.2             # Courseware component architecture
