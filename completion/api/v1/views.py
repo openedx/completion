@@ -37,7 +37,7 @@ class CompletionBatchView(APIView):
     Handles API requests to submit batch completions.
     """
     authentication_classes = (
-        JwtAuthentication, SessionAuthenticationAllowInactiveUser, OAuth2AuthenticationAllowInactiveUser,
+        JwtAuthentication, OAuth2AuthenticationAllowInactiveUser, SessionAuthenticationAllowInactiveUser,
     )
     permission_classes = (permissions.IsAuthenticated, IsStaffOrOwner,)
     REQUIRED_KEYS = ['username', 'course_key', 'blocks']
