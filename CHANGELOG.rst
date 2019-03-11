@@ -13,6 +13,10 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+[1.0.2] - 2019-03-11
+--------------------
+
+* Fix the 403 error occurring for completion-batch API for requests coming from the iOS devices
 
 [1.0.0] - 2018-10-16
 --------------------
