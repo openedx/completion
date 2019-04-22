@@ -1,4 +1,5 @@
 # Additional requirements for development of this application
+-c constraints.txt
 
 -r base.in                # Dependencies for edx-completion itself
 -r quality.in             # Dependencies for code quality checks

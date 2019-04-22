@@ -40,7 +40,7 @@ freezegun==0.3.11
 fs==2.4.4                 # via xblock
 funcsigs==1.0.2           # via mock, pytest
 future==0.17.1            # via backports.os, pyjwkest
-futures==3.2.0            # via caniusepython3, isort
+futures==3.2.0 ; python_version == "2.7"
 idna==2.8                 # via requests
 importlib-metadata==0.9   # via path.py
 inflect==2.1.0            # via jinja2-pluralize
