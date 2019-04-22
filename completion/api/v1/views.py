@@ -87,7 +87,7 @@ class CompletionBatchView(APIView):
 
         for key in self.REQUIRED_KEYS:
             if key not in batch_object:
-                raise ValidationError(_("Key '{key}' not found.".format(key=key)))
+                raise ValidationError(_("Key '{key}' not found.").format(key=key))
 
         username = batch_object['username']
         user = User.objects.get(username=username)
