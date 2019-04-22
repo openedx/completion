@@ -10,7 +10,7 @@ instructions.
 **Testing instructions:** List testing instructions
 
 **Reviewers:**
-- [ ] tag reviwer 
+- [ ] tag reviewer 
 - [ ] tag reviewer 
 
 **Merge checklist:**
@@ -20,7 +20,6 @@ instructions.
 - [ ] Changelog record added
 - [ ] Documentation updated (not only docstrings)
 - [ ] Commits are squashed
-- [ ] PR author is listed in AUTHORS
 
 **Post merge:**
 - [ ] Create a tag
