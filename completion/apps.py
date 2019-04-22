@@ -17,7 +17,7 @@ class CompletionAppConfig(AppConfig):
         'url_config': {
             'lms.djangoapp': {
                 'namespace': 'completion',
-                'regex': 'api/completion/',
+                'regex': r'^api/completion/',
                 'relative_path': 'api.urls',
             },
         },
