@@ -13,6 +13,12 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+[2.0.0] - 2019-04-23
+--------------------
+* Unpin django-rest-framework requirements. This is a potentially **breaking change** if people were
+  relying on this package to ensure the correct version of djangorestframework was being installed.
+* Remove the AUTHORS file and references to it.
+
 [1.0.2] - 2019-03-11
 --------------------
 
