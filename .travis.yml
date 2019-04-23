@@ -1,16 +1,22 @@
 language: python
 python:
 - 2.7
-- 3.5
+- 3.6
 env:
-- TOXENV=django18
-- TOXENV=django111
+- TOXENV=django111-drf37
+- TOXENV=django111-drf38
+- TOXENV=django111-drf39
+- TOXENV=django111-drflatest
+- TOXENV=py36-django20-drflatest
 matrix:
   include:
-  - python: 3.5
+  - python: 3.6
     env: TOXENV=quality
-  - python: 3.5
+  - python: 3.6
     env: TOXENV=django20
+  exclude:
+  - python: 2.7
+    env: TOXENV=py36-django20-drflatest
 cache:
 - pip
 before_install:
