@@ -75,7 +75,7 @@ rest-condition==1.0.3     # via edx-drf-extensions
 scandir==1.10.0           # via pathlib2
 semantic-version==2.6.0   # via edx-drf-extensions
 singledispatch==3.4.0.3   # via astroid, pylint
-six==1.12.0               # via astroid, edx-drf-extensions, edx-lint, edx-opaque-keys, faker, freezegun, fs, mock, packaging, pathlib2, pydocstyle, pyjwkest, pylint, pytest, python-dateutil, singledispatch, stevedore, xblock
+six==1.12.0               # via astroid, edx-drf-extensions, edx-lint, edx-opaque-keys, faker, freezegun, fs, mock, more-itertools, packaging, pathlib2, pydocstyle, pyjwkest, pylint, pytest, python-dateutil, singledispatch, stevedore, xblock
 snowballstemmer==1.2.1    # via pydocstyle
 stevedore==1.30.1         # via edx-opaque-keys
 text-unidecode==1.2       # via faker
