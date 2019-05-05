@@ -39,7 +39,7 @@ ipaddress==1.0.22         # via faker
 jinja2==2.10.1            # via sphinx
 lxml==4.3.3               # via xblock
 markupsafe==1.1.1         # via jinja2, xblock
-mock==3.0.3
+mock==3.0.4
 more-itertools==5.0.0     # via pytest
 newrelic==4.18.0.118      # via edx-django-utils
 packaging==19.0           # via sphinx
