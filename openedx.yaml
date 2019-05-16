@@ -1,7 +1,9 @@
 # openedx.yaml
 
 ---
-owner: edx/educator-neem
+owner: iloveagent57
+supporting_teams:
+    - edx/masters-neem
 nick: completion
 tags:
     - tools
@@ -13,3 +15,4 @@ oeps:
     oep-5:
         state: False
         reason: TODO - Implement for this application if appropriate
+    oep-7: True    # Python 3 Support
