@@ -26,8 +26,8 @@ django==1.11.20
 djangorestframework-jwt==1.11.0  # via edx-drf-extensions
 djangorestframework==3.9.4
 edx-django-utils==1.0.3   # via edx-drf-extensions
-edx-drf-extensions==2.2.1
-edx-lint==1.2.0
+edx-drf-extensions==2.2.2
+edx-lint==1.2.1
 edx-opaque-keys[django]==0.4.4
 enum34==1.1.6             # via astroid, fs
 factory-boy==2.12.0
@@ -46,7 +46,7 @@ markupsafe==1.1.1         # via xblock
 mccabe==0.6.1             # via pylint
 mock==3.0.5
 more-itertools==5.0.0     # via pytest
-newrelic==4.18.0.118      # via edx-django-utils
+newrelic==4.20.0.120      # via edx-django-utils
 packaging==19.0           # via caniusepython3
 pathlib2==2.3.3           # via pytest, pytest-django
 pbr==5.2.0                # via stevedore
@@ -80,7 +80,7 @@ snowballstemmer==1.2.1    # via pydocstyle
 stevedore==1.30.1         # via edx-opaque-keys
 text-unidecode==1.2       # via faker
 typing==3.6.6             # via fs
-urllib3==1.25.2           # via requests
+urllib3==1.25.3           # via requests
 wcwidth==0.1.7            # via pytest
 web-fragments==0.3.0      # via xblock
 webob==1.8.5              # via xblock
