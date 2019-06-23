@@ -12,7 +12,7 @@ attrs==19.1.0             # via pytest
 backports.functools-lru-cache==1.5  # via astroid, caniusepython3, isort, pylint
 backports.os==0.1.1       # via fs
 caniusepython3==7.1.0
-certifi==2019.3.9         # via requests
+certifi==2019.6.16        # via requests
 chardet==3.0.4            # via requests
 click-log==0.3.2          # via edx-lint
 click==7.0                # via click-log, edx-lint
@@ -51,7 +51,7 @@ more-itertools==5.0.0     # via pytest
 newrelic==4.20.0.120      # via edx-django-utils
 packaging==19.0           # via caniusepython3, pytest
 pathlib2==2.3.3           # via importlib-metadata, pytest, pytest-django
-pbr==5.3.0                # via stevedore
+pbr==5.3.1                # via stevedore
 pluggy==0.12.0            # via pytest
 psutil==1.2.1             # via edx-django-utils, edx-drf-extensions
 py==1.8.0                 # via pytest
@@ -81,12 +81,12 @@ six==1.12.0               # via astroid, edx-drf-extensions, edx-lint, edx-opaqu
 snowballstemmer==1.2.1    # via pydocstyle
 stevedore==1.30.1         # via edx-opaque-keys
 text-unidecode==1.2       # via faker
-typing==3.6.6             # via fs
+typing==3.7.4             # via fs
 urllib3==1.25.3           # via requests
 wcwidth==0.1.7            # via pytest
 web-fragments==0.3.0      # via xblock
 webob==1.8.5              # via xblock
-wrapt==1.11.1             # via astroid
+wrapt==1.11.2             # via astroid
 xblock==1.2.2
 zipp==0.5.1               # via importlib-metadata
 
