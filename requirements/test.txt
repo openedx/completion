@@ -14,7 +14,7 @@ configparser==3.7.4       # via importlib-metadata
 contextlib2==0.5.5        # via importlib-metadata
 coverage==4.5.3           # via pytest-cov
 ddt==1.2.1
-django-model-utils==3.1.2
+django-model-utils==3.2.0
 django-waffle==0.16.0     # via edx-django-utils, edx-drf-extensions
 djangorestframework-jwt==1.11.0  # via edx-drf-extensions
 edx-django-utils==1.0.5   # via edx-drf-extensions
@@ -34,9 +34,9 @@ lxml==4.3.4               # via xblock
 markupsafe==1.1.1         # via xblock
 mock==3.0.5
 more-itertools==5.0.0     # via pytest
-newrelic==4.20.0.120      # via edx-django-utils
+newrelic==4.20.1.121      # via edx-django-utils
 packaging==19.0           # via pytest
-pathlib2==2.3.3           # via importlib-metadata, pytest, pytest-django
+pathlib2==2.3.4           # via importlib-metadata, pytest, pytest-django
 pbr==5.3.1                # via stevedore
 pluggy==0.12.0            # via pytest
 psutil==1.2.1             # via edx-django-utils, edx-drf-extensions
@@ -47,8 +47,8 @@ pyjwt==1.7.1              # via djangorestframework-jwt
 pymongo==3.8.0            # via edx-opaque-keys
 pyparsing==2.4.0          # via packaging
 pytest-cov==2.7.1
-pytest-django==3.5.0
-pytest==4.6.3             # via pytest-cov, pytest-django
+pytest-django==3.5.1
+pytest==4.6.4             # via pytest-cov, pytest-django
 python-dateutil==2.8.0    # via edx-drf-extensions, faker, freezegun, xblock
 pytz==2019.1
 pyyaml==5.1.1             # via xblock
