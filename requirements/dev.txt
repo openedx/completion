@@ -20,11 +20,11 @@ configparser==3.7.4       # via importlib-metadata, pydocstyle, pylint
 contextlib2==0.5.5        # via importlib-metadata
 coverage==4.5.3           # via pytest-cov
 ddt==1.2.1
-diff-cover==2.2.0
+diff-cover==2.3.0
 distlib==0.2.9.post0      # via caniusepython3
 django-model-utils==3.2.0
-django-waffle==0.16.0     # via edx-django-utils, edx-drf-extensions
-django==1.11.21
+django-waffle==0.17.0     # via edx-django-utils, edx-drf-extensions
+django==1.11.22
 djangorestframework-jwt==1.11.0  # via edx-drf-extensions
 djangorestframework==3.9.4
 edx-django-utils==1.0.5   # via edx-drf-extensions
@@ -58,7 +58,7 @@ newrelic==4.20.1.121      # via edx-django-utils
 packaging==19.0           # via caniusepython3, pytest, tox
 path.py==11.5.2           # via edx-i18n-tools
 pathlib2==2.3.4           # via importlib-metadata, pytest, pytest-django
-pbr==5.3.1                # via stevedore
+pbr==5.4.0                # via stevedore
 pip-tools==3.8.0
 pluggy==0.12.0            # via pytest, tox
 polib==1.1.0              # via edx-i18n-tools
@@ -93,7 +93,7 @@ stevedore==1.30.1         # via edx-opaque-keys
 text-unidecode==1.2       # via faker
 toml==0.10.0              # via tox
 tox-battery==0.5.1
-tox==3.13.1
+tox==3.13.2
 typing==3.7.4             # via fs
 urllib3==1.25.3           # via requests
 virtualenv==16.6.1        # via tox
