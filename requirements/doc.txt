@@ -23,14 +23,14 @@ django==1.11.22
 djangorestframework-jwt==1.11.0  # via edx-drf-extensions
 djangorestframework==3.9.4
 doc8==0.8.0
-docutils==0.14            # via doc8, readme-renderer, restructuredtext-lint, sphinx
+docutils==0.15            # via doc8, readme-renderer, restructuredtext-lint, sphinx
 edx-django-utils==2.0.0   # via edx-drf-extensions
-edx-drf-extensions==2.3.3
+edx-drf-extensions==2.3.6
 edx-opaque-keys[django]==1.0.1
 edx-sphinx-theme==1.5.0
 enum34==1.1.6             # via fs
 factory-boy==2.12.0
-faker==1.0.7              # via factory-boy
+faker==2.0.0              # via factory-boy
 freezegun==0.3.12
 fs==2.4.8                 # via xblock
 funcsigs==1.0.2           # via mock, pytest
@@ -47,7 +47,7 @@ more-itertools==5.0.0     # via pytest
 newrelic==4.20.1.121      # via edx-django-utils
 packaging==19.0           # via pytest, sphinx
 pathlib2==2.3.4           # via importlib-metadata, pytest, pytest-django
-pbr==5.4.0                # via stevedore
+pbr==5.4.1                # via stevedore
 pluggy==0.12.0            # via pytest
 psutil==1.2.1             # via edx-django-utils, edx-drf-extensions
 py==1.8.0                 # via pytest
