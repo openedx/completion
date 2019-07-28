@@ -28,7 +28,7 @@ django==1.11.22
 djangorestframework-jwt==1.11.0  # via edx-drf-extensions
 djangorestframework==3.9.4
 edx-django-utils==2.0.0   # via edx-drf-extensions
-edx-drf-extensions==2.3.6
+edx-drf-extensions==2.3.7
 edx-i18n-tools==0.4.8
 edx-lint==1.3.0
 edx-opaque-keys[django]==1.0.1
@@ -49,7 +49,7 @@ isort==4.3.21
 jinja2-pluralize==0.3.0   # via diff-cover
 jinja2==2.10.1            # via diff-cover, jinja2-pluralize
 lazy-object-proxy==1.4.1  # via astroid
-lxml==4.3.4               # via xblock
+lxml==4.4.0               # via xblock
 markupsafe==1.1.1         # via jinja2, xblock
 mccabe==0.6.1             # via pylint
 mock==3.0.5
@@ -59,7 +59,7 @@ packaging==19.0           # via caniusepython3, pytest, tox
 path.py==11.5.2           # via edx-i18n-tools
 pathlib2==2.3.4           # via importlib-metadata, pytest, pytest-django
 pbr==5.4.1                # via stevedore
-pip-tools==3.9.0
+pip-tools==4.0.0
 pluggy==0.12.0            # via pytest, tox
 polib==1.1.0              # via edx-i18n-tools
 psutil==1.2.1             # via edx-django-utils, edx-drf-extensions
@@ -75,7 +75,7 @@ pylint-django==0.7.2      # via edx-lint
 pylint-plugin-utils==0.5  # via pylint-celery, pylint-django
 pylint==1.7.6             # via edx-lint, pylint-celery, pylint-django, pylint-plugin-utils
 pymongo==3.8.0            # via edx-opaque-keys
-pyparsing==2.4.0          # via packaging
+pyparsing==2.4.1.1        # via packaging
 pytest-cov==2.7.1
 pytest-django==3.5.1
 pytest==4.6.4             # via pytest-cov, pytest-django
@@ -96,12 +96,12 @@ tox-battery==0.5.1
 tox==3.13.2
 typing==3.7.4             # via fs
 urllib3==1.25.3           # via requests
-virtualenv==16.6.2        # via tox
+virtualenv==16.7.2        # via tox
 wcwidth==0.1.7            # via pytest
 web-fragments==0.3.0      # via xblock
 webob==1.8.5              # via xblock
 wrapt==1.11.2             # via astroid
-xblock==1.2.2
+xblock==1.2.3
 zipp==0.5.2               # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
