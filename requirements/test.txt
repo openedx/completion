@@ -6,36 +6,36 @@
 #
 appdirs==1.4.3            # via fs
 atomicwrites==1.3.0       # via pytest
-attrs==19.1.0             # via pytest
+attrs==19.1.0             # via packaging, pytest
 backports.os==0.1.1       # via fs
 certifi==2019.6.16        # via requests
 chardet==3.0.4            # via requests
 configparser==3.7.4       # via importlib-metadata
 contextlib2==0.5.5        # via importlib-metadata
-coverage==4.5.3           # via pytest-cov
+coverage==4.5.4           # via pytest-cov
 ddt==1.2.1
 django-model-utils==3.2.0
 django-waffle==0.17.0     # via edx-django-utils, edx-drf-extensions
 djangorestframework-jwt==1.11.0  # via edx-drf-extensions
 edx-django-utils==2.0.0   # via edx-drf-extensions
-edx-drf-extensions==2.3.7
+edx-drf-extensions==2.3.8
 edx-opaque-keys[django]==1.0.1
 enum34==1.1.6             # via fs
 factory-boy==2.12.0
 faker==2.0.0              # via factory-boy
 freezegun==0.3.12
-fs==2.4.8                 # via xblock
+fs==2.4.10                # via xblock
 funcsigs==1.0.2           # via mock, pytest
 future==0.17.1            # via backports.os, pyjwkest
 idna==2.8                 # via requests
-importlib-metadata==0.18  # via pluggy, pytest
+importlib-metadata==0.19  # via pluggy, pytest
 ipaddress==1.0.22         # via faker
 lxml==4.4.0               # via xblock
 markupsafe==1.1.1         # via xblock
 mock==3.0.5
 more-itertools==5.0.0     # via pytest
 newrelic==4.20.1.121      # via edx-django-utils
-packaging==19.0           # via pytest
+packaging==19.1           # via pytest
 pathlib2==2.3.4           # via importlib-metadata, pytest, pytest-django
 pbr==5.4.1                # via stevedore
 pluggy==0.12.0            # via pytest
@@ -45,13 +45,13 @@ pycryptodomex==3.8.2      # via pyjwkest
 pyjwkest==1.3.2           # via edx-drf-extensions
 pyjwt==1.7.1              # via djangorestframework-jwt
 pymongo==3.8.0            # via edx-opaque-keys
-pyparsing==2.4.1.1        # via packaging
+pyparsing==2.4.2          # via packaging
 pytest-cov==2.7.1
 pytest-django==3.5.1
 pytest==4.6.4             # via pytest-cov, pytest-django
 python-dateutil==2.8.0    # via edx-drf-extensions, faker, freezegun, xblock
-pytz==2019.1
-pyyaml==5.1.1             # via xblock
+pytz==2019.2
+pyyaml==5.1.2             # via xblock
 requests==2.22.0          # via edx-drf-extensions, pyjwkest
 rest-condition==1.0.3     # via edx-drf-extensions
 scandir==1.10.0           # via pathlib2
