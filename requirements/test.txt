@@ -22,7 +22,7 @@ edx-drf-extensions==2.4.0
 edx-opaque-keys[django]==1.0.1
 enum34==1.1.6             # via fs
 factory-boy==2.12.0
-faker==2.0.0              # via factory-boy
+faker==2.0.1              # via factory-boy
 freezegun==0.3.12
 fs==2.4.10                # via xblock
 funcsigs==1.0.2           # via mock, pytest
@@ -33,7 +33,7 @@ ipaddress==1.0.22         # via faker
 lxml==4.4.1               # via xblock
 markupsafe==1.1.1         # via xblock
 mock==3.0.5
-more-itertools==5.0.0     # via pytest
+more-itertools==5.0.0     # via pytest, zipp
 newrelic==5.0.2.126       # via edx-django-utils
 packaging==19.1           # via pytest
 pathlib2==2.3.4           # via importlib-metadata, pytest, pytest-django
@@ -59,13 +59,13 @@ semantic-version==2.6.0   # via edx-drf-extensions
 six==1.12.0               # via edx-drf-extensions, edx-opaque-keys, faker, freezegun, fs, mock, more-itertools, packaging, pathlib2, pyjwkest, pytest, python-dateutil, stevedore, xblock
 stevedore==1.30.1         # via edx-opaque-keys
 text-unidecode==1.2       # via faker
-typing==3.7.4             # via fs
+typing==3.7.4.1           # via fs
 urllib3==1.25.3           # via requests
 wcwidth==0.1.7            # via pytest
 web-fragments==0.3.0      # via xblock
 webob==1.8.5              # via xblock
 xblock==1.2.3
-zipp==0.5.2               # via importlib-metadata
+zipp==0.6.0               # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-# setuptools==41.1.0        # via fs
+# setuptools==41.2.0        # via fs
