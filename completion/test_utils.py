@@ -10,23 +10,22 @@ from django.contrib.auth.models import User
 import factory
 from factory.django import DjangoModelFactory
 import mock
-from opaque_keys.edx.keys import UsageKey, CourseKey
+from opaque_keys.edx.keys import UsageKey
 from pytz import UTC
 
 from . import waffle
 from .models import BlockCompletion
 
 
-def submit_completions_for_testing(user, course_key, block_keys):
+def submit_completions_for_testing(user, block_keys):
     '''
-    Allows tests to submit completion data for a given user, course_key, and
+    Allows tests to submit completion data for a given user and
     list of block_keys. The method completes the "block_keys" by adding them
     to the BlockCompletion model.
     '''
     for idx, block_key in enumerate(block_keys):
         BlockCompletion.objects.submit_completion(
             user=user,
-            course_key=course_key,
             block_key=block_key,
             completion=1.0 - (0.2 * idx),
         )
@@ -92,7 +91,7 @@ class CompletionSetUpMixin(object):
     def setUp(self):
         super(CompletionSetUpMixin, self).setUp()
         self.block_key = UsageKey.from_string('block-v1:edx+test+run+type@video+block@doggos')
-        self.course_key = CourseKey.from_string('course-v1:edx+test+run')
+        self.context_key = self.block_key.context_key
         self.user = UserFactory()
 
     def set_up_completion(self):
@@ -101,7 +100,7 @@ class CompletionSetUpMixin(object):
         """
         self.completion = BlockCompletion.objects.create(
             user=self.user,
-            course_key=self.block_key.course_key,
+            context_key=self.block_key.context_key,
             block_type=self.block_key.block_type,
             block_key=self.block_key,
             completion=0.5,

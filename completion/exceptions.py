@@ -10,6 +10,6 @@ class UnavailableCompletionData(Exception):
     completion data from BlockCompletion.
     '''
 
-    def __init__(self, course_key):
+    def __init__(self, context_key):
         Exception.__init__(
-            self, "The learner does not have completion data within course {}".format(course_key))
+            self, "The learner does not have completion data within learning context {}".format(context_key))

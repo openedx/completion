@@ -14,6 +14,14 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[3.0.0] - 2019-10-04
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Support tracking completion of XBlocks in any "learning context", such as in
+  a content library, and not just in courses. To keep the code clean, this has
+  been done as a **breaking change** to the python API. (The API has been
+  simplified so that it's generally only necessary to pass in a block key /
+  usage key rather than block key + course key.) The REST API is unchanged.
+
 [2.1.1] - 2019-10-21
 --------------------
 * Updated credentials for PyPI deployment via token.
@@ -24,18 +32,18 @@ Unreleased
   the old implementation allowed subtle bugs under Python 2.7 but triggers an immediate error under 3.5.
 
 [2.0.0] - 2019-04-23
---------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Unpin django-rest-framework requirements. This is a potentially **breaking change** if people were
   relying on this package to ensure the correct version of djangorestframework was being installed.
 * Remove the AUTHORS file and references to it.
 
 [1.0.2] - 2019-03-11
---------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Fix the 403 error occurring for completion-batch API for requests coming from the iOS devices
 
 [1.0.0] - 2018-10-16
---------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Updated edx-drf-extensions imports. Completion will no longer work with
   outdated versions of edx-drf-extensions.
 

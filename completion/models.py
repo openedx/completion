@@ -13,8 +13,7 @@ from django.utils.translation import ugettext as _
 
 from model_utils.models import TimeStampedModel
 
-from opaque_keys.edx.django.models import CourseKeyField, UsageKeyField
-from opaque_keys.edx.keys import CourseKey
+from opaque_keys.edx.django.models import LearningContextKeyField, UsageKeyField
 
 from . import waffle
 
@@ -43,17 +42,19 @@ class BlockCompletionManager(models.Manager):
     Adds submit_completion and submit_batch_completion methods.
     """
 
-    def submit_completion(self, user, course_key, block_key, completion):
+    def submit_completion(self, user, block_key, completion):
         """
         Update the completion value for the specified record.
 
         Parameters:
             * user (django.contrib.auth.models.User): The user for whom the
               completion is being submitted.
-            * course_key (opaque_keys.edx.keys.CourseKey): The course in
-              which the submitted block is found.
             * block_key (opaque_keys.edx.keys.UsageKey): The block that has had
-              its completion changed.
+              its completion changed. Note: if the block key is for an old mongo
+              course, it must have had its 'run' information added via
+              block_key = block_key.replace(
+                  course_key=modulestore().fill_in_run(block_key.course_key)
+              )
             * completion (float in range [0.0, 1.0]): The fractional completion
               value of the block (0.0 = incomplete, 1.0 = complete).
 
@@ -80,23 +81,26 @@ class BlockCompletionManager(models.Manager):
                 subclasses.
         """
 
-        # Raise ValueError to match normal django semantics for wrong type of field.
-        if not isinstance(course_key, CourseKey):
-            raise ValueError(
-                "course_key must be an instance of `opaque_keys.edx.keys.CourseKey`.  Got {}".format(type(course_key))
-            )
         try:
+            context_key = block_key.context_key
             block_type = block_key.block_type
         except AttributeError:
             raise ValueError(
                 "block_key must be an instance of `opaque_keys.edx.keys.UsageKey`.  Got {}".format(type(block_key))
             )
+        if context_key.is_course and context_key.run is None:
+            raise ValueError(
+                "If block_key is an old mongo key, you must add its run information to the key before calling "
+                "submit_completion():\n"
+                "block_key = block_key.replace(course_key=modulestore().fill_in_run(block_key.course_key))"
+            )
+
         if waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
             try:
                 with transaction.atomic():
                     obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
                         user=user,
-                        course_key=course_key,
+                        context_key=context_key,
                         block_key=block_key,
                         defaults={
                             'completion': completion,
@@ -109,12 +113,12 @@ class BlockCompletionManager(models.Manager):
                     "An IntegrityError was raised when trying to create a BlockCompletion for %s:%s:%s.  "
                     "Falling back to get().",
                     user,
-                    course_key,
+                    context_key,
                     block_key,
                 )
                 obj = self.get(
                     user=user,
-                    course_key=course_key,
+                    context_key=context_key,
                     block_key=block_key,
                 )
                 is_new = False
@@ -132,15 +136,13 @@ class BlockCompletionManager(models.Manager):
         return obj, is_new
 
     @transaction.atomic()
-    def submit_batch_completion(self, user, course_key, blocks):
+    def submit_batch_completion(self, user, blocks):
         """
         Performs a batch insertion of completion objects.
 
         Parameters:
             * user (django.contrib.auth.models.User): The user for whom the
               completions are being submitted.
-            * course_key (opaque_keys.edx.keys.CourseKey): The course in
-              which the submitted blocks are found.
             * blocks: A list of tuples of UsageKey to float completion values.
               (float in range [0.0, 1.0]): The fractional completion
               value of the block (0.0 = incomplete, 1.0 = complete).
@@ -164,7 +166,7 @@ class BlockCompletionManager(models.Manager):
         """
         block_completions = {}
         for block, completion in blocks:
-            (block_completion, is_new) = self.submit_completion(user, course_key, block, completion)
+            (block_completion, is_new) = self.submit_completion(user, block, completion)
             block_completions[block_completion] = is_new
         return block_completions
 
@@ -174,7 +176,7 @@ class BlockCompletion(TimeStampedModel, models.Model):
     """
     Track completion of completable blocks.
 
-    A completion is unique for each (user, course_key, block_key).
+    A completion is unique for each (user, context_key, block_key).
 
     The block_type field is included separately from the block_key to
     facilitate distinct aggregations of the completion of particular types of
@@ -187,7 +189,7 @@ class BlockCompletion(TimeStampedModel, models.Model):
     """
     id = BigAutoField(primary_key=True)  # pylint: disable=invalid-name
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    course_key = CourseKeyField(max_length=255)
+    context_key = LearningContextKeyField(max_length=255, db_column="course_key")
 
     # note: this usage key may not have the run filled in for
     # old mongo courses.  Use the full_block_key property
@@ -202,30 +204,32 @@ class BlockCompletion(TimeStampedModel, models.Model):
     def full_block_key(self):
         """
         Returns the "correct" usage key value with the run filled in.
+        This is only necessary for block keys from old mongo courses, which
+        didn't include the run information in the block usage key.
         """
-        if self.block_key.run is None:
+        if self.block_key.context_key.is_course and self.block_key.run is None:
             # pylint: disable=unexpected-keyword-arg, no-value-for-parameter
-            return self.block_key.replace(course_key=self.course_key)
+            return self.block_key.replace(course_key=self.context_key)
         return self.block_key
 
     @classmethod
-    def get_course_completions(cls, user, course_key):
+    def get_learning_context_completions(cls, user, context_key):
         """
         Returns a dictionary mapping BlockKeys to completion values for all
-        BlockCompletion records for the given user and course_key.
+        BlockCompletion records for the given user and learning context key.
 
         Return value:
             dict[BlockKey] = float
         """
-        user_course_completions = cls.user_course_completion_queryset(user, course_key)
-        return cls.completion_by_block_key(user_course_completions)
+        user_completions = cls.user_learning_context_completion_queryset(user, context_key)
+        return cls.completion_by_block_key(user_completions)
 
     @classmethod
-    def user_course_completion_queryset(cls, user, course_key):
+    def user_learning_context_completion_queryset(cls, user, context_key):
         """
-        Returns a Queryset of completions for a given user and course_key.
+        Returns a Queryset of completions for a given user and context_key.
         """
-        return cls.objects.filter(user=user, course_key=course_key)
+        return cls.objects.filter(user=user, context_key=context_key)
 
     @classmethod
     def latest_blocks_completed_all_courses(cls, user):
@@ -233,6 +237,9 @@ class BlockCompletion(TimeStampedModel, models.Model):
         Returns a dictionary mapping course_keys to a tuple containing
         the block_key and modified time of the most recently modified
         completion for the course.
+
+        This only returns results for courses and not other learning context
+        types.
 
         Return value:
             {course_key: (modified_date, block_key)}
@@ -273,8 +280,9 @@ class BlockCompletion(TimeStampedModel, models.Model):
         )
         try:
             return {
-                completion.course_key: (completion.modified, completion.block_key)
+                completion.context_key: (completion.modified, completion.block_key)
                 for completion in latest_completions_by_course
+                if completion.context_key.is_course
             }
         except KeyError:
             # Iteration of the queryset above will always fail
@@ -282,16 +290,16 @@ class BlockCompletion(TimeStampedModel, models.Model):
             return {}
 
     @classmethod
-    def get_latest_block_completed(cls, user, course_key):
+    def get_latest_block_completed(cls, user, context_key):
         """
-        Returns a BlockCompletion Object for the last modified user/course_key mapping,
+        Returns a BlockCompletion Object for the last modified user/context_key mapping,
         or None if no such BlockCompletion exists.
 
         Return value:
             obj: block completion
         """
         try:
-            latest_block_completion = cls.user_course_completion_queryset(user, course_key).latest()
+            latest_block_completion = cls.user_learning_context_completion_queryset(user, context_key).latest()
         except cls.DoesNotExist:
             return
         return latest_block_completion
@@ -302,25 +310,25 @@ class BlockCompletion(TimeStampedModel, models.Model):
         Return value:
             A dict mapping the full block key of a completion record to the completion value
             for each BlockCompletion object given in completion_iterable.  Each BlockKey is
-            corrected to have the run field filled in via the BlockCompletion.course_key field.
+            corrected to have the run field filled in via the BlockCompletion.context_key field.
         """
         return {completion.full_block_key: completion.completion for completion in completion_iterable}
 
     class Meta(object):
         index_together = [
-            ('course_key', 'block_type', 'user'),
-            ('user', 'course_key', 'modified'),
+            ('context_key', 'block_type', 'user'),
+            ('user', 'context_key', 'modified'),
         ]
 
         unique_together = [
-            ('course_key', 'block_key', 'user')
+            ('context_key', 'block_key', 'user')
         ]
         get_latest_by = 'modified'
 
     def __unicode__(self):
-        return 'BlockCompletion: {username}, {course_key}, {block_key}: {completion}'.format(
+        return 'BlockCompletion: {username}, {context_key}, {block_key}: {completion}'.format(
             username=self.user.username,
-            course_key=self.course_key,
+            context_key=self.context_key,
             block_key=self.block_key,
             completion=self.completion,
         )

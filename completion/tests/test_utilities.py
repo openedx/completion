@@ -9,7 +9,7 @@ from opaque_keys.edx.keys import CourseKey
 from six import text_type
 
 from ..exceptions import UnavailableCompletionData
-from ..utilities import get_key_to_last_completed_course_block
+from ..utilities import get_key_to_last_completed_block
 from ..test_utils import UserFactory, CompletionSetUpMixin, submit_completions_for_testing
 
 
@@ -28,10 +28,10 @@ class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
             self.course_key.make_usage_key('video', text_type(number))
             for number in range(5)
         ]
-        submit_completions_for_testing(self.user, self.course_key, self.block_keys)
+        submit_completions_for_testing(self.user, self.block_keys)
 
-    def test_can_get_key_to_last_completed_course_block(self):
-        last_block_key = get_key_to_last_completed_course_block(
+    def test_can_get_key_to_last_completed_block(self):
+        last_block_key = get_key_to_last_completed_block(
             self.user,
             self.course_key
         )
@@ -46,4 +46,4 @@ class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
         course_key = CourseKey.from_string("edX/NotACourse/2049_T2")
 
         with self.assertRaises(UnavailableCompletionData):
-            get_key_to_last_completed_course_block(self.user, course_key)
+            get_key_to_last_completed_block(self.user, course_key)

@@ -46,7 +46,6 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         with self.assertNumQueries(6):  # Get, update, 2 * savepoints, 2 * exists checks
             completion, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
-                course_key=self.course_key,
                 block_key=self.block_key,
                 completion=0.9,
             )
@@ -59,7 +58,6 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         with self.assertNumQueries(3):  # Get + 2 * savepoints
             completion, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
-                course_key=self.course_key,
                 block_key=self.block_key,
                 completion=0.5,
             )
@@ -73,7 +71,6 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         with self.assertNumQueries(6):  # Get, update, 4 * savepoints
             _, isnew = models.BlockCompletion.objects.submit_completion(
                 user=newuser,
-                course_key=self.course_key,
                 block_key=self.block_key,
                 completion=0.0,
             )
@@ -85,7 +82,6 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         with self.assertNumQueries(6):  # Get, update, 4 * savepoints
             _, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
-                course_key=newblock.course_key,
                 block_key=newblock,
                 completion=1.0,
             )
@@ -96,7 +92,6 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         with self.assertRaises(ValidationError):
             models.BlockCompletion.objects.submit_completion(
                 user=self.user,
-                course_key=self.block_key.course_key,
                 block_key=self.block_key,
                 completion=1.2
             )
@@ -106,7 +101,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
 
     def test_submit_batch_completion(self):
         blocks = [(self.block_key, 1.0)]
-        models.BlockCompletion.objects.submit_batch_completion(self.user, self.course_key, blocks)
+        models.BlockCompletion.objects.submit_batch_completion(self.user, blocks)
         self.assertEqual(models.BlockCompletion.objects.count(), 1)
         self.assertEqual(models.BlockCompletion.objects.last().completion, 1.0)
 
@@ -117,7 +112,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         blocks = [
             (UsageKey.from_string('block-v1:edx+test+run+type@video+block@doggos'), 1.0),
         ]
-        models.BlockCompletion.objects.submit_batch_completion(self.user, self.course_key, blocks)
+        models.BlockCompletion.objects.submit_batch_completion(self.user, blocks)
         self.assertEqual(models.BlockCompletion.objects.count(), 1)
         model = models.BlockCompletion.objects.first()
         self.assertEqual(model.completion, 1.0)
@@ -138,7 +133,6 @@ class CompletionDisabledTestCase(CompletionSetUpMixin, TestCase):
         with self.assertRaises(RuntimeError):
             models.BlockCompletion.objects.submit_completion(
                 user=self.user,
-                course_key=self.block_key.course_key,
                 block_key=self.block_key,
                 completion=0.9,
             )
@@ -147,7 +141,7 @@ class CompletionDisabledTestCase(CompletionSetUpMixin, TestCase):
     def test_submit_batch_completion_without_waffle(self):
         with self.assertRaises(RuntimeError):
             blocks = [(self.block_key, 1.0)]
-            models.BlockCompletion.objects.submit_batch_completion(self.user, self.course_key, blocks)
+            models.BlockCompletion.objects.submit_batch_completion(self.user, blocks)
 
 
 class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
@@ -161,47 +155,55 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
         super(CompletionFetchingTestCase, self).setUp()
         self.user_one = UserFactory.create()
         self.user_two = UserFactory.create()
-        self.course_key_one = CourseKey.from_string("edX/MOOC101/2049_T2")
+        self.course_key_one = CourseKey.from_string("course-v1:edX+MOOC202+2049_T2")
         self.course_key_two = CourseKey.from_string("edX/MOOC101/2050_T2")
-        self.block_keys = [
+        self.block_keys_one = [
+            UsageKey.from_string("block-v1:edX+MOOC202+2049_T2+type@video+block@{}".format(number))
+            for number in range(5)
+        ]
+        self.block_keys_two = [
+            # Some old mongo usage keys - these don't contain the run info
             UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
         ]
+        self.block_keys_two_with_runs = [key.replace(course_key=self.course_key_two) for key in self.block_keys_two]
 
+        # Submit completions for user one in course one:
         the_completion_date = datetime.datetime(2050, 1, 1, tzinfo=UTC)
-        for idx, block_key in enumerate(self.block_keys[:3]):
+        for idx, block_key in enumerate(self.block_keys_one[:3]):
             with freeze_time(the_completion_date):
                 models.BlockCompletion.objects.submit_completion(
                     user=self.user_one,
-                    course_key=self.course_key_one,
                     block_key=block_key,
                     completion=1.0 - (0.2 * idx),
                 )
             the_completion_date += datetime.timedelta(days=1)
 
-        # Wrong user
-        submit_completions_for_testing(self.user_two, self.course_key_one, self.block_keys[2:])
+        # And submit some for user two in course one:
+        submit_completions_for_testing(self.user_two, self.block_keys_one[2:])
 
-        # Wrong course
+        # And finally three completions (1, 0.8, 0.6) for user one in course two:
         the_completion_date = datetime.datetime(2050, 1, 10, tzinfo=UTC)
         with freeze_time(the_completion_date):
-            submit_completions_for_testing(self.user_one, self.course_key_two, [self.block_keys[4]])
+            submit_completions_for_testing(self.user_one, self.block_keys_two_with_runs[:3])
 
-    def test_get_course_completions_missing_runs(self):
-        actual_completions = models.BlockCompletion.get_course_completions(self.user_one, self.course_key_one)
-        expected_block_keys = [key.replace(course_key=self.course_key_one) for key in self.block_keys[:3]]
+        # No completions for user two in course two
+
+    def test_get_learning_context_completions_missing_runs(self):
+        actual_completions = models.BlockCompletion.get_learning_context_completions(self.user_one, self.course_key_two)
+        expected_block_keys = self.block_keys_two_with_runs[:3]
         expected_completions = dict(zip(expected_block_keys, [1.0, 0.8, 0.6]))
         self.assertEqual(expected_completions, actual_completions)
 
-    def test_get_course_completions_empty_result_set(self):
+    def test_get_learning_context_completions_empty_result_set(self):
         self.assertEqual(
-            models.BlockCompletion.get_course_completions(self.user_two, self.course_key_two),
+            models.BlockCompletion.get_learning_context_completions(self.user_two, self.course_key_two),
             {}
         )
 
     def test_get_latest_block_completed(self):
         self.assertEqual(
             models.BlockCompletion.get_latest_block_completed(self.user_one, self.course_key_one).block_key,
-            self.block_keys[2]
+            self.block_keys_one[2]
         )
 
     def test_get_latest_completed_none_exist(self):
@@ -211,7 +213,7 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
         self.assertDictEqual(
             models.BlockCompletion.latest_blocks_completed_all_courses(self.user_one),
             {
-                self.course_key_two: (datetime.datetime(2050, 1, 10, tzinfo=UTC), self.block_keys[4]),
-                self.course_key_one: (datetime.datetime(2050, 1, 3, tzinfo=UTC), self.block_keys[2])
+                self.course_key_two: (datetime.datetime(2050, 1, 10, tzinfo=UTC), self.block_keys_two[2]),
+                self.course_key_one: (datetime.datetime(2050, 1, 3, tzinfo=UTC), self.block_keys_one[2])
             }
         )

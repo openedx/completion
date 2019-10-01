@@ -13,6 +13,12 @@ This repository provides a Django model `BlockCompletion` that is intended to be
 provides various handlers and services for the recording of completion data.  It also provides a DRF API for submitting
 completion data in batches.
 
+Enabling in the LMS
+-------------------
+By default, the Open edX LMS does not use this library. To turn it on, go to http://localhost:18000/admin/waffle/switch/ (substitute your LMS URL for http://localhost:18000/), and add a new switch with Name ``completion.enable_completion_tracking`` and Active selected.
+
+See `Completion Tool <https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/exercises_tools/completion.html>`_ in the Open edX documentation for details on what will happen once enabled.
+
 License
 -------
 
@@ -61,6 +67,8 @@ Note: When you see "from inside the lms" below, it means that you've run ``make 
     virtualenv completion-env
     source completion-env/bin/activate
     make install
+
+#. Don't forget to enable the waffle switch as described above in "Enabling in the LMS"
 
 #. That's it!  In order to simulate a given tox environment ``(django18, django111, quality)``, run ``tox -e <env>`` for the env in question.  If you want to run ``pytest`` directly::
 

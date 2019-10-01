@@ -14,7 +14,7 @@ from . import waffle
 
 class CompletionService(object):
     """
-    Service for handling completions for a user within a course.
+    Service for handling completions for a user within a learning context.
 
     Exposes
 
@@ -22,11 +22,11 @@ class CompletionService(object):
     * self.get_completions(candidates)
     * self.vertical_is_complete(vertical_item)
 
-    Constructor takes a user object and course_key as arguments.
+    Constructor takes a user object and context_key as arguments.
     """
-    def __init__(self, user, course_key):
+    def __init__(self, user, context_key):
         self._user = user
-        self._course_key = course_key
+        self._context_key = context_key
 
     def completion_tracking_enabled(self):
         """
@@ -40,30 +40,37 @@ class CompletionService(object):
 
     def get_completions(self, candidates):
         """
-        Given an iterable collection of block_keys in the course, returns a
-        mapping of the block_keys to the present completion values of their
-        associated blocks.
+        Given an iterable collection of block_keys in the learning context,
+        returns a mapping of the block_keys to the present completion values of
+        their associated blocks.
 
-        If a completion is not found for a given block in the current course,
+        If a completion is not found for a given block in the current context,
         0.0 is returned.  The service does not attempt to verify that the block
-        exists within the course.
+        exists within the learning context.
 
         Parameters:
 
-            candidates: collection of BlockKeys within the current course.
+            candidates: collection of BlockKeys within the current learning context.
             Note: Usage keys may not have the course run filled in for old mongo courses.
             This method checks for completion records against a set of BlockKey candidates with the course run
-            filled in from self._course_key.
+            filled in from self._context_key.
 
         Return value:
 
             dict[BlockKey] -> float: Mapping blocks to their completion value.
         """
-        queryset = BlockCompletion.user_course_completion_queryset(self._user, self._course_key).filter(
+        queryset = BlockCompletion.user_learning_context_completion_queryset(self._user, self._context_key).filter(
             block_key__in=candidates
         )
         completions = BlockCompletion.completion_by_block_key(queryset)
-        candidates_with_runs = [candidate.replace(course_key=self._course_key) for candidate in candidates]
+
+        def fill_in_run(block_key):
+            """ Add run information to the block usage keys, if it's missing (old mongo keys) """
+            if block_key.context_key.is_course and block_key.context_key.run is None:
+                return block_key.replace(course_key=self._context_key)
+            return block_key
+
+        candidates_with_runs = [fill_in_run(candidate) for candidate in candidates]
         for candidate in candidates_with_runs:
             if candidate not in completions:
                 completions[candidate] = 0.0
@@ -77,7 +84,7 @@ class CompletionService(object):
         for parent blocks (right now it just stores completion for leaves-
         problems, HTML, video, etc.).
         """
-        if item.location.block_type != 'vertical':
+        if item.scope_ids.block_type != 'vertical':
             raise ValueError('The passed in xblock is not a vertical type!')
 
         if not self.completion_tracking_enabled():
@@ -85,7 +92,7 @@ class CompletionService(object):
 
         # this is temporary local logic and will be removed when the whole course tree is included in completion
         child_locations = [
-            child.location for child in item.get_children() if child.location.block_type != 'discussion'
+            child.scope_ids.usage_id for child in item.get_children() if child.scope_ids.block_type != 'discussion'
         ]
         completions = self.get_completions(child_locations)
         for child_location in child_locations:
@@ -116,8 +123,8 @@ class CompletionService(object):
         Returns a list of blocks which should be marked complete on view and haven't been yet.
         """
         blocks = [block for block in blocks if self.can_mark_block_complete_on_view(block)]
-        completions = self.get_completions({block.location for block in blocks})
-        return [block for block in blocks if completions.get(block.location, 0) < 1.0]
+        completions = self.get_completions({block.scope_ids.usage_id for block in blocks})
+        return [block for block in blocks if completions.get(block.scope_ids.usage_id, 0) < 1.0]
 
     def submit_group_completion(self, block_key, completion, users=None, user_ids=None):
         """
@@ -148,7 +155,6 @@ class CompletionService(object):
         for user in users:
             submitted.append(BlockCompletion.objects.submit_completion(
                 user=user,
-                course_key=self._course_key,
                 block_key=block_key,
                 completion=completion
             ))
@@ -163,7 +169,6 @@ class CompletionService(object):
         """
         return BlockCompletion.objects.submit_completion(
             user=self._user,
-            course_key=self._course_key,
             block_key=block_key,
             completion=completion
         )

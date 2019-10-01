@@ -36,6 +36,9 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
                 "i4x://edX/MOOC101/video/{}".format(number)
             ).replace(course_key=self.course_key) for number in range(5)
         ]
+        self.other_course_block_keys = [
+            self.other_course_key.make_usage_key('video', 'id')
+        ]
 
         self.completion_service = CompletionService(self.user, self.course_key)
 
@@ -43,7 +46,6 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
         for idx, block_key in enumerate(self.block_keys[0:3]):
             BlockCompletion.objects.submit_completion(
                 user=self.user,
-                course_key=self.course_key,
                 block_key=block_key,
                 completion=1.0 - (0.2 * idx),
             )
@@ -52,7 +54,6 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
         for idx, block_key in enumerate(self.block_keys[2:]):
             BlockCompletion.objects.submit_completion(
                 user=self.other_user,
-                course_key=self.course_key,
                 block_key=block_key,
                 completion=0.9 - (0.2 * idx),
             )
@@ -60,8 +61,7 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
         # Wrong course
         BlockCompletion.objects.submit_completion(
             user=self.user,
-            course_key=self.other_course_key,
-            block_key=self.block_keys[4],
+            block_key=self.other_course_block_keys[0],
             completion=0.75,
         )
 
@@ -157,11 +157,14 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
     def test_blocks_to_mark_complete_on_view(self):
 
         completable_block_1 = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
-        completable_block_1.location = UsageKey.from_string("i4x://edX/100/a/1").replace(course_key=self.course_key)
+        usage_id_1 = UsageKey.from_string("i4x://edX/100/a/1").replace(course_key=self.course_key)
+        completable_block_1.scope_ids.usage_id = usage_id_1
         completable_block_2 = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
-        completable_block_2.location = UsageKey.from_string("i4x://edX/100/a/2").replace(course_key=self.course_key)
+        usage_id_2 = UsageKey.from_string("i4x://edX/100/a/2").replace(course_key=self.course_key)
+        completable_block_2.scope_ids.usage_id = usage_id_2
         aggregator_block = XBlock(Mock(), scope_ids=Mock(spec=ScopeIds))
-        aggregator_block.location = UsageKey.from_string("i4x://edX/100/a/3").replace(course_key=self.course_key)
+        usage_id_3 = UsageKey.from_string("i4x://edX/100/a/3").replace(course_key=self.course_key)
+        aggregator_block.scope_ids.usage_id = usage_id_3
         aggregator_block.completion_mode = XBlockCompletionMode.AGGREGATOR
 
         self.assertEqual(self.completion_service.blocks_to_mark_complete_on_view([]), [])
@@ -179,8 +182,7 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
 
         BlockCompletion.objects.submit_completion(
             user=self.user,
-            course_key=self.course_key,
-            block_key=completable_block_2.location,
+            block_key=completable_block_2.scope_ids.usage_id,
             completion=1.0
         )
 
@@ -193,8 +195,7 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
 
         BlockCompletion.objects.submit_completion(
             user=self.user,
-            course_key=self.course_key,
-            block_key=completable_block_1.location,
+            block_key=completable_block_1.scope_ids.usage_id,
             completion=1.0
         )
 
@@ -215,6 +216,6 @@ class CompletionDelayTestCase(CompletionSetUpMixin, TestCase):
 
     @ddt.data(1, 1000, 0)
     def test_get_complete_on_view_delay_ms(self, delay):
-        service = CompletionService(self.user, self.course_key)
+        service = CompletionService(self.user, self.context_key)
         with override_settings(COMPLETION_BY_VIEWING_DELAY_MS=delay):
             self.assertEqual(service.get_complete_on_view_delay_ms(), delay)
