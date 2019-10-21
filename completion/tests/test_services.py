@@ -164,17 +164,17 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
         aggregator_block.location = UsageKey.from_string("i4x://edX/100/a/3").replace(course_key=self.course_key)
         aggregator_block.completion_mode = XBlockCompletionMode.AGGREGATOR
 
-        self.assertSetEqual(self.completion_service.blocks_to_mark_complete_on_view({}), set())
+        self.assertEqual(self.completion_service.blocks_to_mark_complete_on_view([]), [])
 
-        self.assertSetEqual(
-            self.completion_service.blocks_to_mark_complete_on_view({aggregator_block}), set()
+        self.assertEqual(
+            self.completion_service.blocks_to_mark_complete_on_view([aggregator_block]), []
         )
 
-        self.assertSetEqual(
+        self.assertEqual(
             self.completion_service.blocks_to_mark_complete_on_view(
-                {completable_block_1, completable_block_2, aggregator_block}
+                [completable_block_1, completable_block_2, aggregator_block]
             ),
-            {completable_block_1, completable_block_2}
+            [completable_block_1, completable_block_2]
         )
 
         BlockCompletion.objects.submit_completion(
@@ -184,11 +184,11 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
             completion=1.0
         )
 
-        self.assertSetEqual(
+        self.assertEqual(
             self.completion_service.blocks_to_mark_complete_on_view(
-                {completable_block_1, completable_block_2, aggregator_block}
+                [completable_block_1, completable_block_2, aggregator_block]
             ),
-            {completable_block_1}
+            [completable_block_1]
         )
 
         BlockCompletion.objects.submit_completion(
@@ -198,11 +198,11 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
             completion=1.0
         )
 
-        self.assertSetEqual(
+        self.assertEqual(
             self.completion_service.blocks_to_mark_complete_on_view(
-                {completable_block_1, completable_block_2, aggregator_block}
+                [completable_block_1, completable_block_2, aggregator_block]
             ),
-            set()
+            []
         )
 
 

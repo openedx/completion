@@ -113,11 +113,11 @@ class CompletionService(object):
 
     def blocks_to_mark_complete_on_view(self, blocks):
         """
-        Returns a set of blocks which should be marked complete on view and haven't been yet.
+        Returns a list of blocks which should be marked complete on view and haven't been yet.
         """
-        blocks = {block for block in blocks if self.can_mark_block_complete_on_view(block)}
+        blocks = [block for block in blocks if self.can_mark_block_complete_on_view(block)]
         completions = self.get_completions({block.location for block in blocks})
-        return {block for block in blocks if completions.get(block.location, 0) < 1.0}
+        return [block for block in blocks if completions.get(block.location, 0) < 1.0]
 
     def submit_group_completion(self, block_key, completion, users=None, user_ids=None):
         """

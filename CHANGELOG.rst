@@ -13,6 +13,12 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
+
+[2.1.0] - 2019-10-18
+--------------------
+* Switch blocks_to_mark_complete_on_view() to return a list of XBlocks instead of a set.  Many XBlocks aren't hashable;
+  the old implementation allowed subtle bugs under Python 2.7 but triggers an immediate error under 3.5.
+
 [2.0.0] - 2019-04-23
 --------------------
 * Unpin django-rest-framework requirements. This is a potentially **breaking change** if people were

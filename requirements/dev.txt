@@ -59,7 +59,7 @@ packaging==19.1           # via caniusepython3, pytest, tox
 path.py==11.5.2           # via edx-i18n-tools
 pathlib2==2.3.4           # via importlib-metadata, pytest, pytest-django
 pbr==5.4.2                # via stevedore
-pip-tools==4.0.0
+pip-tools==4.2.0
 pluggy==0.12.0            # via pytest, tox
 polib==1.1.0              # via edx-i18n-tools
 psutil==1.2.1             # via edx-django-utils, edx-drf-extensions
