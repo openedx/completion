@@ -14,6 +14,10 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[2.1.1] - 2019-10-21
+--------------------
+* Updated credentials for PyPI deployment via token.
+
 [2.1.0] - 2019-10-18
 --------------------
 * Switch blocks_to_mark_complete_on_view() to return a list of XBlocks instead of a set.  Many XBlocks aren't hashable;
