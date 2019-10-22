@@ -59,7 +59,7 @@ class CompletionService(object):
 
             dict[BlockKey] -> float: Mapping blocks to their completion value.
         """
-        queryset = BlockCompletion.user_learning_context_completion_queryset(self._user, self._context_key).filter(
+        queryset = BlockCompletion.user_learning_context_completion_queryset(self._user, self._context_key).filter(  # pylint: disable=no-member
             block_key__in=candidates
         )
         completions = BlockCompletion.completion_by_block_key(queryset)

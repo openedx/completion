@@ -15,7 +15,7 @@ urlpatterns = [
         username=r'(?P<username>[^/]*)',
         course_key=r'(?P<course_key>[^/+]+(/|\+)[^/+]+(/|\+)[^/?]+)',
         subsection_id=r'(?P<subsection_id>[^/]*)'
-        ),
+        ),  # noqa
         views.SubsectionCompletionView.as_view(),
         name='subsection-completion')
 ]

@@ -53,9 +53,11 @@ Using with Docker Devstack
 
 Prerequisite: Have your Open edX `Devstack <https://github.com/edx/devstack>`_ properly installed.
 
-Note: When you see "from inside the lms" below, it means that you've run ``make lms-shell`` from your devstack directory and are on a command prompt inside the LMS container.
+Note: When you see "from inside the lms" below, it means that you've run ``make lms-shell`` from your devstack
+directory and are on a command prompt inside the LMS container.
 
-#. Clone this repo into ``../src/`` directory (relative to your "devstack" repo location). This will mount the directory in a way that is accessible to the lms container.
+#. Clone this repo into ``../src/`` directory (relative to your "devstack" repo location). This will mount the
+   directory in a way that is accessible to the lms container.
 
 #. From inside the lms, uninstall completion and reinstall your local copy. You can just copy the following line::
 

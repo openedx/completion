@@ -299,9 +299,9 @@ class BlockCompletion(TimeStampedModel, models.Model):
             obj: block completion
         """
         try:
-            latest_block_completion = cls.user_learning_context_completion_queryset(user, context_key).latest()
+            latest_block_completion = cls.user_learning_context_completion_queryset(user, context_key).latest()  # pylint: disable=no-member
         except cls.DoesNotExist:
-            return
+            return None
         return latest_block_completion
 
     @staticmethod
