@@ -14,7 +14,11 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
-[3.0.0] - 2019-10-04
+[3.0.1] - 2019-10-22
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Fix the package long description to be valid rST, check this in CI.
+
+[3.0.0] - 2019-10-22
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Support tracking completion of XBlocks in any "learning context", such as in
   a content library, and not just in courses. To keep the code clean, this has
@@ -23,11 +27,11 @@ Unreleased
   usage key rather than block key + course key.) The REST API is unchanged.
 
 [2.1.1] - 2019-10-21
---------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Updated credentials for PyPI deployment via token.
 
 [2.1.0] - 2019-10-18
---------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Switch blocks_to_mark_complete_on_view() to return a list of XBlocks instead of a set.  Many XBlocks aren't hashable;
   the old implementation allowed subtle bugs under Python 2.7 but triggers an immediate error under 3.5.
 
@@ -55,8 +59,8 @@ Unreleased
 [0.1.7] - 2018-06-18
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Added can_mark_block_complete_on_view() and blocks_to_mark_complete_on_view()
-methods on CompletionService and renamed get_completion_by_viewing_delay_ms()
-to get_complete_on_view_delay_ms().
+  methods on CompletionService and renamed get_completion_by_viewing_delay_ms()
+  to get_complete_on_view_delay_ms().
 
 [0.1.6] - 2018-04-13
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,7 +69,7 @@ to get_complete_on_view_delay_ms().
 [0.1.5] - 2018-04-03
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Delete enable_visual_progress methods and checks. Deprecate ENABLE_VISUAL_PROGRESS,
-ENABLE_COURSE_VISUAL_PROGRESS, and ENABLE_SITE_VISUAL_PROGRESS waffle flags
+  ENABLE_COURSE_VISUAL_PROGRESS, and ENABLE_SITE_VISUAL_PROGRESS waffle flags
 
 [0.1.4] - 2018-03-28
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
