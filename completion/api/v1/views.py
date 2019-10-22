@@ -26,7 +26,7 @@ except ImportError:
     from edx_rest_framework_extensions.authentication import SessionAuthenticationAllowInactiveUser
 # pylint: enable=ungrouped-imports
 
-from opaque_keys.edx.keys import CourseKey, UsageKey
+from opaque_keys.edx.keys import LearningContextKey, UsageKey
 from opaque_keys import InvalidKeyError
 from six import text_type
 
@@ -60,7 +60,7 @@ class CompletionBatchView(APIView):
             * batch_object: The data provided to a POST. The expected format is the following:
             {
                 "username": "username",
-                "course_key": "course-key",
+                "course_key": "context-key",
                 "blocks": {
                     "block_key1": 0.0,
                     "block_key2": 1.0,
@@ -70,7 +70,7 @@ class CompletionBatchView(APIView):
 
 
         Return Value:
-            * tuple: (User, CourseKey, List of tuples (UsageKey, completion_float)
+            * tuple: (User, LearningContextKey, List of tuples (UsageKey, completion_float)
 
         Raises:
 
@@ -92,30 +92,30 @@ class CompletionBatchView(APIView):
         username = batch_object['username']
         user = User.objects.get(username=username)
 
-        course_key_obj = self._validate_and_parse_course_key(batch_object['course_key'])
+        context_key_obj = self._validate_and_parse_context_key(batch_object['course_key'])
 
-        if not CourseEnrollment.is_enrolled(user, course_key_obj):
+        if context_key_obj.is_course and not CourseEnrollment.is_enrolled(user, context_key_obj):
             raise ValidationError(_('User is not enrolled in course.'))
 
         blocks = batch_object['blocks']
         block_objs = []
         for block_key in blocks:
-            block_key_obj = self._validate_and_parse_block_key(block_key, course_key_obj)
+            block_key_obj = self._validate_and_parse_block_key(block_key, context_key_obj)
             completion = float(blocks[block_key])
             block_objs.append((block_key_obj, completion))
 
-        return user, course_key_obj, block_objs
+        return user, block_objs
 
-    def _validate_and_parse_course_key(self, course_key):
+    def _validate_and_parse_context_key(self, context_key):
         """
-        Returns a validated parsed CourseKey deserialized from the given course_key.
+        Returns a validated parsed LearningContextKey deserialized from the given context_key.
         """
         try:
-            return CourseKey.from_string(course_key)
+            return LearningContextKey.from_string(context_key)
         except InvalidKeyError:
-            raise ValidationError(_("Invalid course key: {}").format(course_key))
+            raise ValidationError(_("Invalid learning context key: {}").format(context_key))
 
-    def _validate_and_parse_block_key(self, block_key, course_key_obj):
+    def _validate_and_parse_block_key(self, block_key, context_key_obj):
         """
         Returns a validated, parsed UsageKey deserialized from the given block_key.
         """
@@ -124,14 +124,13 @@ class CompletionBatchView(APIView):
         except InvalidKeyError:
             raise ValidationError(_("Invalid block key: {}").format(block_key))
 
-        if block_key_obj.run is None:
-            expected_matching_course_key = course_key_obj.replace(run=None)
-        else:
-            expected_matching_course_key = course_key_obj
+        if block_key_obj.context_key.is_course and block_key_obj.context_key.run is None:
+            # block_key_obj is from an old mongo course and its context_key is missing run info:
+            block_key_obj = block_key_obj.replace(course_key=context_key_obj)
 
-        if block_key_obj.course_key != expected_matching_course_key:
+        if block_key_obj.context_key != context_key_obj:
             raise ValidationError(
-                _("Block with key: '{key}' is not in course {course}").format(key=block_key, course=course_key_obj)
+                _("Block with key: '{key}' is not in context {context}").format(key=block_key, context=context_key_obj)
             )
 
         return block_key_obj
@@ -165,8 +164,8 @@ class CompletionBatchView(APIView):
         """
         batch_object = request.data or {}
         try:
-            user, course_key, blocks = self._validate_and_parse(batch_object)
-            BlockCompletion.objects.submit_batch_completion(user, course_key, blocks)
+            user, blocks = self._validate_and_parse(batch_object)
+            BlockCompletion.objects.submit_batch_completion(user, blocks)
         except ValidationError as exc:
             return Response({
                 "detail": _(' ').join(text_type(msg) for msg in exc.messages),
@@ -246,7 +245,8 @@ class SubsectionCompletionView(APIView):
             block_types_filter=block_types_filter
         )
 
-        course_completions = BlockCompletion.get_course_completions(user_id, CourseKey.from_string(course_key))
-        aggregated_completion = get_completion(course_completions, blocks['blocks'], blocks['root'])
+        course_key = LearningContextKey.from_string(course_key)
+        context_completions = BlockCompletion.get_learning_context_completions(user_id, course_key)
+        aggregated_completion = get_completion(context_completions, blocks['blocks'], blocks['root'])
 
         return Response({"completion": aggregated_completion}, status=status.HTTP_200_OK)
