@@ -1,7 +1,7 @@
 # Core requirements for using this application
 -c constraints.txt
 
-Django>=1.8,<2.0          # Web application framework
+Django>=1.11          # Web application framework
 django-model-utils        # Provides TimeStampedModel abstract base class
 djangorestframework>=3.2.0  # REST API framework
 edx-opaque-keys[django]   # Create and introspect course and xblock identities
