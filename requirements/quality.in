@@ -1,4 +1,3 @@
-# Requirements for code quality checks
 -c constraints.txt
 
 -r base.in                # Core dependencies to allow pylint to check imports

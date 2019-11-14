@@ -29,12 +29,12 @@ djangorestframework-jwt==1.11.0  # via edx-drf-extensions
 djangorestframework==3.9.4
 docutils==0.15.2          # via readme-renderer
 edx-django-utils==2.0.2   # via edx-drf-extensions
-edx-drf-extensions==2.4.4
+edx-drf-extensions==2.4.5
 edx-lint==1.4.1
 edx-opaque-keys[django]==2.0.0
 enum34==1.1.6             # via astroid, fs
 factory-boy==2.12.0
-faker==2.0.3              # via factory-boy
+faker==2.0.4              # via factory-boy
 freezegun==0.3.12
 fs==2.4.11                # via xblock
 funcsigs==1.0.2           # via mock, pytest
@@ -50,7 +50,7 @@ markupsafe==1.1.1         # via xblock
 mccabe==0.6.1             # via pylint
 mock==3.0.5
 more-itertools==5.0.0     # via pytest, zipp
-newrelic==5.2.2.130       # via edx-django-utils
+newrelic==5.2.3.131       # via edx-django-utils
 packaging==19.2           # via caniusepython3, pytest
 pathlib2==2.3.5           # via importlib-metadata, pytest, pytest-django
 pbr==5.4.3                # via stevedore
@@ -92,11 +92,11 @@ twine==1.15.0
 typing==3.7.4.1           # via fs
 urllib3==1.25.7           # via requests
 wcwidth==0.1.7            # via pytest
-web-fragments==0.3.0      # via xblock
+web-fragments==0.3.1      # via xblock
 webencodings==0.5.1       # via bleach
 webob==1.8.5              # via xblock
 wrapt==1.11.2             # via astroid
-xblock==1.2.8
+xblock==1.2.9
 zipp==0.6.0               # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
