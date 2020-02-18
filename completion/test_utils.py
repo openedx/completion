@@ -9,7 +9,7 @@ from datetime import datetime
 from django.contrib.auth.models import User
 import factory
 from factory.django import DjangoModelFactory
-import mock
+from unittest import mock
 from opaque_keys.edx.keys import UsageKey
 from pytz import UTC
 

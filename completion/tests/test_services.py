@@ -7,7 +7,7 @@ from __future__ import absolute_import, unicode_literals
 import ddt
 from django.test import TestCase
 from django.test.utils import override_settings
-from mock import Mock
+from unittest.mock import Mock
 from opaque_keys.edx.keys import CourseKey, UsageKey
 from xblock.completable import XBlockCompletionMode
 from xblock.core import XBlock

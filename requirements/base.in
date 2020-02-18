@@ -1,10 +1,10 @@
 # Core requirements for using this application
 -c constraints.txt
 
-Django>=1.11          # Web application framework
-django-model-utils        # Provides TimeStampedModel abstract base class
-djangorestframework>=3.2.0  # REST API framework
-edx-opaque-keys[django]   # Create and introspect course and xblock identities
-edx-drf-extensions>=1.11.0,<3.0.0 # Provides JWT authentication
-pytz                      # Time zone support
-XBlock>=1.2.2             # Courseware component architecture
+Django>=1.11
+djangorestframework>=3.2.0
+django-model-utils
+edx-opaque-keys[django]
+edx-drf-extensions>=1.11.0,<3.0.0
+pytz
+XBlock>=1.2.2
