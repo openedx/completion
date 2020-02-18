@@ -5,11 +5,11 @@ from __future__ import absolute_import, unicode_literals
 
 from contextlib import contextmanager
 from datetime import datetime
+from unittest import mock
 
 from django.contrib.auth.models import User
 import factory
 from factory.django import DjangoModelFactory
-from unittest import mock
 from opaque_keys.edx.keys import UsageKey
 from pytz import UTC
 
@@ -35,7 +35,7 @@ class UserFactory(DjangoModelFactory):
     """
     A Factory for User objects.
     """
-    class Meta(object):
+    class Meta:
         model = User
         django_get_or_create = ('email', 'username')
 
@@ -53,7 +53,7 @@ class UserFactory(DjangoModelFactory):
     date_joined = datetime(2011, 1, 1, tzinfo=UTC)
 
 
-class CompletionWaffleTestMixin(object):
+class CompletionWaffleTestMixin:
     """
     Mixin to provide waffle switch overriding ability to child TestCase classes.
     """
@@ -70,7 +70,7 @@ class CompletionWaffleTestMixin(object):
         self.addCleanup(_waffle_overrider.__exit__, None, None, None)
 
 
-class CompletionSetUpMixin(object):
+class CompletionSetUpMixin:
     """
     Mixin to provide set_up_completion() function to child TestCase classes.
     """

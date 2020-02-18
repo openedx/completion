@@ -12,7 +12,7 @@ from .models import BlockCompletion
 from . import waffle
 
 
-class CompletionService(object):
+class CompletionService:
     """
     Service for handling completions for a user within a learning context.
 

@@ -4,10 +4,11 @@ Tests of completion xblock runtime services
 
 from __future__ import absolute_import, unicode_literals
 
+from unittest.mock import Mock
+
 import ddt
 from django.test import TestCase
 from django.test.utils import override_settings
-from unittest.mock import Mock
 from opaque_keys.edx.keys import CourseKey, UsageKey
 from xblock.completable import XBlockCompletionMode
 from xblock.core import XBlock

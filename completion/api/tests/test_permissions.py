@@ -9,7 +9,7 @@ from ..permissions import IsStaffOrOwner
 from ...test_utils import UserFactory
 
 
-class FakeObject(object):
+class FakeObject:
     """ Fake class for object permission tests. """
     def __init__(self, user=None, course_id=None):
         self.user = user
