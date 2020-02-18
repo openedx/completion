@@ -23,7 +23,7 @@ class BigAutoField(models.AutoField):
         conn_module = type(connection).__module__
         if "mysql" in conn_module:
             return "bigint AUTO_INCREMENT"
-        elif "postgres" in conn_module:
+        if "postgres" in conn_module:
             return "bigserial"
         return super(BigAutoField, self).db_type(connection)
 

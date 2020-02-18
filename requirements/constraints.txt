@@ -8,5 +8,22 @@
 # pin when possible.  Writing an issue against the offending project and
 # linking to it here is good.
 
+Django>=1.8,<2.0
+
 # futures is part of the builtin python in python3
 futures ; python_version == "2.7"
+
+# >4.0.0 requires Django>=2.0
+django-model-utils<4.0.0
+
+# Requires: Python >=3.6
+mock<4.0.0
+
+# Requires: Python >=3.6
+twine<2.0.0
+
+# Requires: Python >=3.6
+zipp<2.0.0
+
+# Requires: Python >=3.6
+inflect<4.0.0

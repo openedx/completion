@@ -314,7 +314,7 @@ class BlockCompletion(TimeStampedModel, models.Model):
         """
         return {completion.full_block_key: completion.completion for completion in completion_iterable}
 
-    class Meta(object):
+    class Meta:
         index_together = [
             ('context_key', 'block_type', 'user'),
             ('user', 'context_key', 'modified'),
