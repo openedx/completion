@@ -14,6 +14,9 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[3.1.1] - 2020-02-24
+* Remove unnecessary constraint for edx-drf-extensions<3.0.0
+
 [3.1.0] - 2020-02-18
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Upgrades packages, drops support for Python 2.
@@ -57,7 +60,7 @@ Unreleased
 
 [0.1.14] - 2018-10-04
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-* Added submit_completion and submit_group_completion methods on 
+* Added submit_completion and submit_group_completion methods on
   CompletionService.
 
 [0.1.7] - 2018-06-18
@@ -109,8 +112,8 @@ Unreleased
 
 [0.0.8] - 2018-03-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-* Add model method for superlative “last completed block” - for site awareness 
-  include every last completed block by course, for later sorting in business 
+* Add model method for superlative “last completed block” - for site awareness
+  include every last completed block by course, for later sorting in business
   layer.
 
 [0.0.7] - 2018-02-15
