@@ -92,7 +92,9 @@ class CompletionService:
 
         # this is temporary local logic and will be removed when the whole course tree is included in completion
         child_locations = [
-            child.scope_ids.usage_id for child in item.get_children() if child.scope_ids.block_type != 'discussion'
+            child.scope_ids.usage_id
+            for child in item.get_children()
+            if XBlockCompletionMode.get_mode(child) != XBlockCompletionMode.EXCLUDED
         ]
         completions = self.get_completions(child_locations)
         for child_location in child_locations:
