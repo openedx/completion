@@ -2,8 +2,6 @@
 API v1 views.
 """
 
-from __future__ import absolute_import, unicode_literals
-
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.utils.translation import ugettext as _
@@ -204,6 +202,7 @@ class SubsectionCompletionView(APIView):
         """
         Returns completion for a (user, subsection, course).
         """
+
         def get_completion(course_completions, all_blocks, block_id):
             """
             Recursively get the aggregate completion for a subsection,

@@ -2,8 +2,6 @@
 Completion tracking and aggregation models.
 """
 
-from __future__ import absolute_import, division, print_function, unicode_literals
-
 import logging
 
 from django.contrib.auth.models import User
@@ -24,6 +22,8 @@ try:
     from django.models import BigAutoField  # New in django 1.10
 except ImportError:
     from .fields import BigAutoField
+
+
 # pylint: enable=ungrouped-imports
 
 
@@ -299,7 +299,8 @@ class BlockCompletion(TimeStampedModel, models.Model):
             obj: block completion
         """
         try:
-            latest_block_completion = cls.user_learning_context_completion_queryset(user, context_key).latest()  # pylint: disable=no-member
+            latest_block_completion = cls.user_learning_context_completion_queryset(user,
+                                                                                    context_key).latest()  # pylint: disable=no-member
         except cls.DoesNotExist:
             return None
         return latest_block_completion

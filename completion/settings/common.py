@@ -2,8 +2,6 @@
 Settings for the completion app.
 """
 
-from __future__ import absolute_import, unicode_literals
-
 from os.path import abspath, dirname, join
 
 

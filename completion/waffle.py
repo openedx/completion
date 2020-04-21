@@ -2,7 +2,7 @@
 This module contains various configuration settings via
 waffle switches for the completion app.
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 try:
     from openedx.core.djangoapps.waffle_utils import WaffleSwitchNamespace

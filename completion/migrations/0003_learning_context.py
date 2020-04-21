@@ -4,7 +4,6 @@
 #
 # This migration does not produce any database-level changes. You can verify
 # this with: ./manage.py lms sqlmigrate completion 0003
-from __future__ import unicode_literals
 
 from django.conf import settings
 from django.db import migrations

@@ -1,7 +1,7 @@
 """
 Signal handlers to trigger completion updates.
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 import logging
 
 from django.contrib.auth.models import User

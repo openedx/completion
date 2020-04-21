@@ -2,8 +2,6 @@
 Runtime service for communicating completion information to the xblock system.
 """
 
-from __future__ import absolute_import, unicode_literals
-
 from django.conf import settings
 from django.contrib.auth.models import User
 from xblock.completable import XBlockCompletionMode
@@ -24,6 +22,7 @@ class CompletionService:
 
     Constructor takes a user object and context_key as arguments.
     """
+
     def __init__(self, user, context_key):
         self._user = user
         self._context_key = context_key
@@ -59,7 +58,8 @@ class CompletionService:
 
             dict[BlockKey] -> float: Mapping blocks to their completion value.
         """
-        queryset = BlockCompletion.user_learning_context_completion_queryset(self._user, self._context_key).filter(  # pylint: disable=no-member
+        queryset = BlockCompletion.user_learning_context_completion_queryset(self._user, self._context_key).filter(
+            # pylint: disable=no-member
             block_key__in=candidates
         )
         completions = BlockCompletion.completion_by_block_key(queryset)
@@ -112,11 +112,10 @@ class CompletionService:
         Returns True if the xblock can be marked complete on view.
         This is true of any non-customized, non-scorable, completable block.
         """
-        return (
-            XBlockCompletionMode.get_mode(block) == XBlockCompletionMode.COMPLETABLE
-            and not getattr(block, 'has_custom_completion', False)
-            and not getattr(block, 'has_score', False)
-        )
+        return (XBlockCompletionMode.get_mode(block) == XBlockCompletionMode.COMPLETABLE
+                and not getattr(block, 'has_custom_completion', False)
+                and not getattr(block, 'has_score', False)
+                )
 
     def blocks_to_mark_complete_on_view(self, blocks):
         """

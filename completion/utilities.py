@@ -4,7 +4,7 @@ external users from depending on the BlockCompletion model. Methods working with
 the BlockCompletion model should be included here.
 
 """
-from __future__ import unicode_literals, absolute_import
+
 
 from .exceptions import UnavailableCompletionData
 from .models import BlockCompletion

@@ -2,8 +2,6 @@
 Test models, managers, and validators.
 """
 
-from __future__ import absolute_import, division, unicode_literals
-
 import datetime
 from pytz import UTC
 
