@@ -1,30 +1,13 @@
 language: python
 python:
 - 3.5
+- 3.8
 env:
-- TOXENV=django111-drf37
-- TOXENV=django111-drf38
-- TOXENV=django111-drf39
-- TOXENV=django111-drflatest
-- TOXENV=django20-drf37
-- TOXENV=django20-drf38
-- TOXENV=django20-drf39
-- TOXENV=django20-drflatest
-- TOXENV=django21-drf37
-- TOXENV=django21-drf38
-- TOXENV=django21-drf39
-- TOXENV=django21-drflatest
 - TOXENV=django22-drf37
 - TOXENV=django22-drf38
 - TOXENV=django22-drf39
 - TOXENV=django22-drflatest
-
-matrix:
-  include:
-  - python: 3.5
-    env: TOXENV=quality
-  - python: 3.5
-    env: TOXENV=django20
+- TOXENV=quality
 
 cache:
 - pip
@@ -42,6 +25,7 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
-    condition: "$TOXENV = quality"
+    python: 3.5
+    condition: $TOXENV = quality
   password:
     secure: WZ9bezMiVBDcRb2at5zFX4cgqYwjeIBq4HcXMWIH12M22JBwGRpI+fivhcuWE4XSJxgCnsskawethQPJiVpofvBWs9tLn4LKV1IoPqJ+c+NrWokWdOYPocD1f4SSVzzw6IAsZt6PP6FoY7x2Aq6kh9I1Dx0MSpFukR7KiYXpq5vJ9LO6NFnnQqy3CK5dcGjQh/Zt/DcLWeAHZLVIDtbzrES9faCEvxFsR2omuATk52Z1GAlHIo75oylGXNQ/jgLZq1+cvloHWkSx1QrfqQIPId8G4flZcfJJsoRa3yh+xTdFud39CrDz/BhJ1feNUssY/whjhGXtWjJIs/VWBZ1cU788wADlPPF8Mo4MRt7I6zsQFPScPmCb2VbrEdwQMa8CvQC6TZiZdGxXPvToX2zHlc+sfH/CvmTez0LTzOGhzh0HYytMCM3bkkMmdILrkct1HyeICLyAnLpsSNiSLdfTONhUOqE0gUg5ZFFSV2blzeX5SPSw3FEUovhh+xre2s7Hq4FeU70M/fU9EjBrcKaocSU0rd8Mid9ANdPGZECNVv06g4uU958GK2sNsBWLiJSjnL4/xwKA2xja9ZoHGSapUUtrHk015SOayBwE2DgYSbgrRtovzmHk/HO+k4DDojGr4V6i35VhJqOJ0sl5gyA1dFwkhihPvrHB3Pro9vnFuUA=
