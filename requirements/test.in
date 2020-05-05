@@ -6,5 +6,6 @@
 ddt                       # Repeat a test case with multiple data inputs
 factory_boy               # Fixture factories for test setup
 freezegun                 # Mock the datetime module to manipulate date functions
+mock                      # Mock library for testing
 pytest-cov                # pytest extension for code coverage statistics
 pytest-django             # pytest extension for better Django support
