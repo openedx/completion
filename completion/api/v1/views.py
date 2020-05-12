@@ -58,6 +58,7 @@ class CompletionBatchView(APIView):
 
         Parameters:
             * batch_object: The data provided to a POST. The expected format is the following:
+            ```
             {
                 "username": "username",
                 "course_key": "context-key",
@@ -67,7 +68,7 @@ class CompletionBatchView(APIView):
                     "block_key3": 1.0,
                 }
             }
-
+            ```
 
         Return Value:
             * tuple: (User, LearningContextKey, List of tuples (UsageKey, completion_float)
@@ -140,6 +141,7 @@ class CompletionBatchView(APIView):
         Inserts a batch of completions.
 
         REST Endpoint Format:
+        ```
         {
           "username": "username",
           "course_key": "course-key",
@@ -149,15 +151,18 @@ class CompletionBatchView(APIView):
             "block_key3": 1.0,
           }
         }
+        ```
 
         **Returns**
 
         A Response object, with an appropriate status code.
 
         If successful, status code is 200.
+        ```
         {
            "detail" : _("ok")
         }
+        ```
 
         Otherwise, a 400 or 404 may be returned, and the "detail" content will explain the error.
 
