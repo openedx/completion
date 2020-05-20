@@ -23,4 +23,4 @@ zipp<2.0.0
 inflect<4.0.0
 
 # Requires: Python >=3.8
-tox-battery==0.5.2
+tox-battery<0.6.0
