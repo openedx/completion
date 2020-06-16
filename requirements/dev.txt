@@ -35,7 +35,7 @@ fs==2.4.11                # via xblock
 future==0.18.2            # via pyjwkest
 idna==2.9                 # via requests
 importlib-metadata==1.6.1  # via importlib-resources, inflect, path, pluggy, pytest, tox, virtualenv
-importlib-resources==1.5.0  # via virtualenv
+importlib-resources==2.0.1  # via virtualenv
 inflect==3.0.2            # via -c requirements/constraints.txt, jinja2-pluralize
 isort==4.3.21             # via -r requirements/quality.in, pylint
 jinja2-pluralize==0.3.0   # via diff-cover
@@ -45,19 +45,19 @@ lxml==4.5.1               # via xblock
 markupsafe==1.1.1         # via jinja2, xblock
 mccabe==0.6.1             # via pylint
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
-more-itertools==8.3.0     # via pytest
+more-itertools==8.4.0     # via pytest
 newrelic==5.14.0.142      # via edx-django-utils
 packaging==20.4           # via bleach, pytest, tox
 path.py==12.4.0           # via edx-i18n-tools
 path==13.1.0              # via path.py
 pathlib2==2.3.5           # via pytest
 pbr==5.4.5                # via stevedore
-pip-tools==5.2.0          # via -r requirements/dev.in
+pip-tools==5.2.1          # via -r requirements/dev.in
 pkginfo==1.5.0.1          # via twine
 pluggy==0.13.1            # via diff-cover, pytest, tox
 polib==1.1.0              # via edx-i18n-tools
 psutil==1.2.1             # via edx-django-utils
-py==1.8.1                 # via pytest, tox
+py==1.8.2                 # via pytest, tox
 pycodestyle==2.6.0        # via -r requirements/quality.in
 pycryptodomex==3.9.7      # via pyjwkest
 pydocstyle==5.0.2         # via -r requirements/quality.in
@@ -70,7 +70,7 @@ pylint-plugin-utils==0.6  # via pylint-celery, pylint-django
 pylint==2.4.2             # via edx-lint, pylint-celery, pylint-django, pylint-plugin-utils
 pymongo==3.10.1           # via edx-opaque-keys
 pyparsing==2.4.7          # via packaging
-pytest-cov==2.9.0         # via -r requirements/test.in
+pytest-cov==2.10.0        # via -r requirements/test.in
 pytest-django==3.9.0      # via -r requirements/test.in
 pytest==5.4.3             # via pytest-cov, pytest-django
 python-dateutil==2.8.1    # via edx-drf-extensions, faker, freezegun, xblock
@@ -94,7 +94,7 @@ twine==1.15.0             # via -c requirements/constraints.txt, -r requirements
 typed-ast==1.4.1          # via astroid
 typing==3.7.4.1           # via fs
 urllib3==1.25.9           # via requests
-virtualenv==20.0.21       # via tox
+virtualenv==20.0.23       # via tox
 wcwidth==0.2.4            # via pytest
 web-fragments==0.3.2      # via xblock
 webencodings==0.5.1       # via bleach
