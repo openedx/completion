@@ -1,5 +1,5 @@
 """ Tests for API permissions classes. """
-from __future__ import absolute_import, unicode_literals
+
 
 import ddt
 from django.test import TestCase, RequestFactory

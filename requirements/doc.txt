@@ -24,7 +24,7 @@ edx-drf-extensions==6.0.0  # via -r requirements/base.in
 edx-opaque-keys[django]==2.1.0  # via -r requirements/base.in, edx-drf-extensions
 edx-sphinx-theme==1.5.0   # via -r requirements/doc.in
 factory-boy==2.12.0       # via -r requirements/test.in
-faker==4.1.0              # via factory-boy
+faker==4.1.1              # via factory-boy
 freezegun==0.3.15         # via -r requirements/test.in
 fs==2.4.11                # via xblock
 future==0.18.2            # via pyjwkest

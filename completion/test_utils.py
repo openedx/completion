@@ -1,7 +1,7 @@
 """
 Common functionality to support writing tests around completion.
 """
-from __future__ import absolute_import, unicode_literals
+
 
 from contextlib import contextmanager
 from datetime import datetime
