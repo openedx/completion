@@ -14,7 +14,16 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[3.2.2] - 2020-06-30
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Adding recursive lookup for children of a vertical to the `vertical_is_complete` method in services.py.
+
+  * This was added because verticals containing children that had their own children were not being properly marked
+    as complete. Since the vertical was only looking one layer deep, it was possible to have children lower in the tree
+    incomplete, but the vertical would still be marked as complete. Now it looks at all leaves under the vertical.
+
 [3.1.1] - 2020-02-24
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Remove unnecessary constraint for edx-drf-extensions<3.0.0
 
 [3.1.0] - 2020-02-18
