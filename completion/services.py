@@ -76,27 +76,31 @@ class CompletionService:
                 completions[candidate] = 0.0
         return completions
 
-    def get_user_children(self, node):
+    def get_completable_children(self, node):
         """
         Verticals will sometimes have children that also have children (some
         examples are content libraries, split tests, conditionals, etc.). This
         function will recurse through the children to get to the bottom leaf
-        and return only those children.
+        and return only those children. This function heavily utilizes the
+        XBlockCompletionMode class to determine if it should recurse or not. It
+        will only recurse if the node is an AGGREGATOR
 
         Note: The nodes passed in should have already taken the user into
         account so the proper blocks are shown for this user.
         """
-        if node.scope_ids.block_type != 'discussion':
+        if XBlockCompletionMode.get_mode(node) == XBlockCompletionMode.EXCLUDED:
             return []
 
-        node_children = ((hasattr(node, 'get_child_descriptors') and node.get_child_descriptors())
-                         or (hasattr(node, 'get_children') and node.get_children()))
         user_children = []
-        if node_children:
+        if XBlockCompletionMode.get_mode(node) == XBlockCompletionMode.AGGREGATOR:
+            node_children = ((hasattr(node, 'get_child_descriptors') and node.get_child_descriptors())
+                             or (hasattr(node, 'get_children') and node.get_children()))
             for child in node_children:
-                user_children.extend(self.get_user_children(child))
-        else:
+                user_children.extend(self.get_completable_children(child))
+
+        if XBlockCompletionMode.get_mode(node) == XBlockCompletionMode.COMPLETABLE:
             user_children = [node]
+
         return user_children
 
     def vertical_is_complete(self, item):
@@ -114,7 +118,7 @@ class CompletionService:
             return None
 
         # this is temporary local logic and will be removed when the whole course tree is included in completion
-        child_locations = [child.scope_ids.usage_id for child in self.get_user_children(item)]
+        child_locations = [child.scope_ids.usage_id for child in self.get_completable_children(item)]
         completions = self.get_completions(child_locations)
         for child_location in child_locations:
             if completions[child_location] < 1.0:
