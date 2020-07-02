@@ -85,8 +85,8 @@ refer to this `list of resources`_ if you need any assistance.
 .. _list of resources: https://open.edx.org/getting-help
 
 
-.. |pypi-badge| image:: https://img.shields.io/pypi/v/completion.svg
-    :target: https://pypi.python.org/pypi/completion/
+.. |pypi-badge| image:: https://img.shields.io/pypi/v/edx-completion.svg
+    :target: https://pypi.python.org/pypi/edx-completion/
     :alt: PyPI
 
 .. |travis-badge| image:: https://travis-ci.org/edx/completion.svg?branch=master
@@ -101,8 +101,8 @@ refer to this `list of resources`_ if you need any assistance.
     :target: http://completion.readthedocs.io/en/latest/
     :alt: Documentation
 
-.. |pyversions-badge| image:: https://img.shields.io/pypi/pyversions/completion.svg
-    :target: https://pypi.python.org/pypi/completion/
+.. |pyversions-badge| image:: https://img.shields.io/pypi/pyversions/edx-completion.svg
+    :target: https://pypi.python.org/pypi/edx-completion/
     :alt: Supported Python versions
 
 .. |license-badge| image:: https://img.shields.io/github/license/edx/completion.svg
