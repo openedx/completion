@@ -9,7 +9,7 @@ attrs==19.3.0             # via pytest
 certifi==2020.6.20        # via requests
 cffi==1.14.0              # via cryptography
 chardet==3.0.4            # via requests
-coverage==5.1             # via pytest-cov
+coverage==5.2             # via pytest-cov
 cryptography==2.9.2       # via pyjwt
 ddt==1.4.1                # via -r requirements/test.in
 django-model-utils==4.0.0  # via -r requirements/base.in
