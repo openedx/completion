@@ -9,22 +9,20 @@ astroid==2.3.3            # via pylint, pylint-celery
 attrs==19.3.0             # via pytest
 bleach==3.1.5             # via readme-renderer
 certifi==2020.6.20        # via requests
-cffi==1.14.0              # via cryptography
 chardet==3.0.4            # via requests
 click-log==0.3.2          # via edx-lint
 click==7.1.2              # via click-log, edx-lint
-coverage==5.1             # via pytest-cov
-cryptography==2.9.2       # via pyjwt
+coverage==5.2             # via pytest-cov
 ddt==1.4.1                # via -r requirements/test.in
 django-model-utils==4.0.0  # via -r requirements/base.in
 django-waffle==1.0.0      # via edx-django-utils, edx-drf-extensions
-django==2.2.13            # via -c requirements/constraints.txt, -r requirements/base.in, django-model-utils, djangorestframework, drf-jwt, edx-django-utils, edx-drf-extensions, edx-opaque-keys, rest-condition
+django==2.2.14            # via -c requirements/constraints.txt, -r requirements/base.in, django-model-utils, djangorestframework, drf-jwt, edx-django-utils, edx-drf-extensions, edx-opaque-keys, rest-condition
 djangorestframework==3.11.0  # via -r requirements/base.in, drf-jwt, edx-drf-extensions, rest-condition
 docutils==0.16            # via readme-renderer
-drf-jwt==1.16.2           # via edx-drf-extensions
+drf-jwt==1.14.0           # via -c requirements/constraints.txt, edx-drf-extensions
 edx-django-utils==3.2.3   # via edx-drf-extensions
 edx-drf-extensions==6.1.0  # via -r requirements/base.in
-edx-lint==1.4.1           # via -r requirements/quality.in
+edx-lint==1.5.0           # via -r requirements/quality.in
 edx-opaque-keys[django]==2.1.0  # via -r requirements/base.in, edx-drf-extensions
 factory-boy==2.12.0       # via -r requirements/test.in
 faker==4.1.1              # via factory-boy
@@ -49,16 +47,15 @@ pluggy==0.13.1            # via pytest
 psutil==1.2.1             # via edx-django-utils
 py==1.9.0                 # via pytest
 pycodestyle==2.6.0        # via -r requirements/quality.in
-pycparser==2.20           # via cffi
 pycryptodomex==3.9.8      # via pyjwkest
 pydocstyle==5.0.2         # via -r requirements/quality.in
 pygments==2.6.1           # via readme-renderer
 pyjwkest==1.4.2           # via edx-drf-extensions
-pyjwt[crypto]==1.7.1      # via drf-jwt
+pyjwt==1.7.1              # via drf-jwt
 pylint-celery==0.3        # via edx-lint
 pylint-django==2.0.11     # via edx-lint
 pylint-plugin-utils==0.6  # via pylint-celery, pylint-django
-pylint==2.4.2             # via edx-lint, pylint-celery, pylint-django, pylint-plugin-utils
+pylint==2.4.4             # via edx-lint, pylint-celery, pylint-django, pylint-plugin-utils
 pymongo==3.10.1           # via edx-opaque-keys
 pyparsing==2.4.7          # via packaging
 pytest-cov==2.10.0        # via -r requirements/test.in
@@ -72,7 +69,7 @@ requests-toolbelt==0.9.1  # via twine
 requests==2.24.0          # via edx-drf-extensions, pyjwkest, requests-toolbelt, twine
 rest-condition==1.0.3     # via edx-drf-extensions
 semantic-version==2.8.5   # via edx-drf-extensions
-six==1.15.0               # via astroid, bleach, cryptography, edx-drf-extensions, edx-lint, edx-opaque-keys, freezegun, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, readme-renderer, stevedore, xblock
+six==1.15.0               # via astroid, bleach, edx-drf-extensions, edx-lint, edx-opaque-keys, freezegun, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, readme-renderer, stevedore, xblock
 snowballstemmer==2.0.0    # via pydocstyle
 sqlparse==0.3.1           # via django
 stevedore==1.32.0         # via edx-opaque-keys
