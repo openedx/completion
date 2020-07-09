@@ -6,7 +6,6 @@ The unit tests for utilities.py.
 
 from django.test import TestCase
 from opaque_keys.edx.keys import CourseKey
-from six import text_type
 
 from ..exceptions import UnavailableCompletionData
 from ..utilities import get_key_to_last_completed_block
@@ -25,7 +24,7 @@ class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
         self.user = UserFactory.create()
         self.course_key = CourseKey.from_string("course-v1:edX+MOOC101+2049_T2")
         self.block_keys = [
-            self.course_key.make_usage_key('video', text_type(number))
+            self.course_key.make_usage_key('video', str(number))
             for number in range(5)
         ]
         submit_completions_for_testing(self.user, self.block_keys)
@@ -38,7 +37,7 @@ class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
 
         expected_block_usage_key = self.course_key.make_usage_key(
             "video",
-            text_type(4)
+            str(4)
         )
         self.assertEqual(last_block_key, expected_block_usage_key)
 
