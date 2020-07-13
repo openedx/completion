@@ -14,6 +14,16 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[3.2.3] - 2020-07-01
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Updated the children lookup for `vertical_is_complete` to utilize the XBlockCompletion model. There are
+  three completion modes to consider: EXCLUDED, AGGREGATOR, COMPLETABLE.
+
+  * This method will now ignore any block with XBlockCompletion.EXCLUDED.
+  * This method will now recurse down any child of a vertical if that child has XBlockCompletion.AGGREGATOR.
+  * This method will consider all children blocks with XBlockCompletion.COMPLETABLE as candidates to
+    determine if the vertical is complete.
+
 [3.2.2] - 2020-06-30
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Adding recursive lookup for children of a vertical to the `vertical_is_complete` method in services.py.
