@@ -88,19 +88,15 @@ class CompletionService:
         Note: The nodes passed in should have already taken the user into
         account so the proper blocks are shown for this user.
         """
-        if XBlockCompletionMode.get_mode(node) == XBlockCompletionMode.EXCLUDED:
-            return []
-
         user_children = []
-        if XBlockCompletionMode.get_mode(node) == XBlockCompletionMode.AGGREGATOR:
+        mode = XBlockCompletionMode.get_mode(node)
+        if mode == XBlockCompletionMode.AGGREGATOR:
             node_children = ((hasattr(node, 'get_child_descriptors') and node.get_child_descriptors())
                              or (hasattr(node, 'get_children') and node.get_children()))
             for child in node_children:
                 user_children.extend(self.get_completable_children(child))
-
-        if XBlockCompletionMode.get_mode(node) == XBlockCompletionMode.COMPLETABLE:
+        elif mode == XBlockCompletionMode.COMPLETABLE:
             user_children = [node]
-
         return user_children
 
     def vertical_is_complete(self, item):
