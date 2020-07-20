@@ -95,7 +95,7 @@ class CompletionService:
                              or (hasattr(node, 'get_children') and node.get_children()))
             for child in node_children:
                 user_children.extend(self.get_completable_children(child))
-        elif mode == XBlockCompletionMode.COMPLETABLE:
+        elif node and mode == XBlockCompletionMode.COMPLETABLE:
             user_children = [node]
         return user_children
 
