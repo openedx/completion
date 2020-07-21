@@ -9,8 +9,10 @@ appdirs==1.4.4            # via fs
 attrs==19.3.0             # via pytest
 babel==2.8.0              # via sphinx
 certifi==2020.6.20        # via requests
+cffi==1.14.0              # via cryptography
 chardet==3.0.4            # via doc8, requests
 coverage==5.2             # via pytest-cov
+cryptography==2.9.2       # via pyjwt
 ddt==1.4.1                # via -r requirements/test.in
 django-model-utils==4.0.0  # via -r requirements/base.in
 django-waffle==1.0.0      # via edx-django-utils, edx-drf-extensions
@@ -43,10 +45,11 @@ pbr==5.4.5                # via stevedore
 pluggy==0.13.1            # via pytest
 psutil==1.2.1             # via edx-django-utils
 py==1.9.0                 # via pytest
+pycparser==2.20           # via cffi
 pycryptodomex==3.9.8      # via pyjwkest
 pygments==2.6.1           # via doc8, sphinx
 pyjwkest==1.4.2           # via edx-drf-extensions
-pyjwt==1.7.1              # via drf-jwt
+pyjwt[crypto]==1.7.1      # via drf-jwt
 pymongo==3.10.1           # via edx-opaque-keys
 pyparsing==2.4.7          # via packaging
 pytest-cov==2.10.0        # via -r requirements/test.in
@@ -59,7 +62,7 @@ requests==2.24.0          # via edx-drf-extensions, pyjwkest, sphinx
 rest-condition==1.0.3     # via edx-drf-extensions
 restructuredtext-lint==1.3.1  # via doc8
 semantic-version==2.8.5   # via edx-drf-extensions
-six==1.15.0               # via doc8, edx-drf-extensions, edx-opaque-keys, edx-sphinx-theme, freezegun, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, stevedore, xblock
+six==1.15.0               # via cryptography, doc8, edx-drf-extensions, edx-opaque-keys, edx-sphinx-theme, freezegun, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, stevedore, xblock
 snowballstemmer==2.0.0    # via sphinx
 sphinx==3.1.2             # via -r requirements/doc.in, edx-sphinx-theme
 sphinxcontrib-applehelp==1.0.2  # via sphinx
