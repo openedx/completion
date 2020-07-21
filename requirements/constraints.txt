@@ -10,10 +10,6 @@
 
 Django < 2.3
 
-# latest version drf-jwt==1.16.2 is causing failures in ecom, platform and discovery. 
-# So avoiding that until fix that issue.
-drf-jwt<1.15.0
-
 # Requires: Python >=3.6
 mock<4.0.0
 
