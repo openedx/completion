@@ -19,8 +19,8 @@ djangorestframework==3.11.0  # via -r requirements/base.in, drf-jwt, edx-drf-ext
 doc8==0.8.1               # via -r requirements/doc.in
 docutils==0.16            # via doc8, restructuredtext-lint, sphinx
 drf-jwt==1.14.0           # via -c requirements/constraints.txt, edx-drf-extensions
-edx-django-utils==3.2.3   # via edx-drf-extensions
-edx-drf-extensions==6.1.0  # via -r requirements/base.in
+edx-django-utils==3.3.0   # via edx-drf-extensions
+edx-drf-extensions==6.1.1  # via -r requirements/base.in
 edx-opaque-keys[django]==2.1.1  # via -r requirements/base.in, edx-drf-extensions
 edx-sphinx-theme==1.5.0   # via -r requirements/doc.in
 factory-boy==2.12.0       # via -r requirements/test.in
