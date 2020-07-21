@@ -14,6 +14,11 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[3.2.4] - 2020-07-21
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Fix AttributeError raised by `vertical_is_complete`.
+  * by ensuring `get_completable_children` doesn't return null
+
 [3.2.3] - 2020-07-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Updated the children lookup for `vertical_is_complete` to utilize the XBlockCompletion model. There are
