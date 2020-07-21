@@ -20,7 +20,7 @@ django==2.2.14            # via -c requirements/constraints.txt, -r requirements
 djangorestframework==3.11.0  # via -r requirements/base.in, drf-jwt, edx-drf-extensions, rest-condition
 doc8==0.8.1               # via -r requirements/doc.in
 docutils==0.16            # via doc8, restructuredtext-lint, sphinx
-drf-jwt==1.16.2           # via edx-drf-extensions
+drf-jwt==1.14.0           # via -c requirements/constraints.txt, edx-drf-extensions
 edx-django-utils==3.3.0   # via edx-drf-extensions
 edx-drf-extensions==6.1.1  # via -r requirements/base.in
 edx-opaque-keys[django]==2.1.1  # via -r requirements/base.in, edx-drf-extensions
