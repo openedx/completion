@@ -6,7 +6,7 @@
 #
 appdirs==1.4.4            # via fs
 astroid==2.3.3            # via pylint, pylint-celery
-attrs==19.3.0             # via pytest
+attrs==20.1.0             # via pytest
 bleach==3.1.5             # via readme-renderer
 certifi==2020.6.20        # via requests
 cffi==1.14.2              # via cryptography
@@ -24,7 +24,7 @@ docutils==0.16            # via readme-renderer
 drf-jwt==1.17.0           # via edx-drf-extensions
 edx-django-utils==3.7.3   # via edx-drf-extensions
 edx-drf-extensions==6.1.1  # via -r requirements/base.in
-edx-lint==1.5.0           # via -r requirements/quality.in
+edx-lint==1.5.2           # via -r requirements/quality.in
 edx-opaque-keys[django]==2.1.1  # via -r requirements/base.in, edx-drf-extensions
 factory-boy==3.0.1        # via -r requirements/test.in
 faker==4.1.2              # via factory-boy
@@ -41,7 +41,7 @@ markupsafe==1.1.1         # via xblock
 mccabe==0.6.1             # via pylint
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
 more-itertools==8.4.0     # via pytest
-newrelic==5.16.1.146      # via edx-django-utils
+newrelic==5.16.2.147      # via edx-django-utils
 packaging==20.4           # via bleach, pytest
 pathlib2==2.3.5           # via pytest
 pbr==5.4.5                # via stevedore
@@ -52,7 +52,7 @@ py==1.9.0                 # via pytest
 pycodestyle==2.6.0        # via -r requirements/quality.in
 pycparser==2.20           # via cffi
 pycryptodomex==3.9.8      # via pyjwkest
-pydocstyle==5.0.2         # via -r requirements/quality.in
+pydocstyle==5.1.0         # via -r requirements/quality.in
 pygments==2.6.1           # via readme-renderer
 pyjwkest==1.4.2           # via edx-drf-extensions
 pyjwt[crypto]==1.7.1      # via drf-jwt
