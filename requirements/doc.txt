@@ -6,28 +6,28 @@
 #
 alabaster==0.7.12         # via sphinx
 appdirs==1.4.4            # via fs
-attrs==20.1.0             # via pytest
+attrs==20.2.0             # via pytest
 babel==2.8.0              # via sphinx
 certifi==2020.6.20        # via requests
-cffi==1.14.2              # via cryptography
+cffi==1.14.3              # via cryptography
 chardet==3.0.4            # via doc8, requests
-coverage==5.2.1           # via pytest-cov
-cryptography==3.0         # via pyjwt
+coverage==5.3             # via pytest-cov
+cryptography==3.1         # via pyjwt
 ddt==1.4.1                # via -r requirements/test.in
 django-model-utils==4.0.0  # via -r requirements/base.in
-django-waffle==1.0.0      # via edx-django-utils, edx-drf-extensions
-django==2.2.15            # via -c requirements/constraints.txt, -r requirements/base.in, django-model-utils, djangorestframework, drf-jwt, edx-django-utils, edx-drf-extensions, edx-opaque-keys, rest-condition
+django-waffle==2.0.0      # via edx-django-utils, edx-drf-extensions
+django==2.2.16            # via -c requirements/constraints.txt, -r requirements/base.in, django-model-utils, djangorestframework, drf-jwt, edx-django-utils, edx-drf-extensions, edx-opaque-keys, rest-condition
 djangorestframework==3.11.1  # via -r requirements/base.in, drf-jwt, edx-drf-extensions, rest-condition
 doc8==0.8.1               # via -r requirements/doc.in
 docutils==0.16            # via doc8, restructuredtext-lint, sphinx
-drf-jwt==1.17.0           # via edx-drf-extensions
-edx-django-utils==3.7.3   # via edx-drf-extensions
-edx-drf-extensions==6.1.1  # via -r requirements/base.in
+drf-jwt==1.17.1           # via edx-drf-extensions
+edx-django-utils==3.8.0   # via edx-drf-extensions
+edx-drf-extensions==6.1.2  # via -r requirements/base.in
 edx-opaque-keys[django]==2.1.1  # via -r requirements/base.in, edx-drf-extensions
 edx-sphinx-theme==1.5.0   # via -r requirements/doc.in
 factory-boy==3.0.1        # via -r requirements/test.in
-faker==4.1.2              # via factory-boy
-freezegun==0.3.15         # via -r requirements/test.in
+faker==4.1.3              # via factory-boy
+freezegun==1.0.0          # via -r requirements/test.in
 fs==2.4.11                # via xblock
 future==0.18.2            # via pyjwkest
 idna==2.10                # via requests
@@ -38,24 +38,24 @@ jinja2==2.11.2            # via sphinx
 lxml==4.5.2               # via xblock
 markupsafe==1.1.1         # via jinja2, xblock
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
-more-itertools==8.4.0     # via pytest
-newrelic==5.16.2.147      # via edx-django-utils
+more-itertools==8.5.0     # via pytest
+newrelic==5.18.0.148      # via edx-django-utils
 packaging==20.4           # via pytest, sphinx
 pathlib2==2.3.5           # via pytest
-pbr==5.4.5                # via stevedore
+pbr==5.5.0                # via stevedore
 pluggy==0.13.1            # via pytest
 psutil==5.7.2             # via edx-django-utils
 py==1.9.0                 # via pytest
 pycparser==2.20           # via cffi
 pycryptodomex==3.9.8      # via pyjwkest
-pygments==2.6.1           # via doc8, sphinx
+pygments==2.7.0           # via doc8, sphinx
 pyjwkest==1.4.2           # via edx-drf-extensions
 pyjwt[crypto]==1.7.1      # via drf-jwt
 pymongo==3.11.0           # via edx-opaque-keys
 pyparsing==2.4.7          # via packaging
 pytest-cov==2.10.1        # via -r requirements/test.in
-pytest-django==3.9.0      # via -r requirements/test.in
-pytest==6.0.1             # via pytest-cov, pytest-django
+pytest-django==3.10.0     # via -r requirements/test.in
+pytest==6.0.2             # via pytest-cov, pytest-django
 python-dateutil==2.8.1    # via edx-drf-extensions, faker, freezegun, xblock
 pytz==2020.1              # via -r requirements/base.in, babel, django, fs, xblock
 pyyaml==5.3.1             # via xblock
@@ -63,7 +63,7 @@ requests==2.24.0          # via edx-drf-extensions, pyjwkest, sphinx
 rest-condition==1.0.3     # via edx-drf-extensions
 restructuredtext-lint==1.3.1  # via doc8
 semantic-version==2.8.5   # via edx-drf-extensions
-six==1.15.0               # via cryptography, doc8, edx-drf-extensions, edx-opaque-keys, edx-sphinx-theme, freezegun, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, stevedore, xblock
+six==1.15.0               # via cryptography, doc8, edx-drf-extensions, edx-opaque-keys, edx-sphinx-theme, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, stevedore, xblock
 snowballstemmer==2.0.0    # via sphinx
 sphinx==3.2.1             # via -r requirements/doc.in, edx-sphinx-theme
 sphinxcontrib-applehelp==1.0.2  # via sphinx
