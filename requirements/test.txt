@@ -5,22 +5,22 @@
 #    make upgrade
 #
 appdirs==1.4.4            # via fs
-attrs==20.1.0             # via pytest
+attrs==20.2.0             # via pytest
 certifi==2020.6.20        # via requests
-cffi==1.14.2              # via cryptography
+cffi==1.14.3              # via cryptography
 chardet==3.0.4            # via requests
-coverage==5.2.1           # via pytest-cov
-cryptography==3.0         # via pyjwt
+coverage==5.3             # via pytest-cov
+cryptography==3.1         # via pyjwt
 ddt==1.4.1                # via -r requirements/test.in
 django-model-utils==4.0.0  # via -r requirements/base.in
-django-waffle==1.0.0      # via edx-django-utils, edx-drf-extensions
-drf-jwt==1.17.0           # via edx-drf-extensions
-edx-django-utils==3.7.3   # via edx-drf-extensions
-edx-drf-extensions==6.1.1  # via -r requirements/base.in
+django-waffle==2.0.0      # via edx-django-utils, edx-drf-extensions
+drf-jwt==1.17.1           # via edx-drf-extensions
+edx-django-utils==3.8.0   # via edx-drf-extensions
+edx-drf-extensions==6.1.2  # via -r requirements/base.in
 edx-opaque-keys[django]==2.1.1  # via -r requirements/base.in, edx-drf-extensions
 factory-boy==3.0.1        # via -r requirements/test.in
-faker==4.1.2              # via factory-boy
-freezegun==0.3.15         # via -r requirements/test.in
+faker==4.1.3              # via factory-boy
+freezegun==1.0.0          # via -r requirements/test.in
 fs==2.4.11                # via xblock
 future==0.18.2            # via pyjwkest
 idna==2.10                # via requests
@@ -29,11 +29,11 @@ iniconfig==1.0.1          # via pytest
 lxml==4.5.2               # via xblock
 markupsafe==1.1.1         # via xblock
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
-more-itertools==8.4.0     # via pytest
-newrelic==5.16.2.147      # via edx-django-utils
+more-itertools==8.5.0     # via pytest
+newrelic==5.18.0.148      # via edx-django-utils
 packaging==20.4           # via pytest
 pathlib2==2.3.5           # via pytest
-pbr==5.4.5                # via stevedore
+pbr==5.5.0                # via stevedore
 pluggy==0.13.1            # via pytest
 psutil==5.7.2             # via edx-django-utils
 py==1.9.0                 # via pytest
@@ -44,15 +44,15 @@ pyjwt[crypto]==1.7.1      # via drf-jwt
 pymongo==3.11.0           # via edx-opaque-keys
 pyparsing==2.4.7          # via packaging
 pytest-cov==2.10.1        # via -r requirements/test.in
-pytest-django==3.9.0      # via -r requirements/test.in
-pytest==6.0.1             # via pytest-cov, pytest-django
+pytest-django==3.10.0     # via -r requirements/test.in
+pytest==6.0.2             # via pytest-cov, pytest-django
 python-dateutil==2.8.1    # via edx-drf-extensions, faker, freezegun, xblock
 pytz==2020.1              # via -r requirements/base.in, django, fs, xblock
 pyyaml==5.3.1             # via xblock
 requests==2.24.0          # via edx-drf-extensions, pyjwkest
 rest-condition==1.0.3     # via edx-drf-extensions
 semantic-version==2.8.5   # via edx-drf-extensions
-six==1.15.0               # via cryptography, edx-drf-extensions, edx-opaque-keys, freezegun, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, stevedore, xblock
+six==1.15.0               # via cryptography, edx-drf-extensions, edx-opaque-keys, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, stevedore, xblock
 sqlparse==0.3.1           # via django
 stevedore==1.32.0         # via edx-django-utils, edx-opaque-keys
 text-unidecode==1.3       # via faker
