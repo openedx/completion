@@ -20,7 +20,7 @@ django==2.2.16            # via -c requirements/constraints.txt, -r requirements
 djangorestframework==3.11.1  # via -r requirements/base.in, drf-jwt, edx-drf-extensions, rest-condition
 doc8==0.8.1               # via -r requirements/doc.in
 docutils==0.16            # via doc8, restructuredtext-lint, sphinx
-drf-jwt==1.17.1           # via edx-drf-extensions
+drf-jwt==1.17.2           # via edx-drf-extensions
 edx-django-utils==3.8.0   # via edx-drf-extensions
 edx-drf-extensions==6.1.2  # via -r requirements/base.in
 edx-opaque-keys[django]==2.1.1  # via -r requirements/base.in, edx-drf-extensions
@@ -39,7 +39,7 @@ lxml==4.5.2               # via xblock
 markupsafe==1.1.1         # via jinja2, xblock
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
 more-itertools==8.5.0     # via pytest
-newrelic==5.18.0.148      # via edx-django-utils
+newrelic==5.20.0.149      # via edx-django-utils
 packaging==20.4           # via pytest, sphinx
 pathlib2==2.3.5           # via pytest
 pbr==5.5.0                # via stevedore
@@ -48,7 +48,7 @@ psutil==5.7.2             # via edx-django-utils
 py==1.9.0                 # via pytest
 pycparser==2.20           # via cffi
 pycryptodomex==3.9.8      # via pyjwkest
-pygments==2.7.0           # via doc8, sphinx
+pygments==2.7.1           # via doc8, sphinx
 pyjwkest==1.4.2           # via edx-drf-extensions
 pyjwt[crypto]==1.7.1      # via drf-jwt
 pymongo==3.11.0           # via edx-opaque-keys

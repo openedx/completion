@@ -14,7 +14,7 @@ cryptography==3.1         # via pyjwt
 ddt==1.4.1                # via -r requirements/test.in
 django-model-utils==4.0.0  # via -r requirements/base.in
 django-waffle==2.0.0      # via edx-django-utils, edx-drf-extensions
-drf-jwt==1.17.1           # via edx-drf-extensions
+drf-jwt==1.17.2           # via edx-drf-extensions
 edx-django-utils==3.8.0   # via edx-drf-extensions
 edx-drf-extensions==6.1.2  # via -r requirements/base.in
 edx-opaque-keys[django]==2.1.1  # via -r requirements/base.in, edx-drf-extensions
@@ -30,7 +30,7 @@ lxml==4.5.2               # via xblock
 markupsafe==1.1.1         # via xblock
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
 more-itertools==8.5.0     # via pytest
-newrelic==5.18.0.148      # via edx-django-utils
+newrelic==5.20.0.149      # via edx-django-utils
 packaging==20.4           # via pytest
 pathlib2==2.3.5           # via pytest
 pbr==5.5.0                # via stevedore
