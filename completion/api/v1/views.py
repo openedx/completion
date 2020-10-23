@@ -78,7 +78,7 @@ class CompletionBatchView(APIView):
             ObjectDoesNotExist:
                 If a database object cannot be found an ObjectDoesNotExist is raised.
         """
-        if not waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
+        if not waffle.ENABLE_COMPLETION_TRACKING_SWITCH.is_enabled():
             raise ValidationError(
                 _("BlockCompletion.objects.submit_batch_completion should not be called when the feature is disabled.")
             )

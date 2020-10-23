@@ -35,7 +35,7 @@ class CompletionService:
 
             bool -> True if completion tracking is enabled.
         """
-        return waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING)
+        return waffle.ENABLE_COMPLETION_TRACKING_SWITCH.is_enabled()
 
     def get_completions(self, candidates):
         """

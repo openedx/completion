@@ -20,7 +20,7 @@ def scorable_block_completion(sender, **kwargs):  # pylint: disable=unused-argum
     """
     When a problem is scored, submit a new BlockCompletion for that block.
     """
-    if not waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
+    if not waffle.ENABLE_COMPLETION_TRACKING_SWITCH.is_enabled():
         return
     try:
         block_key = UsageKey.from_string(kwargs['usage_id'])
