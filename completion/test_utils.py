@@ -5,9 +5,9 @@ Common functionality to support writing tests around completion.
 
 from contextlib import contextmanager
 from datetime import datetime
-from unittest import mock
 
 from django.contrib.auth.models import User
+from edx_toggles.toggles.testutils import override_waffle_switch
 import factory
 from factory.django import DjangoModelFactory
 from opaque_keys.edx.keys import UsageKey
@@ -65,7 +65,9 @@ class CompletionWaffleTestMixin:
         Parameters:
             override (bool): True if tracking should be enabled.
         """
-        _waffle_overrider = waffle.waffle().override(waffle.ENABLE_COMPLETION_TRACKING, override)
+        _waffle_overrider = override_waffle_switch(
+            waffle.ENABLE_COMPLETION_TRACKING_SWITCH, override
+        )
         _waffle_overrider.__enter__()
         self.addCleanup(_waffle_overrider.__exit__, None, None, None)
 
@@ -74,19 +76,21 @@ class CompletionSetUpMixin:
     """
     Mixin to provide set_up_completion() function to child TestCase classes.
     """
+
     COMPLETION_SWITCH_ENABLED = False
 
     @classmethod
     def setUpClass(cls):
         super(CompletionSetUpMixin, cls).setUpClass()
-        cls.waffle_patcher = mock.patch('completion.waffle.waffle')
-        cls.mock_waffle = cls.waffle_patcher.start()
-        cls.mock_waffle.return_value.is_enabled.return_value = cls.COMPLETION_SWITCH_ENABLED
+        cls.waffle_patcher = override_waffle_switch(
+            waffle.ENABLE_COMPLETION_TRACKING_SWITCH, cls.COMPLETION_SWITCH_ENABLED
+        )
+        cls.waffle_patcher.__enter__()
 
     @classmethod
     def tearDownClass(cls):
         super(CompletionSetUpMixin, cls).tearDownClass()
-        cls.waffle_patcher.stop()
+        cls.waffle_patcher.__exit__(None, None, None)
 
     def setUp(self):
         super(CompletionSetUpMixin, self).setUp()
@@ -111,6 +115,5 @@ class CompletionSetUpMixin:
         """
         Overrides the completion-enabled waffle switch value within a context.
         """
-        self.mock_waffle.return_value.is_enabled.return_value = enabled
-        yield
-        self.mock_waffle.return_value.is_enabled.return_value = self.COMPLETION_SWITCH_ENABLED
+        with override_waffle_switch(waffle.ENABLE_COMPLETION_TRACKING_SWITCH, enabled):
+            yield

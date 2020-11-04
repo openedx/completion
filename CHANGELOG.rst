@@ -14,6 +14,10 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[3.2.5] - 2020-10-23
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Fix waffle switch override in tests by relying on newest edx_toggles API
+
 [3.2.4] - 2020-07-21
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Fix AttributeError raised by `vertical_is_complete`.

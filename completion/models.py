@@ -95,7 +95,7 @@ class BlockCompletionManager(models.Manager):
                 "block_key = block_key.replace(course_key=modulestore().fill_in_run(block_key.course_key))"
             )
 
-        if waffle.waffle().is_enabled(waffle.ENABLE_COMPLETION_TRACKING):
+        if waffle.ENABLE_COMPLETION_TRACKING_SWITCH.is_enabled():
             try:
                 with transaction.atomic():
                     obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence

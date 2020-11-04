@@ -6,5 +6,6 @@ djangorestframework
 django-model-utils
 edx-opaque-keys[django]
 edx-drf-extensions>=1.11.0
+edx-toggles
 pytz
 XBlock>=1.2.2
