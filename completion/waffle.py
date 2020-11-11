@@ -4,7 +4,7 @@ waffle switches for the completion app.
 """
 
 
-from edx_toggles.toggles import WaffleSwitch
+from edx_toggles.toggles.__future__ import WaffleSwitch
 
 # The switch and namespace names variables are preserved for backward compatibility
 WAFFLE_NAMESPACE = "completion"
