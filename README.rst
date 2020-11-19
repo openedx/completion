@@ -89,8 +89,8 @@ refer to this `list of resources`_ if you need any assistance.
     :target: https://pypi.python.org/pypi/edx-completion/
     :alt: PyPI
 
-.. |travis-badge| image:: https://travis-ci.org/edx/completion.svg?branch=master
-    :target: https://travis-ci.org/edx/completion
+.. |travis-badge| image:: https://travis-ci.com/edx/completion.svg?branch=master
+    :target: https://travis-ci.com/edx/completion
     :alt: Travis
 
 .. |codecov-badge| image:: http://codecov.io/github/edx/completion/coverage.svg?branch=master
