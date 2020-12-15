@@ -17,6 +17,14 @@ Unreleased
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Updated the build status badge in README.rst to point to travis-ci.com instead of travis-ci.org
 
+
+[4.0.0] - 2020-11-05
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Remove soon-to-be-deprecated WaffleSwitchNamespace class instances
+* BACKWARD INCOMPATIBLE: Removes ``waffle()``, which returned a (now deprecated) WaffleSwitchNamespace. This should only affect tests in edx-platform.
+* Requires edx-toggles>=1.2.0, which introduces a new API to waffle objects.
+* Refactors ``ENABLE_COMPLETION_TRACKING_SWITCH`` from a ``LegacyWaffleSwitch`` to the updated ``WaffleSwitch``.  We don't expect uses of this updated switch to require changes, unless there are surprise uses of deprecated methods from ``LegacyWaffleSwitch``.
+
 [3.2.5] - 2020-10-23
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Fix waffle switch override in tests by relying on newest edx_toggles API

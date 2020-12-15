@@ -4,22 +4,10 @@ waffle switches for the completion app.
 """
 
 
-from edx_toggles.toggles import WaffleSwitch, WaffleSwitchNamespace
+from edx_toggles.toggles.__future__ import WaffleSwitch
 
-# Namespace
+# The switch and namespace names variables are preserved for backward compatibility
 WAFFLE_NAMESPACE = "completion"
-
-
-def waffle():
-    """
-    Returns the namespaced, cached, audited Waffle class for completion.
-    """
-    return WaffleSwitchNamespace(name=WAFFLE_NAMESPACE, log_prefix="completion: ")
-
-
-# Switches
-
-# The switch name variable is preserved for backward compatibility
 ENABLE_COMPLETION_TRACKING = "enable_completion_tracking"
 # .. toggle_name: completion.enable_completion_tracking
 # .. toggle_implementation: WaffleSwitch
@@ -29,5 +17,6 @@ ENABLE_COMPLETION_TRACKING = "enable_completion_tracking"
 #   network access by certain xblocks.
 # .. toggle_use_cases: open_edx
 ENABLE_COMPLETION_TRACKING_SWITCH = WaffleSwitch(
-    waffle(), ENABLE_COMPLETION_TRACKING, module_name=__name__
+    "{}.{}".format(WAFFLE_NAMESPACE, ENABLE_COMPLETION_TRACKING),
+    module_name=__name__,
 )
