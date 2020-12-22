@@ -5,70 +5,65 @@
 #    make upgrade
 #
 appdirs==1.4.4            # via fs
-attrs==20.2.0             # via pytest
-certifi==2020.6.20        # via requests
-cffi==1.14.3              # via cryptography
-chardet==3.0.4            # via requests
+attrs==20.3.0             # via pytest
+certifi==2020.12.5        # via requests
+cffi==1.14.4              # via cryptography
+chardet==4.0.0            # via requests
 click==7.1.2              # via code-annotations
-code-annotations==0.10.0  # via edx-toggles
-coverage==5.3             # via pytest-cov
-cryptography==3.1         # via pyjwt
+code-annotations==0.10.2  # via edx-toggles
+coverage==5.3.1           # via pytest-cov
+cryptography==3.3.1       # via pyjwt
 ddt==1.4.1                # via -r requirements/test.in
-django-crum==0.7.7        # via edx-toggles
-django-model-utils==4.0.0  # via -r requirements/base.in
+django-crum==0.7.9        # via edx-django-utils, edx-toggles
+django-model-utils==4.1.1  # via -r requirements/base.in
 django-waffle==2.0.0      # via edx-django-utils, edx-drf-extensions, edx-toggles
-drf-jwt==1.17.1           # via edx-drf-extensions
-edx-django-utils==3.8.0   # via edx-drf-extensions, edx-toggles
-edx-drf-extensions==6.1.2  # via -r requirements/base.in
+drf-jwt==1.17.3           # via edx-drf-extensions
+edx-django-utils==3.13.0  # via edx-drf-extensions, edx-toggles
+edx-drf-extensions==6.2.0  # via -r requirements/base.in
 edx-opaque-keys[django]==2.1.1  # via -r requirements/base.in, edx-drf-extensions
-edx-toggles==1.2.0        # via -r requirements/base.in
-factory-boy==3.0.1        # via -r requirements/test.in
-faker==4.1.3              # via factory-boy
+edx-toggles==1.2.1        # via -r requirements/base.in
+factory-boy==3.1.0        # via -r requirements/test.in
+faker==5.0.2              # via factory-boy
 freezegun==1.0.0          # via -r requirements/test.in
 fs==2.4.11                # via xblock
 future==0.18.2            # via pyjwkest
 idna==2.10                # via requests
-importlib-metadata==1.7.0  # via pluggy, pytest
-iniconfig==1.0.1          # via pytest
+iniconfig==1.1.1          # via pytest
 jinja2==2.11.2            # via code-annotations
-lxml==4.5.2               # via xblock
+lxml==4.6.2               # via xblock
 markupsafe==1.1.1         # via jinja2, xblock
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
-more-itertools==8.5.0     # via pytest
-newrelic==5.18.0.148      # via edx-django-utils
-packaging==20.4           # via pytest
-pathlib2==2.3.5           # via pytest
-pbr==5.5.0                # via stevedore
+newrelic==5.22.1.152      # via edx-django-utils
+packaging==20.8           # via pytest
+pbr==5.5.1                # via stevedore
 pluggy==0.13.1            # via pytest
-psutil==5.7.2             # via edx-django-utils
-py==1.9.0                 # via pytest
+psutil==5.8.0             # via edx-django-utils
+py==1.10.0                # via pytest
 pycparser==2.20           # via cffi
-pycryptodomex==3.9.8      # via pyjwkest
+pycryptodomex==3.9.9      # via pyjwkest
 pyjwkest==1.4.2           # via edx-drf-extensions
 pyjwt[crypto]==1.7.1      # via drf-jwt
-pymongo==3.11.0           # via edx-opaque-keys
+pymongo==3.11.2           # via edx-opaque-keys
 pyparsing==2.4.7          # via packaging
 pytest-cov==2.10.1        # via -r requirements/test.in
-pytest-django==3.10.0     # via -r requirements/test.in
-pytest==6.0.2             # via pytest-cov, pytest-django
+pytest-django==4.1.0      # via -r requirements/test.in
+pytest==6.2.1             # via pytest-cov, pytest-django
 python-dateutil==2.8.1    # via edx-drf-extensions, faker, freezegun, xblock
 python-slugify==4.0.1     # via code-annotations
-pytz==2020.1              # via -r requirements/base.in, django, fs, xblock
+pytz==2020.4              # via -r requirements/base.in, django, fs, xblock
 pyyaml==5.3.1             # via code-annotations, xblock
-requests==2.24.0          # via edx-drf-extensions, pyjwkest
+requests==2.25.1          # via edx-drf-extensions, pyjwkest
 rest-condition==1.0.3     # via edx-drf-extensions
 semantic-version==2.8.5   # via edx-drf-extensions
-six==1.15.0               # via cryptography, edx-drf-extensions, edx-opaque-keys, fs, mock, packaging, pathlib2, pyjwkest, python-dateutil, stevedore, xblock
-sqlparse==0.3.1           # via django
-stevedore==1.32.0         # via code-annotations, edx-django-utils, edx-opaque-keys
+six==1.15.0               # via cryptography, edx-drf-extensions, edx-opaque-keys, fs, mock, pyjwkest, python-dateutil, xblock
+sqlparse==0.4.1           # via django
+stevedore==3.3.0          # via code-annotations, edx-django-utils, edx-opaque-keys
 text-unidecode==1.3       # via faker, python-slugify
-toml==0.10.1              # via pytest
-typing==3.7.4.3           # via fs
-urllib3==1.25.10          # via requests
+toml==0.10.2              # via pytest
+urllib3==1.26.2           # via requests
 web-fragments==0.3.2      # via xblock
 webob==1.8.6              # via xblock
 xblock==1.4.0             # via -r requirements/base.in
-zipp==1.2.0               # via -c requirements/constraints.txt, importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
