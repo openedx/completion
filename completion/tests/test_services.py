@@ -25,14 +25,14 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
     COMPLETION_SWITCH_ENABLED = True
 
     def setUp(self):
-        super(CompletionServiceTestCase, self).setUp()
+        super().setUp()
         self.user = UserFactory.create()
         self.other_user = UserFactory.create()
         self.course_key = CourseKey.from_string("edX/MOOC101/2049_T2")
         self.other_course_key = CourseKey.from_string("course-v1:ReedX+Hum110+1904")
         self.block_keys = [
             UsageKey.from_string(
-                "i4x://edX/MOOC101/video/{}".format(number)
+                f"i4x://edX/MOOC101/video/{number}"
             ).replace(course_key=self.course_key) for number in range(5)
         ]
         self.other_course_block_keys = [
@@ -124,7 +124,7 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
 
     def test_get_completions_block_keys_missing_run(self):
         candidates = [
-            UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
+            UsageKey.from_string(f"i4x://edX/MOOC101/video/{number}") for number in range(5)
         ]
         actual_completions = self.completion_service.get_completions(candidates)
         expected_block_keys = [key.replace(course_key=self.course_key) for key in candidates]

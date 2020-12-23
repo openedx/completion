@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Changes completion to track blocks for any learning context,
 # and not just for courses.
 #
@@ -31,10 +30,10 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterUniqueTogether(
             name='blockcompletion',
-            unique_together=set([('context_key', 'block_key', 'user')]),
+            unique_together={('context_key', 'block_key', 'user')},
         ),
         migrations.AlterIndexTogether(
             name='blockcompletion',
-            index_together=set([('user', 'context_key', 'modified'), ('context_key', 'block_type', 'user')]),
+            index_together={('user', 'context_key', 'modified'), ('context_key', 'block_type', 'user')},
         ),
     ]

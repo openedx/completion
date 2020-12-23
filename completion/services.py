@@ -168,7 +168,7 @@ class CompletionService:
         if len(more_users) < len(user_ids):
             found_ids = {u.id for u in more_users}
             not_found_ids = [pk for pk in user_ids if pk not in found_ids]
-            raise User.DoesNotExist("User not found with id(s): {}".format(not_found_ids))
+            raise User.DoesNotExist(f"User not found with id(s): {not_found_ids}")
         users.extend(more_users)
 
         submitted = []

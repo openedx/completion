@@ -17,6 +17,6 @@ ENABLE_COMPLETION_TRACKING = "enable_completion_tracking"
 #   network access by certain xblocks.
 # .. toggle_use_cases: open_edx
 ENABLE_COMPLETION_TRACKING_SWITCH = WaffleSwitch(
-    "{}.{}".format(WAFFLE_NAMESPACE, ENABLE_COMPLETION_TRACKING),
+    f"{WAFFLE_NAMESPACE}.{ENABLE_COMPLETION_TRACKING}",
     module_name=__name__,
 )

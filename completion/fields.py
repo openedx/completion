@@ -23,7 +23,7 @@ class BigAutoField(models.AutoField):
             return "bigint AUTO_INCREMENT"
         if "postgres" in conn_module:
             return "bigserial"
-        return super(BigAutoField, self).db_type(connection)
+        return super().db_type(connection)
 
     def rel_db_type(self, connection):  # pylint: disable=unused-argument
         """
