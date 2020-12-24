@@ -4,7 +4,7 @@ Signal handlers to trigger completion updates.
 
 import logging
 
-from django.contrib.auth.models import User
+from django.contrib import auth
 from opaque_keys import InvalidKeyError
 from opaque_keys.edx.keys import LearningContextKey, UsageKey
 from xblock.completable import XBlockCompletionMode
@@ -14,6 +14,7 @@ from . import waffle
 from .models import BlockCompletion
 
 log = logging.getLogger(__name__)
+User = auth.get_user_model()
 
 
 def scorable_block_completion(sender, **kwargs):  # pylint: disable=unused-argument

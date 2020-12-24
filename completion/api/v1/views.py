@@ -2,7 +2,7 @@
 API v1 views.
 """
 
-from django.contrib.auth.models import User
+from django.contrib import auth
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.utils.translation import ugettext as _
 from django.db import DatabaseError
@@ -37,6 +37,8 @@ except ImportError:
 from completion import waffle
 from completion.api.permissions import IsStaffOrOwner, IsUserInUrl
 from completion.models import BlockCompletion
+
+User = auth.get_user_model()
 
 
 class CompletionBatchView(APIView):
@@ -110,8 +112,8 @@ class CompletionBatchView(APIView):
         """
         try:
             return LearningContextKey.from_string(context_key)
-        except InvalidKeyError:
-            raise ValidationError(_("Invalid learning context key: {}").format(context_key))
+        except InvalidKeyError as error:
+            raise ValidationError(_("Invalid learning context key: {}").format(context_key)) from error
 
     def _validate_and_parse_block_key(self, block_key, context_key_obj):
         """
@@ -119,8 +121,8 @@ class CompletionBatchView(APIView):
         """
         try:
             block_key_obj = UsageKey.from_string(block_key)
-        except InvalidKeyError:
-            raise ValidationError(_("Invalid block key: {}").format(block_key))
+        except InvalidKeyError as error:
+            raise ValidationError(_("Invalid block key: {}").format(block_key)) from error
 
         if block_key_obj.context_key.is_course and block_key_obj.context_key.run is None:
             # block_key_obj is from an old mongo course and its context_key is missing run info:

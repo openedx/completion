@@ -3,11 +3,13 @@ Runtime service for communicating completion information to the xblock system.
 """
 
 from django.conf import settings
-from django.contrib.auth.models import User
+from django.contrib import auth
 from xblock.completable import XBlockCompletionMode
 
 from .models import BlockCompletion
 from . import waffle
+
+User = auth.get_user_model()
 
 
 class CompletionService:

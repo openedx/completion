@@ -6,7 +6,7 @@ Common functionality to support writing tests around completion.
 from contextlib import contextmanager
 from datetime import datetime
 
-from django.contrib.auth.models import User
+from django.contrib import auth
 from edx_toggles.toggles.testutils import override_waffle_switch
 import factory
 from factory.django import DjangoModelFactory
@@ -15,6 +15,8 @@ from pytz import UTC
 
 from . import waffle
 from .models import BlockCompletion
+
+User = auth.get_user_model()
 
 
 def submit_completions_for_testing(user, block_keys):

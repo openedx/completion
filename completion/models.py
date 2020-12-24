@@ -4,7 +4,7 @@ Completion tracking and aggregation models.
 
 import logging
 
-from django.contrib.auth.models import User
+from django.contrib import auth
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError, models, transaction
 from django.utils.translation import ugettext as _
@@ -16,6 +16,7 @@ from opaque_keys.edx.django.models import LearningContextKeyField, UsageKeyField
 from . import waffle
 
 log = logging.getLogger(__name__)
+User = auth.get_user_model()
 
 # pylint: disable=ungrouped-imports
 try:
@@ -84,10 +85,10 @@ class BlockCompletionManager(models.Manager):
         try:
             context_key = block_key.context_key
             block_type = block_key.block_type
-        except AttributeError:
+        except AttributeError as error:
             raise ValueError(
                 "block_key must be an instance of `opaque_keys.edx.keys.UsageKey`.  Got {}".format(type(block_key))
-            )
+            ) from error
         if context_key.is_course and context_key.run is None:
             raise ValueError(
                 "If block_key is an old mongo key, you must add its run information to the key before calling "
@@ -207,7 +208,7 @@ class BlockCompletion(TimeStampedModel, models.Model):
         This is only necessary for block keys from old mongo courses, which
         didn't include the run information in the block usage key.
         """
-        if self.block_key.context_key.is_course and self.block_key.run is None:
+        if self.block_key.context_key.is_course and self.block_key.run is None:  # pylint: disable=no-member
             # pylint: disable=unexpected-keyword-arg, no-value-for-parameter
             return self.block_key.replace(course_key=self.context_key)
         return self.block_key
