@@ -28,7 +28,7 @@ from opaque_keys.edx.keys import LearningContextKey, UsageKey
 from opaque_keys import InvalidKeyError
 
 try:
-    from student.models import CourseEnrollment
+    from common.djangoapps.student.models import CourseEnrollment
     from lms.djangoapps.course_api.blocks.api import get_blocks
     from openedx.core.lib.api.authentication import BearerAuthenticationAllowInactiveUser
 except ImportError:

@@ -13,8 +13,11 @@ Change Log
 
 Unreleased
 ~~~~~~~~~~
-[3.2.6] - 2020-11-19
+
+[4.0.1] - 2021-01-05
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Replace reference to deprecated import path ``student.models``
+  with ``common.djangoapps.student.models``.
 * Updated the build status badge in README.rst to point to travis-ci.com instead of travis-ci.org
 
 
