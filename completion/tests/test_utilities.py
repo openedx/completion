@@ -20,7 +20,7 @@ class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
     COMPLETION_SWITCH_ENABLED = True
 
     def setUp(self):
-        super(TestCompletionUtilities, self).setUp()
+        super().setUp()
         self.user = UserFactory.create()
         self.course_key = CourseKey.from_string("course-v1:edX+MOOC101+2049_T2")
         self.block_keys = [

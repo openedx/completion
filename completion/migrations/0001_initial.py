@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from django.db import migrations, models
 import django.utils.timezone
 from django.conf import settings
@@ -38,10 +36,10 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterUniqueTogether(
             name='blockcompletion',
-            unique_together=set([('course_key', 'block_key', 'user')]),
+            unique_together={('course_key', 'block_key', 'user')},
         ),
         migrations.AlterIndexTogether(
             name='blockcompletion',
-            index_together=set([('course_key', 'block_type', 'user'), ('user', 'course_key', 'modified')]),
+            index_together={('course_key', 'block_type', 'user'), ('user', 'course_key', 'modified')},
         ),
     ]

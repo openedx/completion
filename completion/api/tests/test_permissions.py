@@ -21,7 +21,7 @@ class IsStaffOrOwnerTests(TestCase):
     """ Tests for IsStaffOrOwner permission class. """
 
     def setUp(self):
-        super(IsStaffOrOwnerTests, self).setUp()
+        super().setUp()
         self.permission = IsStaffOrOwner()
         self.request = RequestFactory().get('/')
         self.obj = FakeObject()
@@ -61,7 +61,7 @@ class IsStaffOrOwnerTests(TestCase):
     def test_has_permission_as_owner_with_get(self):
         """ Owners always have permission to make GET actions. """
         user = UserFactory()
-        request = RequestFactory().get('/?username={}'.format(user.username))
+        request = RequestFactory().get(f'/?username={user.username}')
         request.user = user
         self.assertTrue(self.permission.has_permission(request, None))
 
@@ -87,7 +87,7 @@ class IsStaffOrOwnerTests(TestCase):
     def test_has_permission_as_non_owner(self):
         """ Non-owners should not have permission. """
         user = UserFactory()
-        request = RequestFactory().get('/?username={}'.format(user.username))
+        request = RequestFactory().get(f'/?username={user.username}')
         request.user = UserFactory()
         self.assertFalse(self.permission.has_permission(request, None))
 

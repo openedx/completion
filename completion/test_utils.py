@@ -6,7 +6,7 @@ Common functionality to support writing tests around completion.
 from contextlib import contextmanager
 from datetime import datetime
 
-from django.contrib.auth.models import User
+from django.contrib import auth
 from edx_toggles.toggles.testutils import override_waffle_switch
 import factory
 from factory.django import DjangoModelFactory
@@ -15,6 +15,8 @@ from pytz import UTC
 
 from . import waffle
 from .models import BlockCompletion
+
+User = auth.get_user_model()
 
 
 def submit_completions_for_testing(user, block_keys):
@@ -41,10 +43,10 @@ class UserFactory(DjangoModelFactory):
 
     _DEFAULT_PASSWORD = 'test'
 
-    username = factory.Sequence(u'robot{0}'.format)
-    email = factory.Sequence(u'robot+test+{0}@edx.org'.format)
+    username = factory.Sequence('robot{}'.format)
+    email = factory.Sequence('robot+test+{}@edx.org'.format)
     password = factory.PostGenerationMethodCall('set_password', _DEFAULT_PASSWORD)
-    first_name = factory.Sequence(u'Robot{0}'.format)
+    first_name = factory.Sequence('Robot{}'.format)
     last_name = 'Test'
     is_staff = False
     is_active = True
@@ -81,7 +83,7 @@ class CompletionSetUpMixin:
 
     @classmethod
     def setUpClass(cls):
-        super(CompletionSetUpMixin, cls).setUpClass()
+        super().setUpClass()
         cls.waffle_patcher = override_waffle_switch(
             waffle.ENABLE_COMPLETION_TRACKING_SWITCH, cls.COMPLETION_SWITCH_ENABLED
         )
@@ -89,11 +91,11 @@ class CompletionSetUpMixin:
 
     @classmethod
     def tearDownClass(cls):
-        super(CompletionSetUpMixin, cls).tearDownClass()
+        super().tearDownClass()
         cls.waffle_patcher.__exit__(None, None, None)
 
     def setUp(self):
-        super(CompletionSetUpMixin, self).setUp()
+        super().setUp()
         self.block_key = UsageKey.from_string('block-v1:edx+test+run+type@video+block@doggos')
         self.context_key = self.block_key.context_key
         self.user = UserFactory()

@@ -13,4 +13,4 @@ class UnavailableCompletionData(Exception):
 
     def __init__(self, context_key):
         Exception.__init__(
-            self, "The learner does not have completion data within learning context {}".format(context_key))
+            self, f"The learner does not have completion data within learning context {context_key}")

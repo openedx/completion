@@ -37,7 +37,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
     COMPLETION_SWITCH_ENABLED = True
 
     def setUp(self):
-        super(SubmitCompletionTestCase, self).setUp()
+        super().setUp()
         self.set_up_completion()
 
     def test_changed_value(self):
@@ -76,7 +76,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         self.assertEqual(models.BlockCompletion.objects.count(), 2)
 
     def test_new_block(self):
-        newblock = UsageKey.from_string(u'block-v1:edx+test+run+type@video+block@puppers')
+        newblock = UsageKey.from_string('block-v1:edx+test+run+type@video+block@puppers')
         with self.assertNumQueries(6):  # Get, update, 4 * savepoints
             _, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
@@ -123,7 +123,7 @@ class CompletionDisabledTestCase(CompletionSetUpMixin, TestCase):
     COMPLETION_SWITCH_ENABLED = False
 
     def setUp(self):
-        super(CompletionDisabledTestCase, self).setUp()
+        super().setUp()
         self.set_up_completion()
 
     def test_cannot_call_submit_completion(self):
@@ -150,18 +150,18 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
     COMPLETION_SWITCH_ENABLED = True
 
     def setUp(self):
-        super(CompletionFetchingTestCase, self).setUp()
+        super().setUp()
         self.user_one = UserFactory.create()
         self.user_two = UserFactory.create()
         self.course_key_one = CourseKey.from_string("course-v1:edX+MOOC202+2049_T2")
         self.course_key_two = CourseKey.from_string("edX/MOOC101/2050_T2")
         self.block_keys_one = [
-            UsageKey.from_string("block-v1:edX+MOOC202+2049_T2+type@video+block@{}".format(number))
+            UsageKey.from_string(f"block-v1:edX+MOOC202+2049_T2+type@video+block@{number}")
             for number in range(5)
         ]
         self.block_keys_two = [
             # Some old mongo usage keys - these don't contain the run info
-            UsageKey.from_string("i4x://edX/MOOC101/video/{}".format(number)) for number in range(5)
+            UsageKey.from_string(f"i4x://edX/MOOC101/video/{number}") for number in range(5)
         ]
         self.block_keys_two_with_runs = [key.replace(course_key=self.course_key_two) for key in self.block_keys_two]
 
