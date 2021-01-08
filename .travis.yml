@@ -2,10 +2,12 @@ language: python
 python:
   - '3.8'
 env:
-  - TOXENV=quality
   - TOXENV=django22-drf37
-  - TOXENV=django30-drf37
-  - TOXENV=django31-drf37
+  - TOXENV=django22-drf38
+  - TOXENV=django22-drf39
+  - TOXENV=django22-drflatest
+  - TOXENV=quality
+
 cache:
   - pip
 before_install:
