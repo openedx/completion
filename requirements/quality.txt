@@ -34,7 +34,9 @@ colorama==0.4.4
 coverage==5.3.1
     # via pytest-cov
 cryptography==3.3.1
-    # via pyjwt
+    # via
+    #   pyjwt
+    #   secretstorage
 ddt==1.4.1
     # via -r requirements/test.in
 django-crum==0.7.9
@@ -88,7 +90,7 @@ edx-toggles==2.0.0
     # via -r requirements/base.in
 factory-boy==3.2.0
     # via -r requirements/test.in
-faker==5.4.0
+faker==5.5.0
     # via factory-boy
 freezegun==1.0.0
     # via -r requirements/test.in
@@ -104,6 +106,10 @@ isort==5.7.0
     # via
     #   -r requirements/quality.in
     #   pylint
+jeepney==0.6.0
+    # via
+    #   keyring
+    #   secretstorage
 jinja2==2.11.2
     # via code-annotations
 keyring==21.8.0
@@ -144,7 +150,7 @@ pycryptodomex==3.9.9
     # via pyjwkest
 pydocstyle==5.1.1
     # via -r requirements/quality.in
-pygments==2.7.3
+pygments==2.7.4
     # via readme-renderer
 pyjwkest==1.4.2
     # via edx-drf-extensions
@@ -208,6 +214,8 @@ rest-condition==1.0.3
     # via edx-drf-extensions
 rfc3986==1.4.0
     # via twine
+secretstorage==3.3.0
+    # via keyring
 semantic-version==2.8.5
     # via edx-drf-extensions
 six==1.15.0
@@ -240,7 +248,7 @@ toml==0.10.2
     # via
     #   pylint
     #   pytest
-tqdm==4.55.1
+tqdm==4.56.0
     # via twine
 twine==3.3.0
     # via -r requirements/quality.in
