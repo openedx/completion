@@ -14,6 +14,11 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[4.0.2] - 2021-02-04
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Future-proof usage of ``edx_toggles.toggles``
+
+
 [4.0.1] - 2021-01-05
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Replace reference to deprecated import path ``student.models``
