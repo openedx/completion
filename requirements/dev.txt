@@ -37,11 +37,13 @@ colorama==0.4.4
 coverage==5.3.1
     # via pytest-cov
 cryptography==3.3.1
-    # via pyjwt
+    # via
+    #   pyjwt
+    #   secretstorage
 ddt==1.4.1
-    # via -r requirements/test.in
+    # via -r test.in
 diff-cover==4.1.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 distlib==0.3.1
     # via virtualenv
 django-crum==0.7.9
@@ -49,7 +51,7 @@ django-crum==0.7.9
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==4.1.1
-    # via -r requirements/base.in
+    # via -r base.in
 django-waffle==2.0.0
     # via
     #   edx-django-utils
@@ -57,8 +59,8 @@ django-waffle==2.0.0
     #   edx-toggles
 django==2.2.17
     # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/base.in
+    #   -c constraints.txt
+    #   -r base.in
     #   code-annotations
     #   django-crum
     #   django-model-utils
@@ -72,7 +74,7 @@ django==2.2.17
     #   rest-condition
 djangorestframework==3.12.2
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
@@ -85,21 +87,21 @@ edx-django-utils==3.13.0
     #   edx-drf-extensions
     #   edx-toggles
 edx-drf-extensions==6.2.0
-    # via -r requirements/base.in
+    # via -r base.in
 edx-i18n-tools==0.5.3
-    # via -r requirements/dev.in
+    # via -r dev.in
 edx-lint==1.6
     # via
-    #   -r requirements/dev.in
-    #   -r requirements/quality.in
+    #   -r dev.in
+    #   -r quality.in
 edx-opaque-keys[django]==2.1.1
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-drf-extensions
 edx-toggles==2.0.0
-    # via -r requirements/base.in
+    # via -r base.in
 factory-boy==3.2.0
-    # via -r requirements/test.in
+    # via -r test.in
 faker==5.4.0
     # via factory-boy
 filelock==3.0.12
@@ -107,7 +109,7 @@ filelock==3.0.12
     #   tox
     #   virtualenv
 freezegun==1.0.0
-    # via -r requirements/test.in
+    # via -r test.in
 fs==2.4.11
     # via xblock
 future==0.18.2
@@ -120,8 +122,12 @@ iniconfig==1.1.1
     # via pytest
 isort==5.7.0
     # via
-    #   -r requirements/quality.in
+    #   -r quality.in
     #   pylint
+jeepney==0.6.0
+    # via
+    #   keyring
+    #   secretstorage
 jinja2-pluralize==0.3.0
     # via diff-cover
 jinja2==2.11.2
@@ -142,7 +148,7 @@ markupsafe==1.1.1
 mccabe==0.6.1
     # via pylint
 mock==4.0.3
-    # via -r requirements/test.in
+    # via -r test.in
 newrelic==5.24.0.153
     # via edx-django-utils
 packaging==20.8
@@ -157,7 +163,7 @@ path==15.0.1
 pbr==5.5.1
     # via stevedore
 pip-tools==5.5.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 pkginfo==1.6.1
     # via twine
 pluggy==0.13.1
@@ -174,14 +180,14 @@ py==1.10.0
     #   pytest
     #   tox
 pycodestyle==2.6.0
-    # via -r requirements/quality.in
+    # via -r quality.in
 pycparser==2.20
     # via cffi
 pycryptodomex==3.9.9
     # via pyjwkest
 pydocstyle==5.1.1
-    # via -r requirements/quality.in
-pygments==2.7.3
+    # via -r quality.in
+pygments==2.7.4
     # via
     #   diff-cover
     #   readme-renderer
@@ -208,9 +214,9 @@ pymongo==3.11.2
 pyparsing==2.4.7
     # via packaging
 pytest-cov==2.10.1
-    # via -r requirements/test.in
+    # via -r test.in
 pytest-django==4.1.0
-    # via -r requirements/test.in
+    # via -r test.in
 pytest==6.2.1
     # via
     #   pytest-cov
@@ -225,7 +231,7 @@ python-slugify==4.0.1
     # via code-annotations
 pytz==2020.5
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   django
     #   fs
     #   xblock
@@ -248,6 +254,8 @@ rest-condition==1.0.3
     # via edx-drf-extensions
 rfc3986==1.4.0
     # via twine
+secretstorage==3.3.1
+    # via keyring
 semantic-version==2.8.5
     # via edx-drf-extensions
 six==1.15.0
@@ -285,15 +293,15 @@ toml==0.10.2
     #   pytest
     #   tox
 tox-battery==0.6.1
-    # via -r requirements/dev.in
+    # via -r dev.in
 tox==3.20.1
     # via
-    #   -r requirements/dev.in
+    #   -r dev.in
     #   tox-battery
 tqdm==4.55.1
     # via twine
 twine==3.3.0
-    # via -r requirements/quality.in
+    # via -r quality.in
 urllib3==1.26.2
     # via requests
 virtualenv==20.2.2
@@ -307,7 +315,7 @@ webob==1.8.6
 wrapt==1.12.1
     # via astroid
 xblock==1.4.0
-    # via -r requirements/base.in
+    # via -r base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
