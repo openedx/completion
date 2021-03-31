@@ -23,21 +23,22 @@ coverage==5.3.1
 cryptography==3.3.1
     # via pyjwt
 ddt==1.4.1
-    # via -r requirements/test.in
+    # via -r test.in
 django-crum==0.7.9
     # via
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==4.1.1
-    # via -r requirements/base.in
+    # via -r base.in
 django-waffle==2.0.0
     # via
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
+django==2.2.19
     # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/base.in
+    #   -c constraints.txt
+    #   -r base.in
     #   code-annotations
     #   django-crum
     #   django-model-utils
@@ -48,8 +49,9 @@ django-waffle==2.0.0
     #   edx-opaque-keys
     #   edx-toggles
     #   rest-condition
+djangorestframework==3.12.4
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
@@ -60,19 +62,19 @@ edx-django-utils==3.13.0
     #   edx-drf-extensions
     #   edx-toggles
 edx-drf-extensions==6.2.0
-    # via -r requirements/base.in
+    # via -r base.in
 edx-opaque-keys[django]==2.1.1
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-drf-extensions
 edx-toggles==2.0.0
-    # via -r requirements/base.in
+    # via -r base.in
 factory-boy==3.2.0
-    # via -r requirements/test.in
+    # via -r test.in
 faker==5.4.0
     # via factory-boy
 freezegun==1.0.0
-    # via -r requirements/test.in
+    # via -r test.in
 fs==2.4.11
     # via xblock
 future==0.18.2
@@ -83,14 +85,14 @@ iniconfig==1.1.1
     # via pytest
 jinja2==2.11.2
     # via code-annotations
-lxml==4.6.2
+lxml==4.6.3
     # via xblock
 markupsafe==1.1.1
     # via
     #   jinja2
     #   xblock
 mock==4.0.3
-    # via -r requirements/test.in
+    # via -r test.in
 newrelic==5.24.0.153
     # via edx-django-utils
 packaging==20.8
@@ -116,9 +118,9 @@ pymongo==3.11.2
 pyparsing==2.4.7
     # via packaging
 pytest-cov==2.10.1
-    # via -r requirements/test.in
+    # via -r test.in
 pytest-django==4.1.0
-    # via -r requirements/test.in
+    # via -r test.in
 pytest==6.2.1
     # via
     #   pytest-cov
@@ -133,7 +135,7 @@ python-slugify==4.0.1
     # via code-annotations
 pytz==2020.5
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   django
     #   fs
     #   xblock
@@ -178,7 +180,7 @@ web-fragments==0.3.2
 webob==1.8.6
     # via xblock
 xblock==1.4.0
-    # via -r requirements/base.in
+    # via -r base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
