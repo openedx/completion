@@ -20,3 +20,12 @@ ENABLE_COMPLETION_TRACKING_SWITCH = WaffleSwitch(
     f"{WAFFLE_NAMESPACE}.{ENABLE_COMPLETION_TRACKING}",
     module_name=__name__,
 )
+ENABLE_PROGRESS_TRACKING_EVENTS = "enable_progress_tracking_events"
+# .. toggle_name: completion.enable_progress_tracking_events
+# .. toggle_implementation: WaffleSwitch
+# .. toggle_default: False
+# .. toggle_description: Indicates whether or not to track progress events of individual blocks.
+ENABLE_PROGRESS_TRACKING_EVENTS_SWITCH = WaffleSwitch(
+    f"{WAFFLE_NAMESPACE}.{ENABLE_PROGRESS_TRACKING_EVENTS}",
+    module_name=__name__,
+)
