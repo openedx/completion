@@ -39,6 +39,16 @@ class CompletionService:
         """
         return waffle.ENABLE_COMPLETION_TRACKING_SWITCH.is_enabled()
 
+    def progress_tracking_enabled(self):
+        """
+        Exposes ENABLE_PROGRESS_TRACKING_EVENTS waffle switch to XModule runtime
+
+        Return value:
+
+            bool -> True if progress tracking is enabled.
+        """
+        return waffle.ENABLE_PROGRESS_TRACKING_EVENTS_SWITCH.is_enabled()
+
     def get_completions(self, candidates):
         """
         Given an iterable collection of block_keys in the learning context,
