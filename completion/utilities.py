@@ -25,6 +25,6 @@ def get_key_to_last_completed_block(user, context_key):
     last_completed_block = BlockCompletion.get_latest_block_completed(user, context_key)
 
     if last_completed_block is not None:
-        return last_completed_block.block_key
+        return last_completed_block.full_block_key
 
     raise UnavailableCompletionData(context_key)
