@@ -14,6 +14,10 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[4.0.4]- 2021-02-04
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Update ``get_key_to_last_completed_block`` to return ``full_block_key`` instead of ``block_key``
+
 [4.0.2] - 2021-02-04
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Future-proof usage of ``edx_toggles.toggles``
