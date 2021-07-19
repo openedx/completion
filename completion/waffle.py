@@ -8,7 +8,7 @@ from edx_toggles.toggles import WaffleSwitch
 
 # The switch and namespace names variables are preserved for backward compatibility
 WAFFLE_NAMESPACE = "completion"
-ENABLE_COMPLETION_TRACKING = "enable_completion_tracking"
+ENABLE_COMPLETION_TRACKING = "enable_completion_tracking"  # pylint: disable=annotation-missing-token
 # .. toggle_name: completion.enable_completion_tracking
 # .. toggle_implementation: WaffleSwitch
 # .. toggle_default: False

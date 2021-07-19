@@ -6,12 +6,16 @@ env:
   - TOXENV=django22-drf38
   - TOXENV=django22-drf39
   - TOXENV=django22-drflatest
+  - TOXENV=django30-drflatest
+  - TOXENV=django31-drflatest
+  - TOXENV=django32-drflatest
   - TOXENV=quality
 
 cache:
   - pip
 before_install:
-  - pip install --upgrade pip==9.0.3
+  - pip install --upgrade pip
+  - pip install --upgrade pip-tools
 install:
   - pip install -r requirements/travis.txt
 script:

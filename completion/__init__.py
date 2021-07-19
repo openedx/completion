@@ -2,6 +2,6 @@
 Completion App
 """
 
-__version__ = '4.0.4'
+__version__ = '4.1.0'
 
 default_app_config = 'completion.apps.CompletionAppConfig'  # pylint: disable=invalid-name
