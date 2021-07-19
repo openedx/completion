@@ -6,6 +6,9 @@ env:
   - TOXENV=django22-drf38
   - TOXENV=django22-drf39
   - TOXENV=django22-drflatest
+  - TOXENV=django30-drflatest
+  - TOXENV=django31-drflatest
+  - TOXENV=django32-drflatest
   - TOXENV=quality
 
 cache:
