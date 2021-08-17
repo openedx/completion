@@ -16,8 +16,6 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-chardet==4.0.0
-    # via doc8
 charset-normalizer==2.0.3
     # via requests
 click==8.0.1
@@ -59,7 +57,7 @@ djangorestframework==3.12.4
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
-doc8==0.8.1
+doc8==0.9.0
     # via -r requirements/doc.in
 docutils==0.17.1
     # via
@@ -180,7 +178,6 @@ semantic-version==2.8.5
     # via edx-drf-extensions
 six==1.16.0
     # via
-    #   doc8
     #   edx-drf-extensions
     #   edx-sphinx-theme
     #   fs
