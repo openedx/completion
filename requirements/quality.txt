@@ -6,19 +6,19 @@
 #
 appdirs==1.4.4
     # via fs
-astroid==2.6.4
+astroid==2.6.6
     # via
     #   pylint
     #   pylint-celery
 attrs==21.2.0
     # via pytest
-bleach==3.3.1
+bleach==4.0.0
     # via readme-renderer
 certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-charset-normalizer==2.0.3
+charset-normalizer==2.0.4
     # via requests
 click==8.0.1
     # via
@@ -27,7 +27,7 @@ click==8.0.1
     #   edx-lint
 click-log==0.3.2
     # via edx-lint
-code-annotations==1.1.2
+code-annotations==1.2.0
     # via
     #   edx-lint
     #   edx-toggles
@@ -79,7 +79,7 @@ edx-django-utils==4.2.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
-edx-drf-extensions==6.6.0
+edx-drf-extensions==7.0.1
     # via -r requirements/base.in
 edx-lint==5.0.0
     # via -r requirements/quality.in
@@ -91,7 +91,7 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 factory-boy==3.2.0
     # via -r requirements/test.in
-faker==8.10.1
+faker==8.11.0
     # via factory-boy
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -101,23 +101,23 @@ future==0.18.2
     # via pyjwkest
 idna==3.2
     # via requests
-importlib-metadata==4.6.1
+importlib-metadata==4.6.4
     # via
     #   keyring
     #   twine
 iniconfig==1.1.1
     # via pytest
-isort==5.9.2
+isort==5.9.3
     # via
     #   -r requirements/quality.in
     #   pylint
-jeepney==0.7.0
+jeepney==0.7.1
     # via
     #   keyring
     #   secretstorage
 jinja2==3.0.1
     # via code-annotations
-keyring==23.0.1
+keyring==23.1.0
     # via twine
 lazy-object-proxy==1.6.0
     # via astroid
@@ -131,7 +131,7 @@ mccabe==0.6.1
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==6.4.4.161
+newrelic==6.8.0.163
     # via edx-django-utils
 packaging==21.0
     # via
@@ -155,13 +155,15 @@ pycryptodomex==3.10.1
     # via pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/quality.in
-pygments==2.9.0
+pygments==2.10.0
     # via readme-renderer
 pyjwkest==1.4.2
     # via edx-drf-extensions
 pyjwt[crypto]==2.1.0
-    # via drf-jwt
-pylint==2.9.3
+    # via
+    #   drf-jwt
+    #   edx-drf-extensions
+pylint==2.9.6
     # via
     #   edx-lint
     #   pylint-celery
@@ -236,7 +238,7 @@ snowballstemmer==2.1.0
     # via pydocstyle
 sqlparse==0.4.1
     # via django
-stevedore==3.3.0
+stevedore==3.4.0
     # via
     #   code-annotations
     #   edx-django-utils
@@ -250,9 +252,9 @@ toml==0.10.2
     #   pylint
     #   pytest
     #   pytest-cov
-tqdm==4.61.2
+tqdm==4.62.1
     # via twine
-twine==3.4.1
+twine==3.4.2
     # via -r requirements/quality.in
 urllib3==1.26.6
     # via requests
@@ -264,7 +266,7 @@ webob==1.8.7
     # via xblock
 wrapt==1.12.1
     # via astroid
-xblock==1.4.2
+xblock==1.5.0
     # via -r requirements/base.in
 zipp==3.5.0
     # via importlib-metadata
