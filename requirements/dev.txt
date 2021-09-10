@@ -45,15 +45,15 @@ cryptography==3.4.7
     #   pyjwt
     #   secretstorage
 ddt==1.4.2
-    # via -r requirements/test.in
+    # via -r test.in
 diff-cover==6.3.2
-    # via -r requirements/dev.in
+    # via -r dev.in
 distlib==0.3.2
     # via virtualenv
 django==2.2.24
     # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/base.in
+    #   -c constraints.txt
+    #   -r base.in
     #   django-crum
     #   django-model-utils
     #   djangorestframework
@@ -69,7 +69,7 @@ django-crum==0.7.9
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==4.1.1
-    # via -r requirements/base.in
+    # via -r base.in
 django-waffle==2.2.1
     # via
     #   edx-django-utils
@@ -77,7 +77,7 @@ django-waffle==2.2.1
     #   edx-toggles
 djangorestframework==3.12.4
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
@@ -90,21 +90,21 @@ edx-django-utils==4.2.0
     #   edx-drf-extensions
     #   edx-toggles
 edx-drf-extensions==7.0.1
-    # via -r requirements/base.in
+    # via -r base.in
 edx-i18n-tools==0.7.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 edx-lint==5.0.0
     # via
-    #   -r requirements/dev.in
-    #   -r requirements/quality.in
+    #   -r dev.in
+    #   -r quality.in
 edx-opaque-keys[django]==2.2.2
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-drf-extensions
 edx-toggles==4.2.0
-    # via -r requirements/base.in
+    # via -r base.in
 factory-boy==3.2.0
-    # via -r requirements/test.in
+    # via -r test.in
 faker==8.11.0
     # via factory-boy
 filelock==3.0.12
@@ -112,7 +112,7 @@ filelock==3.0.12
     #   tox
     #   virtualenv
 freezegun==1.1.0
-    # via -r requirements/test.in
+    # via -r test.in
 fs==2.4.13
     # via xblock
 future==0.18.2
@@ -129,7 +129,7 @@ iniconfig==1.1.1
     # via pytest
 isort==5.9.3
     # via
-    #   -r requirements/quality.in
+    #   -r quality.in
     #   pylint
 jeepney==0.7.1
     # via
@@ -155,7 +155,7 @@ markupsafe==2.0.1
 mccabe==0.6.1
     # via pylint
 mock==4.0.3
-    # via -r requirements/test.in
+    # via -r test.in
 newrelic==6.8.0.163
     # via edx-django-utils
 packaging==21.0
@@ -170,7 +170,7 @@ pbr==5.6.0
 pep517==0.11.0
     # via pip-tools
 pip-tools==6.2.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 pkginfo==1.7.1
     # via twine
 platformdirs==2.2.0
@@ -189,13 +189,13 @@ py==1.10.0
     #   pytest
     #   tox
 pycodestyle==2.7.0
-    # via -r requirements/quality.in
+    # via -r quality.in
 pycparser==2.20
     # via cffi
 pycryptodomex==3.10.1
     # via pyjwkest
 pydocstyle==6.1.1
-    # via -r requirements/quality.in
+    # via -r quality.in
 pygments==2.10.0
     # via
     #   diff-cover
@@ -229,9 +229,9 @@ pytest==6.2.4
     #   pytest-cov
     #   pytest-django
 pytest-cov==2.12.1
-    # via -r requirements/test.in
+    # via -r test.in
 pytest-django==4.4.0
-    # via -r requirements/test.in
+    # via -r test.in
 python-dateutil==2.8.2
     # via
     #   edx-drf-extensions
@@ -242,7 +242,7 @@ python-slugify==5.0.2
     # via code-annotations
 pytz==2021.1
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   django
     #   fs
     #   xblock
@@ -283,7 +283,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via pydocstyle
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via django
 stevedore==3.4.0
     # via
@@ -304,14 +304,14 @@ tomli==1.2.1
     # via pep517
 tox==3.24.2
     # via
-    #   -r requirements/dev.in
+    #   -r dev.in
     #   tox-battery
 tox-battery==0.6.1
-    # via -r requirements/dev.in
+    # via -r dev.in
 tqdm==4.62.1
     # via twine
 twine==3.4.2
-    # via -r requirements/quality.in
+    # via -r quality.in
 urllib3==1.26.6
     # via requests
 virtualenv==20.7.2
@@ -327,7 +327,7 @@ wheel==0.37.0
 wrapt==1.12.1
     # via astroid
 xblock==1.5.0
-    # via -r requirements/base.in
+    # via -r base.in
 zipp==3.5.0
     # via importlib-metadata
 
