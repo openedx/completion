@@ -6,7 +6,7 @@
 #
 appdirs==1.4.4
     # via fs
-astroid==2.6.6
+astroid==2.8.0
     # via
     #   pylint
     #   pylint-celery
@@ -14,7 +14,7 @@ attrs==21.2.0
     # via pytest
 backports.entry-points-selectable==1.1.0
     # via virtualenv
-bleach==4.0.0
+bleach==4.1.0
     # via readme-renderer
 certifi==2021.5.30
     # via requests
@@ -22,7 +22,7 @@ cffi==1.14.6
     # via cryptography
 chardet==4.0.0
     # via diff-cover
-charset-normalizer==2.0.4
+charset-normalizer==2.0.5
     # via requests
 click==8.0.1
     # via
@@ -40,13 +40,13 @@ colorama==0.4.4
     # via twine
 coverage==5.5
     # via pytest-cov
-cryptography==3.4.7
+cryptography==3.4.8
     # via
     #   pyjwt
     #   secretstorage
 ddt==1.4.2
     # via -r requirements/test.in
-diff-cover==6.3.2
+diff-cover==6.3.5
     # via -r requirements/dev.in
 distlib==0.3.2
     # via virtualenv
@@ -61,7 +61,6 @@ django==2.2.24
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-i18n-tools
-    #   edx-lint
     #   edx-toggles
     #   rest-condition
 django-crum==0.7.9
@@ -85,7 +84,7 @@ docutils==0.17.1
     # via readme-renderer
 drf-jwt==1.19.1
     # via edx-drf-extensions
-edx-django-utils==4.2.0
+edx-django-utils==4.4.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -93,7 +92,7 @@ edx-drf-extensions==7.0.1
     # via -r requirements/base.in
 edx-i18n-tools==0.7.0
     # via -r requirements/dev.in
-edx-lint==5.0.0
+edx-lint==5.1.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/quality.in
@@ -105,7 +104,7 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 factory-boy==3.2.0
     # via -r requirements/test.in
-faker==8.11.0
+faker==8.13.2
     # via factory-boy
 filelock==3.0.12
     # via
@@ -119,7 +118,7 @@ future==0.18.2
     # via pyjwkest
 idna==3.2
     # via requests
-importlib-metadata==4.6.4
+importlib-metadata==4.8.1
     # via
     #   keyring
     #   twine
@@ -142,7 +141,7 @@ jinja2==3.0.1
     #   jinja2-pluralize
 jinja2-pluralize==0.3.0
     # via diff-cover
-keyring==23.1.0
+keyring==23.2.1
     # via twine
 lazy-object-proxy==1.6.0
     # via astroid
@@ -156,7 +155,7 @@ mccabe==0.6.1
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==6.8.0.163
+newrelic==6.10.0.165
     # via edx-django-utils
 packaging==21.0
     # via
@@ -173,8 +172,10 @@ pip-tools==6.2.0
     # via -r requirements/dev.in
 pkginfo==1.7.1
     # via twine
-platformdirs==2.2.0
-    # via virtualenv
+platformdirs==2.3.0
+    # via
+    #   pylint
+    #   virtualenv
 pluggy==0.13.1
     # via
     #   diff-cover
@@ -206,7 +207,7 @@ pyjwt[crypto]==2.1.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.9.6
+pylint==2.11.1
     # via
     #   edx-lint
     #   pylint-celery
@@ -224,7 +225,7 @@ pymongo==3.12.0
     # via edx-opaque-keys
 pyparsing==2.4.7
     # via packaging
-pytest==6.2.4
+pytest==6.2.5
     # via
     #   pytest-cov
     #   pytest-django
@@ -283,7 +284,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via pydocstyle
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via django
 stevedore==3.4.0
     # via
@@ -302,19 +303,23 @@ toml==0.10.2
     #   tox
 tomli==1.2.1
     # via pep517
-tox==3.24.2
+tox==3.24.4
     # via
     #   -r requirements/dev.in
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/dev.in
-tqdm==4.62.1
+tqdm==4.62.2
     # via twine
 twine==3.4.2
     # via -r requirements/quality.in
+typing-extensions==3.10.0.2
+    # via
+    #   astroid
+    #   pylint
 urllib3==1.26.6
     # via requests
-virtualenv==20.7.2
+virtualenv==20.8.0
     # via tox
 web-fragments==1.1.0
     # via xblock
@@ -326,7 +331,7 @@ wheel==0.37.0
     # via pip-tools
 wrapt==1.12.1
     # via astroid
-xblock==1.5.0
+xblock==1.5.1
     # via -r requirements/base.in
 zipp==3.5.0
     # via importlib-metadata

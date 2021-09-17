@@ -16,7 +16,7 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.5
     # via requests
 click==8.0.1
     # via code-annotations
@@ -24,7 +24,7 @@ code-annotations==1.2.0
     # via edx-toggles
 coverage==5.5
     # via pytest-cov
-cryptography==3.4.7
+cryptography==3.4.8
     # via pyjwt
 ddt==1.4.2
     # via -r requirements/test.in
@@ -66,7 +66,7 @@ docutils==0.17.1
     #   sphinx
 drf-jwt==1.19.1
     # via edx-drf-extensions
-edx-django-utils==4.2.0
+edx-django-utils==4.4.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -82,7 +82,7 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 factory-boy==3.2.0
     # via -r requirements/test.in
-faker==8.11.0
+faker==8.13.2
     # via factory-boy
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -108,7 +108,7 @@ markupsafe==2.0.1
     #   xblock
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==6.8.0.163
+newrelic==6.10.0.165
     # via edx-django-utils
 packaging==21.0
     # via
@@ -116,7 +116,7 @@ packaging==21.0
     #   sphinx
 pbr==5.6.0
     # via stevedore
-pluggy==0.13.1
+pluggy==1.0.0
     # via pytest
 psutil==5.8.0
     # via edx-django-utils
@@ -140,7 +140,7 @@ pymongo==3.12.0
     # via edx-opaque-keys
 pyparsing==2.4.7
     # via packaging
-pytest==6.2.4
+pytest==6.2.5
     # via
     #   pytest-cov
     #   pytest-django
@@ -187,7 +187,7 @@ six==1.16.0
     #   python-dateutil
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==4.1.2
+sphinx==4.2.0
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
@@ -203,7 +203,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via django
 stevedore==3.4.0
     # via
@@ -225,7 +225,7 @@ web-fragments==1.1.0
     # via xblock
 webob==1.8.7
     # via xblock
-xblock==1.5.0
+xblock==1.5.1
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
