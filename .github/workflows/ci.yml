@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: [ubuntu-20.04]
         python-version: ['3.8']
-        toxenv: [django22-drf37, django22-drf38, django22-drf39, django22-drflatest,
+        toxenv: [django22-drf39, django22-drf310, django22-drflatest,
                  django30-drflatest, django31-drflatest, django32-drflatest, quality]
 
     steps:

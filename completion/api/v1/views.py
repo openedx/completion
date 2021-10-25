@@ -172,7 +172,7 @@ class CompletionBatchView(APIView):
             BlockCompletion.objects.submit_batch_completion(user, blocks)
         except ValidationError as exc:
             return Response({
-                "detail": _(' ').join(str(msg) for msg in exc.messages),  # pylint: disable=exception-escape
+                "detail": _(' ').join(str(msg) for msg in exc.messages),
             }, status=status.HTTP_400_BAD_REQUEST)
         except ValueError as exc:
             return Response({

@@ -87,7 +87,7 @@ class BlockCompletionManager(models.Manager):
             block_type = block_key.block_type
         except AttributeError as error:
             raise ValueError(
-                "block_key must be an instance of `opaque_keys.edx.keys.UsageKey`.  Got {}".format(type(block_key))
+                f"block_key must be an instance of `opaque_keys.edx.keys.UsageKey`.  Got {type(block_key)}"
             ) from error
         if context_key.is_course and context_key.run is None:
             raise ValueError(
@@ -328,9 +328,4 @@ class BlockCompletion(TimeStampedModel, models.Model):
         get_latest_by = 'modified'
 
     def __unicode__(self):
-        return 'BlockCompletion: {username}, {context_key}, {block_key}: {completion}'.format(
-            username=self.user.username,
-            context_key=self.context_key,
-            block_key=self.block_key,
-            completion=self.completion,
-        )
+        return f'BlockCompletion: {self.user.username}, {self.context_key}, {self.block_key}: {self.completion}'

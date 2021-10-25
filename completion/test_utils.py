@@ -33,6 +33,7 @@ def submit_completions_for_testing(user, block_keys):
         )
 
 
+# pylint: disable=consider-using-f-string
 class UserFactory(DjangoModelFactory):
     """
     A Factory for User objects.
