@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via fs
 asgiref==3.4.1
     # via django
-astroid==2.8.0
+astroid==2.8.4
     # via
     #   pylint
     #   pylint-celery
@@ -18,15 +18,15 @@ backports.entry-points-selectable==1.1.0
     # via virtualenv
 bleach==4.1.0
     # via readme-renderer
-certifi==2021.5.30
+certifi==2021.10.8
     # via requests
-cffi==1.14.6
+cffi==1.15.0
     # via cryptography
 chardet==4.0.0
     # via diff-cover
-charset-normalizer==2.0.6
+charset-normalizer==2.0.7
     # via requests
-click==8.0.1
+click==8.0.3
     # via
     #   click-log
     #   code-annotations
@@ -40,15 +40,15 @@ code-annotations==1.2.0
     #   edx-toggles
 colorama==0.4.4
     # via twine
-coverage[toml]==6.0
+coverage[toml]==6.0.2
     # via pytest-cov
-cryptography==3.4.8
+cryptography==35.0.0
     # via
     #   pyjwt
     #   secretstorage
 ddt==1.4.4
     # via -r requirements/test.in
-diff-cover==6.4.1
+diff-cover==6.4.2
     # via -r requirements/dev.in
 distlib==0.3.3
     # via virtualenv
@@ -68,7 +68,7 @@ django-crum==0.7.9
     # via
     #   edx-django-utils
     #   edx-toggles
-django-model-utils==4.1.1
+django-model-utils==4.2.0
     # via -r requirements/base.in
 django-waffle==2.2.1
     # via
@@ -80,7 +80,7 @@ djangorestframework==3.12.4
     #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
-docutils==0.17.1
+docutils==0.18
     # via readme-renderer
 drf-jwt==1.19.1
     # via edx-drf-extensions
@@ -90,9 +90,9 @@ edx-django-utils==4.4.0
     #   edx-toggles
 edx-drf-extensions==8.0.0
     # via -r requirements/base.in
-edx-i18n-tools==0.7.0
+edx-i18n-tools==0.8.1
     # via -r requirements/dev.in
-edx-lint==5.2.0
+edx-lint==5.2.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/quality.in
@@ -102,11 +102,11 @@ edx-opaque-keys[django]==2.2.2
     #   edx-drf-extensions
 edx-toggles==4.2.0
     # via -r requirements/base.in
-factory-boy==3.2.0
+factory-boy==3.2.1
     # via -r requirements/test.in
-faker==8.16.0
+faker==9.7.1
     # via factory-boy
-filelock==3.3.0
+filelock==3.3.1
     # via
     #   tox
     #   virtualenv
@@ -116,7 +116,7 @@ fs==2.4.13
     # via xblock
 future==0.18.2
     # via pyjwkest
-idna==3.2
+idna==3.3
     # via requests
 importlib-metadata==4.8.1
     # via
@@ -155,7 +155,7 @@ mccabe==0.6.1
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.0.0.166
+newrelic==7.2.2.169
     # via edx-django-utils
 packaging==21.0
     # via
@@ -166,9 +166,9 @@ path==16.2.0
     # via edx-i18n-tools
 pbr==5.6.0
     # via stevedore
-pep517==0.11.0
+pep517==0.12.0
     # via pip-tools
-pip-tools==6.3.0
+pip-tools==6.4.0
     # via -r requirements/dev.in
 pkginfo==1.7.1
     # via twine
@@ -189,11 +189,11 @@ py==1.10.0
     # via
     #   pytest
     #   tox
-pycodestyle==2.7.0
+pycodestyle==2.8.0
     # via -r requirements/quality.in
 pycparser==2.20
     # via cffi
-pycryptodomex==3.10.4
+pycryptodomex==3.11.0
     # via pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/quality.in
@@ -203,7 +203,7 @@ pygments==2.10.0
     #   readme-renderer
 pyjwkest==1.4.2
     # via edx-drf-extensions
-pyjwt[crypto]==2.1.0
+pyjwt[crypto]==2.3.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
@@ -221,9 +221,9 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==3.12.0
+pymongo==3.12.1
     # via edx-opaque-keys
-pyparsing==2.4.7
+pyparsing==3.0.3
     # via packaging
 pytest==6.2.5
     # via
@@ -247,7 +247,7 @@ pytz==2021.3
     #   django
     #   fs
     #   xblock
-pyyaml==5.4.1
+pyyaml==6.0
     # via
     #   code-annotations
     #   edx-i18n-tools
@@ -272,7 +272,6 @@ six==1.16.0
     # via
     #   bleach
     #   edx-drf-extensions
-    #   edx-i18n-tools
     #   edx-lint
     #   fs
     #   pyjwkest
@@ -283,7 +282,7 @@ snowballstemmer==2.1.0
     # via pydocstyle
 sqlparse==0.4.2
     # via django
-stevedore==3.4.0
+stevedore==3.5.0
     # via
     #   code-annotations
     #   edx-django-utils
@@ -297,7 +296,7 @@ toml==0.10.2
     #   pylint
     #   pytest
     #   tox
-tomli==1.2.1
+tomli==1.2.2
     # via
     #   coverage
     #   pep517
@@ -317,7 +316,7 @@ typing-extensions==3.10.0.2
     #   pylint
 urllib3==1.26.7
     # via requests
-virtualenv==20.8.1
+virtualenv==20.9.0
     # via tox
 web-fragments==1.1.0
     # via xblock
@@ -327,7 +326,7 @@ webob==1.8.7
     # via xblock
 wheel==0.37.0
     # via pip-tools
-wrapt==1.12.1
+wrapt==1.13.2
     # via astroid
 xblock==1.5.1
     # via -r requirements/base.in
