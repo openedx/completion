@@ -4,3 +4,4 @@ include README.rst
 include requirements/base.in
 include requirements/test.in
 recursive-include completion *.html *.png *.gif *js *.css *jpg *jpeg *svg *py
+include requirements/constraints.txt
