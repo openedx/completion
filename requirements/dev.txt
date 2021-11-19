@@ -8,13 +8,13 @@ appdirs==1.4.4
     # via fs
 asgiref==3.4.1
     # via django
-astroid==2.8.4
+astroid==2.8.5
     # via
     #   pylint
     #   pylint-celery
 attrs==21.2.0
     # via pytest
-backports.entry-points-selectable==1.1.0
+backports.entry-points-selectable==1.1.1
     # via virtualenv
 bleach==4.1.0
     # via readme-renderer
@@ -40,7 +40,7 @@ code-annotations==1.2.0
     #   edx-toggles
 colorama==0.4.4
     # via twine
-coverage[toml]==6.1.1
+coverage[toml]==6.1.2
     # via pytest-cov
 cryptography==35.0.0
     # via
@@ -104,21 +104,21 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==9.8.0
+faker==9.8.2
     # via factory-boy
-filelock==3.3.2
+filelock==3.4.0
     # via
     #   tox
     #   virtualenv
 freezegun==1.1.0
     # via -r requirements/test.in
-fs==2.4.13
+fs==2.4.14
     # via xblock
 future==0.18.2
     # via pyjwkest
 idna==3.3
     # via requests
-importlib-metadata==4.8.1
+importlib-metadata==4.8.2
     # via
     #   keyring
     #   twine
@@ -126,7 +126,7 @@ inflect==5.3.0
     # via jinja2-pluralize
 iniconfig==1.1.1
     # via pytest
-isort==5.10.0
+isort==5.10.1
     # via
     #   -r requirements/quality.in
     #   pylint
@@ -134,7 +134,7 @@ jeepney==0.7.1
     # via
     #   keyring
     #   secretstorage
-jinja2==3.0.2
+jinja2==3.0.3
     # via
     #   code-annotations
     #   diff-cover
@@ -155,22 +155,22 @@ mccabe==0.6.1
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.2.3.170
+newrelic==7.2.4.171
     # via edx-django-utils
-packaging==21.2
+packaging==21.3
     # via
     #   bleach
     #   pytest
     #   tox
 path==16.2.0
     # via edx-i18n-tools
-pbr==5.7.0
+pbr==5.8.0
     # via stevedore
 pep517==0.12.0
     # via pip-tools
 pip-tools==6.4.0
     # via -r requirements/dev.in
-pkginfo==1.7.1
+pkginfo==1.8.0
     # via twine
 platformdirs==2.4.0
     # via
@@ -191,7 +191,7 @@ py==1.11.0
     #   tox
 pycodestyle==2.8.0
     # via -r requirements/quality.in
-pycparser==2.20
+pycparser==2.21
     # via cffi
 pycryptodomex==3.11.0
     # via pyjwkest
@@ -223,7 +223,7 @@ pylint-plugin-utils==0.6
     #   pylint-django
 pymongo==3.12.1
     # via edx-opaque-keys
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via packaging
 pytest==6.2.5
     # via
@@ -278,7 +278,7 @@ six==1.16.0
     #   python-dateutil
     #   tox
     #   virtualenv
-snowballstemmer==2.1.0
+snowballstemmer==2.2.0
     # via pydocstyle
 sqlparse==0.4.2
     # via django
@@ -308,9 +308,9 @@ tox-battery==0.6.1
     # via -r requirements/dev.in
 tqdm==4.62.3
     # via twine
-twine==3.5.0
+twine==3.6.0
     # via -r requirements/quality.in
-typing-extensions==3.10.0.2
+typing-extensions==4.0.0
     # via
     #   astroid
     #   pylint
