@@ -24,7 +24,7 @@ click==8.0.3
     # via code-annotations
 code-annotations==1.2.0
     # via edx-toggles
-coverage[toml]==6.1.2
+coverage[toml]==6.2
     # via pytest-cov
 cryptography==36.0.0
     # via pyjwt
@@ -82,7 +82,7 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==9.8.3
+faker==9.9.0
     # via factory-boy
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -136,7 +136,7 @@ pyjwt[crypto]==2.3.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==3.12.1
+pymongo==4.0
     # via edx-opaque-keys
 pyparsing==3.0.6
     # via packaging
@@ -146,7 +146,7 @@ pytest==6.2.5
     #   pytest-django
 pytest-cov==3.0.0
     # via -r requirements/test.in
-pytest-django==4.4.0
+pytest-django==4.5.1
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
@@ -185,7 +185,7 @@ six==1.16.0
     #   python-dateutil
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==4.3.0
+sphinx==4.3.1
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
