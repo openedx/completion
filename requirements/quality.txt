@@ -20,7 +20,7 @@ certifi==2021.10.8
     # via requests
 cffi==1.15.0
     # via cryptography
-charset-normalizer==2.0.8
+charset-normalizer==2.0.9
     # via requests
 click==8.0.3
     # via
@@ -35,7 +35,7 @@ code-annotations==1.2.0
     #   edx-toggles
 colorama==0.4.4
     # via twine
-coverage[toml]==6.1.2
+coverage[toml]==6.2
     # via pytest-cov
 cryptography==36.0.0
     # via
@@ -43,7 +43,7 @@ cryptography==36.0.0
     #   secretstorage
 ddt==1.4.4
     # via -r requirements/test.in
-django==3.2.9
+django==3.2.10
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -90,7 +90,7 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==9.8.3
+faker==10.0.0
     # via factory-boy
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -116,7 +116,7 @@ jeepney==0.7.1
     #   secretstorage
 jinja2==3.0.3
     # via code-annotations
-keyring==23.3.0
+keyring==23.4.0
     # via twine
 lazy-object-proxy==1.6.0
     # via astroid
@@ -138,7 +138,7 @@ packaging==21.3
     #   pytest
 pbr==5.8.0
     # via stevedore
-pkginfo==1.8.1
+pkginfo==1.8.2
     # via twine
 platformdirs==2.4.0
     # via pylint
@@ -152,7 +152,7 @@ pycodestyle==2.8.0
     # via -r requirements/quality.in
 pycparser==2.21
     # via cffi
-pycryptodomex==3.11.0
+pycryptodomex==3.12.0
     # via pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/quality.in
@@ -164,7 +164,7 @@ pyjwt[crypto]==2.3.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.12.1
+pylint==2.12.2
     # via
     #   edx-lint
     #   pylint-celery
@@ -178,7 +178,7 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==3.12.1
+pymongo==4.0.1
     # via edx-opaque-keys
 pyparsing==3.0.6
     # via packaging
@@ -188,7 +188,7 @@ pytest==6.2.5
     #   pytest-django
 pytest-cov==3.0.0
     # via -r requirements/test.in
-pytest-django==4.4.0
+pytest-django==4.5.2
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
@@ -208,7 +208,7 @@ pyyaml==6.0
     # via
     #   code-annotations
     #   xblock
-readme-renderer==30.0
+readme-renderer==31.0
     # via twine
 requests==2.26.0
     # via
@@ -253,9 +253,9 @@ tomli==1.2.2
     # via coverage
 tqdm==4.62.3
     # via twine
-twine==3.6.0
+twine==3.7.1
     # via -r requirements/quality.in
-typing-extensions==4.0.0
+typing-extensions==4.0.1
     # via
     #   astroid
     #   pylint
