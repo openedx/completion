@@ -42,11 +42,11 @@ cryptography==36.0.0
     #   pyjwt
     #   secretstorage
 ddt==1.4.4
-    # via -r requirements/test.in
+    # via -r test.in
 django==3.2.10
     # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/base.in
+    #   -c constraints.txt
+    #   -r base.in
     #   django-crum
     #   django-model-utils
     #   djangorestframework
@@ -59,7 +59,7 @@ django-crum==0.7.9
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==4.2.0
-    # via -r requirements/base.in
+    # via -r base.in
 django-waffle==2.2.1
     # via
     #   edx-django-utils
@@ -67,7 +67,7 @@ django-waffle==2.2.1
     #   edx-toggles
 djangorestframework==3.12.4
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   drf-jwt
     #   edx-drf-extensions
 docutils==0.18.1
@@ -79,21 +79,21 @@ edx-django-utils==4.4.0
     #   edx-drf-extensions
     #   edx-toggles
 edx-drf-extensions==8.0.1
-    # via -r requirements/base.in
+    # via -r base.in
 edx-lint==5.2.1
-    # via -r requirements/quality.in
+    # via -r quality.in
 edx-opaque-keys[django]==2.2.2
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-drf-extensions
 edx-toggles==4.2.0
-    # via -r requirements/base.in
+    # via -r base.in
 factory-boy==3.2.1
-    # via -r requirements/test.in
+    # via -r test.in
 faker==10.0.0
     # via factory-boy
 freezegun==1.1.0
-    # via -r requirements/test.in
+    # via -r test.in
 fs==2.4.14
     # via xblock
 future==0.18.2
@@ -108,7 +108,7 @@ iniconfig==1.1.1
     # via pytest
 isort==5.10.1
     # via
-    #   -r requirements/quality.in
+    #   -r quality.in
     #   pylint
 jeepney==0.7.1
     # via
@@ -120,7 +120,7 @@ keyring==23.4.0
     # via twine
 lazy-object-proxy==1.6.0
     # via astroid
-lxml==4.6.4
+lxml==4.6.5
     # via xblock
 markupsafe==2.0.1
     # via
@@ -129,7 +129,7 @@ markupsafe==2.0.1
 mccabe==0.6.1
     # via pylint
 mock==4.0.3
-    # via -r requirements/test.in
+    # via -r test.in
 newrelic==7.2.4.171
     # via edx-django-utils
 packaging==21.3
@@ -149,13 +149,13 @@ psutil==5.8.0
 py==1.11.0
     # via pytest
 pycodestyle==2.8.0
-    # via -r requirements/quality.in
+    # via -r quality.in
 pycparser==2.21
     # via cffi
 pycryptodomex==3.12.0
     # via pyjwkest
 pydocstyle==6.1.1
-    # via -r requirements/quality.in
+    # via -r quality.in
 pygments==2.10.0
     # via readme-renderer
 pyjwkest==1.4.2
@@ -187,9 +187,9 @@ pytest==6.2.5
     #   pytest-cov
     #   pytest-django
 pytest-cov==3.0.0
-    # via -r requirements/test.in
+    # via -r test.in
 pytest-django==4.5.2
-    # via -r requirements/test.in
+    # via -r test.in
 python-dateutil==2.8.2
     # via
     #   edx-drf-extensions
@@ -200,7 +200,7 @@ python-slugify==5.0.2
     # via code-annotations
 pytz==2021.3
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   django
     #   fs
     #   xblock
@@ -254,11 +254,7 @@ tomli==1.2.2
 tqdm==4.62.3
     # via twine
 twine==3.7.1
-    # via -r requirements/quality.in
-typing-extensions==4.0.1
-    # via
-    #   astroid
-    #   pylint
+    # via -r quality.in
 urllib3==1.26.7
     # via requests
 web-fragments==1.1.0
@@ -270,7 +266,7 @@ webob==1.8.7
 wrapt==1.13.3
     # via astroid
 xblock==1.5.1
-    # via -r requirements/base.in
+    # via -r base.in
 zipp==3.6.0
     # via importlib-metadata
 
