@@ -74,7 +74,7 @@ docutils==0.18.1
     # via readme-renderer
 drf-jwt==1.19.1
     # via edx-drf-extensions
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -100,7 +100,7 @@ future==0.18.2
     # via pyjwkest
 idna==3.3
     # via requests
-importlib-metadata==4.9.0
+importlib-metadata==4.10.0
     # via
     #   keyring
     #   twine
