@@ -12,7 +12,7 @@ astroid==2.9.0
     # via
     #   pylint
     #   pylint-celery
-attrs==21.2.0
+attrs==21.4.0
     # via pytest
 bleach==4.1.0
     # via readme-renderer
@@ -74,7 +74,7 @@ docutils==0.18.1
     # via readme-renderer
 drf-jwt==1.19.1
     # via edx-drf-extensions
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -90,7 +90,7 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==10.0.0
+faker==11.1.0
     # via factory-boy
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -100,7 +100,7 @@ future==0.18.2
     # via pyjwkest
 idna==3.3
     # via requests
-importlib-metadata==4.9.0
+importlib-metadata==4.10.0
     # via
     #   keyring
     #   twine
@@ -140,11 +140,11 @@ pbr==5.8.0
     # via stevedore
 pkginfo==1.8.2
     # via twine
-platformdirs==2.4.0
+platformdirs==2.4.1
     # via pylint
 pluggy==1.0.0
     # via pytest
-psutil==5.8.0
+psutil==5.9.0
     # via edx-django-utils
 py==1.11.0
     # via pytest
@@ -156,7 +156,7 @@ pycryptodomex==3.12.0
     # via pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/quality.in
-pygments==2.10.0
+pygments==2.11.0
     # via readme-renderer
 pyjwkest==1.4.2
     # via edx-drf-extensions
@@ -174,7 +174,7 @@ pylint-celery==0.3
     # via edx-lint
 pylint-django==2.4.4
     # via edx-lint
-pylint-plugin-utils==0.6
+pylint-plugin-utils==0.7
     # via
     #   pylint-celery
     #   pylint-django
@@ -272,7 +272,7 @@ wrapt==1.13.3
     # via astroid
 xblock==1.5.1
     # via -r requirements/base.in
-zipp==3.6.0
+zipp==3.7.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
