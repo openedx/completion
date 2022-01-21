@@ -42,7 +42,7 @@ django-crum==0.7.9
     #   edx-toggles
 django-model-utils==4.2.0
     # via -r requirements/base.in
-django-waffle==2.2.1
+django-waffle==2.3.0
     # via
     #   edx-django-utils
     #   edx-drf-extensions
@@ -51,7 +51,7 @@ django-waffle==2.2.1
     #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
-drf-jwt==1.19.1
+drf-jwt==1.19.2
     # via edx-drf-extensions
 edx-django-utils==4.4.1
     # via
@@ -89,7 +89,7 @@ markupsafe==2.0.1
     #   xblock
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.2.4.171
+newrelic==7.4.0.172
     # via edx-django-utils
 packaging==21.3
     # via pytest
@@ -169,7 +169,7 @@ toml==0.10.2
     # via pytest
 tomli==2.0.0
     # via coverage
-urllib3==1.26.7
+urllib3==1.26.8
     # via requests
 web-fragments==2.0.0
     # via xblock
