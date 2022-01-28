@@ -6,7 +6,7 @@
 #
 appdirs==1.4.4
     # via fs
-asgiref==3.4.1
+asgiref==3.5.0
     # via django
 astroid==2.9.3
     # via
@@ -38,7 +38,7 @@ code-annotations==1.2.0
     #   edx-toggles
 colorama==0.4.4
     # via twine
-coverage[toml]==6.2
+coverage[toml]==6.3
     # via pytest-cov
 cryptography==36.0.1
     # via
@@ -82,7 +82,7 @@ docutils==0.18.1
     # via readme-renderer
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==4.4.1
+edx-django-utils==4.4.2
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -186,7 +186,7 @@ pycodestyle==2.8.0
     # via -r requirements/quality.in
 pycparser==2.21
     # via cffi
-pycryptodomex==3.12.0
+pycryptodomex==3.13.0
     # via pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/quality.in
@@ -216,7 +216,7 @@ pylint-plugin-utils==0.7
     #   pylint-django
 pymongo==4.0.1
     # via edx-opaque-keys
-pyparsing==3.0.6
+pyparsing==3.0.7
     # via packaging
 pytest==6.2.5
     # via
