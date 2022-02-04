@@ -1,6 +1,6 @@
 .PHONY: clean compile_translations coverage docs dummy_translations \
 	extract_translations fake_translations help pull_translations push_translations \
-	quality requirements selfcheck test test-all upgrade validate
+	quality requirements selfcheck test test-all upgrade validate check_keywords
 
 .DEFAULT_GOAL := help
 
@@ -105,3 +105,6 @@ dummy_translations: ## generate dummy translation (.po) files
 build_dummy_translations: extract_translations dummy_translations compile_translations ## generate and compile dummy translation files
 
 validate_translations: build_dummy_translations detect_changed_source_translations ## validate translations
+
+check_keywords: ## Scan the Django models in all installed apps in this project for restricted field names
+	python manage.py check_reserved_keywords --override_file db_keyword_overrides.yml
