@@ -1,17 +1,13 @@
-from django.db import migrations, models
-import django.utils.timezone
-from django.conf import settings
-import model_utils.fields
 from opaque_keys.edx.django.models import CourseKeyField, UsageKeyField
 
-from completion.models import validate_percent
+import django.utils.timezone
+from django.conf import settings
+from django.db import migrations, models
+from django.db.models import BigAutoField
 
-# pylint: disable=ungrouped-imports
-try:
-    from django.models import BigAutoField  # New in django 1.10
-except ImportError:
-    from completion.fields import BigAutoField
-# pylint: enable=ungrouped-imports
+import model_utils.fields
+
+from completion.models import validate_percent
 
 
 class Migration(migrations.Migration):

@@ -2,15 +2,14 @@
 API v1 views.
 """
 
-from django.contrib import auth
-from django.core.exceptions import ValidationError, ObjectDoesNotExist
-from django.utils.translation import ugettext as _
-from django.db import DatabaseError
-
-from rest_framework.views import APIView
+from rest_framework import permissions, status
 from rest_framework.response import Response
-from rest_framework import permissions
-from rest_framework import status
+from rest_framework.views import APIView
+
+from django.contrib import auth
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
+from django.db import DatabaseError
+from django.utils.translation import gettext as _
 
 # pylint: disable=ungrouped-imports
 try:
@@ -24,8 +23,8 @@ except ImportError:
     from edx_rest_framework_extensions.authentication import SessionAuthenticationAllowInactiveUser
 # pylint: enable=ungrouped-imports
 
-from opaque_keys.edx.keys import LearningContextKey, UsageKey
 from opaque_keys import InvalidKeyError
+from opaque_keys.edx.keys import LearningContextKey, UsageKey
 
 try:
     from common.djangoapps.student.models import CourseEnrollment

@@ -4,28 +4,20 @@ Completion tracking and aggregation models.
 
 import logging
 
+from opaque_keys.edx.django.models import LearningContextKeyField, UsageKeyField
+
 from django.contrib import auth
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError, models, transaction
-from django.utils.translation import ugettext as _
+from django.db.models import BigAutoField
+from django.utils.translation import gettext as _
 
 from model_utils.models import TimeStampedModel
-
-from opaque_keys.edx.django.models import LearningContextKeyField, UsageKeyField
 
 from . import waffle
 
 log = logging.getLogger(__name__)
 User = auth.get_user_model()
-
-# pylint: disable=ungrouped-imports
-try:
-    from django.models import BigAutoField  # New in django 1.10
-except ImportError:
-    from .fields import BigAutoField
-
-
-# pylint: enable=ungrouped-imports
 
 
 def validate_percent(value):
