@@ -67,9 +67,9 @@ edx-toggles==4.3.1
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==13.2.0
+faker==13.3.0
     # via factory-boy
-freezegun==1.1.0
+freezegun==1.2.0
     # via -r requirements/test.in
 fs==2.4.15
     # via xblock
@@ -89,7 +89,7 @@ markupsafe==2.1.0
     #   xblock
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.4.0.172
+newrelic==7.6.0.173
     # via edx-django-utils
 packaging==21.3
     # via pytest
@@ -129,7 +129,7 @@ python-dateutil==2.8.2
     #   faker
     #   freezegun
     #   xblock
-python-slugify==6.1.0
+python-slugify==6.1.1
     # via code-annotations
 pytz==2021.3
     # via
