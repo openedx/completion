@@ -102,13 +102,13 @@ edx-toggles==4.3.1
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==13.2.0
+faker==13.3.0
     # via factory-boy
 filelock==3.6.0
     # via
     #   tox
     #   virtualenv
-freezegun==1.1.0
+freezegun==1.2.0
     # via -r requirements/test.in
 fs==2.4.15
     # via xblock
@@ -116,7 +116,7 @@ future==0.18.2
     # via pyjwkest
 idna==3.3
     # via requests
-importlib-metadata==4.11.1
+importlib-metadata==4.11.2
     # via
     #   keyring
     #   twine
@@ -148,14 +148,14 @@ mccabe==0.6.1
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.4.0.172
+newrelic==7.6.0.173
     # via edx-django-utils
 packaging==21.3
     # via
     #   bleach
     #   pytest
     #   tox
-path==16.3.0
+path==16.4.0
     # via edx-i18n-tools
 pbr==5.8.1
     # via stevedore
@@ -232,7 +232,7 @@ python-dateutil==2.8.2
     #   faker
     #   freezegun
     #   xblock
-python-slugify==6.1.0
+python-slugify==6.1.1
     # via code-annotations
 pytz==2021.3
     # via
@@ -298,7 +298,7 @@ tox==3.24.5
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/dev.in
-tqdm==4.62.3
+tqdm==4.63.0
     # via twine
 twine==3.8.0
     # via -r requirements/quality.in
