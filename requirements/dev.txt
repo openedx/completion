@@ -102,7 +102,7 @@ edx-toggles==4.3.1
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==13.3.0
+faker==13.3.1
     # via factory-boy
 filelock==3.6.0
     # via
@@ -246,7 +246,7 @@ pyyaml==6.0
     #   code-annotations
     #   edx-i18n-tools
     #   xblock
-readme-renderer==32.0
+readme-renderer==33.0
     # via twine
 requests==2.27.1
     # via
@@ -310,7 +310,7 @@ urllib3==1.26.8
     # via
     #   requests
     #   twine
-virtualenv==20.13.2
+virtualenv==20.13.3
     # via tox
 web-fragments==2.0.0
     # via xblock
