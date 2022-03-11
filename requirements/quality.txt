@@ -90,7 +90,7 @@ edx-toggles==4.3.1
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==13.3.0
+faker==13.3.1
     # via factory-boy
 freezegun==1.2.0
     # via -r requirements/test.in
@@ -209,7 +209,7 @@ pyyaml==6.0
     # via
     #   code-annotations
     #   xblock
-readme-renderer==32.0
+readme-renderer==33.0
     # via twine
 requests==2.27.1
     # via
