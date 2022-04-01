@@ -26,7 +26,7 @@ def scorable_block_completion(sender, **kwargs):  # pylint: disable=unused-argum
     try:
         block_key = UsageKey.from_string(kwargs['usage_id'])
     except InvalidKeyError:
-        log.exception("Unable to parse XBlock usage_id for completion: %s", block_key)
+        log.exception("Unable to parse XBlock usage_id for completion: %s", kwargs['usage_id'])
         return
 
     if block_key.context_key.is_course and block_key.context_key.run is None:
