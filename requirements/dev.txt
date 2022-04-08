@@ -14,7 +14,7 @@ astroid==2.11.2
     #   pylint-celery
 attrs==21.4.0
     # via pytest
-bleach==4.1.0
+bleach==5.0.0
     # via readme-renderer
 certifi==2021.10.8
     # via requests
@@ -128,7 +128,7 @@ isort==5.10.1
     # via
     #   -r requirements/quality.in
     #   pylint
-jeepney==0.7.1
+jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
@@ -150,11 +150,10 @@ mccabe==0.7.0
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.8.0.174
+newrelic==7.10.0.175
     # via edx-django-utils
 packaging==21.3
     # via
-    #   bleach
     #   pytest
     #   tox
 path==16.4.0
@@ -163,7 +162,7 @@ pbr==5.8.1
     # via stevedore
 pep517==0.12.0
     # via pip-tools
-pip-tools==6.5.1
+pip-tools==6.6.0
     # via -r requirements/dev.in
 pkginfo==1.8.2
     # via twine
@@ -203,7 +202,7 @@ pyjwt[crypto]==2.3.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.13.4
+pylint==2.13.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -261,7 +260,7 @@ requests-toolbelt==0.9.1
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==12.0.1
+rich==12.2.0
     # via twine
 secretstorage==3.3.1
     # via keyring
@@ -308,6 +307,7 @@ typing-extensions==4.1.1
     # via
     #   astroid
     #   pylint
+    #   rich
 urllib3==1.26.9
     # via
     #   requests
@@ -326,7 +326,7 @@ wrapt==1.14.0
     # via astroid
 xblock==1.6.1
     # via -r requirements/base.in
-zipp==3.7.0
+zipp==3.8.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:

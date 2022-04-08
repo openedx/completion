@@ -89,7 +89,7 @@ markupsafe==2.1.1
     #   xblock
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.8.0.174
+newrelic==7.10.0.175
     # via edx-django-utils
 packaging==21.3
     # via pytest

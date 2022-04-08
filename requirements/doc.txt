@@ -110,7 +110,7 @@ markupsafe==2.1.1
     #   xblock
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.8.0.174
+newrelic==7.10.0.175
     # via edx-django-utils
 packaging==21.3
     # via
@@ -226,7 +226,7 @@ webob==1.8.7
     # via xblock
 xblock==1.6.1
     # via -r requirements/base.in
-zipp==3.7.0
+zipp==3.8.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
