@@ -52,7 +52,7 @@ dill==0.3.4
     # via pylint
 distlib==0.3.4
     # via virtualenv
-django==3.2.12
+django==3.2.13
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -218,7 +218,7 @@ pylint-plugin-utils==0.7
     #   pylint-django
 pymongo==3.12.3
     # via edx-opaque-keys
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via packaging
 pytest==7.1.1
     # via
@@ -295,7 +295,7 @@ tomli==2.0.1
     #   pep517
     #   pylint
     #   pytest
-tox==3.24.5
+tox==3.25.0
     # via
     #   -r requirements/dev.in
     #   tox-battery
@@ -312,7 +312,7 @@ urllib3==1.26.9
     # via
     #   requests
     #   twine
-virtualenv==20.14.0
+virtualenv==20.14.1
     # via tox
 web-fragments==2.0.0
     # via xblock
