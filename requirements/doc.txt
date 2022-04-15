@@ -30,7 +30,7 @@ cryptography==36.0.2
     # via pyjwt
 ddt==1.4.4
     # via -r requirements/test.in
-django==3.2.12
+django==3.2.13
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -140,7 +140,7 @@ pyjwt[crypto]==2.3.0
     #   edx-drf-extensions
 pymongo==3.12.3
     # via edx-opaque-keys
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via packaging
 pytest==7.1.1
     # via
