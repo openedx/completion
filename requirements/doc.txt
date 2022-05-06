@@ -8,7 +8,7 @@ alabaster==0.7.12
     # via sphinx
 appdirs==1.4.4
     # via fs
-asgiref==3.5.0
+asgiref==3.5.1
     # via django
 attrs==21.4.0
     # via pytest
@@ -17,16 +17,20 @@ babel==2.10.1
 certifi==2021.10.8
     # via requests
 cffi==1.15.0
-    # via cryptography
+    # via
+    #   cryptography
+    #   pynacl
 charset-normalizer==2.0.12
     # via requests
 click==8.1.3
-    # via code-annotations
+    # via
+    #   code-annotations
+    #   edx-django-utils
 code-annotations==1.3.0
     # via edx-toggles
 coverage[toml]==6.3.2
     # via pytest-cov
-cryptography==37.0.1
+cryptography==37.0.2
     # via pyjwt
 ddt==1.4.4
     # via -r requirements/test.in
@@ -66,7 +70,7 @@ docutils==0.17.1
     #   sphinx
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==4.6.0
+edx-django-utils==4.7.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -82,11 +86,11 @@ edx-toggles==4.3.1
     # via -r requirements/base.in
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==13.6.0
+faker==13.7.0
     # via factory-boy
 freezegun==1.2.1
     # via -r requirements/test.in
-fs==2.4.15
+fs==2.4.16
     # via xblock
 future==0.18.2
     # via pyjwkest
@@ -116,7 +120,7 @@ packaging==21.3
     # via
     #   pytest
     #   sphinx
-pbr==5.8.1
+pbr==5.9.0
     # via stevedore
 pluggy==1.0.0
     # via pytest
@@ -140,6 +144,8 @@ pyjwt[crypto]==2.3.0
     #   edx-drf-extensions
 pymongo==3.12.3
     # via edx-opaque-keys
+pynacl==1.5.0
+    # via edx-django-utils
 pyparsing==3.0.8
     # via packaging
 pytest==7.1.2
@@ -164,7 +170,6 @@ pytz==2022.1
     #   babel
     #   django
     #   djangorestframework
-    #   fs
     #   xblock
 pyyaml==6.0
     # via
