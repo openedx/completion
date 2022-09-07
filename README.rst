@@ -32,16 +32,16 @@ How To Contribute
 
 Contributions are very welcome.
 
-Please read `How To Contribute <https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst>`_ for details.
+Please read `How To Contribute <https://github.com/openedx/edx-platform/blob/master/CONTRIBUTING.rst>`_ for details.
 
 Even though they were written with ``edx-platform`` in mind, the guidelines
 should be followed for Open edX code in general.
 
 PR description template should be automatically applied if you are sending PR from github interface; otherwise you
-can find it it at `PULL_REQUEST_TEMPLATE.md <https://github.com/edx/completion/blob/master/.github/PULL_REQUEST_TEMPLATE.md>`_
+can find it it at `PULL_REQUEST_TEMPLATE.md <https://github.com/openedx/completion/blob/master/.github/PULL_REQUEST_TEMPLATE.md>`_
 
 Issue report template should be automatically applied if you are sending it from github UI as well; otherwise you
-can find it at `ISSUE_TEMPLATE.md <https://github.com/edx/completion/blob/master/.github/ISSUE_TEMPLATE.md>`_
+can find it at `ISSUE_TEMPLATE.md <https://github.com/openedx/completion/blob/master/.github/ISSUE_TEMPLATE.md>`_
 
 Reporting Security Issues
 -------------------------
@@ -51,7 +51,7 @@ Please do not report security issues in public. Please email security@edx.org.
 Using with Docker Devstack
 --------------------------
 
-Prerequisite: Have your Open edX `Devstack <https://github.com/edx/devstack>`_ properly installed.
+Prerequisite: Have your Open edX `Devstack <https://github.com/openedx/devstack>`_ properly installed.
 
 Note: When you see "from inside the lms" below, it means that you've run ``make lms-shell`` from your devstack
 directory and are on a command prompt inside the LMS container.
@@ -89,8 +89,8 @@ refer to this `list of resources`_ if you need any assistance.
     :target: https://pypi.python.org/pypi/edx-completion/
     :alt: PyPI
 
-.. |CI| image:: https://github.com/edx/completion/workflows/Python%20CI/badge.svg?branch=master
-    :target: https://github.com/edx/completion/actions?query=workflow%3A%22Python+CI%22
+.. |CI| image:: https://github.com/openedx/completion/workflows/Python%20CI/badge.svg?branch=master
+    :target: https://github.com/openedx/completion/actions?query=workflow%3A%22Python+CI%22
     :alt: CI
 
 .. |codecov-badge| image:: http://codecov.io/github/edx/completion/coverage.svg?branch=master
@@ -106,5 +106,5 @@ refer to this `list of resources`_ if you need any assistance.
     :alt: Supported Python versions
 
 .. |license-badge| image:: https://img.shields.io/github/license/edx/completion.svg
-    :target: https://github.com/edx/completion/blob/master/LICENSE.txt
+    :target: https://github.com/openedx/completion/blob/master/LICENSE.txt
     :alt: License
