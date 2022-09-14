@@ -107,7 +107,7 @@ setup(
     long_description=README + '\n\n' + CHANGELOG,
     author='edX',
     author_email='oscm@edx.org',
-    url='https://github.com/edx/completion',
+    url='https://github.com/openedx/completion',
     packages=[
         'completion',
     ],
