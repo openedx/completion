@@ -4,12 +4,12 @@
 #
 #    make upgrade
 #
-certifi==2021.10.8
+certifi==2022.12.7
     # via requests
 charset-normalizer==2.0.12
     # via requests
 codecov==2.1.12
-    # via -r requirements/ci.in
+    # via -r ci.in
 coverage==6.3.3
     # via codecov
 distlib==0.3.4
@@ -21,7 +21,7 @@ filelock==3.6.0
 idna==3.3
     # via requests
 mock==4.0.3
-    # via -r requirements/ci.in
+    # via -r ci.in
 packaging==21.3
     # via tox
 platformdirs==2.5.2
@@ -42,10 +42,10 @@ toml==0.10.2
     # via tox
 tox==3.25.0
     # via
-    #   -r requirements/ci.in
+    #   -r ci.in
     #   tox-battery
 tox-battery==0.6.1
-    # via -r requirements/ci.in
+    # via -r ci.in
 urllib3==1.26.9
     # via requests
 virtualenv==20.14.1
