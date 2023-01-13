@@ -71,7 +71,7 @@ class CompletionWaffleTestMixin:
         _waffle_overrider = override_waffle_switch(
             waffle.ENABLE_COMPLETION_TRACKING_SWITCH, override
         )
-        _waffle_overrider.__enter__()
+        _waffle_overrider.__enter__()  # pylint: disable=unnecessary-dunder-call
         self.addCleanup(_waffle_overrider.__exit__, None, None, None)
 
 
@@ -88,7 +88,7 @@ class CompletionSetUpMixin:
         cls.waffle_patcher = override_waffle_switch(
             waffle.ENABLE_COMPLETION_TRACKING_SWITCH, cls.COMPLETION_SWITCH_ENABLED
         )
-        cls.waffle_patcher.__enter__()
+        cls.waffle_patcher.__enter__()  # pylint: disable=unnecessary-dunder-call
 
     @classmethod
     def tearDownClass(cls):
