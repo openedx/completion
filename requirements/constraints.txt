@@ -9,3 +9,7 @@
 # linking to it here is good.
 
 Django < 3.3
+
+# tox >= 4.0.0 is a complete rewrite of the tox package. It is not a
+# simple upgrade. I've pinned the version to allow us to time to prioritize this upgrade.
+tox < 4.0.0
