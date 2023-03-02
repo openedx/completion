@@ -33,7 +33,7 @@ SECRET_KEY = 'insecure-secret-key'
 def plugin_settings(settings):  # pylint: disable=unused-argument
     """
     Defines completion-specific settings when app is used as a plugin to edx-platform.
-    See: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/plugins/README.rst
+    See: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/plugins/README.rst
     """
     # Once a complete-by-viewing (e.g. HTML) block has been visible on-screen for this many ms, mark it complete
     settings.COMPLETION_BY_VIEWING_DELAY_MS = 5000
