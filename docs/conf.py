@@ -16,13 +16,59 @@ serve to show the default.
 import os
 import re
 import sys
+from datetime import datetime
 from subprocess import check_call
-
-import edx_theme
 
 import django
 from django.conf import settings
 
+
+html_theme_options = {
+    "repository_url": "https://github.com/openedx/completion",
+    "repository_branch": "master",
+    "path_to_docs": "docs/",
+    "home_page_in_toc": True,
+    "use_repository_button": True,
+    "use_issues_button": True,
+    "use_edit_page_button": True,
+    # Please don't change unless you know what you're doing.
+    "extra_footer": """
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >Axim Collaborative, Inc</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    """
+}
+
+# Note the logo won't show up properly yet because there is an upstream
+# bug in the theme that needs to be fixed first.
+# If you'd like you can temporarily copy the logo file to your `_static`
+# directory.
+html_logo = "https://logos.openedx.org/open-edx-logo-color.png"
+html_favicon = "https://logos.openedx.org/open-edx-favicon.ico"
+
+# Set the DJANGO_SETTINGS_MODULE if it's not set.
+# Only if your project has a dependency on Django
+if not os.environ.get('DJANGO_SETTINGS_MODULE'):
+   # If you do depend on django you'll need a settings file that you can
+   # use when building docs.  This will allow you to pull docstrings from
+   # your code.
+   os.environ['DJANGO_SETTINGS_MODULE'] = 'completion.settings.test_settings'
 
 def get_version(*file_paths):
     """
@@ -62,7 +108,6 @@ django.setup()
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'edx_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
@@ -93,8 +138,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'completion'
-copyright = edx_theme.COPYRIGHT  # pylint: disable=redefined-builtin
-author = edx_theme.AUTHOR
+copyright = f'{datetime.now().year}, Axim Collaborative, Inc'
+author = 'Axim Collaborative, Inc'
 project_title = 'completion'
 documentation_title = f"{project_title}"
 
@@ -165,7 +210,7 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html_theme = 'edx_theme'
+html_theme = "sphinx_book_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -174,8 +219,8 @@ html_theme = 'edx_theme'
 # html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = [edx_theme.get_html_theme_path()]
-
+# html_theme_path = [edx_theme.get_html_theme_path()]
+#
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
