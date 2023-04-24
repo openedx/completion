@@ -59,7 +59,7 @@ edx-django-utils==5.4.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
-edx-drf-extensions==8.6.0
+edx-drf-extensions==8.7.0
     # via -r requirements/base.in
 edx-opaque-keys[django]==2.3.0
     # via
@@ -101,7 +101,7 @@ pbr==5.11.1
     # via stevedore
 pluggy==1.0.0
     # via pytest
-psutil==5.9.4
+psutil==5.9.5
     # via edx-django-utils
 pycparser==2.21
     # via cffi
@@ -155,7 +155,7 @@ six==1.16.0
     #   fs
     #   pyjwkest
     #   python-dateutil
-sqlparse==0.4.3
+sqlparse==0.4.4
     # via django
 stevedore==5.0.0
     # via
