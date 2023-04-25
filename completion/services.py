@@ -93,7 +93,9 @@ class CompletionService:
         user_children = []
         mode = XBlockCompletionMode.get_mode(node)
         if mode == XBlockCompletionMode.AGGREGATOR:
+            # TODO: `get_child_descriptors` will be renamed to `get_child_blocks` in the Redwood release.
             node_children = ((hasattr(node, 'get_child_descriptors') and node.get_child_descriptors())
+                             or (hasattr(node, 'get_child_blocks') and node.get_child_blocks())
                              or (hasattr(node, 'get_children') and node.get_children()))
             for child in node_children:
                 user_children.extend(self.get_completable_children(child))
