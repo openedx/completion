@@ -33,6 +33,7 @@ htmlcov/
 
 # Translations
 *.mo
+completion/conf/locale/*/LC_MESSAGES/*
 
 # IDEs and text editors
 *~
