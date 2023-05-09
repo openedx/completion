@@ -86,11 +86,11 @@ selfcheck: ## check that the Makefile is well-formed
 
 extract_translations: ## extract strings to be translated, outputting .mo files
 	rm -rf docs/_build
-	cd completion && ../manage.py makemessages -l en -v1 -d django
-	cd completion && ../manage.py makemessages -l en -v1 -d djangojs
+	cd completion && django-admin makemessages -l en -v1 -d django
+	cd completion && django-admin makemessages -l en -v1 -d djangojs
 
 compile_translations: ## compile translation files, outputting .po files for each supported language
-	cd completion && ../manage.py compilemessages
+	cd completion && django-admin compilemessages
 
 detect_changed_source_translations:
 	cd completion && i18n_tool changed
