@@ -21,9 +21,7 @@ jobs:
           django32-drflatest,
           django40-drf312,
           django40-drflatest,
-          django41-drf312,
           django41-drflatest,
-          django42-drf312,
           django42-drflatest
         ]
 
