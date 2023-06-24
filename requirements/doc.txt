@@ -91,7 +91,7 @@ exceptiongroup==1.1.1
     # via pytest
 factory-boy==3.2.1
     # via -r requirements/test.in
-faker==18.10.1
+faker==18.11.1
     # via factory-boy
 freezegun==1.2.2
     # via -r requirements/test.in
@@ -101,7 +101,7 @@ idna==3.4
     # via requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==6.6.0
+importlib-metadata==6.7.0
     # via sphinx
 iniconfig==2.0.0
     # via pytest
@@ -126,7 +126,7 @@ packaging==23.1
     #   sphinx
 pbr==5.11.1
     # via stevedore
-pluggy==1.0.0
+pluggy==1.2.0
     # via pytest
 psutil==5.9.5
     # via edx-django-utils
@@ -148,7 +148,7 @@ pymongo==3.13.0
     # via edx-opaque-keys
 pynacl==1.5.0
     # via edx-django-utils
-pytest==7.3.1
+pytest==7.4.0
     # via
     #   pytest-cov
     #   pytest-django
