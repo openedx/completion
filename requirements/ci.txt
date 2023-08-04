@@ -14,7 +14,7 @@ mock==5.1.0
     # via -r requirements/ci.in
 packaging==23.1
     # via tox
-platformdirs==3.9.1
+platformdirs==3.10.0
     # via virtualenv
 pluggy==1.2.0
     # via tox

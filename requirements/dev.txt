@@ -22,7 +22,7 @@ cffi==1.15.1
     # via
     #   cryptography
     #   pynacl
-chardet==5.1.0
+chardet==5.2.0
     # via diff-cover
 charset-normalizer==3.2.0
     # via requests
@@ -41,7 +41,7 @@ code-annotations==1.5.0
     #   edx-toggles
 coverage[toml]==7.2.7
     # via pytest-cov
-cryptography==41.0.2
+cryptography==41.0.3
     # via
     #   pyjwt
     #   secretstorage
@@ -86,13 +86,13 @@ docutils==0.20.1
     # via readme-renderer
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==5.6.0
+edx-django-utils==5.7.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
 edx-drf-extensions==8.8.0
     # via -r requirements/base.in
-edx-i18n-tools==1.0.0
+edx-i18n-tools==1.1.0
     # via -r requirements/dev.in
 edx-lint==5.3.4
     # via
@@ -102,7 +102,7 @@ edx-opaque-keys[django]==2.3.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
-edx-toggles==5.0.0
+edx-toggles==5.1.0
     # via -r requirements/base.in
 exceptiongroup==1.1.2
     # via pytest
@@ -160,9 +160,9 @@ mdurl==0.1.2
     # via markdown-it-py
 mock==5.1.0
     # via -r requirements/test.in
-more-itertools==10.0.0
+more-itertools==10.1.0
     # via jaraco-classes
-newrelic==8.8.1
+newrelic==8.9.0
     # via edx-django-utils
 packaging==23.1
     # via
@@ -173,11 +173,11 @@ path==16.7.1
     # via edx-i18n-tools
 pbr==5.11.1
     # via stevedore
-pip-tools==7.1.0
+pip-tools==7.2.0
     # via -r requirements/dev.in
 pkginfo==1.9.6
     # via twine
-platformdirs==3.9.1
+platformdirs==3.10.0
     # via
     #   pylint
     #   virtualenv
@@ -192,7 +192,7 @@ psutil==5.9.5
     # via edx-django-utils
 py==1.11.0
     # via tox
-pycodestyle==2.10.0
+pycodestyle==2.11.0
     # via -r requirements/quality.in
 pycparser==2.21
     # via cffi
@@ -265,7 +265,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.4.2
+rich==13.5.2
     # via twine
 secretstorage==3.3.3
     # via keyring
@@ -323,7 +323,7 @@ urllib3==2.0.4
     #   twine
 virtualenv==20.24.2
     # via tox
-web-fragments==2.0.0
+web-fragments==2.1.0
     # via xblock
 webencodings==0.5.1
     # via bleach
@@ -333,7 +333,7 @@ wheel==0.41.0
     # via pip-tools
 wrapt==1.15.0
     # via astroid
-xblock==1.6.2
+xblock==1.7.0
     # via -r requirements/base.in
 zipp==3.16.2
     # via
