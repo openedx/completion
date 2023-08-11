@@ -84,7 +84,7 @@ edx-drf-extensions==8.8.0
     # via -r requirements/base.in
 edx-lint==5.3.4
     # via -r requirements/quality.in
-edx-opaque-keys[django]==2.3.0
+edx-opaque-keys[django]==2.4.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -94,7 +94,7 @@ exceptiongroup==1.1.2
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==19.2.0
+faker==19.3.0
     # via factory-boy
 freezegun==1.2.2
     # via -r requirements/test.in
@@ -106,7 +106,7 @@ importlib-metadata==6.8.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.0.0
+importlib-resources==6.0.1
     # via keyring
 iniconfig==2.0.0
     # via pytest
@@ -142,7 +142,7 @@ mock==5.1.0
     # via -r requirements/test.in
 more-itertools==10.1.0
     # via jaraco-classes
-newrelic==8.9.0
+newrelic==8.10.0
     # via edx-django-utils
 packaging==23.1
     # via pytest
@@ -162,7 +162,7 @@ pycparser==2.21
     # via cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
-pygments==2.15.1
+pygments==2.16.1
     # via
     #   readme-renderer
     #   rich
