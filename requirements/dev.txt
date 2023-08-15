@@ -39,7 +39,7 @@ code-annotations==1.5.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.2.7
+coverage[toml]==7.3.0
     # via pytest-cov
 cryptography==41.0.3
     # via
@@ -90,7 +90,7 @@ edx-django-utils==5.7.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
-edx-drf-extensions==8.8.0
+edx-drf-extensions==8.9.0
     # via -r requirements/base.in
 edx-i18n-tools==1.1.0
     # via -r requirements/dev.in
@@ -98,17 +98,17 @@ edx-lint==5.3.4
     # via
     #   -r requirements/dev.in
     #   -r requirements/quality.in
-edx-opaque-keys[django]==2.3.0
+edx-opaque-keys[django]==2.4.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
 edx-toggles==5.1.0
     # via -r requirements/base.in
-exceptiongroup==1.1.2
+exceptiongroup==1.1.3
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==19.2.0
+faker==19.3.0
     # via factory-boy
 filelock==3.12.2
     # via
@@ -124,7 +124,7 @@ importlib-metadata==6.8.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.0.0
+importlib-resources==6.0.1
     # via keyring
 iniconfig==2.0.0
     # via pytest
@@ -162,7 +162,7 @@ mock==5.1.0
     # via -r requirements/test.in
 more-itertools==10.1.0
     # via jaraco-classes
-newrelic==8.9.0
+newrelic==8.10.0
     # via edx-django-utils
 packaging==23.1
     # via
@@ -173,7 +173,7 @@ path==16.7.1
     # via edx-i18n-tools
 pbr==5.11.1
     # via stevedore
-pip-tools==7.2.0
+pip-tools==7.3.0
     # via -r requirements/dev.in
 pkginfo==1.9.6
     # via twine
@@ -198,7 +198,7 @@ pycparser==2.21
     # via cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
-pygments==2.15.1
+pygments==2.16.1
     # via
     #   diff-cover
     #   readme-renderer
@@ -321,7 +321,7 @@ urllib3==2.0.4
     # via
     #   requests
     #   twine
-virtualenv==20.24.2
+virtualenv==20.24.3
     # via tox
 web-fragments==2.1.0
     # via xblock
@@ -329,7 +329,7 @@ webencodings==0.5.1
     # via bleach
 webob==1.8.7
     # via xblock
-wheel==0.41.0
+wheel==0.41.1
     # via pip-tools
 wrapt==1.15.0
     # via astroid
