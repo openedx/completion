@@ -12,7 +12,7 @@ from freezegun import freeze_time
 from opaque_keys.edx.keys import CourseKey, UsageKey
 
 from .. import models
-from ..test_utils import CompletionSetUpMixin, UserFactory, submit_completions_for_testing
+from ..test_utils import CompletionSetUpMixin, EventTrackingTestCase, UserFactory, submit_completions_for_testing
 
 
 class PercentValidatorTestCase(TestCase):
@@ -29,7 +29,7 @@ class PercentValidatorTestCase(TestCase):
             self.assertRaises(ValidationError, models.validate_percent, value)
 
 
-class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
+class SubmitCompletionTestCase(CompletionSetUpMixin, EventTrackingTestCase, TestCase):
     """
     Test that BlockCompletion.objects.submit_completion has the desired
     semantics.
