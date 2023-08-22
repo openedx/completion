@@ -14,10 +14,15 @@ from django.utils.translation import gettext as _
 
 from model_utils.models import TimeStampedModel
 
+from eventtracking import tracker
+
 from . import waffle
 
 log = logging.getLogger(__name__)
 User = auth.get_user_model()
+
+
+BLOCK_COMPLETION_CHANGED_EVENT_TYPE = 'edx.completion.block_completion.changed'
 
 
 def validate_percent(value):
@@ -126,6 +131,20 @@ class BlockCompletionManager(models.Manager):
                 "BlockCompletion.objects.submit_completion should not be \
                 called when the feature is disabled."
             )
+
+        tracker.emit(
+            str(BLOCK_COMPLETION_CHANGED_EVENT_TYPE),
+            {
+                'user_id': user.id,
+                'course_id': str(block_key.course_key),
+                'context_key': str(context_key),
+                'block_key': str(block_key),
+                'block_type': block_type,
+                'completion': completion,
+                'is_new': is_new,
+            }
+        )
+
         return obj, is_new
 
     @transaction.atomic()
