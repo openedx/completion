@@ -41,7 +41,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, EventTrackingTestCase, Test
         self.set_up_completion()
 
     def test_changed_value(self):
-        with self.assertNumQueries(6):  # Get, update, 2 * savepoints, 2 * exists checks
+        with self.assertNumQueries(7):  # 2 * Get, update, 2 * savepoints, 2 * exists checks
             completion, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
                 block_key=self.block_key,
@@ -53,7 +53,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, EventTrackingTestCase, Test
         self.assertEqual(models.BlockCompletion.objects.count(), 1)
 
     def test_unchanged_value(self):
-        with self.assertNumQueries(3):  # Get + 2 * savepoints
+        with self.assertNumQueries(4):  # 2 * Get + 2 * savepoints
             completion, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
                 block_key=self.block_key,
