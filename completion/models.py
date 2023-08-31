@@ -343,5 +343,7 @@ class BlockCompletion(TimeStampedModel, models.Model):
                 'block_id': str(self.block_key),
                 'block_type': self.block_type,
                 'completion': self.completion,
+                'modified': self.modified,
+                'created': self.created,
             }
         )
