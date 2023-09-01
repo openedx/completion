@@ -26,7 +26,7 @@ chardet==5.2.0
     # via diff-cover
 charset-normalizer==3.2.0
     # via requests
-click==8.1.6
+click==8.1.7
     # via
     #   click-log
     #   code-annotations
@@ -90,7 +90,7 @@ edx-django-utils==5.7.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
-edx-drf-extensions==8.9.0
+edx-drf-extensions==8.9.2
     # via -r requirements/base.in
 edx-i18n-tools==1.1.0
     # via -r requirements/dev.in
@@ -98,7 +98,7 @@ edx-lint==5.3.4
     # via
     #   -r requirements/dev.in
     #   -r requirements/quality.in
-edx-opaque-keys[django]==2.4.0
+edx-opaque-keys[django]==2.5.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -108,9 +108,9 @@ exceptiongroup==1.1.3
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==19.3.0
+faker==19.3.1
     # via factory-boy
-filelock==3.12.2
+filelock==3.12.3
     # via
     #   tox
     #   virtualenv
@@ -162,7 +162,7 @@ mock==5.1.0
     # via -r requirements/test.in
 more-itertools==10.1.0
     # via jaraco-classes
-newrelic==8.10.0
+newrelic==9.0.0
     # via edx-django-utils
 packaging==23.1
     # via
@@ -181,7 +181,7 @@ platformdirs==3.10.0
     # via
     #   pylint
     #   virtualenv
-pluggy==1.2.0
+pluggy==1.3.0
     # via
     #   diff-cover
     #   pytest
@@ -254,7 +254,7 @@ pyyaml==6.0.1
     #   code-annotations
     #   edx-i18n-tools
     #   xblock
-readme-renderer==40.0
+readme-renderer==41.0
     # via twine
 requests==2.31.0
     # via
@@ -306,7 +306,7 @@ tox==3.28.0
     #   -c requirements/constraints.txt
     #   -r requirements/dev.in
     #   tox-battery
-tox-battery==0.6.1
+tox-battery==0.6.2
     # via -r requirements/dev.in
 twine==4.0.2
     # via -r requirements/quality.in
@@ -314,14 +314,16 @@ typing-extensions==4.7.1
     # via
     #   asgiref
     #   astroid
+    #   edx-opaque-keys
     #   faker
+    #   filelock
     #   pylint
     #   rich
 urllib3==2.0.4
     # via
     #   requests
     #   twine
-virtualenv==20.24.3
+virtualenv==20.24.4
     # via tox
 web-fragments==2.1.0
     # via xblock
@@ -329,7 +331,7 @@ webencodings==0.5.1
     # via bleach
 webob==1.8.7
     # via xblock
-wheel==0.41.1
+wheel==0.41.2
     # via pip-tools
 wrapt==1.15.0
     # via astroid
