@@ -60,7 +60,7 @@ edx-django-utils==5.7.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
-edx-drf-extensions==8.9.2
+edx-drf-extensions==8.10.0
     # via -r requirements/base.in
 edx-opaque-keys[django]==2.5.0
     # via
@@ -122,7 +122,6 @@ pytest-django==4.5.2
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
-    #   edx-drf-extensions
     #   faker
     #   freezegun
     #   xblock
@@ -144,7 +143,6 @@ semantic-version==2.10.0
     # via edx-drf-extensions
 six==1.16.0
     # via
-    #   edx-drf-extensions
     #   fs
     #   python-dateutil
 sqlparse==0.4.4
@@ -160,7 +158,7 @@ tomli==2.0.1
     # via
     #   coverage
     #   pytest
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   asgiref
     #   edx-opaque-keys

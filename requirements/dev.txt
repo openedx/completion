@@ -88,9 +88,9 @@ edx-django-utils==5.7.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
-edx-drf-extensions==8.9.2
+edx-drf-extensions==8.10.0
     # via -r requirements/base.in
-edx-i18n-tools==1.1.0
+edx-i18n-tools==1.2.0
     # via -r requirements/dev.in
 edx-lint==5.3.4
     # via
@@ -108,7 +108,7 @@ factory-boy==3.3.0
     # via -r requirements/test.in
 faker==19.6.1
     # via factory-boy
-filelock==3.12.3
+filelock==3.12.4
     # via
     #   tox
     #   virtualenv
@@ -238,7 +238,6 @@ pytest-django==4.5.2
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
-    #   edx-drf-extensions
     #   faker
     #   freezegun
     #   xblock
@@ -266,7 +265,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.5.2
+rich==13.5.3
     # via twine
 secretstorage==3.3.3
     # via keyring
@@ -274,7 +273,6 @@ semantic-version==2.10.0
     # via edx-drf-extensions
 six==1.16.0
     # via
-    #   edx-drf-extensions
     #   edx-lint
     #   fs
     #   python-dateutil
@@ -310,13 +308,12 @@ tox-battery==0.6.2
     # via -r requirements/dev.in
 twine==4.0.2
     # via -r requirements/quality.in
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   asgiref
     #   astroid
     #   edx-opaque-keys
     #   faker
-    #   filelock
     #   pylint
     #   rich
 urllib3==2.0.4
@@ -335,7 +332,7 @@ wrapt==1.15.0
     # via astroid
 xblock==1.7.0
     # via -r requirements/base.in
-zipp==3.16.2
+zipp==3.17.0
     # via
     #   importlib-metadata
     #   importlib-resources
