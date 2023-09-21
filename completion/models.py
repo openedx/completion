@@ -14,10 +14,15 @@ from django.utils.translation import gettext as _
 
 from model_utils.models import TimeStampedModel
 
+from eventtracking import tracker
+
 from . import waffle
 
 log = logging.getLogger(__name__)
 User = auth.get_user_model()
+
+
+BLOCK_COMPLETION_CHANGED_EVENT_TYPE = 'edx.completion.block_completion.changed'
 
 
 def validate_percent(value):
@@ -115,10 +120,13 @@ class BlockCompletionManager(models.Manager):
                     block_key=block_key,
                 )
                 is_new = False
+
             if not is_new and obj.completion != completion:
                 obj.completion = completion
                 obj.full_clean()
                 obj.save(update_fields={'completion', 'modified'})
+
+            obj.emit_tracking_log()
         else:
             # If the feature is not enabled, this method should not be called.
             # Error out with a RuntimeError.
@@ -126,6 +134,7 @@ class BlockCompletionManager(models.Manager):
                 "BlockCompletion.objects.submit_completion should not be \
                 called when the feature is disabled."
             )
+
         return obj, is_new
 
     @transaction.atomic()
@@ -321,3 +330,20 @@ class BlockCompletion(TimeStampedModel, models.Model):
 
     def __unicode__(self):
         return f'BlockCompletion: {self.user.username}, {self.context_key}, {self.block_key}: {self.completion}'
+
+    def emit_tracking_log(self):
+        """
+        Emit a tracking log when a block completion is created or updated.
+        """
+        tracker.emit(
+            BLOCK_COMPLETION_CHANGED_EVENT_TYPE,
+            {
+                'user_id': self.user.id,
+                'course_id': str(self.context_key),
+                'block_id': str(self.block_key),
+                'block_type': self.block_type,
+                'completion': self.completion,
+                'modified': self.modified,
+                'created': self.created,
+            }
+        )

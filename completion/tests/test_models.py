@@ -12,7 +12,7 @@ from freezegun import freeze_time
 from opaque_keys.edx.keys import CourseKey, UsageKey
 
 from .. import models
-from ..test_utils import CompletionSetUpMixin, UserFactory, submit_completions_for_testing
+from ..test_utils import CompletionSetUpMixin, EventTrackingTestCase, UserFactory, submit_completions_for_testing
 
 
 class PercentValidatorTestCase(TestCase):
@@ -29,7 +29,7 @@ class PercentValidatorTestCase(TestCase):
             self.assertRaises(ValidationError, models.validate_percent, value)
 
 
-class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
+class SubmitCompletionTestCase(CompletionSetUpMixin, EventTrackingTestCase, TestCase):
     """
     Test that BlockCompletion.objects.submit_completion has the desired
     semantics.
@@ -41,7 +41,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         self.set_up_completion()
 
     def test_changed_value(self):
-        with self.assertNumQueries(6):  # Get, update, 2 * savepoints, 2 * exists checks
+        with self.assertNumQueries(7):  # 2 * Get, update, 2 * savepoints, 2 * exists checks
             completion, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
                 block_key=self.block_key,
@@ -53,7 +53,7 @@ class SubmitCompletionTestCase(CompletionSetUpMixin, TestCase):
         self.assertEqual(models.BlockCompletion.objects.count(), 1)
 
     def test_unchanged_value(self):
-        with self.assertNumQueries(3):  # Get + 2 * savepoints
+        with self.assertNumQueries(4):  # 2 * Get + 2 * savepoints
             completion, isnew = models.BlockCompletion.objects.submit_completion(
                 user=self.user,
                 block_key=self.block_key,

@@ -7,7 +7,11 @@ from contextlib import contextmanager
 from datetime import datetime
 
 from django.contrib import auth
+from django.test.utils import override_settings
 from edx_toggles.toggles.testutils import override_waffle_switch
+from eventtracking import tracker
+from django.test import TestCase
+from eventtracking.django import DjangoTracker
 import factory
 from factory.django import DjangoModelFactory
 from opaque_keys.edx.keys import UsageKey
@@ -120,3 +124,50 @@ class CompletionSetUpMixin:
         """
         with override_waffle_switch(waffle.ENABLE_COMPLETION_TRACKING_SWITCH, enabled):
             yield
+
+
+IN_MEMORY_BACKEND_CONFIG = {
+    'mem': {
+        'ENGINE': 'completion.test_utils.InMemoryBackend'
+    }
+}
+
+
+class InMemoryBackend:
+    """A backend that simply stores all events in memory"""
+
+    def __init__(self):
+        super().__init__()  # lint-amnesty, pylint: disable=super-with-arguments
+        self.events = []
+
+    def send(self, event):
+        """Store the event in a list"""
+        self.events.append(event)
+
+
+@override_settings(
+    EVENT_TRACKING_BACKENDS=IN_MEMORY_BACKEND_CONFIG
+)
+class EventTrackingTestCase(TestCase):
+    """
+    Supports capturing of emitted events in memory and inspecting them.
+
+    Each test gets a "clean slate" and can retrieve any events emitted during their execution.
+
+    """
+
+    # Make this more robust to the addition of new events that the test doesn't care about.
+
+    def setUp(self):
+        super().setUp()  # lint-amnesty, pylint: disable=super-with-arguments
+
+        self.recreate_tracker()
+
+    def recreate_tracker(self):
+        """
+        Re-initialize the tracking system using updated django settings.
+
+        Use this if you make use of the @override_settings decorator to customize the tracker configuration.
+        """
+        self.tracker = DjangoTracker()
+        tracker.register_tracker(self.tracker)

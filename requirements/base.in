@@ -9,3 +9,4 @@ edx-drf-extensions>=1.11.0
 edx-toggles>=1.2.0
 pytz
 XBlock>=1.2.2
+event-tracking
