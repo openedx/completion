@@ -24,11 +24,11 @@ celery==5.3.4
     # via event-tracking
 certifi==2023.7.22
     # via requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via requests
 click==8.1.7
     # via
@@ -52,7 +52,7 @@ code-annotations==1.5.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.3.1
+coverage[toml]==7.3.2
     # via pytest-cov
 cryptography==41.0.4
     # via
@@ -170,13 +170,13 @@ newrelic==9.1.0
     # via edx-django-utils
 nh3==0.2.14
     # via readme-renderer
-packaging==23.1
+packaging==23.2
     # via pytest
 pbr==5.11.1
     # via stevedore
 pkginfo==1.9.6
     # via twine
-platformdirs==3.10.0
+platformdirs==3.11.0
     # via pylint
 pluggy==1.3.0
     # via pytest
@@ -198,7 +198,7 @@ pyjwt[crypto]==2.8.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.17.6
+pylint==2.17.7
     # via
     #   edx-lint
     #   pylint-celery
@@ -256,7 +256,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.5.3
+rich==13.6.0
     # via twine
 secretstorage==3.3.3
     # via keyring
@@ -301,7 +301,7 @@ tzdata==2023.3
     # via
     #   backports-zoneinfo
     #   celery
-urllib3==2.0.5
+urllib3==2.0.6
     # via
     #   requests
     #   twine
@@ -310,7 +310,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.6
+wcwidth==0.2.8
     # via prompt-toolkit
 web-fragments==2.1.0
     # via xblock
