@@ -53,7 +53,9 @@ code-annotations==1.5.0
     #   edx-lint
     #   edx-toggles
 coverage[toml]==7.3.2
-    # via pytest-cov
+    # via
+    #   coverage
+    #   pytest-cov
 cryptography==41.0.4
     # via
     #   pyjwt
@@ -100,7 +102,7 @@ edx-django-utils==5.7.0
     #   edx-drf-extensions
     #   edx-toggles
     #   event-tracking
-edx-drf-extensions==8.10.0
+edx-drf-extensions==8.12.0
     # via -r requirements/base.in
 edx-lint==5.3.4
     # via -r requirements/quality.in
@@ -116,7 +118,7 @@ exceptiongroup==1.1.3
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==19.8.0
+faker==19.10.0
     # via factory-boy
 freezegun==1.2.2
     # via -r requirements/test.in
@@ -185,9 +187,9 @@ pluggy==1.3.0
     # via pytest
 prompt-toolkit==3.0.39
     # via click-repl
-psutil==5.9.5
+psutil==5.9.6
     # via edx-django-utils
-pycodestyle==2.11.0
+pycodestyle==2.11.1
     # via -r requirements/quality.in
 pycparser==2.21
     # via cffi
@@ -201,6 +203,7 @@ pyjwt[crypto]==2.8.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
+    #   pyjwt
 pylint==2.17.7
     # via
     #   edx-lint
