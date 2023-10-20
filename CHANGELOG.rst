@@ -14,6 +14,10 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[4.4.0] - 2023-10-20
+~~~~~~~~~~~~~~~~~~~~
+* Added tracking logs for completion events
+
 [4.3.0]- 2023-07-26
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Added support for Django 4.2
