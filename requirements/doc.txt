@@ -34,7 +34,7 @@ cffi==1.16.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.3.0
+charset-normalizer==3.3.1
     # via requests
 click==8.1.7
     # via
@@ -118,7 +118,7 @@ exceptiongroup==1.1.3
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==19.10.0
+faker==19.11.0
     # via factory-boy
 freezegun==1.2.2
     # via -r requirements/test.in
@@ -149,7 +149,7 @@ markupsafe==2.1.3
     #   xblock
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.1.0
+newrelic==9.1.1
     # via edx-django-utils
 packaging==23.2
     # via
@@ -277,7 +277,7 @@ tzdata==2023.3
     # via
     #   backports-zoneinfo
     #   celery
-urllib3==2.0.6
+urllib3==2.0.7
     # via requests
 vine==5.0.0
     # via
