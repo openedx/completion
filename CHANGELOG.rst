@@ -14,6 +14,10 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[4.4.1] - 2023-10-27
+~~~~~~~~~~~~~~~~~~~~
+* Fix RemovedInDjango41Warning by removing `django_app_config`
+
 [4.4.0] - 2023-10-20
 ~~~~~~~~~~~~~~~~~~~~
 * Added tracking logs for completion events
