@@ -166,7 +166,7 @@ psutil==5.9.6
     # via edx-django-utils
 pycparser==2.21
     # via cffi
-pydata-sphinx-theme==0.14.2
+pydata-sphinx-theme==0.14.3
     # via sphinx-book-theme
 pygments==2.16.1
     # via
@@ -191,7 +191,7 @@ pytest==7.4.3
     #   pytest-django
 pytest-cov==4.1.0
     # via -r requirements/test.in
-pytest-django==4.5.2
+pytest-django==4.6.0
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
@@ -284,7 +284,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.8
+wcwidth==0.2.9
     # via prompt-toolkit
 web-fragments==2.1.0
     # via xblock
