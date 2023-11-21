@@ -16,9 +16,9 @@ backports-zoneinfo[tzdata]==0.2.1
     #   kombu
 billiard==4.2.0
     # via celery
-celery==5.3.4
+celery==5.3.5
     # via event-tracking
-certifi==2023.7.22
+certifi==2023.11.17
     # via requests
 cffi==1.16.0
     # via
@@ -48,7 +48,7 @@ coverage[toml]==7.3.2
     #   pytest-cov
 cryptography==41.0.5
     # via pyjwt
-ddt==1.6.0
+ddt==1.7.0
     # via -r requirements/test.in
     # via
     #   -c requirements/constraints.txt
@@ -84,7 +84,7 @@ edx-django-utils==5.8.0
     #   edx-drf-extensions
     #   edx-toggles
     #   event-tracking
-edx-drf-extensions==8.13.0
+edx-drf-extensions==8.13.1
     # via -r requirements/base.in
 edx-opaque-keys[django]==2.5.1
     # via
@@ -94,11 +94,11 @@ edx-toggles==5.1.0
     # via -r requirements/base.in
 event-tracking==2.2.0
     # via -r requirements/base.in
-exceptiongroup==1.1.3
+exceptiongroup==1.2.0
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==19.13.0
+faker==20.1.0
     # via factory-boy
 freezegun==1.2.2
     # via -r requirements/test.in
@@ -110,11 +110,11 @@ iniconfig==2.0.0
     # via pytest
 jinja2==3.1.2
     # via code-annotations
-kombu==5.3.3
+kombu==5.3.4
     # via celery
 lxml==4.9.3
     # via xblock
-mako==1.2.4
+mako==1.3.0
     # via xblock
 markupsafe==2.1.3
     # via
@@ -123,15 +123,15 @@ markupsafe==2.1.3
     #   xblock
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.1.1
+newrelic==9.2.0
     # via edx-django-utils
 packaging==23.2
     # via pytest
-pbr==5.11.1
+pbr==6.0.0
     # via stevedore
 pluggy==1.3.0
     # via pytest
-prompt-toolkit==3.0.39
+prompt-toolkit==3.0.41
     # via click-repl
 psutil==5.9.6
     # via edx-django-utils
@@ -154,7 +154,7 @@ pytest==7.4.3
     #   pytest-django
 pytest-cov==4.1.0
     # via -r requirements/test.in
-pytest-django==4.6.0
+pytest-django==4.7.0
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
@@ -209,14 +209,14 @@ tzdata==2023.3
     # via
     #   backports-zoneinfo
     #   celery
-urllib3==2.0.7
+urllib3==2.1.0
     # via requests
 vine==5.1.0
     # via
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.9
+wcwidth==0.2.11
     # via prompt-toolkit
 web-fragments==2.1.0
     # via xblock
