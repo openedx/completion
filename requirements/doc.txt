@@ -120,7 +120,7 @@ factory-boy==3.3.0
     # via -r requirements/test.in
 faker==20.1.0
     # via factory-boy
-freezegun==1.2.2
+freezegun==1.3.1
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
@@ -128,7 +128,7 @@ idna==3.6
     # via requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==6.8.0
+importlib-metadata==7.0.0
     # via sphinx
 iniconfig==2.0.0
     # via pytest

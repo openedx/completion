@@ -138,13 +138,13 @@ filelock==3.13.1
     # via
     #   tox
     #   virtualenv
-freezegun==1.2.2
+freezegun==1.3.1
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
 idna==3.6
     # via requests
-importlib-metadata==6.8.0
+importlib-metadata==7.0.0
     # via
     #   build
     #   keyring
@@ -201,7 +201,7 @@ packaging==23.2
     #   build
     #   pytest
     #   tox
-path==16.7.1
+path==16.9.0
     # via edx-i18n-tools
 pbr==6.0.0
     # via stevedore
@@ -209,7 +209,7 @@ pip-tools==7.3.0
     # via -r requirements/dev.in
 pkginfo==1.9.6
     # via twine
-platformdirs==4.0.0
+platformdirs==4.1.0
     # via
     #   pylint
     #   virtualenv
@@ -368,7 +368,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.24.7
+virtualenv==20.25.0
     # via tox
 wcwidth==0.2.12
     # via prompt-toolkit
