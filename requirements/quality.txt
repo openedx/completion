@@ -52,7 +52,7 @@ code-annotations==1.5.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.3.2
+coverage[toml]==7.4.0
     # via
     #   coverage
     #   pytest-cov
@@ -118,15 +118,15 @@ exceptiongroup==1.2.0
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==20.1.0
+faker==22.0.0
     # via factory-boy
-freezegun==1.3.1
+freezegun==1.4.0
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
 idna==3.6
     # via requests
-importlib-metadata==7.0.0
+importlib-metadata==7.0.1
     # via
     #   keyring
     #   twine
@@ -134,7 +134,7 @@ importlib-resources==6.1.1
     # via keyring
 iniconfig==2.0.0
     # via pytest
-isort==5.13.1
+isort==5.13.2
     # via
     #   -r requirements/quality.in
     #   pylint
@@ -150,7 +150,7 @@ keyring==24.3.0
     # via twine
 kombu==5.3.4
     # via celery
-lxml==4.9.3
+lxml==5.0.0
     # via xblock
 mako==1.3.0
     # via xblock
@@ -183,9 +183,9 @@ platformdirs==4.1.0
     # via pylint
 pluggy==1.3.0
     # via pytest
-prompt-toolkit==3.0.42
+prompt-toolkit==3.0.43
     # via click-repl
-psutil==5.9.6
+psutil==5.9.7
     # via edx-django-utils
 pycodestyle==2.11.1
     # via -r requirements/quality.in
@@ -222,7 +222,7 @@ pymongo==3.13.0
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==7.4.3
+pytest==7.4.4
     # via
     #   pytest-cov
     #   pytest-django
@@ -303,7 +303,7 @@ typing-extensions==4.9.0
     #   kombu
     #   pylint
     #   rich
-tzdata==2023.3
+tzdata==2023.4
     # via
     #   backports-zoneinfo
     #   celery
@@ -322,7 +322,7 @@ web-fragments==2.1.0
     # via xblock
 webob==1.8.7
     # via xblock
-xblock==1.8.1
+xblock==1.9.0
     # via -r requirements/base.in
 zipp==3.17.0
     # via
