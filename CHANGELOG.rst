@@ -11,8 +11,10 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
-Unreleased
-----------
+[4.6.0] - 2024-4-16
+-------------------
+
+* Add support for Python 3.12
 
 [4.5.0] - 2024-3-19
 --------------------
