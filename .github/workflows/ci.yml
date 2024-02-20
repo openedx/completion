@@ -12,10 +12,11 @@ jobs:
     name: Tests
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-20.04]
-        python-version: ['3.8']
-        toxenv: [quality, django32-drf314, django32-drflatest, django42-drf314, django42-drflatest]
+        python-version: ['3.8', '3.12']
+        toxenv: [quality, django42-drf314, django42-drflatest]
 
     steps:
     - uses: actions/checkout@v2
