@@ -117,8 +117,14 @@ class CompletionService:
         if not self.completion_tracking_enabled():
             return None
 
+        optional_vertical = getattr(item, "optional_content", False)
+
         # this is temporary local logic and will be removed when the whole course tree is included in completion
-        child_locations = [child.scope_ids.usage_id for child in self.get_completable_children(item)]
+        child_locations = [
+            child.scope_ids.usage_id for child in self.get_completable_children(item)
+            # for non-optional verticals, only include non-optional children
+            if optional_vertical or not getattr(child, "optional_content", False)
+        ]
         completions = self.get_completions(child_locations)
         for child_location in child_locations:
             if completions[child_location] < 1.0:
