@@ -54,11 +54,11 @@ click-repl==0.3.0
     # via celery
 code-annotations==1.6.0
     # via edx-toggles
-coverage[toml]==7.4.1
+coverage[toml]==7.4.3
     # via pytest-cov
-cryptography==42.0.3
+cryptography==42.0.5
     # via pyjwt
-ddt==1.7.1
+ddt==1.7.2
     # via -r requirements/test.in
 django==3.2.24
     # via
@@ -156,7 +156,7 @@ markupsafe==2.1.5
     #   xblock
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.6.0
+newrelic==9.7.0
     # via edx-django-utils
 openedx-events==9.5.2
     # via event-tracking
@@ -193,7 +193,7 @@ pymongo==3.13.0
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==8.0.1
+pytest==8.0.2
     # via
     #   pytest-cov
     #   pytest-django
@@ -261,7 +261,7 @@ sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
 sqlparse==0.4.4
     # via django
-stevedore==5.1.0
+stevedore==5.2.0
     # via
     #   code-annotations
     #   doc8
@@ -274,7 +274,7 @@ tomli==2.0.1
     #   coverage
     #   doc8
     #   pytest
-typing-extensions==4.9.0
+typing-extensions==4.10.0
     # via
     #   asgiref
     #   edx-opaque-keys
