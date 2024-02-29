@@ -103,6 +103,24 @@ class CompletionService:
             user_children = [node]
         return user_children
 
+    @staticmethod
+    def matches_vertical_optional_completion(optional_vertical, optional_child):
+        """
+        Checks if child should count towards a vertical's completion.
+
+        There are only four combinations:
+        1. Optional Vertical and Optional Child -> Include Child
+        2. Optional Vertical and Required Child -> Include Child
+        3. Required Vertical and Required Child -> Include Child
+        4. Required Vertical and Optional Child -> Exclude Child
+        (case 2 shouldn't happen but this is how we can handle it gracefully)
+
+        This means that the only case in which we want to exclude the child
+        is when the parent is required and the child isn't.
+        """
+        required_vertical = not optional_vertical
+        return not (required_vertical and optional_child)  # exclude case 4 from docstring
+
     def vertical_is_complete(self, item):
         """
         Calculates and returns whether a particular vertical is complete.
@@ -122,9 +140,9 @@ class CompletionService:
         # this is temporary local logic and will be removed when the whole course tree is included in completion
         child_locations = [
             child.scope_ids.usage_id for child in self.get_completable_children(item)
-            # if vertical is optional, include all children
-            # else only include non-optional children
-            if optional_vertical or not getattr(child, "optional_completion", False)
+            if self.matches_vertical_optional_completion(
+                optional_vertical, getattr(child, "optional_completion", False)
+            )
         ]
         completions = self.get_completions(child_locations)
         for child_location in child_locations:
