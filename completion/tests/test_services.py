@@ -205,19 +205,20 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
             []
         )
 
-    def test_matches_vertical_optional_completion(self):
-        for optional_vertical, optional_child, should_include_child in (
-            (True, True, True),
-            (True, False, True),
-            (False, False, True),
-            (False, True, False),  # do not count optional children for non-optional verticals
-        ):
-            self.assertEqual(
-                self.completion_service.matches_vertical_optional_completion(
-                    optional_vertical, optional_child
-                ),
-                should_include_child,
-            )
+    @ddt.data(
+        (True, True, True),
+        (True, False, True),
+        (False, False, True),
+        (False, True, False),  # do not count optional children for non-optional verticals
+    )
+    @ddt.unpack
+    def test_matches_vertical_optional_completion(self, optional_vertical, optional_child, should_include_child):
+        self.assertEqual(
+            self.completion_service.matches_vertical_optional_completion(
+                optional_vertical, optional_child
+            ),
+            should_include_child,
+        )
 
 
 @ddt.ddt

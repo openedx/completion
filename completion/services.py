@@ -108,6 +108,9 @@ class CompletionService:
         """
         Checks if child should count towards a vertical's completion.
 
+        This is done by comparing the "optional_completion" values of the vertical
+        and the child. Here optional completion means that the completion of a child
+        doesn't count towards the completion of a parent for the purposes of this library.
         There are only four combinations:
         1. Optional Vertical and Optional Child -> Include Child
         2. Optional Vertical and Required Child -> Include Child
