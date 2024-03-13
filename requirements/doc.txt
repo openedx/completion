@@ -100,7 +100,7 @@ docutils==0.19
     #   sphinx
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -123,7 +123,7 @@ exceptiongroup==1.2.0
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==24.0.0
+faker==24.1.0
     # via factory-boy
 fastavro==1.9.4
     # via openedx-events
@@ -135,7 +135,7 @@ idna==3.6
     # via requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==7.0.1
+importlib-metadata==7.0.2
     # via sphinx
 iniconfig==2.0.0
     # via pytest
@@ -156,11 +156,11 @@ markupsafe==2.1.5
     #   xblock
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.7.0
+newrelic==9.7.1
     # via edx-django-utils
 openedx-events==9.5.2
     # via event-tracking
-packaging==23.2
+packaging==24.0
     # via
     #   pydata-sphinx-theme
     #   pytest
@@ -193,7 +193,7 @@ pymongo==3.13.0
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==8.0.2
+pytest==8.1.1
     # via
     #   pytest-cov
     #   pytest-django
