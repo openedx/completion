@@ -14,6 +14,10 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[4.5.0] - 2024-02-26
+~~~~~~~~~~~~~~~~~~~~
+* Ignore optional blocks in non-optional verticals
+
 [4.4.1] - 2023-10-27
 ~~~~~~~~~~~~~~~~~~~~
 * Fix RemovedInDjango41Warning by removing `django_app_config`
