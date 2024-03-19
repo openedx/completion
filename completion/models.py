@@ -180,7 +180,7 @@ class BlockCompletionManager(models.Manager):
         Parameters:
             * user (django.contrib.auth.models.User): The user for whom the
               completions are being deleted.
-            * blocks: (ContextKey) The course / context identifier for which
+            * context_key: (ContextKey) The course / context identifier for which
               completions are being deleted.
 
         Return Value: (int) The number of models deleted

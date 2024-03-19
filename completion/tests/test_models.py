@@ -228,7 +228,7 @@ class CompletionClearingTestCase(CompletionSetUpMixin, TestCase):
 
     def setUp(self):
         super().setUp()
-        # Create two learning contexts of five blocks each
+        # Create two learning contexts with some blocks
         self.context_key, self.blocks = self._set_up_course('SomeCourse')
         self.other_context_key, self.other_blocks = self._set_up_course('SomeOtherCourse')
 
@@ -251,7 +251,7 @@ class CompletionClearingTestCase(CompletionSetUpMixin, TestCase):
         )
 
     def _set_up_course(self, course):
-        """ Create a context with five blocks """
+        """ Create a context with some blocks """
         blocks = [
             UsageKey.from_string(f'block-v1:edx+{course}+run+type@problem+block@{uuid4()}')
             for _ in range(self.BLOCKS_PER_CONTEXT)
