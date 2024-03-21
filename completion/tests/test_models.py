@@ -3,6 +3,8 @@ Test models, managers, and validators.
 """
 
 import datetime
+from random import randint
+from uuid import uuid4
 from pytz import UTC
 
 from django.core.exceptions import ValidationError
@@ -215,3 +217,92 @@ class CompletionFetchingTestCase(CompletionSetUpMixin, TestCase):
                 self.course_key_one: (datetime.datetime(2050, 1, 3, tzinfo=UTC), self.block_keys_one[2])
             }
         )
+
+
+class CompletionClearingTestCase(CompletionSetUpMixin, TestCase):
+    """
+    Tests for clear_learning_context_completion
+    """
+    COMPLETION_SWITCH_ENABLED = True
+    BLOCKS_PER_CONTEXT = 3
+
+    def setUp(self):
+        super().setUp()
+        # Create two learning contexts with some blocks
+        self.context_key, self.blocks = self._set_up_course('SomeCourse')
+        self.other_context_key, self.other_blocks = self._set_up_course('SomeOtherCourse')
+
+        # Create two users
+        self.user = UserFactory()
+        self.other_user = UserFactory()
+
+        # Create completions for all blocks in both contexts for each learner
+        self._create_test_completions(self.user)
+        self._create_test_completions(self.other_user)
+
+    def _create_test_completions(self, user):
+        # Create random completions for `user` for all blocks in both test contexts
+        models.BlockCompletion.objects.submit_batch_completion(
+            user,
+            [
+                (block, float(f"0.{randint(1,9)}"))
+                for block in self.blocks + self.other_blocks
+            ]
+        )
+
+    def _set_up_course(self, course):
+        """ Create a context with some blocks """
+        blocks = [
+            UsageKey.from_string(f'block-v1:edx+{course}+run+type@problem+block@{uuid4()}')
+            for _ in range(self.BLOCKS_PER_CONTEXT)
+        ]
+        return blocks[0].context_key, blocks
+
+    def _assert_completions(self, user, context, expect_completions):
+        """ Helper to assert the existance of completions for a given learner and context """
+        completions = models.BlockCompletion.get_learning_context_completions(user, context)
+        if expect_completions:
+            assert len(completions) == self.BLOCKS_PER_CONTEXT
+        else:
+            assert not completions
+
+    def test_clear_learning_context_completion(self):
+        """
+        When we clear learning context completion, it should clear all completion records for
+        the given user and the given context without affecting any other user or context
+        """
+        self._assert_completions(self.user, self.context_key, True)
+        self._assert_completions(self.user, self.other_context_key, True)
+        self._assert_completions(self.other_user, self.context_key, True)
+        self._assert_completions(self.other_user, self.other_context_key, True)
+
+        deleted = models.BlockCompletion.objects.clear_learning_context_completion(
+            self.user, self.context_key
+        )
+        assert deleted == self.BLOCKS_PER_CONTEXT
+
+        self._assert_completions(self.user, self.context_key, False)
+        self._assert_completions(self.user, self.other_context_key, True)
+        self._assert_completions(self.other_user, self.context_key, True)
+        self._assert_completions(self.other_user, self.other_context_key, True)
+
+        deleted = models.BlockCompletion.objects.clear_learning_context_completion(
+            self.other_user, self.other_context_key
+        )
+        assert deleted == self.BLOCKS_PER_CONTEXT
+
+        self._assert_completions(self.user, self.context_key, False)
+        self._assert_completions(self.user, self.other_context_key, True)
+        self._assert_completions(self.other_user, self.context_key, True)
+        self._assert_completions(self.other_user, self.other_context_key, False)
+
+    def test_user_no_completions(self):
+        """
+        Calling the method for a user with no completions does nothing and raises no error
+        """
+        stranger = UserFactory()
+        assert not models.BlockCompletion.objects.filter(user=stranger).exists()
+        deleted = models.BlockCompletion.objects.clear_learning_context_completion(
+            stranger, self.context_key
+        )
+        assert deleted == 0

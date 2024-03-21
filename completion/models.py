@@ -172,6 +172,22 @@ class BlockCompletionManager(models.Manager):
             block_completions[block_completion] = is_new
         return block_completions
 
+    @transaction.atomic()
+    def clear_learning_context_completion(self, user, context_key):
+        """
+        Performs a batch delete of all completion objects for a specified user and context.
+
+        Parameters:
+            * user (django.contrib.auth.models.User): The user for whom the
+              completions are being deleted.
+            * context_key: (ContextKey) The course / context identifier for which
+              completions are being deleted.
+
+        Return Value: (int) The number of models deleted
+        """
+        total, _ = BlockCompletion.user_learning_context_completion_queryset(user, context_key).delete()
+        return total
+
 
 # pylint: disable=model-has-unicode
 class BlockCompletion(TimeStampedModel, models.Model):

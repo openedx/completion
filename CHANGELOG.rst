@@ -14,6 +14,11 @@ Change Log
 Unreleased
 ~~~~~~~~~~
 
+[4.5.0] - 2024-3-19
+~~~~~~~~~~~~~~~~~~~~
+* Added ``clear_learning_context_completion`` to enable clearing a learner's
+  completion for a course
+
 [4.4.1] - 2023-10-27
 ~~~~~~~~~~~~~~~~~~~~
 * Fix RemovedInDjango41Warning by removing `django_app_config`
