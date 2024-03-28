@@ -4,14 +4,9 @@
 
 **Dependencies:** dependencies on other outstanding PRs, issues, etc. 
 
-**Installation instructions:** List any non-trivial installation 
-instructions.
+**Installation instructions:** List any non-trivial installation instructions.
 
 **Testing instructions:** List testing instructions
-
-**Reviewers:**
-- [ ] tag reviewer 
-- [ ] tag reviewer 
 
 **Merge checklist:**
 - [ ] All reviewers approved
@@ -23,6 +18,5 @@ instructions.
 
 **Post merge:**
 - [ ] Create a tag
-- [ ] Check new version is pushed to PyPi after tag-triggered build is 
-      finished.
+- [ ] Check new version is pushed to PyPi after tag-triggered build is finished.
 - [ ] Delete working branch (if not needed anymore)
