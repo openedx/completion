@@ -7,7 +7,7 @@ completion
 Purpose
 *******
 
-A library for tracking completion of blocks by learners in edX courses.
+A library for tracking completion of blocks by learners in Open edX courses.
 
 This repository provides a Django model `BlockCompletion` that is intended to be plugged into ``edx-platform``.  It
 provides various handlers and services for the recording of completion data.  It also provides a DRF API for submitting
@@ -78,7 +78,7 @@ License
 The code in this repository is licensed under version 3 of the AGPL unless
 otherwise noted.
 
-Please see `LICENSE.txt <LICENSE.txt>`_ for details.
+Please see `LICENSE <LICENSE>`_ for details.
 
 Contributing
 ************
