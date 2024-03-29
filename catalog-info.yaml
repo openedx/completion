@@ -1,0 +1,16 @@
+# This file records information about this repo. Its use is described in OEP-55:
+# https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: 'completion'
+  description: "A library for tracking completion of blocks by learners in edX courses."
+  links:
+    - url: "https://github.com/openedx/completion"
+      title: "Block Completion API",
+      icon: "Web"
+spec:
+  owner: group:committers-completion
+  type: 'library'
+  lifecycle: 'production'
