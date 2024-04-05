@@ -8,7 +8,7 @@ metadata:
   description: "A library for tracking completion of blocks by learners in edX courses."
   links:
     - url: "https://github.com/openedx/completion"
-      title: "Block Completion API",
+      title: "Block Completion API"
       icon: "Web"
 spec:
   owner: group:committers-completion
