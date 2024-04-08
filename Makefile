@@ -63,6 +63,10 @@ upgrade: $(COMMON_CONSTRAINTS_TXT)  ## update the requirements/*.txt files with 
 	# Let tox control the Django version for tests
 	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
 	mv requirements/test.tmp requirements/test.txt
+	# Also lets tox control DRF version
+	sed '/^[dD]jangorestframework==/d' requirements/test.txt > requirements/test.tmp
+	mv requirements/test.tmp requirements/test.txt
+
 
 quality: ## check coding style with pycodestyle and pylint
 	tox -e quality
