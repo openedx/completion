@@ -14,7 +14,7 @@ Change Log
 [4.6.0] - 2024-4-16
 -------------------
 
-* Add support for Python 3.12
+* Add support for Python 3.11 and 3.12
 
 [4.5.0] - 2024-3-19
 --------------------

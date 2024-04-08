@@ -18,9 +18,11 @@ attrs==23.2.0
     # via openedx-events
 backports-tarfile==1.1.0
     # via jaraco-context
-backports-zoneinfo[tzdata]==0.2.1
+backports-zoneinfo[tzdata]==0.2.1 ; python_version < "3.9"
     # via
+    #   -c requirements/constraints.txt
     #   celery
+    #   django
     #   djangorestframework
     #   kombu
 billiard==4.2.0
@@ -67,9 +69,9 @@ ddt==1.7.2
     # via -r requirements/test.in
 dill==0.3.8
     # via pylint
-django==3.2.25
+django==4.2.11
     # via
-    #   -c requirements/constraints.txt
+    #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
     #   django-crum
     #   django-model-utils
@@ -136,8 +138,9 @@ fs==2.4.16
     # via xblock
 idna==3.7
     # via requests
-importlib-metadata==7.1.0
+importlib-metadata==6.11.0
     # via
+    #   -c requirements/common_constraints.txt
     #   keyring
     #   twine
 importlib-resources==6.4.0
@@ -258,7 +261,6 @@ python-slugify==8.0.4
 pytz==2024.1
     # via
     #   -r requirements/base.in
-    #   django
     #   event-tracking
     #   xblock
 pyyaml==6.0.1
@@ -346,4 +348,7 @@ zipp==3.18.1
     #   importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
-# setuptools
+setuptools==69.5.1
+    # via
+    #   -r requirements/base.in
+    #   fs
