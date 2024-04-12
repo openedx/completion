@@ -16,6 +16,8 @@ astroid==3.1.0
     #   pylint-celery
 attrs==23.2.0
     # via openedx-events
+backports-tarfile==1.0.0
+    # via jaraco-context
 backports-zoneinfo[tzdata]==0.2.1
     # via
     #   celery
@@ -51,7 +53,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==1.7.0
+code-annotations==1.8.0
     # via
     #   edx-lint
     #   edx-toggles
@@ -83,7 +85,7 @@ django-crum==0.7.9
     # via
     #   edx-django-utils
     #   edx-toggles
-django-model-utils==4.4.0
+django-model-utils==4.5.0
     # via -r requirements/base.in
 django-waffle==4.1.0
     # via
@@ -99,13 +101,13 @@ docutils==0.20.1
     # via readme-renderer
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==5.11.0
+edx-django-utils==5.12.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
     #   event-tracking
     #   openedx-events
-edx-drf-extensions==10.2.0
+edx-drf-extensions==10.3.0
     # via -r requirements/base.in
 edx-lint==5.3.6
     # via -r requirements/quality.in
@@ -114,17 +116,17 @@ edx-opaque-keys[django]==2.5.1
     #   -r requirements/base.in
     #   edx-drf-extensions
     #   openedx-events
-edx-toggles==5.1.1
+edx-toggles==5.2.0
     # via
     #   -r requirements/base.in
     #   event-tracking
-event-tracking==2.3.1
+event-tracking==2.3.2
     # via -r requirements/base.in
 exceptiongroup==1.2.0
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==24.4.0
+faker==24.7.1
     # via factory-boy
 fastavro==1.9.4
     # via openedx-events
@@ -146,9 +148,9 @@ isort==5.13.2
     # via
     #   -r requirements/quality.in
     #   pylint
-jaraco-classes==3.3.1
+jaraco-classes==3.4.0
     # via keyring
-jaraco-context==4.3.0
+jaraco-context==5.3.0
     # via keyring
 jaraco-functools==4.0.0
     # via keyring
@@ -158,11 +160,11 @@ jeepney==0.8.0
     #   secretstorage
 jinja2==3.1.3
     # via code-annotations
-keyring==25.0.0
+keyring==25.1.0
     # via twine
-kombu==5.3.5
+kombu==5.3.6
     # via celery
-lxml==5.1.0
+lxml==5.2.1
     # via xblock
 mako==1.3.2
     # via xblock
@@ -183,11 +185,11 @@ more-itertools==10.2.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==9.7.1
+newrelic==9.8.0
     # via edx-django-utils
 nh3==0.2.17
     # via readme-renderer
-openedx-events==9.5.2
+openedx-events==9.7.0
     # via event-tracking
 packaging==24.0
     # via pytest
@@ -205,7 +207,7 @@ psutil==5.9.8
     # via edx-django-utils
 pycodestyle==2.11.1
     # via -r requirements/quality.in
-pycparser==2.21
+pycparser==2.22
     # via cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
@@ -308,7 +310,7 @@ tomlkit==0.12.4
     # via pylint
 twine==5.0.0
     # via -r requirements/quality.in
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   asgiref
     #   astroid
@@ -332,11 +334,11 @@ vine==5.1.0
     #   kombu
 wcwidth==0.2.13
     # via prompt-toolkit
-web-fragments==2.1.0
+web-fragments==2.2.0
     # via xblock
 webob==1.8.7
     # via xblock
-xblock==3.0.0
+xblock==3.1.0
     # via -r requirements/base.in
 zipp==3.18.1
     # via
