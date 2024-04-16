@@ -16,7 +16,7 @@ astroid==3.1.0
     #   pylint-celery
 attrs==23.2.0
     # via openedx-events
-backports-tarfile==1.0.0
+backports-tarfile==1.1.0
     # via jaraco-context
 backports-zoneinfo[tzdata]==0.2.1
     # via
@@ -70,7 +70,7 @@ cryptography==42.0.5
     #   secretstorage
 ddt==1.7.2
     # via -r requirements/test.in
-diff-cover==8.0.3
+diff-cover==9.0.0
     # via -r requirements/dev.in
 dill==0.3.8
     # via pylint
@@ -119,7 +119,7 @@ edx-django-utils==5.12.0
     #   openedx-events
 edx-drf-extensions==10.3.0
     # via -r requirements/base.in
-edx-i18n-tools==1.3.0
+edx-i18n-tools==1.5.0
     # via -r requirements/dev.in
 edx-lint==5.3.6
     # via
@@ -134,17 +134,17 @@ edx-toggles==5.2.0
     # via
     #   -r requirements/base.in
     #   event-tracking
-event-tracking==2.3.2
+event-tracking==2.4.0
     # via -r requirements/base.in
 exceptiongroup==1.2.0
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==24.7.1
+faker==24.9.0
     # via factory-boy
 fastavro==1.9.4
     # via openedx-events
-filelock==3.13.3
+filelock==3.13.4
     # via
     #   tox
     #   virtualenv
@@ -152,7 +152,7 @@ freezegun==1.4.0
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
-idna==3.6
+idna==3.7
     # via requests
 importlib-metadata==7.1.0
     # via
@@ -183,13 +183,13 @@ jinja2==3.1.3
     #   diff-cover
 keyring==25.1.0
     # via twine
-kombu==5.3.6
+kombu==5.3.7
     # via celery
 lxml==5.2.1
     # via
     #   edx-i18n-tools
     #   xblock
-mako==1.3.2
+mako==1.3.3
     # via xblock
 markdown-it-py==3.0.0
     # via rich
@@ -212,7 +212,7 @@ newrelic==9.8.0
     # via edx-django-utils
 nh3==0.2.17
     # via readme-renderer
-openedx-events==9.7.0
+openedx-events==9.9.1
     # via event-tracking
 packaging==24.0
     # via
@@ -338,7 +338,7 @@ six==1.16.0
     #   tox
 snowballstemmer==2.2.0
     # via pydocstyle
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via django
 stevedore==5.2.0
     # via
