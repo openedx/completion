@@ -77,7 +77,6 @@ django-waffle==4.1.0
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
-
     # via
     #   -r requirements/base.in
     #   drf-jwt

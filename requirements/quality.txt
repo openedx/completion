@@ -340,6 +340,8 @@ web-fragments==2.2.0
     # via xblock
 webob==1.8.7
     # via xblock
+wheel==0.43.0
+    # via -r requirements/quality.in
 xblock==3.1.0
     # via -r requirements/base.in
 zipp==3.18.1
