@@ -9,3 +9,4 @@ isort                     # to standardize order of imports
 pycodestyle               # PEP 8 compliance validation
 pydocstyle                # PEP 257 compliance validation
 twine                     # for package description syntax validation
+wheel                     # to make sure we can build wheels correctly.

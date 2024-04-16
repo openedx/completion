@@ -245,7 +245,7 @@ class CompletionClearingTestCase(CompletionSetUpMixin, TestCase):
         models.BlockCompletion.objects.submit_batch_completion(
             user,
             [
-                (block, float(f"0.{randint(1,9)}"))
+                (block, float(f"0.{randint(1, 9)}"))
                 for block in self.blocks + self.other_blocks
             ]
         )

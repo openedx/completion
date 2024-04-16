@@ -14,8 +14,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-20.04]
-        python-version: ['3.8']
-        toxenv: [quality, django32-drf314, django32-drflatest, django42-drf314, django42-drflatest]
+        python-version: ['3.8', '3.11', '3.12']
+        toxenv: [quality, django42-drf314, django42-drflatest]
 
     steps:
     - uses: actions/checkout@v2
@@ -37,7 +37,8 @@ jobs:
 
     - name: Run Coverage
       if: matrix.python-version == '3.8' && matrix.toxenv=='django42-drflatest'
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v4
       with:
         flags: unittests
         fail_ci_if_error: true
+        token: ${{ secrets.CODECOV_TOKEN }}
