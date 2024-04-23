@@ -21,7 +21,7 @@ backports-zoneinfo[tzdata]==0.2.1 ; python_version < "3.9"
     #   kombu
 billiard==4.2.0
     # via celery
-celery==5.3.6
+celery==5.4.0
     # via event-tracking
 certifi==2024.2.2
     # via requests
@@ -91,7 +91,7 @@ edx-django-utils==5.12.0
     #   openedx-events
 edx-drf-extensions==10.3.0
     # via -r requirements/base.in
-edx-opaque-keys[django]==2.5.1
+edx-opaque-keys[django]==2.8.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -102,11 +102,11 @@ edx-toggles==5.2.0
     #   event-tracking
 event-tracking==2.4.0
     # via -r requirements/base.in
-exceptiongroup==1.2.0
+exceptiongroup==1.2.1
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==24.9.0
+faker==24.11.0
     # via factory-boy
 fastavro==1.9.4
     # via openedx-events
@@ -133,15 +133,15 @@ markupsafe==2.1.5
     #   xblock
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.8.0
+newrelic==9.9.0
     # via edx-django-utils
-openedx-events==9.9.1
+openedx-events==9.9.2
     # via event-tracking
 packaging==24.0
     # via pytest
 pbr==6.0.0
     # via stevedore
-pluggy==1.4.0
+pluggy==1.5.0
     # via pytest
 prompt-toolkit==3.0.43
     # via click-repl
@@ -231,7 +231,7 @@ web-fragments==2.2.0
     # via xblock
 webob==1.8.7
     # via xblock
-xblock==3.1.0
+xblock==4.0.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
