@@ -21,7 +21,7 @@ backports-zoneinfo[tzdata]==0.2.1 ; python_version < "3.9"
     #   kombu
 billiard==4.2.0
     # via celery
-celery==5.3.6
+celery==5.4.0
     # via event-tracking
 certifi==2024.2.2
     # via requests
@@ -81,7 +81,7 @@ djangorestframework==3.15.1
     #   edx-drf-extensions
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==5.12.0
+edx-django-utils==5.13.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -89,7 +89,7 @@ edx-django-utils==5.12.0
     #   openedx-events
 edx-drf-extensions==10.3.0
     # via -r requirements/base.in
-edx-opaque-keys[django]==2.5.1
+edx-opaque-keys[django]==2.9.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -119,9 +119,9 @@ markupsafe==2.1.5
     #   jinja2
     #   mako
     #   xblock
-newrelic==9.8.0
+newrelic==9.9.0
     # via edx-django-utils
-openedx-events==9.9.1
+openedx-events==9.9.2
     # via event-tracking
 pbr==6.0.0
     # via stevedore
@@ -198,7 +198,7 @@ web-fragments==2.2.0
     # via xblock
 webob==1.8.7
     # via xblock
-xblock==3.1.0
+xblock==4.0.1
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
