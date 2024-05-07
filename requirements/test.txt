@@ -47,9 +47,9 @@ click-repl==0.3.0
     # via celery
 code-annotations==1.8.0
     # via edx-toggles
-coverage[toml]==7.5.0
+coverage[toml]==7.5.1
     # via pytest-cov
-cryptography==42.0.5
+cryptography==42.0.7
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -70,7 +70,7 @@ django-crum==0.7.9
     # via
     #   edx-django-utils
     #   edx-toggles
-django-model-utils==4.5.0
+django-model-utils==4.5.1
     # via -r requirements/base.in
 django-waffle==4.1.0
     # via
@@ -106,7 +106,7 @@ exceptiongroup==1.2.1
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==25.0.0
+faker==25.0.1
     # via factory-boy
 fastavro==1.9.4
     # via openedx-events
@@ -118,7 +118,7 @@ idna==3.7
     # via requests
 iniconfig==2.0.0
     # via pytest
-jinja2==3.1.3
+jinja2==3.1.4
     # via code-annotations
 kombu==5.3.7
     # via celery
