@@ -49,7 +49,7 @@ code-annotations==1.8.0
     # via edx-toggles
 coverage[toml]==7.5.3
     # via pytest-cov
-cryptography==42.0.7
+cryptography==42.0.8
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -93,7 +93,7 @@ edx-django-utils==5.14.2
     #   openedx-events
 edx-drf-extensions==10.3.0
     # via -r requirements/base.in
-edx-opaque-keys[django]==2.9.0
+edx-opaque-keys[django]==2.10.0
     # via
     #   -r requirements/base.in
     #   edx-ccx-keys
@@ -109,7 +109,7 @@ exceptiongroup==1.2.1
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==25.4.0
+faker==25.8.0
     # via factory-boy
 fastavro==1.9.4
     # via openedx-events
@@ -140,13 +140,13 @@ newrelic==9.10.0
     # via edx-django-utils
 openedx-events==9.10.0
     # via event-tracking
-packaging==24.0
+packaging==24.1
     # via pytest
 pbr==6.0.0
     # via stevedore
 pluggy==1.5.0
     # via pytest
-prompt-toolkit==3.0.46
+prompt-toolkit==3.0.47
     # via click-repl
 psutil==5.9.8
     # via edx-django-utils
@@ -212,7 +212,7 @@ tomli==2.0.1
     # via
     #   coverage
     #   pytest
-typing-extensions==4.12.1
+typing-extensions==4.12.2
     # via
     #   asgiref
     #   edx-opaque-keys
