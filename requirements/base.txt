@@ -122,7 +122,7 @@ markupsafe==2.1.5
     #   jinja2
     #   mako
     #   xblock
-newrelic==9.10.0
+newrelic==9.11.0
     # via edx-django-utils
 openedx-events==9.10.0
     # via event-tracking
@@ -189,7 +189,7 @@ tzdata==2024.1
     # via
     #   backports-zoneinfo
     #   celery
-urllib3==2.2.1
+urllib3==2.2.2
     # via requests
 vine==5.1.0
     # via

@@ -13,6 +13,7 @@ jobs:
    call-upgrade-python-requirements-workflow:
     with:
        branch: ${{ github.event.inputs.branch }}
+       python_version: "3.8"
        # optional parameters below; fill in if you'd like github or email notifications
        # user_reviewers: ""
        # team_reviewers: ""
