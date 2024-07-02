@@ -131,7 +131,7 @@ exceptiongroup==1.2.1
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==25.9.1
+faker==26.0.0
     # via factory-boy
 fastavro==1.9.4
     # via openedx-events
@@ -201,7 +201,7 @@ packaging==24.1
     # via pytest
 pbr==6.0.0
     # via stevedore
-pkginfo==1.11.1
+pkginfo==1.10.0
     # via twine
 platformdirs==4.2.2
     # via pylint
@@ -225,7 +225,7 @@ pyjwt[crypto]==2.8.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==3.2.3
+pylint==3.2.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -314,7 +314,7 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.12.5
     # via pylint
-twine==5.1.0
+twine==5.1.1
     # via -r requirements/quality.in
 typing-extensions==4.12.2
     # via
@@ -353,7 +353,7 @@ zipp==3.19.2
     #   importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==70.1.1
+setuptools==70.2.0
     # via
     #   -r requirements/base.in
     #   fs

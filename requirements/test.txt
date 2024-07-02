@@ -109,7 +109,7 @@ exceptiongroup==1.2.1
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
-faker==25.9.1
+faker==26.0.0
     # via factory-boy
 fastavro==1.9.4
     # via openedx-events
