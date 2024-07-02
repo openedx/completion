@@ -206,7 +206,7 @@ xblock==4.0.1
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==70.1.1
+setuptools==70.2.0
     # via
     #   -r requirements/base.in
     #   fs
