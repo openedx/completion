@@ -31,9 +31,9 @@ beautifulsoup4==4.12.3
     # via pydata-sphinx-theme
 billiard==4.2.0
     # via celery
-celery==5.4.0
+celery==5.3.6
     # via event-tracking
-certifi==2024.6.2
+certifi==2024.7.4
     # via requests
 cffi==1.16.0
     # via
@@ -63,7 +63,7 @@ cryptography==42.0.8
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
-django==4.2.13
+django==4.2.14
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -93,6 +93,8 @@ djangorestframework==3.15.2
     #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
+dnspython==2.6.1
+    # via pymongo
 doc8==1.1.1
     # via -r requirements/doc.in
 docutils==0.19
@@ -123,7 +125,7 @@ edx-toggles==5.2.0
     # via
     #   -r requirements/base.in
     #   event-tracking
-event-tracking==2.4.0
+event-tracking==2.4.1
     # via -r requirements/base.in
 exceptiongroup==1.2.1
     # via pytest
@@ -131,7 +133,7 @@ factory-boy==3.3.0
     # via -r requirements/test.in
 faker==26.0.0
     # via factory-boy
-fastavro==1.9.4
+fastavro==1.9.5
     # via openedx-events
 freezegun==1.5.1
     # via -r requirements/test.in
@@ -195,7 +197,7 @@ pyjwt[crypto]==2.8.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==3.13.0
+pymongo==4.4.0
     # via
     #   edx-opaque-keys
     #   event-tracking
