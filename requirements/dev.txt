@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via fs
 asgiref==3.8.1
     # via django
-astroid==3.2.2
+astroid==3.2.3
     # via
     #   pylint
     #   pylint-celery
@@ -29,11 +29,11 @@ billiard==4.2.0
     # via celery
 build==1.2.1
     # via pip-tools
-cachetools==5.3.3
+cachetools==5.4.0
     # via tox
-celery==5.4.0
+celery==5.3.6
     # via event-tracking
-certifi==2024.6.2
+certifi==2024.7.4
     # via requests
 cffi==1.16.0
     # via
@@ -70,7 +70,7 @@ code-annotations==1.8.0
     #   edx-toggles
 colorama==0.4.6
     # via tox
-coverage[toml]==7.5.4
+coverage[toml]==7.6.0
     # via pytest-cov
 cryptography==42.0.8
     # via
@@ -84,7 +84,7 @@ dill==0.3.8
     # via pylint
 distlib==0.3.8
     # via virtualenv
-django==4.2.13
+django==4.2.14
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -115,6 +115,8 @@ djangorestframework==3.15.2
     #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
+dnspython==2.6.1
+    # via pymongo
 docutils==0.20.1
     # via readme-renderer
 drf-jwt==1.19.2
@@ -131,7 +133,7 @@ edx-drf-extensions==10.3.0
     # via -r requirements/base.in
 edx-i18n-tools==1.6.0
     # via -r requirements/dev.in
-edx-lint==5.3.6
+edx-lint==5.3.7
     # via
     #   -r requirements/dev.in
     #   -r requirements/quality.in
@@ -145,15 +147,15 @@ edx-toggles==5.2.0
     # via
     #   -r requirements/base.in
     #   event-tracking
-event-tracking==2.4.0
+event-tracking==2.4.1
     # via -r requirements/base.in
-exceptiongroup==1.2.1
+exceptiongroup==1.2.2
     # via pytest
 factory-boy==3.3.0
     # via -r requirements/test.in
 faker==26.0.0
     # via factory-boy
-fastavro==1.9.4
+fastavro==1.9.5
     # via openedx-events
 filelock==3.15.4
     # via
@@ -223,9 +225,9 @@ more-itertools==10.3.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==9.11.0
+newrelic==9.12.0
     # via edx-django-utils
-nh3==0.2.17
+nh3==0.2.18
     # via readme-renderer
 openedx-events==9.11.0
     # via event-tracking
@@ -288,7 +290,7 @@ pylint-plugin-utils==0.8.2
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==3.13.0
+pymongo==4.4.0
     # via
     #   edx-opaque-keys
     #   event-tracking
@@ -354,7 +356,7 @@ six==1.16.0
     #   python-dateutil
 snowballstemmer==2.2.0
     # via pydocstyle
-sqlparse==0.5.0
+sqlparse==0.5.1
     # via django
 stevedore==5.2.0
     # via
@@ -372,9 +374,9 @@ tomli==2.0.1
     #   pyproject-api
     #   pytest
     #   tox
-tomlkit==0.12.5
+tomlkit==0.13.0
     # via pylint
-tox==4.15.1
+tox==4.16.0
     # via -r requirements/dev.in
 twine==5.1.1
     # via -r requirements/quality.in
