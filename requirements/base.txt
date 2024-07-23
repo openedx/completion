@@ -23,7 +23,7 @@ billiard==4.2.0
     # via celery
 celery==5.4.0
     # via event-tracking
-certifi==2024.6.2
+certifi==2024.7.4
     # via requests
 cffi==1.16.0
     # via
@@ -47,9 +47,9 @@ click-repl==0.3.0
     # via celery
 code-annotations==1.8.0
     # via edx-toggles
-cryptography==42.0.8
+cryptography==43.0.0
     # via pyjwt
-django==4.2.13
+django==4.2.14
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -102,8 +102,10 @@ edx-toggles==5.2.0
     #   -r requirements/base.in
     #   event-tracking
 event-tracking==2.4.0
-    # via -r requirements/base.in
-fastavro==1.9.4
+    # via
+    #   -c requirements/common_constraints.txt
+    #   -r requirements/base.in
+fastavro==1.9.5
     # via openedx-events
 fs==2.4.16
     # via xblock
@@ -122,7 +124,7 @@ markupsafe==2.1.5
     #   jinja2
     #   mako
     #   xblock
-newrelic==9.11.0
+newrelic==9.12.0
     # via edx-django-utils
 openedx-events==9.11.0
     # via event-tracking
@@ -171,7 +173,7 @@ six==1.16.0
     #   event-tracking
     #   fs
     #   python-dateutil
-sqlparse==0.5.0
+sqlparse==0.5.1
     # via django
 stevedore==5.2.0
     # via
@@ -206,7 +208,7 @@ xblock==4.0.1
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==70.2.0
+setuptools==71.1.0
     # via
     #   -r requirements/base.in
     #   fs
