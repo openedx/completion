@@ -247,7 +247,7 @@ pymongo==3.13.0
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==8.3.1
+pytest==8.3.2
     # via
     #   pytest-cov
     #   pytest-django
@@ -347,7 +347,7 @@ webob==1.8.7
     # via xblock
 wheel==0.43.0
     # via -r requirements/quality.in
-xblock==4.0.1
+xblock==5.0.0
     # via -r requirements/base.in
 zipp==3.19.2
     # via
@@ -355,7 +355,7 @@ zipp==3.19.2
     #   importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==71.1.0
+setuptools==72.1.0
     # via
     #   -r requirements/base.in
     #   fs

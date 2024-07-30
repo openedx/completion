@@ -203,7 +203,7 @@ pymongo==3.13.0
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==8.3.1
+pytest==8.3.2
     # via
     #   pytest-cov
     #   pytest-django
@@ -306,7 +306,7 @@ web-fragments==2.2.0
     # via xblock
 webob==1.8.7
     # via xblock
-xblock==4.0.1
+xblock==5.0.0
     # via -r requirements/base.in
 zipp==3.19.2
     # via importlib-metadata

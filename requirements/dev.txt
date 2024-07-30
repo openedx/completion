@@ -129,7 +129,7 @@ edx-django-utils==5.14.2
     #   openedx-events
 edx-drf-extensions==10.3.0
     # via -r requirements/base.in
-edx-i18n-tools==1.6.0
+edx-i18n-tools==1.6.1
     # via -r requirements/dev.in
 edx-lint==5.3.7
     # via
@@ -204,7 +204,7 @@ lxml[html-clean]==5.2.2
     #   edx-i18n-tools
     #   lxml-html-clean
     #   xblock
-lxml-html-clean==0.1.1
+lxml-html-clean==0.2.0
     # via lxml
 mako==1.3.5
     # via xblock
@@ -237,7 +237,7 @@ packaging==24.1
     #   pyproject-api
     #   pytest
     #   tox
-path==16.14.0
+path==17.0.0
     # via edx-i18n-tools
 pbr==6.0.0
     # via stevedore
@@ -302,7 +302,7 @@ pyproject-hooks==1.1.0
     # via
     #   build
     #   pip-tools
-pytest==8.3.1
+pytest==8.3.2
     # via
     #   pytest-cov
     #   pytest-django
@@ -413,7 +413,7 @@ wheel==0.43.0
     # via
     #   -r requirements/quality.in
     #   pip-tools
-xblock==4.0.1
+xblock==5.0.0
     # via -r requirements/base.in
 zipp==3.19.2
     # via
