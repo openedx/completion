@@ -35,10 +35,6 @@ celery==5.4.0
     # via event-tracking
 certifi==2024.7.4
     # via requests
-cffi==1.17.0
-    # via
-    #   cryptography
-    #   pynacl
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
@@ -181,8 +177,6 @@ prompt-toolkit==3.0.47
     # via click-repl
 psutil==6.0.0
     # via edx-django-utils
-pycparser==2.22
-    # via cffi
 pydata-sphinx-theme==0.14.4
     # via sphinx-book-theme
 pygments==2.18.0
