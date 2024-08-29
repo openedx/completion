@@ -12,3 +12,7 @@
 
 # Temporary to Support the python 3.11 Upgrade
 backports.zoneinfo;python_version<"3.9"  # Newer versions have zoneinfo available in the standard library
+
+# Temporary until we drop support for python 3.8
+# Upgrading causes quality error: AttributeError: module 'importlib.resources' has no attribute 'files'
+edx-lint<5.4
