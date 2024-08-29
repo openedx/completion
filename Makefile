@@ -1,6 +1,6 @@
 .PHONY: clean compile_translations coverage docs dummy_translations \
 	extract_translations fake_translations help pull_translations push_translations \
-	quality requirements selfcheck test test-all upgrade validate
+	quality requirements selfcheck test test-all compile-requirements upgrade validate
 
 .DEFAULT_GOAL := help
 
@@ -46,20 +46,20 @@ COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
 $(COMMON_CONSTRAINTS_TXT):
 	wget -O "$(@)" https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt || touch "$(@)"
 
-upgrade: export CUSTOM_COMPILE_COMMAND=make upgrade
-upgrade: $(COMMON_CONSTRAINTS_TXT)  ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
+compile-requirements: export CUSTOM_COMPILE_COMMAND=make upgrade
+compile-requirements: $(COMMON_CONSTRAINTS_TXT)  ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
 	pip install -qr requirements/pip-tools.txt
 	# Make sure to compile files after any other files they include!
-	pip-compile --upgrade --allow-unsafe --rebuild -o requirements/pip.txt requirements/pip.in
-	pip-compile --upgrade -o requirements/pip-tools.txt requirements/pip-tools.in
+	pip-compile ${COMPILE_OPTS} --allow-unsafe --rebuild -o requirements/pip.txt requirements/pip.in
+	pip-compile ${COMPILE_OPTS} -o requirements/pip-tools.txt requirements/pip-tools.in
 	pip install -qr requirements/pip.txt
 	pip install -qr requirements/pip-tools.txt
-	pip-compile --upgrade --allow-unsafe -o requirements/base.txt requirements/base.in
-	pip-compile --upgrade -o requirements/test.txt requirements/test.in
-	pip-compile --upgrade -o requirements/doc.txt requirements/doc.in
-	pip-compile --upgrade --allow-unsafe -o requirements/quality.txt requirements/quality.in
-	pip-compile --upgrade -o requirements/ci.txt requirements/ci.in
-	pip-compile --upgrade -o requirements/dev.txt requirements/dev.in
+	pip-compile ${COMPILE_OPTS} --allow-unsafe -o requirements/base.txt requirements/base.in
+	pip-compile ${COMPILE_OPTS} -o requirements/test.txt requirements/test.in
+	pip-compile ${COMPILE_OPTS} -o requirements/doc.txt requirements/doc.in
+	pip-compile ${COMPILE_OPTS} --allow-unsafe -o requirements/quality.txt requirements/quality.in
+	pip-compile ${COMPILE_OPTS} -o requirements/ci.txt requirements/ci.in
+	pip-compile ${COMPILE_OPTS} -o requirements/dev.txt requirements/dev.in
 	# Let tox control the Django version for tests
 	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
 	mv requirements/test.tmp requirements/test.txt
@@ -67,6 +67,8 @@ upgrade: $(COMMON_CONSTRAINTS_TXT)  ## update the requirements/*.txt files with 
 	sed '/^[dD]jangorestframework==/d' requirements/test.txt > requirements/test.tmp
 	mv requirements/test.tmp requirements/test.txt
 
+upgrade:  ## update the pip requirements files to use the latest releases satisfying our constraints
+	$(MAKE) compile-requirements COMPILE_OPTS="--upgrade"
 
 quality: ## check coding style with pycodestyle and pylint
 	tox -e quality
