@@ -23,8 +23,12 @@ billiard==4.2.0
     # via celery
 celery==5.4.0
     # via event-tracking
-certifi==2024.7.4
+certifi==2024.8.30
     # via requests
+cffi==1.17.0
+    # via
+    #   cryptography
+    #   pynacl
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
@@ -87,7 +91,7 @@ edx-django-utils==5.15.0
     #   edx-toggles
     #   event-tracking
     #   openedx-events
-edx-drf-extensions==10.3.0
+edx-drf-extensions==10.4.0
     # via -r requirements/base.in
 edx-opaque-keys[django]==2.10.0
     # via
@@ -107,7 +111,7 @@ exceptiongroup==1.2.2
     # via pytest
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==28.0.0
+faker==28.1.0
     # via factory-boy
 fastavro==1.9.5
     # via openedx-events
@@ -148,6 +152,8 @@ prompt-toolkit==3.0.47
     # via click-repl
 psutil==6.0.0
     # via edx-django-utils
+pycparser==2.22
+    # via cffi
 pyjwt[crypto]==2.9.0
     # via
     #   drf-jwt
@@ -164,7 +170,7 @@ pytest==8.3.2
     #   pytest-django
 pytest-cov==5.0.0
     # via -r requirements/test.in
-pytest-django==4.8.0
+pytest-django==4.9.0
     # via -r requirements/test.in
 python-dateutil==2.9.0.post0
     # via

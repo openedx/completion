@@ -23,8 +23,12 @@ billiard==4.2.0
     # via celery
 celery==5.4.0
     # via event-tracking
-certifi==2024.7.4
+certifi==2024.8.30
     # via requests
+cffi==1.17.0
+    # via
+    #   cryptography
+    #   pynacl
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
@@ -45,7 +49,7 @@ code-annotations==1.8.0
     # via edx-toggles
 cryptography==43.0.0
     # via pyjwt
-django==4.2.15
+django==4.2.16
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -85,7 +89,7 @@ edx-django-utils==5.15.0
     #   edx-toggles
     #   event-tracking
     #   openedx-events
-edx-drf-extensions==10.3.0
+edx-drf-extensions==10.4.0
     # via -r requirements/base.in
 edx-opaque-keys[django]==2.10.0
     # via
@@ -130,6 +134,8 @@ prompt-toolkit==3.0.47
     # via click-repl
 psutil==6.0.0
     # via edx-django-utils
+pycparser==2.22
+    # via cffi
 pyjwt[crypto]==2.9.0
     # via
     #   drf-jwt
@@ -202,7 +208,7 @@ xblock==5.1.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==73.0.1
+setuptools==74.1.1
     # via
     #   -r requirements/base.in
     #   fs
