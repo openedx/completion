@@ -35,7 +35,7 @@ celery==5.4.0
     # via event-tracking
 certifi==2024.8.30
     # via requests
-cffi==1.17.0
+cffi==1.17.1
     # via
     #   cryptography
     #   pynacl
@@ -59,7 +59,7 @@ code-annotations==1.8.0
     # via edx-toggles
 coverage[toml]==7.6.1
     # via pytest-cov
-cryptography==43.0.0
+cryptography==43.0.1
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -81,7 +81,7 @@ django-crum==0.7.9
     # via
     #   edx-django-utils
     #   edx-toggles
-django-model-utils==4.5.1
+django-model-utils==5.0.0
     # via -r requirements/base.in
 django-waffle==4.1.0
     # via
@@ -113,7 +113,7 @@ edx-django-utils==5.15.0
     #   openedx-events
 edx-drf-extensions==10.4.0
     # via -r requirements/base.in
-edx-opaque-keys[django]==2.10.0
+edx-opaque-keys[django]==2.11.0
     # via
     #   -r requirements/base.in
     #   edx-ccx-keys
@@ -131,9 +131,9 @@ exceptiongroup==1.2.2
     # via pytest
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==28.1.0
+faker==28.4.1
     # via factory-boy
-fastavro==1.9.5
+fastavro==1.9.7
     # via openedx-events
 freezegun==1.5.1
     # via -r requirements/test.in
@@ -166,7 +166,7 @@ mock==5.1.0
     # via -r requirements/test.in
 newrelic==9.13.0
     # via edx-django-utils
-openedx-events==9.12.0
+openedx-events==9.14.0
     # via event-tracking
 packaging==24.1
     # via
@@ -201,7 +201,7 @@ pymongo==3.13.0
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==8.3.2
+pytest==8.3.3
     # via
     #   pytest-cov
     #   pytest-django

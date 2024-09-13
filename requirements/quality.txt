@@ -31,7 +31,7 @@ celery==5.4.0
     # via event-tracking
 certifi==2024.8.30
     # via requests
-cffi==1.17.0
+cffi==1.17.1
     # via
     #   cryptography
     #   pynacl
@@ -61,7 +61,7 @@ code-annotations==1.8.0
     #   edx-toggles
 coverage[toml]==7.6.1
     # via pytest-cov
-cryptography==43.0.0
+cryptography==43.0.1
     # via
     #   pyjwt
     #   secretstorage
@@ -87,7 +87,7 @@ django-crum==0.7.9
     # via
     #   edx-django-utils
     #   edx-toggles
-django-model-utils==4.5.1
+django-model-utils==5.0.0
     # via -r requirements/base.in
 django-waffle==4.1.0
     # via
@@ -117,7 +117,7 @@ edx-lint==5.3.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/quality.in
-edx-opaque-keys[django]==2.10.0
+edx-opaque-keys[django]==2.11.0
     # via
     #   -r requirements/base.in
     #   edx-ccx-keys
@@ -135,9 +135,9 @@ exceptiongroup==1.2.2
     # via pytest
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==28.1.0
+faker==28.4.1
     # via factory-boy
-fastavro==1.9.5
+fastavro==1.9.7
     # via openedx-events
 freezegun==1.5.1
     # via -r requirements/test.in
@@ -149,7 +149,7 @@ importlib-metadata==8.4.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.4.4
+importlib-resources==6.4.5
     # via keyring
 iniconfig==2.0.0
     # via pytest
@@ -190,7 +190,7 @@ mdurl==0.1.2
     # via markdown-it-py
 mock==5.1.0
     # via -r requirements/test.in
-more-itertools==10.4.0
+more-itertools==10.5.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -198,7 +198,7 @@ newrelic==9.13.0
     # via edx-django-utils
 nh3==0.2.18
     # via readme-renderer
-openedx-events==9.12.0
+openedx-events==9.14.0
     # via event-tracking
 packaging==24.1
     # via pytest
@@ -206,7 +206,7 @@ pbr==6.1.0
     # via stevedore
 pkginfo==1.10.0
     # via twine
-platformdirs==4.2.2
+platformdirs==4.3.2
     # via pylint
 pluggy==1.5.0
     # via pytest
@@ -248,7 +248,7 @@ pymongo==3.13.0
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==8.3.2
+pytest==8.3.3
     # via
     #   pytest-cov
     #   pytest-django
@@ -284,7 +284,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.8.0
+rich==13.8.1
     # via twine
 secretstorage==3.3.3
     # via keyring
@@ -356,7 +356,7 @@ zipp==3.20.1
     #   importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==74.1.1
+setuptools==74.1.2
     # via
     #   -r requirements/base.in
     #   fs
