@@ -37,7 +37,7 @@ To run the test suite:
 .. code:: bash
 
     pip install tox
-    tox # to run only a single environment, do e.g. tox -e py38-django42-drflatest
+    tox # to run only a single environment, do e.g. tox -e py312-django42-drflatest
 
 
 To use a Django shell to test commands:
