@@ -58,7 +58,7 @@ cryptography==43.0.1
     #   secretstorage
 ddt==1.7.2
     # via -r requirements/test.in
-dill==0.3.8
+dill==0.3.9
     # via pylint
 django==4.2.16
     # via
@@ -124,7 +124,7 @@ event-tracking==2.4.0
     #   -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==29.0.0
+faker==30.1.0
     # via factory-boy
 fastavro==1.9.7
     # via openedx-events
@@ -146,7 +146,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.0.2
+jaraco-functools==4.1.0
     # via keyring
 jeepney==0.8.0
     # via
@@ -179,7 +179,7 @@ more-itertools==10.5.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==9.13.0
+newrelic==10.0.0
     # via edx-django-utils
 nh3==0.2.18
     # via readme-renderer
@@ -195,7 +195,7 @@ platformdirs==4.3.6
     # via pylint
 pluggy==1.5.0
     # via pytest
-prompt-toolkit==3.0.47
+prompt-toolkit==3.0.48
     # via click-repl
 psutil==6.0.0
     # via edx-django-utils
@@ -269,7 +269,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.8.1
+rich==13.9.1
     # via twine
 secretstorage==3.3.3
     # via keyring
@@ -300,7 +300,9 @@ tomlkit==0.13.2
 twine==5.1.1
     # via -r requirements/quality.in
 typing-extensions==4.12.2
-    # via edx-opaque-keys
+    # via
+    #   edx-opaque-keys
+    #   faker
 tzdata==2024.2
     # via
     #   celery

@@ -117,13 +117,13 @@ markupsafe==2.1.5
     #   jinja2
     #   mako
     #   xblock
-newrelic==9.13.0
+newrelic==10.0.0
     # via edx-django-utils
 openedx-events==9.14.1
     # via event-tracking
 pbr==6.1.0
     # via stevedore
-prompt-toolkit==3.0.47
+prompt-toolkit==3.0.48
     # via click-repl
 psutil==6.0.0
     # via edx-django-utils
