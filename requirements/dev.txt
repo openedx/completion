@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via fs
 asgiref==3.8.1
     # via django
-astroid==3.3.4
+astroid==3.3.5
     # via
     #   pylint
     #   pylint-celery
@@ -18,7 +18,7 @@ attrs==24.2.0
     # via openedx-events
 billiard==4.2.1
     # via celery
-build==1.2.2
+build==1.2.2.post1
     # via pip-tools
 cachetools==5.5.0
     # via tox
@@ -71,7 +71,7 @@ ddt==1.7.2
     # via -r requirements/test.in
 diff-cover==9.2.0
     # via -r requirements/dev.in
-dill==0.3.8
+dill==0.3.9
     # via pylint
 distlib==0.3.8
     # via virtualenv
@@ -112,7 +112,7 @@ drf-jwt==1.19.2
     # via edx-drf-extensions
 edx-ccx-keys==1.3.0
     # via openedx-events
-edx-django-utils==5.15.0
+edx-django-utils==5.16.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -143,7 +143,7 @@ event-tracking==2.4.0
     #   -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==29.0.0
+faker==30.3.0
     # via factory-boy
 fastavro==1.9.7
     # via openedx-events
@@ -169,7 +169,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.0.2
+jaraco-functools==4.1.0
     # via keyring
 jeepney==0.8.0
     # via
@@ -194,7 +194,7 @@ mako==1.3.5
     # via xblock
 markdown-it-py==3.0.0
     # via rich
-markupsafe==2.1.5
+markupsafe==3.0.0
     # via
     #   jinja2
     #   mako
@@ -209,7 +209,7 @@ more-itertools==10.5.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==9.13.0
+newrelic==10.0.0
     # via edx-django-utils
 nh3==0.2.18
     # via readme-renderer
@@ -241,7 +241,7 @@ pluggy==1.5.0
     #   tox
 polib==1.2.0
     # via edx-i18n-tools
-prompt-toolkit==3.0.47
+prompt-toolkit==3.0.48
     # via click-repl
 psutil==6.0.0
     # via edx-django-utils
@@ -282,7 +282,7 @@ pynacl==1.5.0
     # via edx-django-utils
 pyproject-api==1.8.0
     # via tox
-pyproject-hooks==1.1.0
+pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
@@ -323,7 +323,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.8.1
+rich==13.9.2
     # via twine
 secretstorage==3.3.3
     # via keyring
@@ -351,12 +351,14 @@ text-unidecode==1.3
     # via python-slugify
 tomlkit==0.13.2
     # via pylint
-tox==4.20.0
+tox==4.21.2
     # via -r requirements/dev.in
 twine==5.1.1
     # via -r requirements/quality.in
 typing-extensions==4.12.2
-    # via edx-opaque-keys
+    # via
+    #   edx-opaque-keys
+    #   faker
 tzdata==2024.2
     # via
     #   celery
@@ -370,7 +372,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.26.5
+virtualenv==20.26.6
     # via tox
 wcwidth==0.2.13
     # via prompt-toolkit
