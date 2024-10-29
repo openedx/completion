@@ -47,8 +47,8 @@ cryptography==43.0.3
 ddt==1.7.2
     # via -r requirements/test.in
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.in
+    #   -c /home/runner/work/completion/completion/requirements/common_constraints.txt
+    #   -r /home/runner/work/completion/completion/requirements/base.in
     #   django-crum
     #   django-model-utils
     #   django-waffle
@@ -64,14 +64,14 @@ django-crum==0.7.9
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==5.0.0
-    # via -r requirements/base.in
+    # via -r /home/runner/work/completion/completion/requirements/base.in
 django-waffle==4.1.0
     # via
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
     # via
-    #   -r requirements/base.in
+    #   -r /home/runner/work/completion/completion/requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
 drf-jwt==1.19.2
@@ -84,25 +84,25 @@ edx-django-utils==7.0.0
     #   edx-toggles
     #   event-tracking
     #   openedx-events
-edx-drf-extensions==10.4.0
-    # via -r requirements/base.in
+edx-drf-extensions==10.5.0
+    # via -r /home/runner/work/completion/completion/requirements/base.in
 edx-opaque-keys[django]==2.11.0
     # via
-    #   -r requirements/base.in
+    #   -r /home/runner/work/completion/completion/requirements/base.in
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
 edx-toggles==5.2.0
     # via
-    #   -r requirements/base.in
+    #   -r /home/runner/work/completion/completion/requirements/base.in
     #   event-tracking
 event-tracking==2.4.0
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.in
+    #   -c /home/runner/work/completion/completion/requirements/common_constraints.txt
+    #   -r /home/runner/work/completion/completion/requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==30.8.0
+faker==30.8.1
     # via factory-boy
 fastavro==1.9.7
     # via openedx-events
@@ -173,7 +173,7 @@ python-slugify==8.0.4
     # via code-annotations
 pytz==2024.2
     # via
-    #   -r requirements/base.in
+    #   -r /home/runner/work/completion/completion/requirements/base.in
     #   event-tracking
     #   xblock
 pyyaml==6.0.2
@@ -220,10 +220,10 @@ wcwidth==0.2.13
     # via prompt-toolkit
 web-fragments==2.2.0
     # via xblock
-webob==1.8.8
+webob==1.8.9
     # via xblock
 xblock==5.1.0
-    # via -r requirements/base.in
+    # via -r /home/runner/work/completion/completion/requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools

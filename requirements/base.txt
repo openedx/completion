@@ -44,7 +44,7 @@ cryptography==43.0.3
     # via pyjwt
 django==4.2.16
     # via
-    #   -c requirements/common_constraints.txt
+    #   -c /home/runner/work/completion/completion/requirements/common_constraints.txt
     #   -r requirements/base.in
     #   django-crum
     #   django-model-utils
@@ -82,7 +82,7 @@ edx-django-utils==7.0.0
     #   edx-toggles
     #   event-tracking
     #   openedx-events
-edx-drf-extensions==10.4.0
+edx-drf-extensions==10.5.0
     # via -r requirements/base.in
 edx-opaque-keys[django]==2.11.0
     # via
@@ -96,7 +96,7 @@ edx-toggles==5.2.0
     #   event-tracking
 event-tracking==2.4.0
     # via
-    #   -c requirements/common_constraints.txt
+    #   -c /home/runner/work/completion/completion/requirements/common_constraints.txt
     #   -r requirements/base.in
 fastavro==1.9.7
     # via openedx-events
@@ -192,13 +192,13 @@ wcwidth==0.2.13
     # via prompt-toolkit
 web-fragments==2.2.0
     # via xblock
-webob==1.8.8
+webob==1.8.9
     # via xblock
 xblock==5.1.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==75.2.0
+setuptools==75.3.0
     # via
     #   -r requirements/base.in
     #   fs
