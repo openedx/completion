@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-amqp==5.2.0
+amqp==5.3.0
     # via kombu
 appdirs==1.4.4
     # via fs
@@ -106,6 +106,8 @@ djangorestframework==3.15.2
     #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
+dnspython==2.7.0
+    # via pymongo
 docutils==0.21.2
     # via readme-renderer
 drf-jwt==1.19.2
@@ -137,10 +139,8 @@ edx-toggles==5.2.0
     # via
     #   -r requirements/base.in
     #   event-tracking
-event-tracking==2.4.0
-    # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.in
+event-tracking==3.0.0
+    # via -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
 faker==30.8.2
@@ -215,7 +215,7 @@ nh3==0.2.18
     # via readme-renderer
 openedx-events==9.15.0
     # via event-tracking
-packaging==24.1
+packaging==24.2
     # via
     #   build
     #   pyproject-api
@@ -274,7 +274,7 @@ pylint-plugin-utils==0.8.2
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==3.13.0
+pymongo==4.4.0
     # via
     #   edx-opaque-keys
     #   event-tracking
@@ -380,13 +380,13 @@ web-fragments==2.2.0
     # via xblock
 webob==1.8.9
     # via xblock
-wheel==0.44.0
+wheel==0.45.0
     # via
     #   -r requirements/quality.in
     #   pip-tools
 xblock==5.1.0
     # via -r requirements/base.in
-zipp==3.20.2
+zipp==3.21.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
