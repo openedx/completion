@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-amqp==5.3.0
+amqp==5.3.1
     # via kombu
 appdirs==1.4.4
     # via fs
@@ -38,9 +38,9 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==1.8.0
+code-annotations==1.8.1
     # via edx-toggles
-coverage[toml]==7.6.4
+coverage[toml]==7.6.7
     # via pytest-cov
 cryptography==43.0.3
     # via pyjwt
@@ -65,7 +65,7 @@ django-crum==0.7.9
     #   edx-toggles
 django-model-utils==5.0.0
     # via -r requirements/base.in
-django-waffle==4.1.0
+django-waffle==4.2.0
     # via
     #   edx-django-utils
     #   edx-drf-extensions
@@ -102,7 +102,7 @@ event-tracking==3.0.0
     # via -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==30.8.2
+faker==33.0.0
     # via factory-boy
 fastavro==1.9.7
     # via openedx-events
@@ -129,7 +129,7 @@ markupsafe==3.0.2
     #   xblock
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==10.2.0
+newrelic==10.3.0
     # via edx-django-utils
 openedx-events==9.15.0
     # via event-tracking
@@ -145,7 +145,7 @@ psutil==6.1.0
     # via edx-django-utils
 pycparser==2.22
     # via cffi
-pyjwt[crypto]==2.9.0
+pyjwt[crypto]==2.10.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
@@ -192,7 +192,7 @@ six==1.16.0
     #   event-tracking
     #   fs
     #   python-dateutil
-sqlparse==0.5.1
+sqlparse==0.5.2
     # via django
 stevedore==5.3.0
     # via
