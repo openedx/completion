@@ -204,6 +204,8 @@ class BlockCompletion(TimeStampedModel, models.Model):
     calculations are performed on this float, though current practice is to
     only track binary completion, where 1.0 indicates that the block is
     complete, and 0.0 indicates that the block is incomplete.
+
+    .. no_pii:
     """
     id = BigAutoField(primary_key=True)  # pylint: disable=invalid-name
     user = models.ForeignKey(User, on_delete=models.CASCADE)
