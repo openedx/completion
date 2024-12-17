@@ -14,13 +14,13 @@ astroid==3.3.6
     # via
     #   pylint
     #   pylint-celery
-attrs==24.2.0
+attrs==24.3.0
     # via openedx-events
 billiard==4.2.1
     # via celery
 celery==5.4.0
     # via event-tracking
-certifi==2024.8.30
+certifi==2024.12.14
     # via requests
 cffi==1.17.1
     # via
@@ -46,7 +46,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==2.0.0
+code-annotations==2.1.0
     # via
     #   edx-lint
     #   edx-toggles
@@ -177,9 +177,9 @@ more-itertools==10.5.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==10.3.1
+newrelic==10.4.0
     # via edx-django-utils
-nh3==0.2.19
+nh3==0.2.20
     # via readme-renderer
 openedx-events==9.15.0
     # via event-tracking
