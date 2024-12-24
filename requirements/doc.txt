@@ -34,7 +34,7 @@ cffi==1.17.1
     #   pynacl
 charset-normalizer==3.4.0
     # via requests
-click==8.1.7
+click==8.1.8
     # via
     #   celery
     #   click-didyoumean
@@ -124,7 +124,7 @@ factory-boy==3.3.1
     # via -r requirements/test.in
 faker==33.1.0
     # via factory-boy
-fastavro==1.9.7
+fastavro==1.10.0
     # via openedx-events
 freezegun==1.5.1
     # via -r requirements/test.in
@@ -136,7 +136,7 @@ imagesize==1.4.1
     # via sphinx
 iniconfig==2.0.0
     # via pytest
-jinja2==3.1.4
+jinja2==3.1.5
     # via
     #   code-annotations
     #   sphinx
@@ -167,7 +167,7 @@ pluggy==1.5.0
     # via pytest
 prompt-toolkit==3.0.48
     # via click-repl
-psutil==6.1.0
+psutil==6.1.1
     # via edx-django-utils
 pycparser==2.22
     # via cffi
@@ -272,7 +272,7 @@ tzdata==2024.2
     # via
     #   celery
     #   kombu
-urllib3==2.2.3
+urllib3==2.3.0
     # via requests
 vine==5.1.0
     # via
