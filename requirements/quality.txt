@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via fs
 asgiref==3.8.1
     # via django
-astroid==3.3.6
+astroid==3.3.8
     # via
     #   pylint
     #   pylint-celery
@@ -26,9 +26,9 @@ cffi==1.17.1
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.4.0
+charset-normalizer==3.4.1
     # via requests
-click==8.1.7
+click==8.1.8
     # via
     #   celery
     #   click-didyoumean
@@ -50,7 +50,7 @@ code-annotations==2.1.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.6.9
+coverage[toml]==7.6.10
     # via pytest-cov
 cryptography==44.0.0
     # via
@@ -126,7 +126,7 @@ factory-boy==3.3.1
     # via -r requirements/test.in
 faker==33.1.0
     # via factory-boy
-fastavro==1.9.7
+fastavro==1.10.0
     # via openedx-events
 freezegun==1.5.1
     # via -r requirements/test.in
@@ -150,9 +150,9 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-jinja2==3.1.4
+jinja2==3.1.5
     # via code-annotations
-keyring==25.5.0
+keyring==25.6.0
     # via twine
 kombu==5.4.2
     # via celery
@@ -197,7 +197,7 @@ pluggy==1.5.0
     # via pytest
 prompt-toolkit==3.0.48
     # via click-repl
-psutil==6.1.0
+psutil==6.1.1
     # via edx-django-utils
 pycodestyle==2.12.1
     # via -r requirements/quality.in
@@ -213,7 +213,7 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==3.3.2
+pylint==3.3.3
     # via
     #   edx-lint
     #   pylint-celery
@@ -307,7 +307,7 @@ tzdata==2024.2
     # via
     #   celery
     #   kombu
-urllib3==2.2.3
+urllib3==2.3.0
     # via
     #   requests
     #   twine
