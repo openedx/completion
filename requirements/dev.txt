@@ -143,7 +143,7 @@ event-tracking==3.0.0
     # via -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==33.1.0
+faker==33.3.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
@@ -250,7 +250,7 @@ pycparser==2.22
     # via cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
-pygments==2.18.0
+pygments==2.19.1
     # via
     #   diff-cover
     #   readme-renderer
@@ -362,8 +362,9 @@ tzdata==2024.2
     # via
     #   celery
     #   kombu
-urllib3==2.3.0
+urllib3==2.2.3
     # via
+    #   -c requirements/common_constraints.txt
     #   requests
     #   twine
 vine==5.1.0
@@ -371,7 +372,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.28.0
+virtualenv==20.28.1
     # via tox
 wcwidth==0.2.13
     # via prompt-toolkit
