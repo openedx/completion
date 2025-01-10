@@ -124,7 +124,7 @@ event-tracking==3.0.0
     # via -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==33.1.0
+faker==33.3.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
@@ -205,7 +205,7 @@ pycparser==2.22
     # via cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
-pygments==2.18.0
+pygments==2.19.1
     # via
     #   readme-renderer
     #   rich
@@ -307,8 +307,9 @@ tzdata==2024.2
     # via
     #   celery
     #   kombu
-urllib3==2.3.0
+urllib3==2.2.3
     # via
+    #   -c requirements/common_constraints.txt
     #   requests
     #   twine
 vine==5.1.0
@@ -328,7 +329,7 @@ xblock==5.1.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==75.6.0
+setuptools==75.7.0
     # via
     #   -r requirements/base.in
     #   fs

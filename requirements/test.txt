@@ -102,7 +102,7 @@ event-tracking==3.0.0
     # via -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==33.1.0
+faker==33.3.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
@@ -209,8 +209,10 @@ tzdata==2024.2
     # via
     #   celery
     #   kombu
-urllib3==2.3.0
-    # via requests
+urllib3==2.2.3
+    # via
+    #   -c requirements/common_constraints.txt
+    #   requests
 vine==5.1.0
     # via
     #   amqp
