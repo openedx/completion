@@ -55,7 +55,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==2.1.0
+code-annotations==2.2.0
     # via
     #   edx-lint
     #   edx-toggles
@@ -203,7 +203,7 @@ mdurl==0.1.2
     # via markdown-it-py
 mock==5.1.0
     # via -r requirements/test.in
-more-itertools==10.5.0
+more-itertools==10.6.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -211,7 +211,7 @@ newrelic==10.4.0
     # via edx-django-utils
 nh3==0.2.20
     # via readme-renderer
-openedx-events==9.15.1
+openedx-events==9.15.2
     # via event-tracking
 packaging==24.2
     # via
@@ -240,7 +240,7 @@ pluggy==1.5.0
     #   tox
 polib==1.2.0
     # via edx-i18n-tools
-prompt-toolkit==3.0.48
+prompt-toolkit==3.0.50
     # via click-repl
 psutil==6.1.1
     # via edx-django-utils
@@ -372,7 +372,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.28.1
+virtualenv==20.29.1
     # via tox
 wcwidth==0.2.13
     # via prompt-toolkit
