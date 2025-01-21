@@ -38,7 +38,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==2.1.0
+code-annotations==2.2.0
     # via edx-toggles
 cryptography==44.0.0
     # via pyjwt
@@ -119,11 +119,11 @@ markupsafe==3.0.2
     #   xblock
 newrelic==10.4.0
     # via edx-django-utils
-openedx-events==9.15.1
+openedx-events==9.15.2
     # via event-tracking
 pbr==6.1.0
     # via stevedore
-prompt-toolkit==3.0.48
+prompt-toolkit==3.0.50
     # via click-repl
 psutil==6.1.1
     # via edx-django-utils
