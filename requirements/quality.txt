@@ -14,7 +14,7 @@ astroid==3.3.8
     # via
     #   pylint
     #   pylint-celery
-attrs==24.3.0
+attrs==25.1.0
     # via openedx-events
 billiard==4.2.1
     # via celery
@@ -46,7 +46,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==2.1.0
+code-annotations==2.2.0
     # via
     #   edx-lint
     #   edx-toggles
@@ -124,7 +124,7 @@ event-tracking==3.0.0
     # via -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==33.3.1
+faker==35.0.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
@@ -132,11 +132,13 @@ freezegun==1.5.1
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
+id==1.5.0
+    # via twine
 idna==3.10
     # via requests
 iniconfig==2.0.0
     # via pytest
-isort==5.13.2
+isort==6.0.0
     # via
     #   -r requirements/quality.in
     #   pylint
@@ -173,7 +175,7 @@ mdurl==0.1.2
     # via markdown-it-py
 mock==5.1.0
     # via -r requirements/test.in
-more-itertools==10.5.0
+more-itertools==10.6.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -181,7 +183,7 @@ newrelic==10.4.0
     # via edx-django-utils
 nh3==0.2.20
     # via readme-renderer
-openedx-events==9.15.1
+openedx-events==9.15.2
     # via event-tracking
 packaging==24.2
     # via
@@ -189,13 +191,11 @@ packaging==24.2
     #   twine
 pbr==6.1.0
     # via stevedore
-pkginfo==1.12.0
-    # via twine
 platformdirs==4.3.6
     # via pylint
 pluggy==1.5.0
     # via pytest
-prompt-toolkit==3.0.48
+prompt-toolkit==3.0.50
     # via click-repl
 psutil==6.1.1
     # via edx-django-utils
@@ -213,7 +213,7 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==3.3.3
+pylint==3.3.4
     # via
     #   edx-lint
     #   pylint-celery
@@ -263,6 +263,7 @@ readme-renderer==44.0
 requests==2.32.3
     # via
     #   edx-drf-extensions
+    #   id
     #   requests-toolbelt
     #   twine
 requests-toolbelt==1.0.0
@@ -297,13 +298,13 @@ text-unidecode==1.3
     # via python-slugify
 tomlkit==0.13.2
     # via pylint
-twine==6.0.1
+twine==6.1.0
     # via -r requirements/quality.in
 typing-extensions==4.12.2
     # via
     #   edx-opaque-keys
     #   faker
-tzdata==2024.2
+tzdata==2025.1
     # via
     #   celery
     #   kombu
@@ -325,7 +326,7 @@ webob==1.8.9
     # via xblock
 wheel==0.45.1
     # via -r requirements/quality.in
-xblock==5.1.0
+xblock==5.1.1
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
