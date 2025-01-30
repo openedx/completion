@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via fs
 asgiref==3.8.1
     # via django
-attrs==24.3.0
+attrs==25.1.0
     # via openedx-events
 billiard==4.2.1
     # via celery
@@ -38,7 +38,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==2.1.0
+code-annotations==2.2.0
     # via edx-toggles
 coverage[toml]==7.6.10
     # via pytest-cov
@@ -102,7 +102,7 @@ event-tracking==3.0.0
     # via -r requirements/base.in
 factory-boy==3.3.1
     # via -r requirements/test.in
-faker==33.3.1
+faker==35.0.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
@@ -131,7 +131,7 @@ mock==5.1.0
     # via -r requirements/test.in
 newrelic==10.4.0
     # via edx-django-utils
-openedx-events==9.15.1
+openedx-events==9.15.2
     # via event-tracking
 packaging==24.2
     # via pytest
@@ -139,7 +139,7 @@ pbr==6.1.0
     # via stevedore
 pluggy==1.5.0
     # via pytest
-prompt-toolkit==3.0.48
+prompt-toolkit==3.0.50
     # via click-repl
 psutil==6.1.1
     # via edx-django-utils
@@ -205,7 +205,7 @@ typing-extensions==4.12.2
     # via
     #   edx-opaque-keys
     #   faker
-tzdata==2024.2
+tzdata==2025.1
     # via
     #   celery
     #   kombu
@@ -224,7 +224,7 @@ web-fragments==2.2.0
     # via xblock
 webob==1.8.9
     # via xblock
-xblock==5.1.0
+xblock==5.1.1
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
