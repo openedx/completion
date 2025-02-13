@@ -42,13 +42,14 @@ code-annotations==2.2.0
     # via edx-toggles
 coverage[toml]==7.6.12
     # via pytest-cov
-cryptography==44.0.0
+cryptography==44.0.1
     # via pyjwt
 ddt==1.7.2
-    # via -r requirements/test.in
+    # via -r test.in
+django==4.2.19
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.in
+    #   -c common_constraints.txt
+    #   -r base.in
     #   django-crum
     #   django-model-utils
     #   django-waffle
@@ -64,14 +65,15 @@ django-crum==0.7.9
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==5.0.0
-    # via -r requirements/base.in
+    # via -r base.in
 django-waffle==4.2.0
     # via
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
+djangorestframework==3.15.2
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   drf-jwt
     #   edx-drf-extensions
 dnspython==2.7.0
@@ -87,27 +89,27 @@ edx-django-utils==7.1.0
     #   event-tracking
     #   openedx-events
 edx-drf-extensions==10.5.0
-    # via -r requirements/base.in
+    # via -r base.in
 edx-opaque-keys[django]==2.11.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
 edx-toggles==5.2.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   event-tracking
 event-tracking==3.0.0
-    # via -r requirements/base.in
+    # via -r base.in
 factory-boy==3.3.3
-    # via -r requirements/test.in
+    # via -r test.in
 faker==36.1.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
 freezegun==1.5.1
-    # via -r requirements/test.in
+    # via -r test.in
 fs==2.4.16
     # via xblock
 idna==3.10
@@ -128,7 +130,7 @@ markupsafe==3.0.2
     #   mako
     #   xblock
 mock==5.1.0
-    # via -r requirements/test.in
+    # via -r test.in
 newrelic==10.6.0
     # via edx-django-utils
 openedx-events==9.18.0
@@ -160,9 +162,9 @@ pytest==8.3.4
     #   pytest-cov
     #   pytest-django
 pytest-cov==6.0.0
-    # via -r requirements/test.in
+    # via -r test.in
 pytest-django==4.10.0
-    # via -r requirements/test.in
+    # via -r test.in
 python-dateutil==2.9.0.post0
     # via
     #   celery
@@ -172,7 +174,7 @@ python-slugify==8.0.4
     # via code-annotations
 pytz==2025.1
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   event-tracking
     #   xblock
 pyyaml==6.0.2
@@ -209,7 +211,7 @@ tzdata==2025.1
     #   kombu
 urllib3==2.2.3
     # via
-    #   -c requirements/common_constraints.txt
+    #   -c common_constraints.txt
     #   requests
 vine==5.1.0
     # via
@@ -223,7 +225,7 @@ web-fragments==2.2.0
 webob==1.8.9
     # via xblock
 xblock==5.1.2
-    # via -r requirements/base.in
+    # via -r base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
