@@ -3,4 +3,4 @@ Completion App
 """
 
 
-__version__ = '4.7.9'
+__version__ = '4.7.10'

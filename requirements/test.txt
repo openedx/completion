@@ -42,7 +42,7 @@ code-annotations==2.2.0
     # via edx-toggles
 coverage[toml]==7.6.12
     # via pytest-cov
-cryptography==44.0.0
+cryptography==44.0.1
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -94,7 +94,7 @@ edx-opaque-keys[django]==2.11.0
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
-edx-toggles==5.2.0
+edx-toggles==5.3.0
     # via
     #   -r requirements/base.in
     #   event-tracking
@@ -102,7 +102,7 @@ event-tracking==3.0.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==36.1.0
+faker==36.1.1
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
@@ -131,7 +131,7 @@ mock==5.1.0
     # via -r requirements/test.in
 newrelic==10.6.0
     # via edx-django-utils
-openedx-events==9.18.0
+openedx-events==9.18.2
     # via event-tracking
 packaging==24.2
     # via pytest
@@ -141,7 +141,7 @@ pluggy==1.5.0
     # via pytest
 prompt-toolkit==3.0.50
     # via click-repl
-psutil==6.1.1
+psutil==7.0.0
     # via edx-django-utils
 pycparser==2.22
     # via cffi
@@ -183,7 +183,7 @@ requests==2.32.3
     # via edx-drf-extensions
 semantic-version==2.10.0
     # via edx-drf-extensions
-simplejson==3.19.3
+simplejson==3.20.1
     # via xblock
 six==1.17.0
     # via
