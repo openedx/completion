@@ -168,7 +168,7 @@ six==1.17.0
     #   python-dateutil
 sqlparse==0.5.3
     # via django
-stevedore==5.4.0
+stevedore==5.4.1
     # via
     #   code-annotations
     #   edx-django-utils
@@ -200,7 +200,7 @@ xblock==5.1.2
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==75.8.0
+setuptools==75.8.1
     # via
     #   -r requirements/base.in
     #   fs
