@@ -18,7 +18,7 @@ Enabling in the LMS
 
 By default, the Open edX LMS does not use this library. To turn it on, go to http://your.lms.site/admin/waffle/switch/, and add a new switch with Name ``completion.enable_completion_tracking`` and Active selected.
 
-See `Completion Tool <https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/exercises_tools/completion.html>`_ in the Open edX documentation for details on what will happen once enabled.
+See `Completion Tool <https://docs.openedx.org/en/latest/educators/references/course_development/exercise_tools/completion.html>`_ in the Open edX documentation for details on what will happen once enabled.
 
 Getting Started with Development
 ********************************
