@@ -42,7 +42,7 @@ code-annotations==2.2.0
     # via edx-toggles
 coverage[toml]==7.6.12
     # via pytest-cov
-cryptography==44.0.1
+cryptography==44.0.2
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -80,7 +80,7 @@ drf-jwt==1.19.2
     # via edx-drf-extensions
 edx-ccx-keys==2.0.2
     # via openedx-events
-edx-django-utils==7.1.0
+edx-django-utils==7.2.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -127,7 +127,7 @@ markupsafe==3.0.2
     #   jinja2
     #   mako
     #   xblock
-mock==5.1.0
+mock==5.2.0
     # via -r requirements/test.in
 newrelic==10.6.0
     # via edx-django-utils
@@ -155,7 +155,7 @@ pymongo==4.4.0
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==8.3.4
+pytest==8.3.5
     # via
     #   pytest-cov
     #   pytest-django
@@ -193,7 +193,7 @@ six==1.17.0
     #   python-dateutil
 sqlparse==0.5.3
     # via django
-stevedore==5.4.0
+stevedore==5.4.1
     # via
     #   code-annotations
     #   edx-django-utils
