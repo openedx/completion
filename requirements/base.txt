@@ -44,8 +44,8 @@ cryptography==44.0.2
     # via pyjwt
 django==4.2.19
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.in
+    #   -c common_constraints.txt
+    #   -r base.in
     #   django-crum
     #   django-model-utils
     #   django-waffle
@@ -61,7 +61,7 @@ django-crum==0.7.9
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==5.0.0
-    # via -r requirements/base.in
+    # via -r base.in
 django-waffle==4.2.0
     # via
     #   edx-django-utils
@@ -69,7 +69,7 @@ django-waffle==4.2.0
     #   edx-toggles
 djangorestframework==3.15.2
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   drf-jwt
     #   edx-drf-extensions
 dnspython==2.7.0
@@ -85,26 +85,26 @@ edx-django-utils==7.2.0
     #   event-tracking
     #   openedx-events
 edx-drf-extensions==10.5.0
-    # via -r requirements/base.in
+    # via -r base.in
 edx-opaque-keys[django]==2.11.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
 edx-toggles==5.3.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   event-tracking
 event-tracking==3.0.0
-    # via -r requirements/base.in
+    # via -r base.in
 fastavro==1.10.0
     # via openedx-events
 fs==2.4.16
     # via xblock
 idna==3.10
     # via requests
-jinja2==3.1.5
+jinja2==3.1.6
     # via code-annotations
 kombu==5.4.2
     # via celery
@@ -147,7 +147,7 @@ python-slugify==8.0.4
     # via code-annotations
 pytz==2025.1
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   event-tracking
     #   xblock
 pyyaml==6.0.2
@@ -183,7 +183,7 @@ tzdata==2025.1
     #   kombu
 urllib3==2.2.3
     # via
-    #   -c requirements/common_constraints.txt
+    #   -c common_constraints.txt
     #   requests
 vine==5.1.0
     # via
@@ -197,12 +197,12 @@ web-fragments==2.2.0
 webob==1.8.9
     # via xblock
 xblock==5.1.2
-    # via -r requirements/base.in
+    # via -r base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 setuptools==75.8.2
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   fs
     #   openedx-events
     #   pbr
