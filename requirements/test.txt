@@ -102,7 +102,7 @@ event-tracking==3.0.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==36.1.1
+faker==37.0.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
@@ -114,7 +114,7 @@ idna==3.10
     # via requests
 iniconfig==2.0.0
     # via pytest
-jinja2==3.1.5
+jinja2==3.1.6
     # via code-annotations
 kombu==5.4.2
     # via celery
@@ -129,7 +129,7 @@ markupsafe==3.0.2
     #   xblock
 mock==5.2.0
     # via -r requirements/test.in
-newrelic==10.6.0
+newrelic==10.7.0
     # via edx-django-utils
 openedx-events==9.18.2
     # via event-tracking
