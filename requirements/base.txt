@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via fs
 asgiref==3.8.1
     # via django
-attrs==25.1.0
+attrs==25.3.0
     # via openedx-events
 billiard==4.2.1
     # via celery
@@ -42,7 +42,7 @@ code-annotations==2.2.0
     # via edx-toggles
 cryptography==44.0.2
     # via pyjwt
-django==4.2.19
+django==4.2.20
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -86,7 +86,7 @@ edx-django-utils==7.2.0
     #   openedx-events
 edx-drf-extensions==10.5.0
     # via -r requirements/base.in
-edx-opaque-keys[django]==2.11.0
+edx-opaque-keys[django]==2.12.0
     # via
     #   -r requirements/base.in
     #   edx-ccx-keys
@@ -104,9 +104,9 @@ fs==2.4.16
     # via xblock
 idna==3.10
     # via requests
-jinja2==3.1.5
+jinja2==3.1.6
     # via code-annotations
-kombu==5.4.2
+kombu==5.5.1
     # via celery
 lxml==5.3.1
     # via xblock
@@ -117,9 +117,9 @@ markupsafe==3.0.2
     #   jinja2
     #   mako
     #   xblock
-newrelic==10.6.0
+newrelic==10.7.0
     # via edx-django-utils
-openedx-events==9.18.2
+openedx-events==9.20.0
     # via event-tracking
 pbr==6.1.1
     # via stevedore
@@ -145,7 +145,7 @@ python-dateutil==2.9.0.post0
     #   xblock
 python-slugify==8.0.4
     # via code-annotations
-pytz==2025.1
+pytz==2025.2
     # via
     #   -r requirements/base.in
     #   event-tracking
@@ -200,7 +200,7 @@ xblock==5.1.2
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==75.8.2
+setuptools==78.0.2
     # via
     #   -r requirements/base.in
     #   fs
