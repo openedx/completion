@@ -18,7 +18,7 @@ attrs==25.3.0
     # via openedx-events
 billiard==4.2.1
     # via celery
-celery==5.4.0
+celery==5.5.0
     # via event-tracking
 certifi==2025.1.31
     # via requests
@@ -50,7 +50,7 @@ code-annotations==2.2.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.7.1
+coverage[toml]==7.8.0
     # via pytest-cov
 cryptography==44.0.2
     # via
@@ -85,7 +85,7 @@ django-waffle==4.2.0
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
-djangorestframework==3.15.2
+djangorestframework==3.16.0
     # via
     #   -r requirements/base.in
     #   drf-jwt
@@ -156,7 +156,7 @@ jinja2==3.1.6
     # via code-annotations
 keyring==25.6.0
     # via twine
-kombu==5.5.1
+kombu==5.5.2
     # via celery
 lxml==5.3.1
     # via xblock
@@ -179,7 +179,7 @@ more-itertools==10.6.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==10.7.0
+newrelic==10.8.1
     # via edx-django-utils
 nh3==0.2.21
     # via readme-renderer
@@ -199,7 +199,7 @@ prompt-toolkit==3.0.50
     # via click-repl
 psutil==7.0.0
     # via edx-django-utils
-pycodestyle==2.12.1
+pycodestyle==2.13.0
     # via -r requirements/quality.in
 pycparser==2.22
     # via cffi
@@ -237,7 +237,7 @@ pytest==8.3.5
     # via
     #   pytest-cov
     #   pytest-django
-pytest-cov==6.0.0
+pytest-cov==6.1.0
     # via -r requirements/test.in
 pytest-django==4.10.0
     # via -r requirements/test.in
@@ -269,7 +269,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.9.4
+rich==14.0.0
     # via twine
 secretstorage==3.3.3
     # via keyring
@@ -299,11 +299,10 @@ tomlkit==0.13.2
     # via pylint
 twine==6.1.0
     # via -r requirements/quality.in
-typing-extensions==4.12.2
+typing-extensions==4.13.0
     # via edx-opaque-keys
-tzdata==2025.1
+tzdata==2025.2
     # via
-    #   celery
     #   faker
     #   kombu
 urllib3==2.2.3
@@ -328,7 +327,7 @@ xblock==5.1.2
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==78.0.2
+setuptools==78.1.0
     # via
     #   -r requirements/base.in
     #   fs
