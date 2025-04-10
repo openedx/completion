@@ -336,7 +336,10 @@ class BlockCompletion(TimeStampedModel, models.Model):
         return {completion.full_block_key: completion.completion for completion in completion_iterable}
 
     class Meta:
-        indexes = [models.Index(fields=("context_key", "block_type", "user")), models.Index(fields=("user", "context_key", "modified"))]
+        indexes = [
+            models.Index(fields=("context_key", "block_type", "user")),
+            models.Index(fields=("user", "context_key", "modified")),
+        ]
 
         unique_together = [
             ('context_key', 'block_key', 'user')
