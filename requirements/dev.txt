@@ -22,7 +22,7 @@ build==1.2.2.post1
     # via pip-tools
 cachetools==5.5.2
     # via tox
-celery==5.5.0
+celery==5.5.1
     # via event-tracking
 certifi==2025.1.31
     # via requests
@@ -55,7 +55,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==2.2.0
+code-annotations==2.3.0
     # via
     #   edx-lint
     #   edx-toggles
@@ -120,7 +120,7 @@ edx-django-utils==7.2.0
     #   edx-toggles
     #   event-tracking
     #   openedx-events
-edx-drf-extensions==10.5.0
+edx-drf-extensions==10.6.0
     # via -r requirements/base.in
 edx-i18n-tools==1.7.0
     # via -r requirements/dev.in
@@ -183,7 +183,7 @@ keyring==25.6.0
     # via twine
 kombu==5.5.2
     # via celery
-lxml[html-clean]==5.3.1
+lxml[html-clean]==5.3.2
     # via
     #   edx-i18n-tools
     #   lxml-html-clean
@@ -289,9 +289,9 @@ pytest==8.3.5
     # via
     #   pytest-cov
     #   pytest-django
-pytest-cov==6.1.0
+pytest-cov==6.1.1
     # via -r requirements/test.in
-pytest-django==4.10.0
+pytest-django==4.11.1
     # via -r requirements/test.in
 python-dateutil==2.9.0.post0
     # via
@@ -354,7 +354,7 @@ tox==4.25.0
     # via -r requirements/dev.in
 twine==6.1.0
     # via -r requirements/quality.in
-typing-extensions==4.13.0
+typing-extensions==4.13.1
     # via edx-opaque-keys
 tzdata==2025.2
     # via
@@ -374,7 +374,7 @@ virtualenv==20.30.0
     # via tox
 wcwidth==0.2.13
     # via prompt-toolkit
-web-fragments==2.2.0
+web-fragments==3.0.0
     # via xblock
 webob==1.8.9
     # via xblock
