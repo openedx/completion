@@ -80,7 +80,7 @@ drf-jwt==1.19.2
     # via edx-drf-extensions
 edx-ccx-keys==2.0.2
     # via openedx-events
-edx-django-utils==7.2.0
+edx-django-utils==7.4.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -120,7 +120,7 @@ kombu==5.5.2
     # via celery
 lxml==5.3.2
     # via xblock
-mako==1.3.9
+mako==1.3.10
     # via xblock
 markupsafe==3.0.2
     # via
@@ -129,9 +129,9 @@ markupsafe==3.0.2
     #   xblock
 mock==5.2.0
     # via -r requirements/test.in
-newrelic==10.8.1
+newrelic==10.9.0
     # via edx-django-utils
-openedx-events==9.20.0
+openedx-events==10.0.0
     # via event-tracking
 packaging==24.2
     # via pytest
@@ -139,7 +139,7 @@ pbr==6.1.1
     # via stevedore
 pluggy==1.5.0
     # via pytest
-prompt-toolkit==3.0.50
+prompt-toolkit==3.0.51
     # via click-repl
 psutil==7.0.0
     # via edx-django-utils
@@ -200,7 +200,7 @@ stevedore==5.4.1
     #   edx-opaque-keys
 text-unidecode==1.3
     # via python-slugify
-typing-extensions==4.13.1
+typing-extensions==4.13.2
     # via edx-opaque-keys
 tzdata==2025.2
     # via
@@ -221,7 +221,7 @@ web-fragments==3.0.0
     # via xblock
 webob==1.8.9
     # via xblock
-xblock==5.1.2
+xblock==5.2.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
