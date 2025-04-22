@@ -116,7 +116,7 @@ iniconfig==2.1.0
     # via pytest
 jinja2==3.1.6
     # via code-annotations
-kombu==5.5.2
+kombu==5.5.3
     # via celery
 lxml==5.3.2
     # via xblock
@@ -133,7 +133,7 @@ newrelic==10.9.0
     # via edx-django-utils
 openedx-events==10.0.0
     # via event-tracking
-packaging==24.2
+packaging==25.0
     # via pytest
 pbr==6.1.1
     # via stevedore
