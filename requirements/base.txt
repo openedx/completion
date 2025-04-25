@@ -106,7 +106,7 @@ idna==3.10
     # via requests
 jinja2==3.1.6
     # via code-annotations
-kombu==5.5.2
+kombu==5.5.3
     # via celery
 lxml==5.3.2
     # via xblock
@@ -198,7 +198,7 @@ xblock==5.2.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==78.1.0
+setuptools==79.0.0
     # via
     #   -r requirements/base.in
     #   fs
