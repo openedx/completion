@@ -11,6 +11,11 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
+[4.8.0] - 2025-04-25
+--------------------
+
+* Added support for upgrading to Django 5.2
+
 [4.7.0] - 2024-9-13
 -------------------
 
