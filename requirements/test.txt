@@ -22,7 +22,7 @@ cffi==1.17.1
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
     # via requests
 click==8.1.8
     # via
@@ -42,7 +42,7 @@ code-annotations==2.3.0
     # via edx-toggles
 coverage[toml]==7.8.0
     # via pytest-cov
-cryptography==44.0.2
+cryptography==44.0.3
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -98,7 +98,7 @@ edx-toggles==5.3.0
     # via
     #   -r requirements/base.in
     #   event-tracking
-event-tracking==3.0.0
+event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
@@ -129,9 +129,9 @@ markupsafe==3.0.2
     #   xblock
 mock==5.2.0
     # via -r requirements/test.in
-newrelic==10.10.0
+newrelic==10.11.0
     # via edx-django-utils
-openedx-events==10.0.0
+openedx-events==10.1.0
     # via event-tracking
 packaging==25.0
     # via pytest
@@ -149,7 +149,7 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==4.4.0
+pymongo==4.12.1
     # via
     #   edx-opaque-keys
     #   event-tracking
