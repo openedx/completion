@@ -24,7 +24,7 @@ cffi==1.17.1
     #   pynacl
 charset-normalizer==3.4.2
     # via requests
-click==8.1.8
+click==8.2.0
     # via
     #   celery
     #   click-didyoumean
@@ -129,9 +129,9 @@ markupsafe==3.0.2
     #   xblock
 mock==5.2.0
     # via -r requirements/test.in
-newrelic==10.11.0
+newrelic==10.12.0
     # via edx-django-utils
-openedx-events==10.1.0
+openedx-events==10.2.1
     # via event-tracking
 packaging==25.0
     # via pytest
@@ -217,7 +217,7 @@ vine==5.1.0
     #   kombu
 wcwidth==0.2.13
     # via prompt-toolkit
-web-fragments==3.0.0
+web-fragments==3.1.0
     # via xblock
 webob==1.8.9
     # via xblock

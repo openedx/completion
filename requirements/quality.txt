@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via fs
 asgiref==3.8.1
     # via django
-astroid==3.3.9
+astroid==3.3.10
     # via
     #   pylint
     #   pylint-celery
@@ -28,7 +28,7 @@ cffi==1.17.1
     #   pynacl
 charset-normalizer==3.4.2
     # via requests
-click==8.1.8
+click==8.2.0
     # via
     #   celery
     #   click-didyoumean
@@ -57,13 +57,13 @@ cryptography==44.0.3
     #   pyjwt
     #   secretstorage
 ddt==1.7.2
-    # via -r test.in
+    # via -r requirements/test.in
 dill==0.4.0
     # via pylint
 django==4.2.21
     # via
-    #   -c common_constraints.txt
-    #   -r base.in
+    #   -c requirements/common_constraints.txt
+    #   -r requirements/base.in
     #   django-crum
     #   django-model-utils
     #   django-waffle
@@ -79,7 +79,7 @@ django-crum==0.7.9
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==5.0.0
-    # via -r base.in
+    # via -r requirements/base.in
 django-waffle==4.2.0
     # via
     #   edx-django-utils
@@ -87,7 +87,7 @@ django-waffle==4.2.0
     #   edx-toggles
 djangorestframework==3.16.0
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
 dnspython==2.7.0
@@ -105,31 +105,31 @@ edx-django-utils==7.4.0
     #   event-tracking
     #   openedx-events
 edx-drf-extensions==10.6.0
-    # via -r base.in
+    # via -r requirements/base.in
 edx-lint==5.3.7
     # via
-    #   -c constraints.txt
-    #   -r quality.in
+    #   -c requirements/constraints.txt
+    #   -r requirements/quality.in
 edx-opaque-keys[django]==3.0.0
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
 edx-toggles==5.3.0
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   event-tracking
 event-tracking==3.3.0
-    # via -r base.in
+    # via -r requirements/base.in
 factory-boy==3.3.3
-    # via -r test.in
+    # via -r requirements/test.in
 faker==37.1.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
 freezegun==1.5.1
-    # via -r test.in
+    # via -r requirements/test.in
 fs==2.4.16
     # via xblock
 id==1.5.0
@@ -140,7 +140,7 @@ iniconfig==2.1.0
     # via pytest
 isort==6.0.1
     # via
-    #   -r quality.in
+    #   -r requirements/quality.in
     #   pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -174,16 +174,16 @@ mccabe==0.7.0
 mdurl==0.1.2
     # via markdown-it-py
 mock==5.2.0
-    # via -r test.in
+    # via -r requirements/test.in
 more-itertools==10.7.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==10.11.0
+newrelic==10.12.0
     # via edx-django-utils
 nh3==0.2.21
     # via readme-renderer
-openedx-events==10.1.0
+openedx-events==10.2.1
     # via event-tracking
 packaging==25.0
     # via
@@ -191,7 +191,7 @@ packaging==25.0
     #   twine
 pbr==6.1.1
     # via stevedore
-platformdirs==4.3.7
+platformdirs==4.3.8
     # via pylint
 pluggy==1.5.0
     # via pytest
@@ -200,11 +200,11 @@ prompt-toolkit==3.0.51
 psutil==7.0.0
     # via edx-django-utils
 pycodestyle==2.13.0
-    # via -r quality.in
+    # via -r requirements/quality.in
 pycparser==2.22
     # via cffi
 pydocstyle==6.3.0
-    # via -r quality.in
+    # via -r requirements/quality.in
 pygments==2.19.1
     # via
     #   readme-renderer
@@ -238,9 +238,9 @@ pytest==8.3.5
     #   pytest-cov
     #   pytest-django
 pytest-cov==6.1.1
-    # via -r test.in
+    # via -r requirements/test.in
 pytest-django==4.11.1
-    # via -r test.in
+    # via -r requirements/test.in
 python-dateutil==2.9.0.post0
     # via
     #   celery
@@ -250,7 +250,7 @@ python-slugify==8.0.4
     # via code-annotations
 pytz==2025.2
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   event-tracking
     #   xblock
 pyyaml==6.0.2
@@ -284,7 +284,7 @@ six==1.17.0
     #   event-tracking
     #   fs
     #   python-dateutil
-snowballstemmer==2.2.0
+snowballstemmer==3.0.1
     # via pydocstyle
 sqlparse==0.5.3
     # via django
@@ -298,7 +298,7 @@ text-unidecode==1.3
 tomlkit==0.13.2
     # via pylint
 twine==6.1.0
-    # via -r quality.in
+    # via -r requirements/quality.in
 typing-extensions==4.13.2
     # via edx-opaque-keys
 tzdata==2025.2
@@ -307,7 +307,7 @@ tzdata==2025.2
     #   kombu
 urllib3==2.2.3
     # via
-    #   -c common_constraints.txt
+    #   -c requirements/common_constraints.txt
     #   requests
     #   twine
 vine==5.1.0
@@ -317,19 +317,19 @@ vine==5.1.0
     #   kombu
 wcwidth==0.2.13
     # via prompt-toolkit
-web-fragments==3.0.0
+web-fragments==3.1.0
     # via xblock
 webob==1.8.9
     # via xblock
 wheel==0.45.1
-    # via -r quality.in
+    # via -r requirements/quality.in
 xblock==5.2.0
-    # via -r base.in
+    # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==80.3.1
+setuptools==80.4.0
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   fs
     #   openedx-events
     #   pbr
