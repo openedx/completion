@@ -34,7 +34,7 @@ cffi==1.17.1
     #   pynacl
 charset-normalizer==3.4.2
     # via requests
-click==8.1.8
+click==8.2.0
     # via
     #   celery
     #   click-didyoumean
@@ -55,11 +55,11 @@ coverage[toml]==7.8.0
 cryptography==44.0.3
     # via pyjwt
 ddt==1.7.2
-    # via -r test.in
+    # via -r requirements/test.in
 django==4.2.21
     # via
-    #   -c common_constraints.txt
-    #   -r base.in
+    #   -c requirements/common_constraints.txt
+    #   -r requirements/base.in
     #   django-crum
     #   django-model-utils
     #   django-waffle
@@ -75,7 +75,7 @@ django-crum==0.7.9
     #   edx-django-utils
     #   edx-toggles
 django-model-utils==5.0.0
-    # via -r base.in
+    # via -r requirements/base.in
 django-waffle==4.2.0
     # via
     #   edx-django-utils
@@ -83,13 +83,13 @@ django-waffle==4.2.0
     #   edx-toggles
 djangorestframework==3.16.0
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
 dnspython==2.7.0
     # via pymongo
 doc8==1.1.2
-    # via -r doc.in
+    # via -r requirements/doc.in
 docutils==0.21.2
     # via
     #   doc8
@@ -107,27 +107,27 @@ edx-django-utils==7.4.0
     #   event-tracking
     #   openedx-events
 edx-drf-extensions==10.6.0
-    # via -r base.in
+    # via -r requirements/base.in
 edx-opaque-keys[django]==3.0.0
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
 edx-toggles==5.3.0
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   event-tracking
 event-tracking==3.3.0
-    # via -r base.in
+    # via -r requirements/base.in
 factory-boy==3.3.3
-    # via -r test.in
+    # via -r requirements/test.in
 faker==37.1.0
     # via factory-boy
 fastavro==1.10.0
     # via openedx-events
 freezegun==1.5.1
-    # via -r test.in
+    # via -r requirements/test.in
 fs==2.4.16
     # via xblock
 idna==3.10
@@ -152,10 +152,10 @@ markupsafe==3.0.2
     #   mako
     #   xblock
 mock==5.2.0
-    # via -r test.in
-newrelic==10.11.0
+    # via -r requirements/test.in
+newrelic==10.12.0
     # via edx-django-utils
-openedx-events==10.1.0
+openedx-events==10.2.1
     # via event-tracking
 packaging==25.0
     # via
@@ -195,9 +195,9 @@ pytest==8.3.5
     #   pytest-cov
     #   pytest-django
 pytest-cov==6.1.1
-    # via -r test.in
+    # via -r requirements/test.in
 pytest-django==4.11.1
-    # via -r test.in
+    # via -r requirements/test.in
 python-dateutil==2.9.0.post0
     # via
     #   celery
@@ -207,7 +207,7 @@ python-slugify==8.0.4
     # via code-annotations
 pytz==2025.2
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   event-tracking
     #   xblock
 pyyaml==6.0.2
@@ -232,17 +232,17 @@ six==1.17.0
     #   event-tracking
     #   fs
     #   python-dateutil
-snowballstemmer==2.2.0
+snowballstemmer==3.0.1
     # via sphinx
 soupsieve==2.7
     # via beautifulsoup4
 sphinx==8.2.3
     # via
-    #   -r doc.in
+    #   -r requirements/doc.in
     #   pydata-sphinx-theme
     #   sphinx-book-theme
 sphinx-book-theme==1.1.4
-    # via -r doc.in
+    # via -r requirements/doc.in
 sphinxcontrib-applehelp==2.0.0
     # via sphinx
 sphinxcontrib-devhelp==2.0.0
@@ -276,7 +276,7 @@ tzdata==2025.2
     #   kombu
 urllib3==2.2.3
     # via
-    #   -c common_constraints.txt
+    #   -c requirements/common_constraints.txt
     #   requests
 vine==5.1.0
     # via
@@ -285,12 +285,12 @@ vine==5.1.0
     #   kombu
 wcwidth==0.2.13
     # via prompt-toolkit
-web-fragments==3.0.0
+web-fragments==3.1.0
     # via xblock
 webob==1.8.9
     # via xblock
 xblock==5.2.0
-    # via -r base.in
+    # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
