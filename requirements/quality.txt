@@ -52,7 +52,7 @@ code-annotations==2.3.0
     #   edx-toggles
 coverage[toml]==7.8.0
     # via pytest-cov
-cryptography==44.0.3
+cryptography==45.0.2
     # via
     #   pyjwt
     #   secretstorage
@@ -124,9 +124,9 @@ event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==37.1.0
+faker==37.3.0
     # via factory-boy
-fastavro==1.10.0
+fastavro==1.11.1
     # via openedx-events
 freezegun==1.5.1
     # via -r requirements/test.in
@@ -193,7 +193,7 @@ pbr==6.1.1
     # via stevedore
 platformdirs==4.3.8
     # via pylint
-pluggy==1.5.0
+pluggy==1.6.0
     # via pytest
 prompt-toolkit==3.0.51
     # via click-repl
@@ -227,7 +227,7 @@ pylint-plugin-utils==0.8.2
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==4.12.1
+pymongo==4.13.0
     # via
     #   edx-opaque-keys
     #   event-tracking
@@ -327,7 +327,7 @@ xblock==5.2.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==80.4.0
+setuptools==80.8.0
     # via
     #   -r requirements/base.in
     #   fs
