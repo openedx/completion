@@ -24,7 +24,7 @@ cffi==1.17.1
     #   pynacl
 charset-normalizer==3.4.2
     # via requests
-click==8.2.0
+click==8.2.1
     # via
     #   celery
     #   click-didyoumean
@@ -40,7 +40,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==2.3.0
     # via edx-toggles
-cryptography==45.0.2
+cryptography==45.0.3
     # via pyjwt
 django==4.2.21
     # via
@@ -78,7 +78,7 @@ drf-jwt==1.19.2
     # via edx-drf-extensions
 edx-ccx-keys==2.0.2
     # via openedx-events
-edx-django-utils==7.4.0
+edx-django-utils==8.0.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -117,8 +117,6 @@ markupsafe==3.0.2
     #   jinja2
     #   mako
     #   xblock
-newrelic==10.12.0
-    # via edx-django-utils
 openedx-events==10.2.1
     # via event-tracking
 pbr==6.1.1
@@ -198,7 +196,7 @@ xblock==5.2.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==80.8.0
+setuptools==80.9.0
     # via
     #   -r requirements/base.in
     #   fs
