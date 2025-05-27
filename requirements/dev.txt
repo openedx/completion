@@ -20,7 +20,7 @@ billiard==4.2.1
     # via celery
 build==1.2.2.post1
     # via pip-tools
-cachetools==5.5.2
+cachetools==6.0.0
     # via tox
 celery==5.5.2
     # via event-tracking
@@ -36,7 +36,7 @@ chardet==5.2.0
     #   tox
 charset-normalizer==3.4.2
     # via requests
-click==8.2.0
+click==8.2.1
     # via
     #   celery
     #   click-didyoumean
@@ -61,15 +61,15 @@ code-annotations==2.3.0
     #   edx-toggles
 colorama==0.4.6
     # via tox
-coverage[toml]==7.8.0
+coverage[toml]==7.8.2
     # via pytest-cov
-cryptography==45.0.2
+cryptography==45.0.3
     # via
     #   pyjwt
     #   secretstorage
 ddt==1.7.2
     # via -r requirements/test.in
-diff-cover==9.2.4
+diff-cover==9.3.1
     # via -r requirements/dev.in
 dill==0.4.0
     # via pylint
@@ -114,7 +114,7 @@ drf-jwt==1.19.2
     # via edx-drf-extensions
 edx-ccx-keys==2.0.2
     # via openedx-events
-edx-django-utils==7.4.0
+edx-django-utils==8.0.0
     # via
     #   edx-drf-extensions
     #   edx-toggles
@@ -151,7 +151,7 @@ filelock==3.18.0
     # via
     #   tox
     #   virtualenv
-freezegun==1.5.1
+freezegun==1.5.2
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
@@ -209,8 +209,6 @@ more-itertools==10.7.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==10.12.0
-    # via edx-django-utils
 nh3==0.2.21
     # via readme-renderer
 openedx-events==10.2.1
