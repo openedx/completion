@@ -40,9 +40,9 @@ click-repl==0.3.0
     # via celery
 code-annotations==2.3.0
     # via edx-toggles
-cryptography==45.0.3
+cryptography==45.0.4
     # via pyjwt
-django==4.2.21
+django==4.2.23
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -154,7 +154,7 @@ pyyaml==6.0.2
     # via
     #   code-annotations
     #   xblock
-requests==2.32.3
+requests==2.32.4
     # via edx-drf-extensions
 semantic-version==2.10.0
     # via edx-drf-extensions

@@ -52,11 +52,11 @@ code-annotations==2.3.0
     # via edx-toggles
 coverage[toml]==7.8.2
     # via pytest-cov
-cryptography==45.0.3
+cryptography==45.0.4
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
-django==4.2.21
+django==4.2.23
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -214,7 +214,7 @@ pyyaml==6.0.2
     # via
     #   code-annotations
     #   xblock
-requests==2.32.3
+requests==2.32.4
     # via
     #   edx-drf-extensions
     #   sphinx

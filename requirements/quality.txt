@@ -52,7 +52,7 @@ code-annotations==2.3.0
     #   edx-toggles
 coverage[toml]==7.8.2
     # via pytest-cov
-cryptography==45.0.3
+cryptography==45.0.4
     # via
     #   pyjwt
     #   secretstorage
@@ -60,7 +60,7 @@ ddt==1.7.2
     # via -r requirements/test.in
 dill==0.4.0
     # via pylint
-django==4.2.21
+django==4.2.23
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -259,7 +259,7 @@ pyyaml==6.0.2
     #   xblock
 readme-renderer==44.0
     # via twine
-requests==2.32.3
+requests==2.32.4
     # via
     #   edx-drf-extensions
     #   id
@@ -295,7 +295,7 @@ stevedore==5.4.1
     #   edx-opaque-keys
 text-unidecode==1.3
     # via python-slugify
-tomlkit==0.13.2
+tomlkit==0.13.3
     # via pylint
 twine==6.1.0
     # via -r requirements/quality.in
