@@ -42,7 +42,7 @@ code-annotations==2.3.0
     # via edx-toggles
 coverage[toml]==7.8.2
     # via pytest-cov
-cryptography==45.0.3
+cryptography==45.0.4
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -181,7 +181,7 @@ pyyaml==6.0.2
     # via
     #   code-annotations
     #   xblock
-requests==2.32.3
+requests==2.32.4
     # via edx-drf-extensions
 semantic-version==2.10.0
     # via edx-drf-extensions
