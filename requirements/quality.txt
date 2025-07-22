@@ -8,9 +8,9 @@ amqp==5.3.1
     # via kombu
 appdirs==1.4.4
     # via fs
-asgiref==3.8.1
+asgiref==3.9.1
     # via django
-astroid==3.3.10
+astroid==3.3.11
     # via
     #   pylint
     #   pylint-celery
@@ -20,7 +20,7 @@ billiard==4.2.1
     # via celery
 celery==5.5.3
     # via event-tracking
-certifi==2025.6.15
+certifi==2025.7.14
     # via requests
 cffi==1.17.1
     # via
@@ -42,7 +42,7 @@ click-didyoumean==0.3.1
     # via celery
 click-log==0.4.0
     # via edx-lint
-click-plugins==1.1.1
+click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
@@ -50,9 +50,9 @@ code-annotations==2.3.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.9.1
+coverage[toml]==7.9.2
     # via pytest-cov
-cryptography==45.0.4
+cryptography==45.0.5
     # via
     #   pyjwt
     #   secretstorage
@@ -124,11 +124,11 @@ event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==37.4.0
+faker==37.4.2
     # via factory-boy
 fastavro==1.11.1
     # via openedx-events
-freezegun==1.5.2
+freezegun==1.5.3
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
@@ -146,7 +146,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.1.0
+jaraco-functools==4.2.1
     # via keyring
 jeepney==0.9.0
     # via
@@ -158,7 +158,7 @@ keyring==25.6.0
     # via twine
 kombu==5.5.4
     # via celery
-lxml==5.4.0
+lxml==6.0.0
     # via xblock
 mako==1.3.10
     # via xblock
@@ -179,9 +179,9 @@ more-itertools==10.7.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-nh3==0.2.21
+nh3==0.3.0
     # via readme-renderer
-openedx-events==10.2.1
+openedx-events==10.3.0
     # via event-tracking
 packaging==25.0
     # via
@@ -200,13 +200,13 @@ prompt-toolkit==3.0.51
     # via click-repl
 psutil==7.0.0
     # via edx-django-utils
-pycodestyle==2.13.0
+pycodestyle==2.14.0
     # via -r requirements/quality.in
 pycparser==2.22
     # via cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
-pygments==2.19.1
+pygments==2.19.2
     # via
     #   pytest
     #   readme-renderer
@@ -225,7 +225,7 @@ pylint-celery==0.3
     # via edx-lint
 pylint-django==2.6.1
     # via edx-lint
-pylint-plugin-utils==0.8.2
+pylint-plugin-utils==0.9.0
     # via
     #   pylint-celery
     #   pylint-django
@@ -235,7 +235,7 @@ pymongo==4.13.2
     #   event-tracking
 pynacl==1.5.0
     # via edx-django-utils
-pytest==8.4.0
+pytest==8.4.1
     # via
     #   pytest-cov
     #   pytest-django
@@ -301,7 +301,7 @@ tomlkit==0.13.3
     # via pylint
 twine==6.1.0
     # via -r requirements/quality.in
-typing-extensions==4.14.0
+typing-extensions==4.14.1
     # via edx-opaque-keys
 tzdata==2025.2
     # via
