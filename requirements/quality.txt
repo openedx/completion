@@ -20,7 +20,7 @@ billiard==4.2.1
     # via celery
 celery==5.5.3
     # via event-tracking
-certifi==2025.7.14
+certifi==2025.8.3
     # via requests
 cffi==1.17.1
     # via
@@ -50,7 +50,7 @@ code-annotations==2.3.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.10.1
+coverage[toml]==7.10.2
     # via pytest-cov
 cryptography==45.0.5
     # via
@@ -124,11 +124,11 @@ event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==37.4.2
+faker==37.5.3
     # via factory-boy
-fastavro==1.11.1
+fastavro==1.12.0
     # via openedx-events
-freezegun==1.5.3
+freezegun==1.5.4
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
@@ -307,9 +307,8 @@ tzdata==2025.2
     # via
     #   faker
     #   kombu
-urllib3==2.2.3
+urllib3==2.5.0
     # via
-    #   -c requirements/common_constraints.txt
     #   requests
     #   twine
 vine==5.1.0
