@@ -18,7 +18,7 @@ jobs:
         toxenv: [quality, django42-drf314, django42-drflatest, django52-drf314, django52-drflatest]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: setup python
       uses: actions/setup-python@v5
       with:
