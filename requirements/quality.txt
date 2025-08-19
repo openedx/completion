@@ -20,13 +20,13 @@ billiard==4.2.1
     # via celery
 celery==5.5.3
     # via event-tracking
-certifi==2025.7.14
+certifi==2025.8.3
     # via requests
 cffi==1.17.1
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.4.2
+charset-normalizer==3.4.3
     # via requests
 click==8.2.1
     # via
@@ -50,9 +50,9 @@ code-annotations==2.3.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.10.1
+coverage[toml]==7.10.4
     # via pytest-cov
-cryptography==45.0.5
+cryptography==45.0.6
     # via
     #   pyjwt
     #   secretstorage
@@ -85,7 +85,7 @@ django-waffle==5.0.0
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
-djangorestframework==3.16.0
+djangorestframework==3.16.1
     # via
     #   -r requirements/base.in
     #   drf-jwt
@@ -124,11 +124,11 @@ event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==37.4.2
+faker==37.5.3
     # via factory-boy
-fastavro==1.11.1
+fastavro==1.12.0
     # via openedx-events
-freezegun==1.5.3
+freezegun==1.5.5
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
@@ -146,7 +146,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.2.1
+jaraco-functools==4.3.0
     # via keyring
 jeepney==0.9.0
     # via
@@ -162,7 +162,7 @@ lxml==6.0.0
     # via xblock
 mako==1.3.10
     # via xblock
-markdown-it-py==3.0.0
+markdown-it-py==4.0.0
     # via rich
 markupsafe==3.0.2
     # via
@@ -188,7 +188,7 @@ packaging==25.0
     #   kombu
     #   pytest
     #   twine
-pbr==6.1.1
+pbr==7.0.0
     # via stevedore
 platformdirs==4.3.8
     # via pylint
@@ -215,7 +215,7 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==3.3.7
+pylint==3.3.8
     # via
     #   edx-lint
     #   pylint-celery
@@ -229,7 +229,7 @@ pylint-plugin-utils==0.9.0
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==4.13.2
+pymongo==4.14.0
     # via
     #   edx-opaque-keys
     #   event-tracking
@@ -261,7 +261,7 @@ pyyaml==6.0.2
     #   xblock
 readme-renderer==44.0
     # via twine
-requests==2.32.4
+requests==2.32.5
     # via
     #   edx-drf-extensions
     #   id
@@ -307,9 +307,8 @@ tzdata==2025.2
     # via
     #   faker
     #   kombu
-urllib3==2.2.3
+urllib3==2.5.0
     # via
-    #   -c requirements/common_constraints.txt
     #   requests
     #   twine
 vine==5.1.0
