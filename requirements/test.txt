@@ -16,13 +16,13 @@ billiard==4.2.1
     # via celery
 celery==5.5.3
     # via event-tracking
-certifi==2025.7.14
+certifi==2025.8.3
     # via requests
 cffi==1.17.1
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.4.2
+charset-normalizer==3.4.3
     # via requests
 click==8.2.1
     # via
@@ -40,9 +40,9 @@ click-repl==0.3.0
     # via celery
 code-annotations==2.3.0
     # via edx-toggles
-coverage[toml]==7.10.1
+coverage[toml]==7.10.5
     # via pytest-cov
-cryptography==45.0.5
+cryptography==45.0.6
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -102,11 +102,11 @@ event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==37.4.2
+faker==37.5.3
     # via factory-boy
-fastavro==1.11.1
+fastavro==1.12.0
     # via openedx-events
-freezegun==1.5.3
+freezegun==1.5.5
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
@@ -118,7 +118,7 @@ jinja2==3.1.6
     # via code-annotations
 kombu==5.5.4
     # via celery
-lxml==6.0.0
+lxml==6.0.1
     # via xblock
 mako==1.3.10
     # via xblock
@@ -129,14 +129,12 @@ markupsafe==3.0.2
     #   xblock
 mock==5.2.0
     # via -r requirements/test.in
-openedx-events==10.4.0
+openedx-events==10.5.0
     # via event-tracking
 packaging==25.0
     # via
     #   kombu
     #   pytest
-pbr==6.1.1
-    # via stevedore
 pluggy==1.6.0
     # via
     #   pytest
@@ -153,7 +151,7 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==4.13.2
+pymongo==4.14.1
     # via
     #   edx-opaque-keys
     #   event-tracking
@@ -183,7 +181,7 @@ pyyaml==6.0.2
     # via
     #   code-annotations
     #   xblock
-requests==2.32.4
+requests==2.32.5
     # via edx-drf-extensions
 semantic-version==2.10.0
     # via edx-drf-extensions
@@ -197,23 +195,21 @@ six==1.17.0
     #   python-dateutil
 sqlparse==0.5.3
     # via django
-stevedore==5.4.1
+stevedore==5.5.0
     # via
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
 text-unidecode==1.3
     # via python-slugify
-typing-extensions==4.14.1
+typing-extensions==4.15.0
     # via edx-opaque-keys
 tzdata==2025.2
     # via
     #   faker
     #   kombu
-urllib3==2.2.3
-    # via
-    #   -c requirements/common_constraints.txt
-    #   requests
+urllib3==2.5.0
+    # via requests
 vine==5.1.0
     # via
     #   amqp
