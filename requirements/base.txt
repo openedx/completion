@@ -40,7 +40,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==2.3.0
     # via edx-toggles
-cryptography==45.0.6
+cryptography==45.0.7
     # via pyjwt
 django==4.2.23
     # via
@@ -121,7 +121,7 @@ openedx-events==10.5.0
     # via event-tracking
 packaging==25.0
     # via kombu
-prompt-toolkit==3.0.51
+prompt-toolkit==3.0.52
     # via click-repl
 psutil==7.0.0
     # via edx-django-utils
