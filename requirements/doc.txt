@@ -28,7 +28,7 @@ celery==5.5.3
     # via event-tracking
 certifi==2025.8.3
     # via requests
-cffi==1.17.1
+cffi==2.0.0
     # via
     #   cryptography
     #   pynacl
@@ -50,13 +50,13 @@ click-repl==0.3.0
     # via celery
 code-annotations==2.3.0
     # via edx-toggles
-coverage[toml]==7.10.5
+coverage[toml]==7.10.6
     # via pytest-cov
-cryptography==45.0.6
+cryptography==45.0.7
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
-django==4.2.23
+django==4.2.24
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -86,7 +86,7 @@ djangorestframework==3.16.1
     #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
-dnspython==2.7.0
+dnspython==2.8.0
     # via pymongo
 doc8==2.0.0
     # via -r requirements/doc.in
@@ -122,7 +122,7 @@ event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==37.5.3
+faker==37.8.0
     # via factory-boy
 fastavro==1.12.0
     # via openedx-events
@@ -165,11 +165,11 @@ pluggy==1.6.0
     # via
     #   pytest
     #   pytest-cov
-prompt-toolkit==3.0.51
+prompt-toolkit==3.0.52
     # via click-repl
 psutil==7.0.0
     # via edx-django-utils
-pycparser==2.22
+pycparser==2.23
     # via cffi
 pydata-sphinx-theme==0.15.4
     # via sphinx-book-theme
@@ -184,17 +184,17 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==4.14.1
+pymongo==4.15.0
     # via
     #   edx-opaque-keys
     #   event-tracking
-pynacl==1.5.0
+pynacl==1.6.0
     # via edx-django-utils
-pytest==8.4.1
+pytest==8.4.2
     # via
     #   pytest-cov
     #   pytest-django
-pytest-cov==6.2.1
+pytest-cov==7.0.0
     # via -r requirements/test.in
 pytest-django==4.11.1
     # via -r requirements/test.in
@@ -234,7 +234,7 @@ six==1.17.0
     #   python-dateutil
 snowballstemmer==3.0.1
     # via sphinx
-soupsieve==2.7
+soupsieve==2.8
     # via beautifulsoup4
 sphinx==8.2.3
     # via
