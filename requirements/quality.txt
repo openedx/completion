@@ -8,7 +8,7 @@ amqp==5.3.1
     # via kombu
 appdirs==1.4.4
     # via fs
-asgiref==3.9.1
+asgiref==3.9.2
     # via django
 astroid==3.3.11
     # via
@@ -16,19 +16,19 @@ astroid==3.3.11
     #   pylint-celery
 attrs==25.3.0
     # via openedx-events
-billiard==4.2.1
+billiard==4.2.2
     # via celery
 celery==5.5.3
     # via event-tracking
 certifi==2025.8.3
     # via requests
-cffi==1.17.1
+cffi==2.0.0
     # via
     #   cryptography
     #   pynacl
 charset-normalizer==3.4.3
     # via requests
-click==8.2.1
+click==8.3.0
     # via
     #   celery
     #   click-didyoumean
@@ -50,9 +50,9 @@ code-annotations==2.3.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.10.5
+coverage[toml]==7.10.7
     # via pytest-cov
-cryptography==45.0.6
+cryptography==46.0.1
     # via
     #   pyjwt
     #   secretstorage
@@ -60,7 +60,7 @@ ddt==1.7.2
     # via -r requirements/test.in
 dill==0.4.0
     # via pylint
-django==4.2.23
+django==4.2.24
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -90,9 +90,9 @@ djangorestframework==3.16.1
     #   -r requirements/base.in
     #   drf-jwt
     #   edx-drf-extensions
-dnspython==2.7.0
+dnspython==2.8.0
     # via pymongo
-docutils==0.22
+docutils==0.22.2
     # via readme-renderer
 drf-jwt==1.19.2
     # via edx-drf-extensions
@@ -124,7 +124,7 @@ event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==37.5.3
+faker==37.8.0
     # via factory-boy
 fastavro==1.12.0
     # via openedx-events
@@ -158,7 +158,7 @@ keyring==25.6.0
     # via twine
 kombu==5.5.4
     # via celery
-lxml==6.0.1
+lxml==6.0.2
     # via xblock
 mako==1.3.10
     # via xblock
@@ -175,7 +175,7 @@ mdurl==0.1.2
     # via markdown-it-py
 mock==5.2.0
     # via -r requirements/test.in
-more-itertools==10.7.0
+more-itertools==10.8.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -194,13 +194,13 @@ pluggy==1.6.0
     # via
     #   pytest
     #   pytest-cov
-prompt-toolkit==3.0.51
+prompt-toolkit==3.0.52
     # via click-repl
-psutil==7.0.0
+psutil==7.1.0
     # via edx-django-utils
 pycodestyle==2.14.0
     # via -r requirements/quality.in
-pycparser==2.22
+pycparser==2.23
     # via cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
@@ -227,17 +227,17 @@ pylint-plugin-utils==0.9.0
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==4.14.1
+pymongo==4.15.1
     # via
     #   edx-opaque-keys
     #   event-tracking
-pynacl==1.5.0
+pynacl==1.6.0
     # via edx-django-utils
-pytest==8.4.1
+pytest==8.4.2
     # via
     #   pytest-cov
     #   pytest-django
-pytest-cov==6.2.1
+pytest-cov==7.0.0
     # via -r requirements/test.in
 pytest-django==4.11.1
     # via -r requirements/test.in
@@ -271,7 +271,7 @@ rfc3986==2.0.0
     # via twine
 rich==14.1.0
     # via twine
-secretstorage==3.3.3
+secretstorage==3.4.0
     # via keyring
 semantic-version==2.10.0
     # via edx-drf-extensions
@@ -297,7 +297,7 @@ text-unidecode==1.3
     # via python-slugify
 tomlkit==0.13.3
     # via pylint
-twine==6.1.0
+twine==6.2.0
     # via -r requirements/quality.in
 typing-extensions==4.15.0
     # via edx-opaque-keys
@@ -314,7 +314,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.13
+wcwidth==0.2.14
     # via prompt-toolkit
 web-fragments==3.1.0
     # via xblock
