@@ -124,9 +124,8 @@ edx-drf-extensions==10.6.0
     # via -r requirements/base.in
 edx-i18n-tools==1.9.0
     # via -r requirements/dev.in
-edx-lint==5.3.7
+edx-lint==5.6.0
     # via
-    #   -c requirements/constraints.txt
     #   -r requirements/dev.in
     #   -r requirements/quality.in
 edx-opaque-keys[django]==3.0.0
