@@ -11,6 +11,11 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
+Unreleased
+----------
+
+* Dropped Django 4.2 support; upgraded Django to 5.2 in test dependencies; bumped pip to 26.0.1
+
 [4.8.0] - 2025-04-25
 --------------------
 
