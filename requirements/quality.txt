@@ -20,13 +20,13 @@ billiard==4.2.4
     # via celery
 celery==5.6.2
     # via event-tracking
-certifi==2026.1.4
+certifi==2026.2.25
     # via requests
 cffi==2.0.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.4.4
+charset-normalizer==3.4.5
     # via requests
 click==8.3.1
     # via
@@ -46,7 +46,7 @@ click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==2.3.0
+code-annotations==2.3.2
     # via
     #   edx-lint
     #   edx-toggles
@@ -60,7 +60,7 @@ ddt==1.7.2
     # via -r requirements/test.in
 dill==0.4.1
     # via pylint
-django==4.2.28
+django==5.2.12
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -108,7 +108,7 @@ edx-drf-extensions==10.6.0
     # via -r requirements/base.in
 edx-lint==5.6.0
     # via -r requirements/quality.in
-edx-opaque-keys[django]==3.0.0
+edx-opaque-keys[django]==3.1.0
     # via
     #   -r requirements/base.in
     #   edx-ccx-keys
@@ -122,7 +122,7 @@ event-tracking==3.3.0
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==40.4.0
+faker==40.8.0
     # via factory-boy
 fastavro==1.12.1
     # via openedx-events
@@ -136,7 +136,7 @@ idna==3.11
     # via requests
 iniconfig==2.3.0
     # via pytest
-isort==7.0.0
+isort==8.0.1
     # via
     #   -r requirements/quality.in
     #   pylint
@@ -177,7 +177,7 @@ more-itertools==10.8.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-nh3==0.3.2
+nh3==0.3.3
     # via readme-renderer
 openedx-events==10.5.0
     # via event-tracking
@@ -187,7 +187,7 @@ packaging==26.0
     #   pytest
     #   twine
     #   wheel
-platformdirs==4.5.1
+platformdirs==4.9.4
     # via pylint
 pluggy==1.6.0
     # via
@@ -212,7 +212,7 @@ pyjwt[crypto]==2.11.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==4.0.4
+pylint==4.0.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -238,7 +238,7 @@ pytest==9.0.2
     #   pytest-django
 pytest-cov==7.0.0
     # via -r requirements/test.in
-pytest-django==4.11.1
+pytest-django==4.12.0
     # via -r requirements/test.in
 python-dateutil==2.9.0.post0
     # via
@@ -247,7 +247,7 @@ python-dateutil==2.9.0.post0
     #   xblock
 python-slugify==8.0.4
     # via code-annotations
-pytz==2025.2
+pytz==2026.1.post1
     # via
     #   -r requirements/base.in
     #   event-tracking
@@ -267,7 +267,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==14.3.2
+rich==14.3.3
     # via twine
 secretstorage==3.5.0
     # via keyring
@@ -286,7 +286,7 @@ snowballstemmer==3.0.1
     # via pydocstyle
 sqlparse==0.5.5
     # via django
-stevedore==5.6.0
+stevedore==5.7.0
     # via
     #   code-annotations
     #   edx-django-utils
