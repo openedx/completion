@@ -40,7 +40,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==3.0.0
     # via edx-toggles
-cryptography==46.0.6
+cryptography==46.0.7
     # via pyjwt
 django==5.2.13
     # via
@@ -92,7 +92,7 @@ edx-opaque-keys[django]==4.0.0
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
-edx-toggles==5.4.1
+edx-toggles==6.0.0
     # via
     #   -r requirements/base.in
     #   event-tracking
@@ -102,24 +102,24 @@ fastavro==1.12.1
     # via openedx-events
 fs==2.4.16
     # via xblock
-idna==3.11
+idna==3.12
     # via requests
 jinja2==3.1.6
     # via code-annotations
 kombu==5.6.2
     # via celery
-lxml==6.0.2
+lxml==6.1.0
     # via xblock
-mako==1.3.10
+mako==1.3.11
     # via xblock
 markupsafe==3.0.3
     # via
     #   jinja2
     #   mako
     #   xblock
-openedx-events==11.1.0
+openedx-events==11.1.1
     # via event-tracking
-packaging==26.0
+packaging==26.1
     # via kombu
 prompt-toolkit==3.0.52
     # via click-repl
@@ -131,7 +131,7 @@ pyjwt[crypto]==2.12.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==4.16.0
+pymongo==4.17.0
     # via
     #   edx-opaque-keys
     #   event-tracking
@@ -156,7 +156,7 @@ requests==2.33.1
     # via edx-drf-extensions
 semantic-version==2.10.0
     # via edx-drf-extensions
-simplejson==3.20.2
+simplejson==4.0.1
     # via xblock
 six==1.17.0
     # via
@@ -192,7 +192,7 @@ web-fragments==4.0.0
     # via xblock
 webob==1.8.9
     # via xblock
-xblock==6.0.0
+xblock==6.1.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
