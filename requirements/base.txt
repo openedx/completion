@@ -16,7 +16,7 @@ billiard==4.2.4
     # via celery
 celery==5.6.3
     # via event-tracking
-certifi==2026.4.22
+certifi==2026.5.20
     # via requests
 cffi==2.0.0
     # via
@@ -24,7 +24,7 @@ cffi==2.0.0
     #   pynacl
 charset-normalizer==3.4.7
     # via requests
-click==8.4.0
+click==8.4.1
     # via
     #   celery
     #   click-didyoumean
@@ -102,7 +102,7 @@ fastavro==1.12.2
     # via openedx-events
 fs==2.4.16
     # via xblock
-idna==3.15
+idna==3.16
     # via requests
 jinja2==3.1.6
     # via code-annotations
@@ -127,7 +127,7 @@ psutil==7.2.2
     # via edx-django-utils
 pycparser==3.0
     # via cffi
-pyjwt[crypto]==2.12.1
+pyjwt[crypto]==2.13.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
