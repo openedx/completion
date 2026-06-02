@@ -26,7 +26,7 @@ billiard==4.2.4
     # via celery
 celery==5.6.3
     # via event-tracking
-certifi==2026.4.22
+certifi==2026.5.20
     # via requests
 cffi==2.0.0
     # via
@@ -34,7 +34,7 @@ cffi==2.0.0
     #   pynacl
 charset-normalizer==3.4.7
     # via requests
-click==8.4.0
+click==8.4.1
     # via
     #   celery
     #   click-didyoumean
@@ -50,7 +50,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==3.0.0
     # via edx-toggles
-coverage[toml]==7.14.0
+coverage[toml]==7.14.1
     # via pytest-cov
 cryptography==48.0.0
     # via pyjwt
@@ -118,11 +118,11 @@ edx-toggles==6.0.0
     # via
     #   -r requirements/base.in
     #   event-tracking
-event-tracking==4.0.0
+event-tracking==4.0.2
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==40.18.0
+faker==40.20.0
     # via factory-boy
 fastavro==1.12.2
     # via openedx-events
@@ -130,7 +130,7 @@ freezegun==1.5.5
     # via -r requirements/test.in
 fs==2.4.16
     # via xblock
-idna==3.15
+idna==3.18
     # via requests
 imagesize==2.0.0
     # via sphinx
@@ -179,7 +179,7 @@ pygments==2.20.0
     #   pydata-sphinx-theme
     #   pytest
     #   sphinx
-pyjwt[crypto]==2.12.1
+pyjwt[crypto]==2.13.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
@@ -231,9 +231,9 @@ six==1.17.0
     #   event-tracking
     #   fs
     #   python-dateutil
-snowballstemmer==3.0.1
+snowballstemmer==3.1.0
     # via sphinx
-soupsieve==2.8.3
+soupsieve==2.8.4
     # via beautifulsoup4
 sphinx==9.1.0
     # via
