@@ -60,7 +60,7 @@ ddt==1.7.2
     # via -r requirements/test.in
 dill==0.4.1
     # via pylint
-django==5.2.14
+django==5.2.15
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -122,7 +122,7 @@ event-tracking==4.0.2
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==40.20.0
+faker==40.21.0
     # via factory-boy
 fastavro==1.12.2
     # via openedx-events
@@ -282,7 +282,7 @@ six==1.17.0
     #   event-tracking
     #   fs
     #   python-dateutil
-snowballstemmer==3.1.0
+snowballstemmer==3.1.1
     # via pydocstyle
 sqlparse==0.5.5
     # via django
@@ -315,11 +315,11 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.7.0
+wcwidth==0.8.1
     # via prompt-toolkit
 web-fragments==4.0.0
     # via xblock
-webob==1.8.9
+webob==1.8.10
     # via xblock
 wheel==0.47.0
     # via -r requirements/quality.in
