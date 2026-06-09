@@ -20,7 +20,7 @@ babel==2.18.0
     # via
     #   pydata-sphinx-theme
     #   sphinx
-beautifulsoup4==4.14.3
+beautifulsoup4==4.15.0
     # via pydata-sphinx-theme
 billiard==4.2.4
     # via celery
@@ -56,7 +56,7 @@ cryptography==48.0.0
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
-django==5.2.14
+django==5.2.15
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -122,7 +122,7 @@ event-tracking==4.0.2
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==40.20.0
+faker==40.21.0
     # via factory-boy
 fastavro==1.12.2
     # via openedx-events
@@ -231,7 +231,7 @@ six==1.17.0
     #   event-tracking
     #   fs
     #   python-dateutil
-snowballstemmer==3.1.0
+snowballstemmer==3.1.1
     # via sphinx
 soupsieve==2.8.4
     # via beautifulsoup4
@@ -280,11 +280,11 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.7.0
+wcwidth==0.8.1
     # via prompt-toolkit
 web-fragments==4.0.0
     # via xblock
-webob==1.8.9
+webob==1.8.10
     # via xblock
 xblock==6.1.0
     # via -r requirements/base.in

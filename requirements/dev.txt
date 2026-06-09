@@ -71,9 +71,9 @@ diff-cover==10.3.0
     # via -r requirements/dev.in
 dill==0.4.1
     # via pylint
-distlib==0.4.1
+distlib==0.4.2
     # via virtualenv
-django==5.2.14
+django==5.2.15
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -140,11 +140,11 @@ event-tracking==4.0.2
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==40.20.0
+faker==40.21.0
     # via factory-boy
 fastavro==1.12.2
     # via openedx-events
-filelock==3.29.0
+filelock==3.29.1
     # via
     #   python-discovery
     #   tox
@@ -339,7 +339,7 @@ six==1.17.0
     #   event-tracking
     #   fs
     #   python-dateutil
-snowballstemmer==3.1.0
+snowballstemmer==3.1.1
     # via pydocstyle
 sqlparse==0.5.5
     # via django
@@ -356,7 +356,7 @@ tomlkit==0.15.0
     # via
     #   edx-lint
     #   pylint
-tox==4.55.0
+tox==4.55.1
     # via -r requirements/dev.in
 twine==6.2.0
     # via -r requirements/quality.in
@@ -378,11 +378,11 @@ vine==5.1.0
     #   kombu
 virtualenv==21.4.2
     # via tox
-wcwidth==0.7.0
+wcwidth==0.8.1
     # via prompt-toolkit
 web-fragments==4.0.0
     # via xblock
-webob==1.8.9
+webob==1.8.10
     # via xblock
 wheel==0.47.0
     # via
