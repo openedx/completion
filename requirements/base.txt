@@ -40,9 +40,9 @@ click-repl==0.3.0
     # via celery
 code-annotations==3.0.0
     # via edx-toggles
-cryptography==48.0.0
+cryptography==49.0.0
     # via pyjwt
-django==5.2.14
+django==5.2.15
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -92,6 +92,7 @@ edx-opaque-keys[django]==4.0.0
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
+    #   xblock
 edx-toggles==6.0.0
     # via
     #   -r requirements/base.in
@@ -177,7 +178,7 @@ typing-extensions==4.15.0
     # via edx-opaque-keys
 tzdata==2026.2
     # via kombu
-tzlocal==5.3.1
+tzlocal==5.4
     # via celery
 urllib3==2.7.0
     # via requests
@@ -186,13 +187,11 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.7.0
+wcwidth==0.8.1
     # via prompt-toolkit
-web-fragments==4.0.0
+webob==1.8.10
     # via xblock
-webob==1.8.9
-    # via xblock
-xblock==6.1.0
+xblock==6.3.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:

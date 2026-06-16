@@ -61,7 +61,7 @@ colorama==0.4.6
     # via tox
 coverage[toml]==7.14.1
     # via pytest-cov
-cryptography==48.0.0
+cryptography==49.0.0
     # via
     #   pyjwt
     #   secretstorage
@@ -71,9 +71,9 @@ diff-cover==10.3.0
     # via -r requirements/dev.in
 dill==0.4.1
     # via pylint
-distlib==0.4.1
+distlib==0.4.3
     # via virtualenv
-django==5.2.14
+django==5.2.15
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -132,6 +132,7 @@ edx-opaque-keys[django]==4.0.0
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
+    #   xblock
 edx-toggles==6.0.0
     # via
     #   -r requirements/base.in
@@ -140,11 +141,11 @@ event-tracking==4.0.2
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==40.20.0
+faker==40.23.0
     # via factory-boy
 fastavro==1.12.2
     # via openedx-events
-filelock==3.29.0
+filelock==3.29.4
     # via
     #   python-discovery
     #   tox
@@ -258,7 +259,7 @@ pyjwt[crypto]==2.13.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==4.0.5
+pylint==4.0.6
     # via
     #   edx-lint
     #   pylint-celery
@@ -284,7 +285,7 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-pytest==9.0.3
+pytest==9.1.0
     # via
     #   pytest-cov
     #   pytest-django
@@ -297,7 +298,7 @@ python-dateutil==2.9.0.post0
     #   celery
     #   freezegun
     #   xblock
-python-discovery==1.4.0
+python-discovery==1.4.2
     # via
     #   tox
     #   virtualenv
@@ -313,7 +314,7 @@ pyyaml==6.0.3
     #   code-annotations
     #   edx-i18n-tools
     #   xblock
-readme-renderer==44.0
+readme-renderer==45.0
     # via twine
 requests==2.34.2
     # via
@@ -339,7 +340,7 @@ six==1.17.0
     #   event-tracking
     #   fs
     #   python-dateutil
-snowballstemmer==3.1.0
+snowballstemmer==3.1.1
     # via pydocstyle
 sqlparse==0.5.5
     # via django
@@ -356,7 +357,7 @@ tomlkit==0.15.0
     # via
     #   edx-lint
     #   pylint
-tox==4.55.0
+tox==4.55.1
     # via -r requirements/dev.in
 twine==6.2.0
     # via -r requirements/quality.in
@@ -364,7 +365,7 @@ typing-extensions==4.15.0
     # via edx-opaque-keys
 tzdata==2026.2
     # via kombu
-tzlocal==5.3.1
+tzlocal==5.4
     # via celery
 urllib3==2.7.0
     # via
@@ -376,19 +377,17 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==21.4.2
+virtualenv==21.5.1
     # via tox
-wcwidth==0.7.0
+wcwidth==0.8.1
     # via prompt-toolkit
-web-fragments==4.0.0
-    # via xblock
-webob==1.8.9
+webob==1.8.10
     # via xblock
 wheel==0.47.0
     # via
     #   -r requirements/quality.in
     #   pip-tools
-xblock==6.1.0
+xblock==6.3.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:

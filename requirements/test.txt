@@ -42,7 +42,7 @@ code-annotations==3.0.0
     # via edx-toggles
 coverage[toml]==7.14.1
     # via pytest-cov
-cryptography==48.0.0
+cryptography==49.0.0
     # via pyjwt
 ddt==1.7.2
     # via -r requirements/test.in
@@ -94,6 +94,7 @@ edx-opaque-keys[django]==4.0.0
     #   edx-ccx-keys
     #   edx-drf-extensions
     #   openedx-events
+    #   xblock
 edx-toggles==6.0.0
     # via
     #   -r requirements/base.in
@@ -102,7 +103,7 @@ event-tracking==4.0.2
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==40.20.0
+faker==40.23.0
     # via factory-boy
 fastavro==1.12.2
     # via openedx-events
@@ -157,7 +158,7 @@ pymongo==4.17.0
     #   event-tracking
 pynacl==1.6.2
     # via edx-django-utils
-pytest==9.0.3
+pytest==9.1.0
     # via
     #   pytest-cov
     #   pytest-django
@@ -206,7 +207,7 @@ typing-extensions==4.15.0
     # via edx-opaque-keys
 tzdata==2026.2
     # via kombu
-tzlocal==5.3.1
+tzlocal==5.4
     # via celery
 urllib3==2.7.0
     # via requests
@@ -215,13 +216,11 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.7.0
+wcwidth==0.8.1
     # via prompt-toolkit
-web-fragments==4.0.0
+webob==1.8.10
     # via xblock
-webob==1.8.9
-    # via xblock
-xblock==6.1.0
+xblock==6.3.0
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
