@@ -22,7 +22,6 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
     """
     Test the data returned by the CompletionService.
     """
-    COMPLETION_SWITCH_ENABLED = True
 
     def setUp(self):
         super().setUp()
@@ -131,10 +130,8 @@ class CompletionServiceTestCase(CompletionSetUpMixin, TestCase):
         expected_completions = dict(zip(expected_block_keys, [1.0, 0.8, 0.6, 0.0, 0.0]))
         self.assertEqual(expected_completions, actual_completions)
 
-    @ddt.data(True, False)
-    def test_enabled_honors_waffle_switch(self, enabled):
-        with self.override_completion_switch(enabled):
-            self.assertEqual(self.completion_service.completion_tracking_enabled(), enabled)
+    def test_completion_tracking_always_enabled(self):
+        self.assertTrue(self.completion_service.completion_tracking_enabled())
 
     @ddt.data(
         (XBlockCompletionMode.COMPLETABLE, False, False, True),
