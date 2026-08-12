@@ -7,7 +7,6 @@ from django.contrib import auth
 from xblock.completable import XBlockCompletionMode
 
 from .models import BlockCompletion
-from . import waffle
 
 User = auth.get_user_model()
 
@@ -31,13 +30,11 @@ class CompletionService:
 
     def completion_tracking_enabled(self):
         """
-        Exposes ENABLE_COMPLETION_TRACKING waffle switch to XModule runtime
-
         Return value:
 
             bool -> True if completion tracking is enabled.
         """
-        return waffle.ENABLE_COMPLETION_TRACKING_SWITCH.is_enabled()
+        return True
 
     def get_completions(self, candidates):
         """
