@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-amqp==5.3.1
+amqp==5.4.0
     # via kombu
 appdirs==1.4.4
     # via fs
@@ -16,19 +16,19 @@ astroid==4.0.4
     #   pylint-celery
 attrs==26.1.0
     # via openedx-events
-billiard==4.2.4
+billiard==4.3.0
     # via celery
 celery==5.6.3
     # via event-tracking
 certifi==2026.7.22
     # via requests
-cffi==2.1.0
+cffi==2.1.1
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.4.9
+charset-normalizer==3.5.1
     # via requests
-click==8.4.2
+click==8.5.0
     # via
     #   celery
     #   click-didyoumean
@@ -44,15 +44,15 @@ click-log==0.4.0
     # via edx-lint
 click-plugins==1.1.1.2
     # via celery
-click-repl==0.3.0
+click-repl==0.4.0
     # via celery
 code-annotations==3.0.0
     # via
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.15.2
+coverage[toml]==7.16.2
     # via pytest-cov
-cryptography==49.0.0
+cryptography==50.0.1
     # via
     #   pyjwt
     #   secretstorage
@@ -60,7 +60,7 @@ ddt==1.7.2
     # via -r requirements/test.in
 dill==0.4.1
     # via pylint
-django==5.2.16
+django==5.2.17
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -85,7 +85,7 @@ django-waffle==5.0.0
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
-djangorestframework==3.17.1
+djangorestframework==3.18.1
     # via
     #   -r requirements/base.in
     #   drf-jwt
@@ -98,15 +98,15 @@ drf-jwt==1.19.2
     # via edx-drf-extensions
 edx-ccx-keys==2.0.2
     # via openedx-events
-edx-django-utils==8.0.1
+edx-django-utils==8.0.2
     # via
     #   edx-drf-extensions
     #   edx-toggles
     #   event-tracking
     #   openedx-events
-edx-drf-extensions==10.6.0
+edx-drf-extensions==10.9.0
     # via -r requirements/base.in
-edx-lint==6.1.0
+edx-lint==6.2.0
     # via -r requirements/quality.in
 edx-opaque-keys[django]==4.0.0
     # via
@@ -119,11 +119,11 @@ edx-toggles==6.0.0
     # via
     #   -r requirements/base.in
     #   event-tracking
-event-tracking==4.0.2
+event-tracking==4.1.5
     # via -r requirements/base.in
 factory-boy==3.3.3
     # via -r requirements/test.in
-faker==40.36.0
+faker==40.40.0
     # via factory-boy
 fastavro==1.12.2
     # via openedx-events
@@ -133,11 +133,11 @@ fs==2.4.16
     # via xblock
 id==1.6.1
     # via twine
-idna==3.18
+idna==3.20
     # via requests
 iniconfig==2.3.0
     # via pytest
-isort==8.0.1
+isort==9.0.2
     # via
     #   -r requirements/quality.in
     #   pylint
@@ -157,9 +157,9 @@ keyring==25.7.0
     # via twine
 kombu==5.6.2
     # via celery
-lxml==6.1.1
+lxml==6.1.3
     # via xblock
-mako==1.3.12
+mako==1.4.3
     # via xblock
 markdown-it-py==4.2.0
     # via rich
@@ -178,17 +178,19 @@ more-itertools==11.1.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-nh3==0.3.6
+mypy-extensions==1.1.0
+    # via isort
+nh3==0.3.7
     # via readme-renderer
 openedx-events==11.2.0
     # via event-tracking
-packaging==26.2
+packaging==26.3
     # via
     #   kombu
     #   pytest
     #   twine
     #   wheel
-platformdirs==4.11.0
+platformdirs==4.12.1
     # via pylint
 pluggy==1.6.0
     # via
@@ -198,22 +200,22 @@ prompt-toolkit==3.0.53
     # via click-repl
 psutil==7.2.2
     # via edx-django-utils
-pycodestyle==2.14.0
+pycodestyle==2.15.0
     # via -r requirements/quality.in
 pycparser==3.0
     # via cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
-pygments==2.20.0
+pygments==2.21.0
     # via
     #   pytest
     #   readme-renderer
     #   rich
-pyjwt[crypto]==2.13.0
+pyjwt[crypto]==2.15.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pylint==4.0.6
+pylint==4.0.9
     # via
     #   edx-lint
     #   pylint-celery
@@ -227,7 +229,7 @@ pylint-plugin-utils==0.9.0
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==4.17.0
+pymongo==4.18.2
     # via
     #   edx-opaque-keys
     #   event-tracking
@@ -239,16 +241,16 @@ pytest==9.1.1
     #   pytest-django
 pytest-cov==7.1.0
     # via -r requirements/test.in
-pytest-django==4.12.0
+pytest-django==4.14.0
     # via -r requirements/test.in
 python-dateutil==2.9.0.post0
     # via
     #   celery
     #   freezegun
     #   xblock
-python-slugify==8.0.4
+python-slugify==9.1.2
     # via code-annotations
-pytz==2026.3.post1
+pytz==2026.4
     # via
     #   -r requirements/base.in
     #   event-tracking
@@ -257,7 +259,7 @@ pyyaml==6.0.3
     # via
     #   code-annotations
     #   xblock
-readme-renderer==45.0
+readme-renderer==46.0
     # via twine
 requests==2.34.2
     # via
@@ -274,7 +276,7 @@ secretstorage==3.5.0
     # via keyring
 semantic-version==2.10.0
     # via edx-drf-extensions
-simplejson==4.1.1
+simplejson==4.1.2
     # via xblock
 six==1.17.0
     # via
@@ -285,9 +287,9 @@ six==1.17.0
     #   python-dateutil
 snowballstemmer==3.1.1
     # via pydocstyle
-sqlparse==0.5.5
+sqlparse==0.6.0
     # via django
-stevedore==5.9.0
+stevedore==5.9.1
     # via
     #   code-annotations
     #   edx-django-utils
@@ -301,12 +303,14 @@ tomlkit==0.15.1
 twine==7.0.0
     # via -r requirements/quality.in
 typing-extensions==4.16.0
-    # via edx-opaque-keys
-tzdata==2026.3
+    # via
+    #   click-repl
+    #   edx-opaque-keys
+tzdata==2026.4
     # via kombu
 tzlocal==5.4.4
     # via celery
-urllib3==2.7.0
+urllib3==2.8.0
     # via
     #   id
     #   requests
@@ -316,17 +320,17 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.8.2
+wcwidth==0.9.1
     # via prompt-toolkit
-webob==1.8.10
+webob==1.8.11
     # via xblock
-wheel==0.47.0
+wheel==0.48.0
     # via -r requirements/quality.in
-xblock==6.3.1
+xblock==6.3.3
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==83.0.0
+setuptools==84.0.0
     # via
     #   -r requirements/base.in
     #   fs
