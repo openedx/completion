@@ -16,8 +16,6 @@ from model_utils.models import TimeStampedModel
 
 from eventtracking import tracker
 
-from . import waffle
-
 log = logging.getLogger(__name__)
 User = auth.get_user_model()
 
@@ -93,47 +91,39 @@ class BlockCompletionManager(models.Manager):
                 "block_key = block_key.replace(course_key=modulestore().fill_in_run(block_key.course_key))"
             )
 
-        if waffle.ENABLE_COMPLETION_TRACKING_SWITCH.is_enabled():
-            try:
-                with transaction.atomic():
-                    obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
-                        user=user,
-                        context_key=context_key,
-                        block_key=block_key,
-                        defaults={
-                            'completion': completion,
-                            'block_type': block_type,
-                        },
-                    )
-            except IntegrityError:
-                # The completion was created concurrently by another process
-                log.info(
-                    "An IntegrityError was raised when trying to create a BlockCompletion for %s:%s:%s.  "
-                    "Falling back to get().",
-                    user,
-                    context_key,
-                    block_key,
-                )
-                obj = self.get(
+        try:
+            with transaction.atomic():
+                obj, is_new = self.get_or_create(  # pylint: disable=unpacking-non-sequence
                     user=user,
                     context_key=context_key,
                     block_key=block_key,
+                    defaults={
+                        'completion': completion,
+                        'block_type': block_type,
+                    },
                 )
-                is_new = False
-
-            if not is_new and obj.completion != completion:
-                obj.completion = completion
-                obj.full_clean()
-                obj.save(update_fields={'completion', 'modified'})
-
-            obj.emit_tracking_log()
-        else:
-            # If the feature is not enabled, this method should not be called.
-            # Error out with a RuntimeError.
-            raise RuntimeError(
-                "BlockCompletion.objects.submit_completion should not be \
-                called when the feature is disabled."
+        except IntegrityError:
+            # The completion was created concurrently by another process
+            log.info(
+                "An IntegrityError was raised when trying to create a BlockCompletion for %s:%s:%s.  "
+                "Falling back to get().",
+                user,
+                context_key,
+                block_key,
             )
+            obj = self.get(
+                user=user,
+                context_key=context_key,
+                block_key=block_key,
+            )
+            is_new = False
+
+        if not is_new and obj.completion != completion:
+            obj.completion = completion
+            obj.full_clean()
+            obj.save(update_fields={'completion', 'modified'})
+
+        obj.emit_tracking_log()
 
         return obj, is_new
 

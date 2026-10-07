@@ -10,7 +10,6 @@ from opaque_keys.edx.keys import LearningContextKey, UsageKey
 from xblock.completable import XBlockCompletionMode
 from xblock.core import XBlock
 
-from . import waffle
 from .models import BlockCompletion
 
 log = logging.getLogger(__name__)
@@ -21,8 +20,6 @@ def scorable_block_completion(sender, **kwargs):  # pylint: disable=unused-argum
     """
     When a problem is scored, submit a new BlockCompletion for that block.
     """
-    if not waffle.ENABLE_COMPLETION_TRACKING_SWITCH.is_enabled():
-        return
     try:
         block_key = UsageKey.from_string(kwargs['usage_id'])
     except InvalidKeyError:

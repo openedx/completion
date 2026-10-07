@@ -17,8 +17,6 @@ class TestCompletionUtilities(CompletionSetUpMixin, TestCase):
     Tests methods in completion's external-facing API.
     """
 
-    COMPLETION_SWITCH_ENABLED = True
-
     def setUp(self):
         super().setUp()
         self.user = UserFactory.create()
