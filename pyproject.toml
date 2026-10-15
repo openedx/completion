@@ -106,9 +106,14 @@ exclude = ["*tests*"]
 [tool.setuptools_scm]
 version_scheme = "only-version"
 local_scheme = "no-local-version"
+fallback_version = "0.0.0"
 
 [tool.semantic_release]
+# Explicitly set the tag format (same as default).
+tag_format = "v{version}"
 build_command = "pip install build && SETUPTOOLS_SCM_PRETEND_VERSION=$NEW_VERSION python -m build"
+major_on_zero = false
+allow_zero_version = true
 
 [tool.uv]
 package = true
