@@ -48,6 +48,51 @@ completion = "completion.apps:CompletionAppConfig"
 Homepage = "https://github.com/openedx/completion"
 Repository = "https://github.com/openedx/completion"
 
+[dependency-groups]
+test-base = [
+    "ddt",
+    "factory-boy",
+    "freezegun",
+    "mock",
+    "pytest-cov",
+    "pytest-django",
+]
+test = [
+    {include-group = "test-base"},
+    "Django>=5.2,<5.3",
+]
+drf314 = [
+    {include-group = "test-base"},
+    "Django>=5.2,<5.3",
+    "djangorestframework<3.15.0",
+]
+quality = [
+    {include-group = "test"},
+    "build",
+    "edx-lint",
+    "isort",
+    "pycodestyle",
+    "pydocstyle",
+    "twine",
+]
+doc = [
+    {include-group = "test"},
+    "doc8",
+    "sphinx-book-theme",
+    "Sphinx",
+]
+ci = [
+    "tox",
+    "tox-uv",
+]
+dev = [
+    {include-group = "quality"},
+    {include-group = "doc"},
+    {include-group = "ci"},
+    "diff-cover",
+    "edx-i18n-tools",
+]
+
 [tool.setuptools]
 include-package-data = false
 
@@ -61,6 +106,31 @@ exclude = ["*tests*"]
 [tool.setuptools_scm]
 version_scheme = "only-version"
 local_scheme = "no-local-version"
+
+[tool.uv]
+package = true
+default-groups = []
+conflicts = [
+    [{group = "test"}, {group = "drf314"}],
+    [{group = "quality"}, {group = "drf314"}],
+    [{group = "doc"}, {group = "drf314"}],
+    [{group = "dev"}, {group = "drf314"}],
+]
+#  DO NOT EDIT constraint-dependencies DIRECTLY.
+#  This list is managed by `edx_lint write_uv_constraints`
+#  and will be overwritten the next time `make upgrade` is run.
+#  - GLOBAL constraints: edit edx_lint/files/common_constraints.txt
+#  - REPO-SPECIFIC constraints: edit [tool.edx_lint].uv_constraints in this file
+constraint-dependencies = [
+    "Django<6.0",
+    "elasticsearch<7.14.0",
+    "social-auth-app-django<6.0.0",
+    "social-auth-core<5.0.0",
+    "pip<26.2.1",
+]
+
+[tool.edx_lint]
+uv_constraints = []
 
 [tool.isort]
 line_length = 120

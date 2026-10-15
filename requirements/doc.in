@@ -1,9 +1,0 @@
-# Requirements for documentation validation
--c constraints.txt
-
--r base.in                # Core requirements to allow imports during API doc generation
--r test.in                # Test requirements to allow imports during API doc generation
-
-doc8                      # reStructuredText style checker
-sphinx-book-theme
-Sphinx                    # Documentation builder

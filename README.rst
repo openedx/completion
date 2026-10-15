@@ -37,14 +37,14 @@ To run the test suite:
 .. code:: bash
 
     pip install tox
-    tox # to run only a single environment, do e.g. tox -e py312-django52-drflatest
+    tox # to run only a single environment, do e.g. tox -e django52-drflatest
 
 
 To use a Django shell to test commands:
 
 .. code:: bash
 
-    make install
+    make requirements
     python manage.py migrate
     python manage.py shell
     >>> from completion.models import BlockCompletion
