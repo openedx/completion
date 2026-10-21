@@ -97,7 +97,7 @@ dev = [
 include-package-data = false
 
 [tool.setuptools.dynamic]
-readme = {file = ["README.rst", "CHANGELOG.rst"], content-type = "text/x-rst"}
+readme = {file = ["README.rst"], content-type = "text/x-rst"}
 
 [tool.setuptools.packages.find]
 include = ["completion", "completion.*"]

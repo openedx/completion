@@ -34,7 +34,7 @@ jobs:
     - name: Run Tests
       env:
         TOXENV: ${{ matrix.toxenv }}
-      run: uv run --locked tox
+      run: uv run tox
 
     - name: Run Coverage
       if: matrix.python-version == '3.12' && matrix.toxenv=='django52-drflatest'
