@@ -1,9 +1,8 @@
-.. DEPRECATED: This changelog is no longer maintained. Release notes are
-   published only on the GitHub Releases page:
-   https://github.com/openedx/completion/releases
-
 Change Log
 ==========
+
+This changelog is no longer maintained. Release notes are published only on
+the `GitHub Releases page <https://github.com/openedx/completion/releases>`_.
 
 ..
    All enhancements and patches to completion will be documented
