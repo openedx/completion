@@ -12,7 +12,7 @@ amqp==5.4.1
     # via kombu
 appdirs==1.4.4
     # via fs
-asgiref==3.12.1
+asgiref==3.13.0
     # via django
 attrs==26.1.0
     # via openedx-events
@@ -26,7 +26,7 @@ billiard==4.3.1
     # via celery
 celery==5.6.3
     # via event-tracking
-certifi==2026.10.19
+certifi==2026.10.23
     # via requests
 cffi==2.1.1
     # via
@@ -50,7 +50,7 @@ click-repl==0.4.1
     # via celery
 code-annotations==3.0.0
     # via edx-toggles
-coverage[toml]==7.16.2
+coverage[toml]==7.17.0
     # via pytest-cov
 cryptography==50.0.2
     # via pyjwt
@@ -170,7 +170,7 @@ prompt-toolkit==3.0.53
     # via click-repl
 psutil==7.2.2
     # via edx-django-utils
-pycparser==3.11
+pycparser==3.12
     # via cffi
 pydata-sphinx-theme==0.20.0
     # via sphinx-book-theme
@@ -199,7 +199,7 @@ pytest-cov==7.1.0
     # via -r requirements/test.in
 pytest-django==4.14.0
     # via -r requirements/test.in
-python-dateutil==2.9.0.post0
+python-dateutil==3.0.0
     # via
     #   celery
     #   freezegun
@@ -236,7 +236,7 @@ six==1.17.0
     #   python-dateutil
 snowballstemmer==3.1.1
     # via sphinx
-soupsieve==3.0.3
+soupsieve==3.0.4
     # via beautifulsoup4
 sphinx==9.1.1
     # via
@@ -251,7 +251,7 @@ sphinxcontrib-devhelp==2.0.0
     # via sphinx
 sphinxcontrib-htmlhelp==2.1.0
     # via sphinx
-sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-jsmath==2.0.0
     # via sphinx
 sphinxcontrib-qthelp==2.0.0
     # via sphinx
@@ -273,8 +273,10 @@ typing-extensions==4.16.0
     #   click-repl
     #   edx-opaque-keys
 tzdata==2026.5
-    # via kombu
-tzlocal==5.4.4
+    # via
+    #   kombu
+    #   python-dateutil
+tzlocal==5.4.5
     # via celery
 urllib3==2.8.0
     # via requests
@@ -283,7 +285,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.9.2
+wcwidth==0.9.4
     # via prompt-toolkit
 webob==1.8.11
     # via xblock
