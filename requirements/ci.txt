@@ -16,7 +16,7 @@ filelock==4.2.4
     #   tox
     #   virtualenv
 mock==5.2.0
-    # via -r requirements/ci.in
+    # via -r ci.in
 packaging==26.3
     # via
     #   pyproject-api
@@ -37,8 +37,8 @@ python-discovery==1.6.4
 tomli-w==1.2.0
     # via tox
 tox==4.67.1
-    # via -r requirements/ci.in
+    # via -r ci.in
 typing-extensions==4.16.0
     # via tox
-virtualenv==21.14.11
+virtualenv==21.14.13
     # via tox
