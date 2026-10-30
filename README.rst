@@ -54,7 +54,7 @@ To use a Django shell to test commands:
 Deploying
 *********
 
-Tagged versions of the completion library are released to pypi.org.
+Merges to master are released to pypi.org automatically by python-semantic-release.
 
 To use the latest release in your project, add the following to your pip requirements file:
 
