@@ -1,0 +1,160 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm>8.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edx-completion"
+description = "A library for tracking completion of blocks by learners in edX courses."
+requires-python = ">=3.12"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Open edX Project", email = "oscm@openedx.org"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = [
+    "Django",
+    "edx",
+]
+
+dynamic = ["readme", "version"]
+
+dependencies = [
+    "Django",
+    "djangorestframework",
+    "django-model-utils",
+    "edx-opaque-keys[django]",
+    "edx-drf-extensions>=1.11.0",
+    "edx-toggles>=1.2.0",
+    "pytz",
+    "XBlock>=1.2.2",
+    "event-tracking",
+    "setuptools",
+]
+
+[project.entry-points."lms.djangoapp"]
+completion = "completion.apps:CompletionAppConfig"
+
+[project.urls]
+Homepage = "https://github.com/openedx/completion"
+Repository = "https://github.com/openedx/completion"
+
+[dependency-groups]
+test-base = [
+    "ddt",
+    "factory-boy",
+    "freezegun",
+    "mock",
+    "pytest-cov",
+    "pytest-django",
+]
+test = [
+    {include-group = "test-base"},
+    "Django>=5.2,<5.3",
+]
+drf314 = [
+    {include-group = "test-base"},
+    "Django>=5.2,<5.3",
+    "djangorestframework<3.15.0",
+]
+quality = [
+    {include-group = "test"},
+    "build",
+    "edx-lint",
+    "isort",
+    "pycodestyle",
+    "pydocstyle",
+    "twine",
+]
+doc = [
+    {include-group = "test"},
+    "doc8",
+    "sphinx-book-theme",
+    "Sphinx",
+]
+ci = [
+    "tox",
+    "tox-uv",
+]
+dev = [
+    {include-group = "quality"},
+    {include-group = "doc"},
+    {include-group = "ci"},
+    "diff-cover",
+    "edx-i18n-tools",
+]
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst"], content-type = "text/x-rst"}
+
+[tool.setuptools.packages.find]
+include = ["completion", "completion.*"]
+exclude = ["*tests*"]
+
+[tool.setuptools_scm]
+version_scheme = "only-version"
+local_scheme = "no-local-version"
+fallback_version = "0.0.0"
+
+[tool.semantic_release]
+# Explicitly set the tag format (same as default).
+tag_format = "v{version}"
+build_command = "pip install build && SETUPTOOLS_SCM_PRETEND_VERSION=$NEW_VERSION python -m build"
+major_on_zero = false
+allow_zero_version = true
+
+[tool.uv]
+package = true
+default-groups = []
+conflicts = [
+    [{group = "test"}, {group = "drf314"}],
+    [{group = "quality"}, {group = "drf314"}],
+    [{group = "doc"}, {group = "drf314"}],
+    [{group = "dev"}, {group = "drf314"}],
+]
+#  DO NOT EDIT constraint-dependencies DIRECTLY.
+#  This list is managed by `edx_lint write_uv_constraints`
+#  and will be overwritten the next time `make upgrade` is run.
+#  - GLOBAL constraints: edit edx_lint/files/common_constraints.txt
+#  - REPO-SPECIFIC constraints: edit [tool.edx_lint].uv_constraints in this file
+constraint-dependencies = [
+    "Django<6.0",
+    "elasticsearch<7.14.0",
+    "social-auth-app-django<6.0.0",
+    "social-auth-core<5.0.0",
+    "pip<26.2.1",
+]
+
+[tool.edx_lint]
+uv_constraints = []
+
+[tool.isort]
+line_length = 120
+known_edx = []
+known_django = ["django"]
+known_djangoapp = ["model_utils"]
+known_first_party = ["completion"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "DJANGO", "DJANGOAPP", "EDX", "FIRSTPARTY", "LOCALFOLDER"]
+
+[tool.coverage.run]
+branch = true
+data_file = ".coverage"
+source = ["completion"]
+omit = [
+    "*migrations*",
+    "*admin.py",
+    "*static*",
+    "*templates*",
+]

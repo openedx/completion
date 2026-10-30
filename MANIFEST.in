@@ -1,7 +1,11 @@
 include CHANGELOG.rst
 include LICENSE
 include README.rst
-include requirements/base.in
-include requirements/test.in
 recursive-include completion *.html *.png *.gif *js *.css *jpg *jpeg *svg *py
-include requirements/constraints.txt
+
+prune .github
+prune .tx
+prune docs
+prune htmlcov
+exclude uv.lock Makefile tox.ini pytest.ini pylintrc pylintrc_tweaks codecov.yml catalog-info.yaml openedx.yaml manage.py .gitignore
+global-exclude .coverage coverage.xml
