@@ -208,7 +208,7 @@ class BlockCompletion(TimeStampedModel, models.Model):
     .. no_pii:
     """
     id = BigAutoField(primary_key=True)  # pylint: disable=invalid-name
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, db_constraint=False)
     context_key = LearningContextKeyField(max_length=255, db_column="course_key")
 
     # note: this usage key may not have the run filled in for
