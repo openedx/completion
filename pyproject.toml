@@ -64,7 +64,7 @@ test = [
 drf314 = [
     {include-group = "test-base"},
     "Django>=5.2,<5.3",
-    "djangorestframework<3.15.0",
+    "djangorestframework<3.19.0",
 ]
 quality = [
     {include-group = "test"},
