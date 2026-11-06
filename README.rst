@@ -37,14 +37,14 @@ To run the test suite:
 .. code:: bash
 
     pip install tox
-    tox # to run only a single environment, do e.g. tox -e py312-django52-drflatest
+    tox # to run only a single environment, do e.g. tox -e django52-drflatest
 
 
 To use a Django shell to test commands:
 
 .. code:: bash
 
-    make install
+    make requirements
     python manage.py migrate
     python manage.py shell
     >>> from completion.models import BlockCompletion
@@ -54,7 +54,7 @@ To use a Django shell to test commands:
 Deploying
 *********
 
-Tagged versions of the completion library are released to pypi.org.
+Merges to master are released to pypi.org automatically by python-semantic-release.
 
 To use the latest release in your project, add the following to your pip requirements file:
 

@@ -4,8 +4,8 @@ Testing
 =======
 
 completion has an assortment of test cases and code quality
-checks to catch potential problems during development.  To run them all in the
-version of Python you chose for your virtualenv:
+checks to catch potential problems during development.  To run them all in the ``.venv``
+environment:
 
 .. code-block:: bash
 

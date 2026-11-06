@@ -1,5 +1,0 @@
-# Requirements for running tests in Travis
--c constraints.txt
-
-mock                      # Mock library for running tests
-tox                       # Virtualenv management for tests
