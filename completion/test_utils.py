@@ -3,12 +3,10 @@ Common functionality to support writing tests around completion.
 """
 
 
-from contextlib import contextmanager
 from datetime import datetime
 
 from django.contrib import auth
 from django.test.utils import override_settings
-from edx_toggles.toggles.testutils import override_waffle_switch
 from eventtracking import tracker
 from django.test import TestCase
 from eventtracking.django import DjangoTracker
@@ -17,7 +15,6 @@ from factory.django import DjangoModelFactory
 from opaque_keys.edx.keys import UsageKey
 from pytz import UTC
 
-from . import waffle
 from .models import BlockCompletion
 
 User = auth.get_user_model()
@@ -60,44 +57,10 @@ class UserFactory(DjangoModelFactory):
     date_joined = datetime(2011, 1, 1, tzinfo=UTC)
 
 
-class CompletionWaffleTestMixin:
-    """
-    Mixin to provide waffle switch overriding ability to child TestCase classes.
-    """
-
-    def override_waffle_switch(self, override):
-        """
-        Override the setting of the ENABLE_COMPLETION_TRACKING waffle switch
-        for the course of the test.
-        Parameters:
-            override (bool): True if tracking should be enabled.
-        """
-        _waffle_overrider = override_waffle_switch(
-            waffle.ENABLE_COMPLETION_TRACKING_SWITCH, override
-        )
-        _waffle_overrider.__enter__()  # pylint: disable=unnecessary-dunder-call
-        self.addCleanup(_waffle_overrider.__exit__, None, None, None)
-
-
 class CompletionSetUpMixin:
     """
     Mixin to provide set_up_completion() function to child TestCase classes.
     """
-
-    COMPLETION_SWITCH_ENABLED = False
-
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.waffle_patcher = override_waffle_switch(
-            waffle.ENABLE_COMPLETION_TRACKING_SWITCH, cls.COMPLETION_SWITCH_ENABLED
-        )
-        cls.waffle_patcher.__enter__()  # pylint: disable=unnecessary-dunder-call
-
-    @classmethod
-    def tearDownClass(cls):
-        super().tearDownClass()
-        cls.waffle_patcher.__exit__(None, None, None)
 
     def setUp(self):
         super().setUp()
@@ -116,14 +79,6 @@ class CompletionSetUpMixin:
             block_key=self.block_key,
             completion=0.5,
         )
-
-    @contextmanager
-    def override_completion_switch(self, enabled):
-        """
-        Overrides the completion-enabled waffle switch value within a context.
-        """
-        with override_waffle_switch(waffle.ENABLE_COMPLETION_TRACKING_SWITCH, enabled):
-            yield
 
 
 IN_MEMORY_BACKEND_CONFIG = {
