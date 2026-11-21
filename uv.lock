@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.12"
 resolution-markers = [
     "python_full_version >= '3.13'",
@@ -185,7 +185,7 @@ name = "cffi"
 version = "2.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pycparser", marker = "implementation_name != 'PyPy' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "pycparser", marker = "implementation_name != 'PyPy'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/9e/ef/008a1939e372c06329a3fce4279c02f328488f3526744906eeec3da7ad5f/cffi-2.1.1.tar.gz", hash = "sha256:dd31f52ea1086513bb9df30f8fcee9b8918323ae067a3d5b78bc826a000712be", size = 530807, upload-time = "2026-08-03T21:21:18.939Z" }
 wheels = [
@@ -625,7 +625,7 @@ name = "cryptography"
 version = "50.0.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cffi", marker = "platform_python_implementation != 'PyPy' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "cffi", marker = "platform_python_implementation != 'PyPy'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/9d/af/182eb91b0df3fe75c4d9f26fe70684569566745f6ba7e5c9c73a862c5252/cryptography-50.0.2.tar.gz", hash = "sha256:7b46165bb56eb4704e2eaaf86f3c940d19154535d9b0ca7d6d590b04060e00d5", size = 880623, upload-time = "2026-09-30T15:30:04.884Z" }
 wheels = [
@@ -732,7 +732,7 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "asgiref" },
     { name = "sqlparse" },
-    { name = "tzdata", marker = "sys_platform == 'win32' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/85/fe/79e692b430c7721bf4b812c328bfe687e73e3f28f56611a6a18a97e887cc/django-5.2.18.tar.gz", hash = "sha256:461c5dd06d2ea16bd5ca37d3f46e4def1d6b0fe7588c6f4e2119517bb0af8b2d", size = 10910238, upload-time = "2026-10-06T13:01:09.371Z" }
 wheels = [
@@ -777,35 +777,14 @@ wheels = [
 
 [[package]]
 name = "djangorestframework"
-version = "3.14.0"
+version = "3.18.2"
 source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.13'",
-    "python_full_version < '3.13'",
-]
 dependencies = [
-    { name = "django", marker = "extra == 'group-14-edx-completion-drf314'" },
-    { name = "pytz", marker = "extra == 'group-14-edx-completion-drf314'" },
+    { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8e/53/5b2a002c5ebafd60dff1e1945a7d63dee40155830997439a9ba324f0fd50/djangorestframework-3.14.0.tar.gz", hash = "sha256:579a333e6256b09489cbe0a067e66abe55c6595d8926be6b99423786334350c8", size = 1055343, upload-time = "2022-09-22T11:38:44.245Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3f/8b/2f048189610d58b29ae947f46d9c7d19c20ba427568eac906d6a2277d391/djangorestframework-3.18.2.tar.gz", hash = "sha256:8249bad7715eb37274ce5820fc5d9fd786b7579806589565f52a71c02b35f54b", size = 923551, upload-time = "2026-10-06T20:42:15.116Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ff/4b/3b46c0914ba4b7546a758c35fdfa8e7f017fcbe7f23c878239e93623337a/djangorestframework-3.14.0-py3-none-any.whl", hash = "sha256:eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08", size = 1062761, upload-time = "2022-09-22T11:38:41.825Z" },
-]
-
-[[package]]
-name = "djangorestframework"
-version = "3.18.3"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.13'",
-    "python_full_version < '3.13'",
-]
-dependencies = [
-    { name = "django", marker = "extra == 'group-14-edx-completion-dev' or extra == 'group-14-edx-completion-doc' or extra != 'group-14-edx-completion-drf314' or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/8d/b2/1cee76b188301f7d03169ca77fab2b3d3ec5d01b3469189f944af2d7f11a/djangorestframework-3.18.3.tar.gz", hash = "sha256:446a9b352e7eff630421ab3f2328bd2401b109a9470afa4a31189994911ed030", size = 923563, upload-time = "2026-10-06T21:33:51.521Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c4/dd/de5f4543765bec94e036a5e9593a42f8fa7efec8de78eb56b9ca834385f3/djangorestframework-3.18.3-py3-none-any.whl", hash = "sha256:8544bb674846731b1e3c9b309236ee1dc412905a0aa725be2ec193ca950a7d12", size = 903986, upload-time = "2026-10-06T21:33:49.917Z" },
+    { url = "https://files.pythonhosted.org/packages/fa/9e/81e5bfbba54f7396233df979befde49e6e13c94c2df21b94555684dddd3e/djangorestframework-3.18.2-py3-none-any.whl", hash = "sha256:a92d6a4e128a2550bd2fe2e02008a9e47fe52c180e130bb438f5ba70ee933a3f", size = 903990, upload-time = "2026-10-06T20:42:13.411Z" },
 ]
 
 [[package]]
@@ -847,8 +826,7 @@ version = "1.19.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
-    { name = "djangorestframework", version = "3.14.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-14-edx-completion-drf314'" },
-    { name = "djangorestframework", version = "3.18.3", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-14-edx-completion-dev' or extra == 'group-14-edx-completion-doc' or extra != 'group-14-edx-completion-drf314' or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "djangorestframework" },
     { name = "pyjwt", extra = ["crypto"] },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/19/8e/3c60992bafd0ac51bcfa136ff9f5e1cff65ef45ebbcb393477672e699e82/drf-jwt-1.19.2.tar.gz", hash = "sha256:660bc66f992065cef59832adcbbdf871847e9738671c19e5121971e773768235", size = 38208, upload-time = "2022-01-09T09:23:38.903Z" }
@@ -872,11 +850,11 @@ wheels = [
 [[package]]
 name = "edx-completion"
 source = { editable = "." }
+default-groups = []
 dependencies = [
     { name = "django" },
     { name = "django-model-utils" },
-    { name = "djangorestframework", version = "3.14.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-14-edx-completion-drf314'" },
-    { name = "djangorestframework", version = "3.18.3", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-14-edx-completion-dev' or extra == 'group-14-edx-completion-doc' or extra != 'group-14-edx-completion-drf314' or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "djangorestframework" },
     { name = "edx-drf-extensions" },
     { name = "edx-opaque-keys" },
     { name = "edx-toggles" },
@@ -928,7 +906,7 @@ doc = [
 drf314 = [
     { name = "ddt" },
     { name = "django" },
-    { name = "djangorestframework", version = "3.14.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "djangorestframework" },
     { name = "factory-boy" },
     { name = "freezegun" },
     { name = "mock" },
@@ -1024,7 +1002,7 @@ doc = [
 drf314 = [
     { name = "ddt" },
     { name = "django", specifier = ">=5.2,<5.3" },
-    { name = "djangorestframework", specifier = "<3.15.0" },
+    { name = "djangorestframework", specifier = "<3.19.0" },
     { name = "factory-boy" },
     { name = "freezegun" },
     { name = "mock" },
@@ -1089,8 +1067,7 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
     { name = "django-waffle" },
-    { name = "djangorestframework", version = "3.14.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-14-edx-completion-drf314'" },
-    { name = "djangorestframework", version = "3.18.3", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-14-edx-completion-dev' or extra == 'group-14-edx-completion-doc' or extra != 'group-14-edx-completion-drf314' or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "djangorestframework" },
     { name = "drf-jwt" },
     { name = "edx-django-utils" },
     { name = "edx-opaque-keys" },
@@ -1109,7 +1086,7 @@ version = "2.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
-    { name = "lxml", extra = ["html-clean"], marker = "extra == 'group-14-edx-completion-dev' or extra == 'group-14-edx-completion-doc' or extra != 'group-14-edx-completion-drf314' or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "lxml", extra = ["html-clean"], marker = "extra == 'group-14-edx-completion-dev' or extra == 'group-14-edx-completion-doc' or extra != 'group-14-edx-completion-drf314' or extra == 'group-14-edx-completion-quality' or extra == 'group-14-edx-completion-test'" },
     { name = "path" },
     { name = "polib" },
     { name = "pyyaml" },
@@ -1204,7 +1181,7 @@ name = "faker"
 version = "40.43.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "tzdata", marker = "sys_platform == 'win32' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/33/6c/b8793efc2f00a912ef17cf0b61b717cddf34607499efcb8a32238c119368/faker-40.43.0.tar.gz", hash = "sha256:02fae4327c03a4a6315e1b428a3878f435bfc276c93435ea349b95c0c9372361", size = 2032713, upload-time = "2026-10-09T20:06:29.652Z" }
 wheels = [
@@ -2107,7 +2084,7 @@ name = "pynacl"
 version = "1.6.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cffi", marker = "platform_python_implementation != 'PyPy' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "cffi", marker = "platform_python_implementation != 'PyPy'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/d9/9a/4019b524b03a13438637b11538c82781a5eda427394380381af8f04f467a/pynacl-1.6.2.tar.gz", hash = "sha256:018494d6d696ae03c7e656e5e74cdfd8ea1326962cc401bcf018f1ed8436811c", size = 3511692, upload-time = "2026-01-01T17:48:10.851Z" }
 wheels = [
@@ -2163,7 +2140,7 @@ name = "pytest"
 version = "9.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
     { name = "iniconfig" },
     { name = "packaging" },
     { name = "pluggy" },
@@ -2686,7 +2663,7 @@ dependencies = [
     { name = "pyproject-api" },
     { name = "python-discovery" },
     { name = "tomli-w" },
-    { name = "typing-extensions", marker = "python_full_version < '3.13' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
     { name = "virtualenv" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/63/6e/677274ae411fa13f5c2ea5c633a6abfa0886e949bd2ef53c7e564a0b0b2e/tox-4.67.1.tar.gz", hash = "sha256:a68602f64421b199016127364ee47347b958391d19c2b2e53fe95673a8fe98e9", size = 347211, upload-time = "2026-10-18T07:34:04.348Z" }
@@ -2762,7 +2739,7 @@ name = "tzlocal"
 version = "5.4.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "tzdata", marker = "sys_platform == 'win32' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/81/5b/879b2f932adfa7a053c360d50bc896c977fa6426109185f7c12ebdd0cb9d/tzlocal-5.4.4.tar.gz", hash = "sha256:8dbb8660838688a7b6ba4fed31d18dedf842afb4d47ca050d6d891c2c15f3be4", size = 31170, upload-time = "2026-06-29T08:03:40.026Z" }
 wheels = [
@@ -2870,7 +2847,7 @@ name = "webob"
 version = "1.8.11"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "legacy-cgi", marker = "python_full_version >= '3.13' or (extra == 'group-14-edx-completion-dev' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-doc' and extra == 'group-14-edx-completion-drf314') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-quality') or (extra == 'group-14-edx-completion-drf314' and extra == 'group-14-edx-completion-test')" },
+    { name = "legacy-cgi", marker = "python_full_version >= '3.13'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/e6/92/9329872e36be90e25ba616ac6e9ee8c1be4326a1ea3fdffcdabd0eb48efb/webob-1.8.11.tar.gz", hash = "sha256:aa8c27231070b135c025e567a9cd7eda03f4df71352ffaac740cb6a75f0f81a5", size = 286047, upload-time = "2026-08-02T06:26:26.063Z" }
 wheels = [
